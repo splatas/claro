@@ -1,0 +1,49 @@
+﻿kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: claro-mock-service
+  namespace: 3scale-project
+  selfLink: >-
+    /apis/build.openshift.io/v1/namespaces/3scale-project/buildconfigs/claro-mock-service
+  uid: e9570f67-9198-4571-b424-9b0e8aadb30e
+  resourceVersion: '249971511'
+  creationTimestamp: '2020-09-07T21:04:20Z'
+  labels:
+    build: claro-mock-service
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'claro-mock-service:1.0'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'fuse7-java-openshift:1.5'
+  postCommit: {}
+  source:
+    type: Binary
+    binary: {}
+  triggers:
+    - type: GitHub
+      github:
+        secret: H5E0OQJTwD0culdXaDJX
+    - type: Generic
+      generic:
+        secret: I7z7K-3ehB4tdImRxqyJ
+    - type: ConfigChange
+    - type: ImageChange
+      imageChange:
+        lastTriggeredImageID: >-
+          image-registry.openshift-image-registry.svc:5000/openshift/fuse7-java-openshift@sha256:adc5b484c12f915309a95acb71890e4a1a8148d5dadd6cc22d0794cdab81557b
+  runPolicy: Serial
+status:
+  lastVersion: 5

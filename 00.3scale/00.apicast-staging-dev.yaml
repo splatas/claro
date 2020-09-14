@@ -1,0 +1,16 @@
+apiVersion: apps.3scale.net/v1alpha1
+kind: APIcast
+metadata:
+  name: dev-staging
+  namespace: 3scale-project
+spec:
+  adminPortalCredentialsRef:
+    name: apicastdev-staging-secret
+  cacheConfigurationSeconds: 0
+  configurationLoadMode: lazy
+  deploymentEnvironment: staging
+  loglevel: debug
+
+#https://[PRODUCTO]-[APICAST].apps.osepext01.claro.amx
+#https://api-apicast-dev-staging.apps.osepext01.claro.amx
+  

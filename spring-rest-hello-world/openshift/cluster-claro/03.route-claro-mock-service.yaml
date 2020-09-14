@@ -1,0 +1,39 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: claro-mock-service
+  namespace: 3scale-project
+  selfLink: >-
+    /apis/route.openshift.io/v1/namespaces/3scale-project/routes/claro-mock-service
+  uid: 5b38530b-7fe6-43e2-aee5-004a995899fa
+  resourceVersion: '250795202'
+  creationTimestamp: '2020-09-08T13:57:31Z'
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: claro-mock-service-3scale-project.apps.osepext01.claro.amx
+  to:
+    kind: Service
+    name: srvc-claro-mock-service
+    weight: 100
+  port:
+    targetPort: 8080
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: claro-mock-service-3scale-project.apps.osepext01.claro.amx
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2020-09-08T13:57:32Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: apps.osepext01.claro.amx
+    - host: claro-mock-service-3scale-project.apps.osepext01.claro.amx
+      routerName: testpci
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2020-09-08T13:57:32Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: pci.testing.org

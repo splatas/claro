@@ -1,0 +1,12 @@
+apiVersion: apps.3scale.net/v1alpha1
+kind: APIcast
+metadata:
+  name: test-production
+  namespace: 3scale-project
+spec:
+  adminPortalCredentialsRef:
+    name: apicasttest-production-secret 
+  cacheConfigurationSeconds: 300
+  configurationLoadMode: boot
+  deploymentEnvironment: production
+  loglevel: info

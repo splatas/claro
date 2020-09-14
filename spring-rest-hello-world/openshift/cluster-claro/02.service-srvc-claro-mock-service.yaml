@@ -1,0 +1,21 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: srvc-claro-mock-service
+  namespace: 3scale-project
+  selfLink: /api/v1/namespaces/3scale-project/services/srvc-claro-mock-service
+  uid: 7149afbd-de72-490b-83d9-994890b243ce
+  resourceVersion: '250787635'
+  creationTimestamp: '2020-09-08T13:55:43Z'
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+  selector:
+    app: claro-mock-service
+  clusterIP: 172.30.88.50
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
