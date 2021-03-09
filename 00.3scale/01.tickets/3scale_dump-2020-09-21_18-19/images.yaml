@@ -1,0 +1,750 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: AMP APIcast
+    openshift.io/image.dockerRepositoryCheck: "2020-07-27T13:05:52Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 2
+  labels:
+    app: 3scale-api-management
+    threescale_component: apicast
+  name: amp-apicast
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "252224431"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/amp-apicast
+  uid: 8820ba9e-342b-438d-b52b-2acda5d5a7cc
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: AMP APIcast 2.8
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    generation: 2
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: AMP APIcast (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast
+  tags:
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+      generation: 2
+      image: sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    tag: "2.8"
+  - items:
+    - created: "2020-09-09T20:38:28Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+      generation: 2
+      image: sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+    - created: "2020-09-09T20:33:59Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:63ad5389324c01eaefe33a6f9a9a9d11246ba9ea2f1421c6ce0a560c240d420e
+      generation: 2
+      image: sha256:63ad5389324c01eaefe33a6f9a9a9d11246ba9ea2f1421c6ce0a560c240d420e
+    - created: "2020-09-07T15:30:07Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:309e983df63589f710de738400c2c93abb6bcab17028833a983b2ef5e822cb82
+      generation: 2
+      image: sha256:309e983df63589f710de738400c2c93abb6bcab17028833a983b2ef5e822cb82
+    - created: "2020-09-07T15:22:44Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:8a7c73acb0aa750e202e0351555482af32eb47d72f45bd1c364929b1dbf98eea
+      generation: 2
+      image: sha256:8a7c73acb0aa750e202e0351555482af32eb47d72f45bd1c364929b1dbf98eea
+    - created: "2020-09-04T15:39:27Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:d6ad0e039275b7bc30fbd80e0eeae412b9cf97cdc1227121b38b97dea3f06c06
+      generation: 2
+      image: sha256:d6ad0e039275b7bc30fbd80e0eeae412b9cf97cdc1227121b38b97dea3f06c06
+    - created: "2020-09-03T22:11:20Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:18ab7ef888c47c5ea1010e02834c1d47e1b39502bd29f26973c8d5efbe1d2191
+      generation: 2
+      image: sha256:18ab7ef888c47c5ea1010e02834c1d47e1b39502bd29f26973c8d5efbe1d2191
+    - created: "2020-09-03T22:10:05Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:08fb7f3526df1a2f0568ce33f036336a7c7dc939a9347cf6fdf9a2138db23cd0
+      generation: 2
+      image: sha256:08fb7f3526df1a2f0568ce33f036336a7c7dc939a9347cf6fdf9a2138db23cd0
+    - created: "2020-09-03T22:07:06Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:58b63cf41c135e6d17e30a4131acd21bd8679dab4651fb77bd355b6d5e3af1bb
+      generation: 2
+      image: sha256:58b63cf41c135e6d17e30a4131acd21bd8679dab4651fb77bd355b6d5e3af1bb
+    - created: "2020-09-03T21:31:06Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:553c286893abb8884ffc1d205c176257acb0e3c316f839b216d67563c7c44656
+      generation: 2
+      image: sha256:553c286893abb8884ffc1d205c176257acb0e3c316f839b216d67563c7c44656
+    - created: "2020-09-03T21:25:58Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:9220dd6cbfa14b42794b4995381684fa474999890f4fd4195a75466e03ed30a1
+      generation: 2
+      image: sha256:9220dd6cbfa14b42794b4995381684fa474999890f4fd4195a75466e03ed30a1
+    - created: "2020-09-03T17:33:25Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:4d2a4886f4439c59c3ea021d64e6e7fa0e6c28d9b490fd5517313e7e9f23e1e2
+      generation: 2
+      image: sha256:4d2a4886f4439c59c3ea021d64e6e7fa0e6c28d9b490fd5517313e7e9f23e1e2
+    - created: "2020-09-02T13:57:05Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:41b205392a31cbd1e6993edd6b95acf1cebe12c6c8b5355c8da5d3fa90dfefcd
+      generation: 2
+      image: sha256:41b205392a31cbd1e6993edd6b95acf1cebe12c6c8b5355c8da5d3fa90dfefcd
+    - created: "2020-09-02T13:49:07Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:a923b1c6ba8af7899280516f712ef39dcc588b6794b99fe8340454821b1ae42f
+      generation: 2
+      image: sha256:a923b1c6ba8af7899280516f712ef39dcc588b6794b99fe8340454821b1ae42f
+    - created: "2020-09-02T13:44:05Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7cd52f290450bdb770774b338fba0f09258e9afa48a51e884143251c94906b64
+      generation: 2
+      image: sha256:7cd52f290450bdb770774b338fba0f09258e9afa48a51e884143251c94906b64
+    - created: "2020-09-02T12:59:12Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:1fdda914509ff19b4d0db509813b049c75f3c4991c9e16ff05efcd68a7ed472c
+      generation: 2
+      image: sha256:1fdda914509ff19b4d0db509813b049c75f3c4991c9e16ff05efcd68a7ed472c
+    - created: "2020-09-02T12:50:09Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:c3f90455fd616f161c08da19cae5151b747532d7190b49cf587617c86f56a91e
+      generation: 2
+      image: sha256:c3f90455fd616f161c08da19cae5151b747532d7190b49cf587617c86f56a91e
+    - created: "2020-09-02T12:47:19Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:425ebe263353f42456f8f38fb8be3d6dbbc5716f008e7541c3123f2db2648d56
+      generation: 2
+      image: sha256:425ebe263353f42456f8f38fb8be3d6dbbc5716f008e7541c3123f2db2648d56
+    - created: "2020-09-02T12:39:44Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:d84826a2451413bf278f28cce05eff8b5713d592432bfc937f4a173952ccdd42
+      generation: 2
+      image: sha256:d84826a2451413bf278f28cce05eff8b5713d592432bfc937f4a173952ccdd42
+    - created: "2020-09-02T12:30:40Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:9895f007c0ea401bf8368b6dcc81459b51078ca7a8da0abca39898d62b1af3f2
+      generation: 2
+      image: sha256:9895f007c0ea401bf8368b6dcc81459b51078ca7a8da0abca39898d62b1af3f2
+    - created: "2020-09-01T21:21:51Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:294a8c027c89628baa00c17febdfcb566e756efadf7e07f033cd4d79c888d59f
+      generation: 2
+      image: sha256:294a8c027c89628baa00c17febdfcb566e756efadf7e07f033cd4d79c888d59f
+    - created: "2020-09-01T14:35:54Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:64f30906163e6302a48244ee393cce8f87bad7021a7b6ade3e74ffd2edcc8cef
+      generation: 2
+      image: sha256:64f30906163e6302a48244ee393cce8f87bad7021a7b6ade3e74ffd2edcc8cef
+    - created: "2020-09-01T14:32:16Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:b8853cb1015faaf4e82f75079df60dc48a3fd20173983c63594bc5aa80fd317b
+      generation: 2
+      image: sha256:b8853cb1015faaf4e82f75079df60dc48a3fd20173983c63594bc5aa80fd317b
+    - created: "2020-09-01T14:29:33Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:57f2577591f08f39f52edc42c16477ec60dfbc6734483e621a376671852fd1e0
+      generation: 2
+      image: sha256:57f2577591f08f39f52edc42c16477ec60dfbc6734483e621a376671852fd1e0
+    - created: "2020-08-31T16:00:45Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:1ecf7948bd695b27157160c7e41a588e7304a6ae4031dcef88b972d4f2aa95ab
+      generation: 2
+      image: sha256:1ecf7948bd695b27157160c7e41a588e7304a6ae4031dcef88b972d4f2aa95ab
+    - created: "2020-08-31T15:53:29Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:76b63ca0a09a212c703bd78c92baf47ae34b08ed908b3d5832186f9e7e1730c9
+      generation: 2
+      image: sha256:76b63ca0a09a212c703bd78c92baf47ae34b08ed908b3d5832186f9e7e1730c9
+    - created: "2020-08-31T15:48:58Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:852f1a77ad3ef2df654741a6101be7b669b9d72f1c799dcdd7e3a4e4c2fd670a
+      generation: 2
+      image: sha256:852f1a77ad3ef2df654741a6101be7b669b9d72f1c799dcdd7e3a4e4c2fd670a
+    - created: "2020-08-31T14:29:08Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:a3a50069dae5954d24e848f18412687ddb59f034017ee6d52059c0656646e88c
+      generation: 2
+      image: sha256:a3a50069dae5954d24e848f18412687ddb59f034017ee6d52059c0656646e88c
+    - created: "2020-08-31T14:15:42Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:12ed88c52297b52670f8de0cd7d03a1af805bd0e7c4d017401b9af12280248c3
+      generation: 2
+      image: sha256:12ed88c52297b52670f8de0cd7d03a1af805bd0e7c4d017401b9af12280248c3
+    - created: "2020-08-28T21:29:51Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:e3fc03f9a719e5da7b2e038fb992316db1d95e56de8bbee60e8be61abf4a0b33
+      generation: 2
+      image: sha256:e3fc03f9a719e5da7b2e038fb992316db1d95e56de8bbee60e8be61abf4a0b33
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+      generation: 2
+      image: sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    tag: latest
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: AMP backend
+    openshift.io/image.dockerRepositoryCheck: "2020-08-11T18:05:44Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    threescale_component: backend
+  name: amp-backend
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216974391"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/amp-backend
+  uid: 30749372-9764-4d1f-aaba-a81b7fe032d5
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: amp-backend 2.8
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    generation: 4
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: amp-backend (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-backend
+  tags:
+  - items:
+    - created: "2020-08-11T18:05:44Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+      generation: 4
+      image: sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    - created: "2020-07-27T13:05:53Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:d8322db4149afc5672ebc3d0430a077c58a8e3e98d7fce720b6a5a3d2498c9c5
+      generation: 2
+      image: sha256:d8322db4149afc5672ebc3d0430a077c58a8e3e98d7fce720b6a5a3d2498c9c5
+    tag: "2.8"
+  - items:
+    - created: "2020-08-11T18:05:44Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+      generation: 4
+      image: sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    - created: "2020-07-27T13:05:53Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:d8322db4149afc5672ebc3d0430a077c58a8e3e98d7fce720b6a5a3d2498c9c5
+      generation: 2
+      image: sha256:d8322db4149afc5672ebc3d0430a077c58a8e3e98d7fce720b6a5a3d2498c9c5
+    tag: latest
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: AMP System
+    openshift.io/image.dockerRepositoryCheck: "2020-08-11T18:05:42Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+  name: amp-system
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216974294"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/amp-system
+  uid: 23533da5-be8d-4f81-b8fd-4791f5b40c4c
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: AMP system 2.8
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    generation: 4
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: AMP System (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-system
+  tags:
+  - items:
+    - created: "2020-08-11T18:05:42Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      generation: 4
+      image: sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+      generation: 2
+      image: sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    tag: "2.8"
+  - items:
+    - created: "2020-08-11T18:05:42Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      generation: 4
+      image: sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+      generation: 2
+      image: sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    tag: latest
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: AMP Zync
+    openshift.io/image.dockerRepositoryCheck: "2020-08-11T18:05:43Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    threescale_component: zync
+  name: amp-zync
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216974351"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/amp-zync
+  uid: a0a18408-cf1e-4a13-9621-09353ff07c6e
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: AMP Zync 2.8
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    generation: 4
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: AMP Zync (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-zync
+  tags:
+  - items:
+    - created: "2020-08-11T18:05:43Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+      generation: 4
+      image: sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    - created: "2020-07-27T13:05:53Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+      generation: 2
+      image: sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+    tag: "2.8"
+  - items:
+    - created: "2020-08-11T18:05:43Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+      generation: 4
+      image: sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    - created: "2020-07-27T13:05:53Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+      generation: 2
+      image: sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+    tag: latest
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-08-28T15:12:49Z"
+  generation: 1
+  labels:
+    app: apicast
+  name: apicast-policy
+  namespace: 3scale-project
+  resourceVersion: "252223977"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/apicast-policy
+  uid: 975f23ec-d1a6-4969-983b-fcb3fe7aaef1
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy
+  tags:
+  - items:
+    - created: "2020-08-28T21:03:21Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:2e62b07429b81e89381760dc6425d3b42b5027061d34db9b4943d059d539a046
+      generation: 1
+      image: sha256:2e62b07429b81e89381760dc6425d3b42b5027061d34db9b4943d059d539a046
+    - created: "2020-08-28T20:58:38Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:069043c44fdc393391efd32e599ab17cc54c3894dc4731da195ce475abe38491
+      generation: 1
+      image: sha256:069043c44fdc393391efd32e599ab17cc54c3894dc4731da195ce475abe38491
+    tag: example
+  - items:
+    - created: "2020-09-09T20:37:58Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:11254f3ab104ae7316356bcd0dc407cd4fc88bd27c5a0adfdf3459a692ff8833
+      generation: 1
+      image: sha256:11254f3ab104ae7316356bcd0dc407cd4fc88bd27c5a0adfdf3459a692ff8833
+    - created: "2020-09-09T20:33:21Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:222f7a337af548c5ac95924b065dbc29194f37e300f98eaec21622119280b8f1
+      generation: 1
+      image: sha256:222f7a337af548c5ac95924b065dbc29194f37e300f98eaec21622119280b8f1
+    - created: "2020-09-07T15:29:37Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:0d8f500a2672e39911c3fc6a33b2b326dc541dc7ad8170d67fa995e784b94d03
+      generation: 1
+      image: sha256:0d8f500a2672e39911c3fc6a33b2b326dc541dc7ad8170d67fa995e784b94d03
+    - created: "2020-09-07T15:22:14Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:ceda4c6612ead9700cb84be6dbaeaef937aec89095c7e6e7cd77e20d376ff528
+      generation: 1
+      image: sha256:ceda4c6612ead9700cb84be6dbaeaef937aec89095c7e6e7cd77e20d376ff528
+    - created: "2020-09-04T15:38:47Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:acbd1d1fd92f74b8db5212446bde3c65b4a6678abe3816ad98585aa68fde083b
+      generation: 1
+      image: sha256:acbd1d1fd92f74b8db5212446bde3c65b4a6678abe3816ad98585aa68fde083b
+    - created: "2020-09-03T22:10:53Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:d009c96e77d034f46815bf1ba8f449851d059f6ac3d464bec68cb5448244e0bd
+      generation: 1
+      image: sha256:d009c96e77d034f46815bf1ba8f449851d059f6ac3d464bec68cb5448244e0bd
+    - created: "2020-09-03T22:10:14Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:681ec0762756152b7daae2e57d735e21e9052b77fec7aa58ce72c6b87de08c86
+      generation: 1
+      image: sha256:681ec0762756152b7daae2e57d735e21e9052b77fec7aa58ce72c6b87de08c86
+    - created: "2020-09-03T22:06:35Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:b61fa0b44c6d35967ba1a8b73a2ee8f12b7b0ff6bc93f7719c74274f1bf3d1e2
+      generation: 1
+      image: sha256:b61fa0b44c6d35967ba1a8b73a2ee8f12b7b0ff6bc93f7719c74274f1bf3d1e2
+    - created: "2020-09-03T21:30:16Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:1629e578e20d83cd0fa99ab9236e7f71556fdec03eefb22f734a6c9de0b98015
+      generation: 1
+      image: sha256:1629e578e20d83cd0fa99ab9236e7f71556fdec03eefb22f734a6c9de0b98015
+    - created: "2020-09-03T21:25:33Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:d81f631dccb3895a71fcaac2a8bcbb00d4ffd9f775c486a0f868254557bccb12
+      generation: 1
+      image: sha256:d81f631dccb3895a71fcaac2a8bcbb00d4ffd9f775c486a0f868254557bccb12
+    - created: "2020-09-03T17:29:54Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:608b10f7a84007330b221e293f093cd8997378b25b987c950bfee83ee12e93c3
+      generation: 1
+      image: sha256:608b10f7a84007330b221e293f093cd8997378b25b987c950bfee83ee12e93c3
+    - created: "2020-09-02T13:52:22Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:637066c5a4ebbbb0c6f1848293a35d40d52a8b06c2811db23f917d88ec7918a5
+      generation: 1
+      image: sha256:637066c5a4ebbbb0c6f1848293a35d40d52a8b06c2811db23f917d88ec7918a5
+    - created: "2020-09-02T13:48:22Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:c719297eb067a25317063a397dca8efd35dc5c068adbfdb3c5a1957c399b2a09
+      generation: 1
+      image: sha256:c719297eb067a25317063a397dca8efd35dc5c068adbfdb3c5a1957c399b2a09
+    - created: "2020-09-02T13:43:27Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:27f5b5ee0ae73cf2dd0ba0ba8416c8e656470b69d29a0fa16d6c6f3bdb722a3f
+      generation: 1
+      image: sha256:27f5b5ee0ae73cf2dd0ba0ba8416c8e656470b69d29a0fa16d6c6f3bdb722a3f
+    - created: "2020-09-02T12:58:47Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:c061d92da7a9f155a4b5576dc969acc56804f52e2746aadfff12814555392cec
+      generation: 1
+      image: sha256:c061d92da7a9f155a4b5576dc969acc56804f52e2746aadfff12814555392cec
+    - created: "2020-09-02T12:49:38Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:697fd3825bfc3dcd1cc3a803902101f7f40d85bf3756f7fdab211193323230f8
+      generation: 1
+      image: sha256:697fd3825bfc3dcd1cc3a803902101f7f40d85bf3756f7fdab211193323230f8
+    - created: "2020-09-02T12:46:44Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:a654a9e45510583dba4a5fe84775ebcc10e7cd7642496656f9d078882bc4008a
+      generation: 1
+      image: sha256:a654a9e45510583dba4a5fe84775ebcc10e7cd7642496656f9d078882bc4008a
+    - created: "2020-09-02T12:39:02Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:79b1041d958669e791136df298f4802a7d7479506fd7c8b797e5fc17d877b786
+      generation: 1
+      image: sha256:79b1041d958669e791136df298f4802a7d7479506fd7c8b797e5fc17d877b786
+    - created: "2020-09-02T12:29:49Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:3cdbe7b8f4046af5dbd921c6507292fa1968f0fd409d021855869320a53722ca
+      generation: 1
+      image: sha256:3cdbe7b8f4046af5dbd921c6507292fa1968f0fd409d021855869320a53722ca
+    - created: "2020-09-01T21:21:17Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:bc68f3d9b6e93eb94e1d45d18dd0cb873df1bfc6e19039ffd2774025e9e1f68b
+      generation: 1
+      image: sha256:bc68f3d9b6e93eb94e1d45d18dd0cb873df1bfc6e19039ffd2774025e9e1f68b
+    - created: "2020-09-01T14:35:25Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:78ace72b3184965797667e753cf2c1d8376fad1b29470770b0012b9b720a81fc
+      generation: 1
+      image: sha256:78ace72b3184965797667e753cf2c1d8376fad1b29470770b0012b9b720a81fc
+    - created: "2020-09-01T14:32:10Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:22bff9ee1f9fbdda8c312d416796e658b3f8def48ece58c34aa3c7f60d1f2ee9
+      generation: 1
+      image: sha256:22bff9ee1f9fbdda8c312d416796e658b3f8def48ece58c34aa3c7f60d1f2ee9
+    - created: "2020-09-01T14:28:09Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:c2392e35f514cdf950fc2dbe21574d9cd883b48f4a38c318caa7fa6015f82254
+      generation: 1
+      image: sha256:c2392e35f514cdf950fc2dbe21574d9cd883b48f4a38c318caa7fa6015f82254
+    - created: "2020-08-31T16:00:15Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:8e96fd20ce1bfa0ded7bc8912faa912ed87f4fa286e21cb9268716cfb13f5a9d
+      generation: 1
+      image: sha256:8e96fd20ce1bfa0ded7bc8912faa912ed87f4fa286e21cb9268716cfb13f5a9d
+    - created: "2020-08-31T15:52:41Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:8e02f020404dc73573006db95b278160103029ded2b2054f7bc0c421bb4e7aa5
+      generation: 1
+      image: sha256:8e02f020404dc73573006db95b278160103029ded2b2054f7bc0c421bb4e7aa5
+    - created: "2020-08-31T15:48:27Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:b6858cd41ce28c0eca791b2bf10029f1f0b1d3d3fae4921d3e35d4ae2c216fd4
+      generation: 1
+      image: sha256:b6858cd41ce28c0eca791b2bf10029f1f0b1d3d3fae4921d3e35d4ae2c216fd4
+    - created: "2020-08-31T14:28:31Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:e9af0e5bdf9d01795696335fe0fa830d1b2edaeef8b1a6d6c0fe0ed0f8793310
+      generation: 1
+      image: sha256:e9af0e5bdf9d01795696335fe0fa830d1b2edaeef8b1a6d6c0fe0ed0f8793310
+    - created: "2020-08-31T13:52:46Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:8f9c8ee0f7af54665fa091d6798ee6b9411ccb157e06205e2ee6ca7ac14cd8c6
+      generation: 1
+      image: sha256:8f9c8ee0f7af54665fa091d6798ee6b9411ccb157e06205e2ee6ca7ac14cd8c6
+    - created: "2020-08-28T21:03:27Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy@sha256:ecf148190d40ec100a4f0a2a5909df860b581e2f508a2a30c86b4d177e1acf90
+      generation: 1
+      image: sha256:ecf148190d40ec100a4f0a2a5909df860b581e2f508a2a30c86b4d177e1acf90
+    tag: openidc
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-09-08T15:07:35Z"
+  generation: 1
+  labels:
+    app: book-service
+  name: book-service
+  namespace: 3scale-project
+  resourceVersion: "250880718"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/book-service
+  uid: 18959f56-8a73-4083-9df7-2dd2511f4f4f
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/book-service
+  tags:
+  - items:
+    - created: "2020-09-08T15:41:30Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/book-service@sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+      generation: 1
+      image: sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+    tag: latest
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+  creationTimestamp: "2020-09-07T21:04:22Z"
+  generation: 1
+  labels:
+    build: claro-mock-service
+  name: claro-mock-service
+  namespace: 3scale-project
+  resourceVersion: "249974824"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/claro-mock-service
+  uid: cccbf135-03c6-499f-8494-1404e49b74ed
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service
+  tags:
+  - items:
+    - created: "2020-09-07T21:53:08Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service@sha256:3d4219df0aeb172d1a4ada20c268ea47dd04ae10a67f599e90075f81b80608d1
+      generation: 1
+      image: sha256:3d4219df0aeb172d1a4ada20c268ea47dd04ae10a67f599e90075f81b80608d1
+    tag: "1.0"
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+    openshift.io/image.dockerRepositoryCheck: "2020-09-07T21:04:24Z"
+  creationTimestamp: "2020-09-07T21:04:21Z"
+  generation: 2
+  labels:
+    build: claro-mock-service
+  name: fuse-java-openshift
+  namespace: 3scale-project
+  resourceVersion: "249932382"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/fuse-java-openshift
+  uid: 368aeae5-12ed-4336-81fe-c99a3e8bac5e
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/imported-from: registry.redhat.io/fuse7/fuse-java-openshift
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/fuse7/fuse-java-openshift
+    generation: 2
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/fuse-java-openshift
+  tags:
+  - items:
+    - created: "2020-09-07T21:04:24Z"
+      dockerImageReference: registry.redhat.io/fuse7/fuse-java-openshift@sha256:df0102150f7065d64a11c35091e8d41fa208e9a372c69e5a81638f62f8a1569d
+      generation: 2
+      image: sha256:df0102150f7065d64a11c35091e8d41fa208e9a372c69e5a81638f62f8a1569d
+    tag: latest
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: System Memcached
+    openshift.io/image.dockerRepositoryCheck: "2020-07-27T13:05:52Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 2
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+  name: system-memcached
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378605"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/system-memcached
+  uid: a27dfd1b-1642-419c-90cb-49070ae5b2d5
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: System 2.8 Memcached
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    generation: 2
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: System Memcached (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/system-memcached
+  tags:
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+      generation: 2
+      image: sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    tag: "2.8"
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+      generation: 2
+      image: sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    tag: latest
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Zync database PostgreSQL
+    openshift.io/image.dockerRepositoryCheck: "2020-07-27T13:05:52Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 2
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+  name: zync-database-postgresql
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378594"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/zync-database-postgresql
+  uid: 6accc6c3-ae2e-4551-b6e7-3e0fd68f34fc
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: Zync 2.8 PostgreSQL
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    generation: 2
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: Zync PostgreSQL (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/zync-database-postgresql
+  tags:
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+      generation: 2
+      image: sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    tag: "2.8"
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+      generation: 2
+      image: sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    tag: latest

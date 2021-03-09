@@ -1,0 +1,70 @@
+Name:               apicast-test-staging-7c6dd47ff8-8dtpk
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               worker-03.osepext01.claro.amx/10.92.114.133
+Start Time:         Mon, 14 Sep 2020 12:25:36 -0300
+Labels:             deployment=apicast-test-staging
+                    pod-template-hash=7c6dd47ff8
+Annotations:        apicast.apps.3scale.net/admin-portal-secret-resource-version: 257393888
+                    k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.128.4.191"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.128.4.1"
+                          ]
+                      }]
+                    openshift.io/scc: restricted
+                    prometheus.io/port: 9421
+                    prometheus.io/scrape: true
+Status:             Running
+IP:                 10.128.4.191
+Controlled By:      ReplicaSet/apicast-test-staging-7c6dd47ff8
+Containers:
+  apicast-test-staging:
+    Container ID:   cri-o://abb78bba35a3cddf2c931bd081baac27baf453a526f60f4d47594356882dc003
+    Image:          registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    Image ID:       registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    Ports:          8080/TCP, 8090/TCP, 9421/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Mon, 14 Sep 2020 12:25:46 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  128Mi
+    Requests:
+      cpu:      500m
+      memory:   64Mi
+    Liveness:   http-get http://:8090/status/live delay=10s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:8090/status/ready delay=15s timeout=5s period=30s #success=1 #failure=3
+    Environment:
+      THREESCALE_PORTAL_ENDPOINT:    <set to the key 'AdminPortalURL' in secret 'apicasttest-staging-secret'>  Optional: false
+      THREESCALE_DEPLOYMENT_ENV:     staging
+      APICAST_CONFIGURATION_LOADER:  lazy
+      APICAST_CONFIGURATION_CACHE:   0
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-fc8nn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-fc8nn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-fc8nn
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

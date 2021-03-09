@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-07-27T13:05:51Z"
+  labels:
+    app: 3scale-api-management
+    threescale_component: apicast
+    threescale_component_element: staging
+  name: apicast-staging
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378441"
+  selfLink: /api/v1/namespaces/3scale-project/services/apicast-staging
+  uid: f47211f4-279b-4f5f-980f-2c4a6db5a262
+spec:
+  clusterIP: 172.30.22.166
+  ports:
+  - name: gateway
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  - name: management
+    port: 8090
+    protocol: TCP
+    targetPort: 8090
+  selector:
+    deploymentConfig: apicast-staging
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

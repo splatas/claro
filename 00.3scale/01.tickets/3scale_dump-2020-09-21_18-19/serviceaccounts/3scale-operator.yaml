@@ -1,0 +1,21 @@
+apiVersion: v1
+imagePullSecrets:
+- name: 3scale-operator-dockercfg-l7552
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2020-07-27T12:57:04Z"
+  name: 3scale-operator
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: 3scale-operator.v0.5.5
+    uid: 50bfacc3-5b28-48e7-9516-865e8f786b9c
+  resourceVersion: "216973392"
+  selfLink: /api/v1/namespaces/3scale-project/serviceaccounts/3scale-operator
+  uid: ba1fbb00-75de-4f9b-bfd1-37ea7328910e
+secrets:
+- name: 3scale-operator-dockercfg-l7552
+- name: 3scale-operator-token-t24n9

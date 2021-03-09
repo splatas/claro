@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  labels:
+    app: 3scale-api-management
+    threescale_component: backend
+    threescale_component_element: listener
+  name: backend-listener
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378355"
+  selfLink: /api/v1/namespaces/3scale-project/services/backend-listener
+  uid: 6ddace11-9dd8-4afa-a49f-2a28e711c327
+spec:
+  clusterIP: 172.30.68.152
+  ports:
+  - name: http
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    deploymentConfig: backend-listener
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

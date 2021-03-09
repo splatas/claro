@@ -1,0 +1,67 @@
+Name:         zync-2
+Namespace:    3scale-project
+Selector:     deployment=zync-2,deploymentConfig=zync,deploymentconfig=zync
+Labels:       app=3scale-api-management
+              openshift.io/deployment-config.name=zync
+              threescale_component=zync
+Annotations:  kubectl.kubernetes.io/original-replicas: 1
+              openshift.io/deployer-pod.completed-at: 2020-07-27 15:17:57 +0000 UTC
+              openshift.io/deployer-pod.created-at: 2020-07-27 15:15:56 +0000 UTC
+              openshift.io/deployer-pod.name: zync-2-deploy
+              openshift.io/deployment-config.latest-version: 2
+              openshift.io/deployment-config.name: zync
+              openshift.io/deployment.phase: Complete
+              openshift.io/deployment.replicas: 
+              openshift.io/deployment.status-reason: config change
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"zync","namespace":"3scale-project","selfLink":"/apis/ap...
+Replicas:     0 current / 0 desired
+Pods Status:  0 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:           app=3scale-api-management
+                    deployment=zync-2
+                    deploymentConfig=zync
+                    deploymentconfig=zync
+                    node-role.kubernetes.io/worker=
+                    threescale_component=zync
+  Annotations:      openshift.io/deployment-config.latest-version: 2
+                    openshift.io/deployment-config.name: zync
+                    openshift.io/deployment.name: zync-2
+  Service Account:  amp
+  Init Containers:
+   zync-db-svc:
+    Image:      registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      bash
+      -c
+      bundle exec sh -c "until rake boot:db; do sleep $SLEEP_SECONDS; done"
+    Environment:
+      SLEEP_SECONDS:  1
+      DATABASE_URL:   <set to the key 'DATABASE_URL' in secret 'zync'>  Optional: false
+    Mounts:           <none>
+  Containers:
+   zync:
+    Image:      registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+    Port:       8080/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     1
+      memory:  512Mi
+    Requests:
+      cpu:      150m
+      memory:   250M
+    Liveness:   http-get http://:8080/status/live delay=10s timeout=60s period=10s #success=1 #failure=10
+    Readiness:  http-get http://:8080/status/ready delay=100s timeout=10s period=10s #success=1 #failure=3
+    Environment:
+      RAILS_LOG_TO_STDOUT:        true
+      RAILS_ENV:                  production
+      DATABASE_URL:               <set to the key 'DATABASE_URL' in secret 'zync'>               Optional: false
+      SECRET_KEY_BASE:            <set to the key 'SECRET_KEY_BASE' in secret 'zync'>            Optional: false
+      ZYNC_AUTHENTICATION_TOKEN:  <set to the key 'ZYNC_AUTHENTICATION_TOKEN' in secret 'zync'>  Optional: false
+      POD_NAME:                    (v1:metadata.name)
+      POD_NAMESPACE:               (v1:metadata.namespace)
+    Mounts:                       <none>
+  Volumes:                        <none>
+Events:                           <none>

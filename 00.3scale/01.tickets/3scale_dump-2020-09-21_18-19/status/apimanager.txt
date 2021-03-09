@@ -1,0 +1,64 @@
+Name:         claro-apimanager-pelado
+Namespace:    3scale-project
+Labels:       <none>
+Annotations:  apps.3scale.net/apimanager-threescale-version: 2.8
+              apps.3scale.net/threescale-operator-version: 0.5.0
+API Version:  apps.3scale.net/v1alpha1
+Kind:         APIManager
+Metadata:
+  Creation Timestamp:  2020-07-27T13:05:49Z
+  Generation:          5
+  Resource Version:    264679229
+  Self Link:           /apis/apps.3scale.net/v1alpha1/namespaces/3scale-project/apimanagers/claro-apimanager-pelado
+  UID:                 3d48e8a8-df41-4aa1-9516-43d087853cca
+Spec:
+  Apicast:
+    Management API:   status
+    Open SSL Verify:  false
+    Production Spec:
+      Replicas:      0
+    Registry URL:    http://apicast-staging:8090/policies
+    Response Codes:  true
+    Staging Spec:
+      Replicas:  0
+  App Label:     3scale-api-management
+  Backend:
+    Cron Spec:
+      Replicas:  1
+    Listener Spec:
+      Replicas:  1
+    Worker Spec:
+      Replicas:  1
+  High Availability:
+    Enabled:                         true
+  Image Stream Tag Import Insecure:  false
+  Resource Requirements Enabled:     true
+  System:
+    App Spec:
+      Replicas:  1
+    Sidekiq Spec:
+      Replicas:     1
+  Tenant Name:      3scale
+  Wildcard Domain:  apps.osepext01.claro.amx
+  Zync:
+    App Spec:
+      Replicas:  1
+    Que Spec:
+      Replicas:  1
+Status:
+  Deployments:
+    Ready:
+      backend-cron
+      backend-listener
+      backend-worker
+      system-app
+      system-memcache
+      system-sidekiq
+      system-sphinx
+      zync
+      zync-database
+      zync-que
+    Stopped:
+      apicast-production
+      apicast-staging
+Events:  <none>

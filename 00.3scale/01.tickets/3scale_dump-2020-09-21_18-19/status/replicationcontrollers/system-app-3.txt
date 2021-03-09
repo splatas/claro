@@ -1,0 +1,272 @@
+Name:         system-app-3
+Namespace:    3scale-project
+Selector:     deployment=system-app-3,deploymentConfig=system-app,deploymentconfig=system-app
+Labels:       app=3scale-api-management
+              openshift.io/deployment-config.name=system-app
+              threescale_component=system
+              threescale_component_element=app
+Annotations:  kubectl.kubernetes.io/original-replicas: 1
+              openshift.io/deployer-pod.completed-at: 2020-07-27 14:02:11 +0000 UTC
+              openshift.io/deployer-pod.created-at: 2020-07-27 14:00:28 +0000 UTC
+              openshift.io/deployer-pod.name: system-app-3-deploy
+              openshift.io/deployment-config.latest-version: 3
+              openshift.io/deployment-config.name: system-app
+              openshift.io/deployment.phase: Complete
+              openshift.io/deployment.replicas: 1
+              openshift.io/deployment.status-reason: manual change
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"system-app","namespace":"3scale-project","selfLink":"/a...
+Replicas:     0 current / 0 desired
+Pods Status:  0 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:           app=3scale-api-management
+                    deployment=system-app-3
+                    deploymentConfig=system-app
+                    deploymentconfig=system-app
+                    threescale_component=system
+                    threescale_component_element=app
+  Annotations:      openshift.io/deployment-config.latest-version: 3
+                    openshift.io/deployment-config.name: system-app
+                    openshift.io/deployment.name: system-app-3
+  Service Account:  amp
+  Containers:
+   system-master:
+    Image:      registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    Port:       3002/TCP
+    Host Port:  0/TCP
+    Args:
+      env
+      TENANT_MODE=master
+      PORT=3002
+      container-entrypoint
+      bundle
+      exec
+      unicorn
+      -c
+      config/unicorn.rb
+    Limits:
+      cpu:     1
+      memory:  800Mi
+    Requests:
+      cpu:      50m
+      memory:   600Mi
+    Liveness:   tcp-socket :master delay=40s timeout=10s period=10s #success=1 #failure=40
+    Readiness:  http-get http://:master/check.txt delay=60s timeout=10s period=30s #success=1 #failure=10
+    Environment:
+      AMP_RELEASE:                                   <set to the key 'AMP_RELEASE' of config map 'system-environment'>                                   Optional: false
+      APICAST_REGISTRY_URL:                          <set to the key 'APICAST_REGISTRY_URL' of config map 'system-environment'>                          Optional: false
+      FORCE_SSL:                                     <set to the key 'FORCE_SSL' of config map 'system-environment'>                                     Optional: false
+      PROVIDER_PLAN:                                 <set to the key 'PROVIDER_PLAN' of config map 'system-environment'>                                 Optional: false
+      RAILS_ENV:                                     <set to the key 'RAILS_ENV' of config map 'system-environment'>                                     Optional: false
+      RAILS_LOG_LEVEL:                               <set to the key 'RAILS_LOG_LEVEL' of config map 'system-environment'>                               Optional: false
+      RAILS_LOG_TO_STDOUT:                           <set to the key 'RAILS_LOG_TO_STDOUT' of config map 'system-environment'>                           Optional: false
+      SSL_CERT_DIR:                                  <set to the key 'SSL_CERT_DIR' of config map 'system-environment'>                                  Optional: false
+      THINKING_SPHINX_PORT:                          <set to the key 'THINKING_SPHINX_PORT' of config map 'system-environment'>                          Optional: false
+      THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE:  <set to the key 'THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE' of config map 'system-environment'>  Optional: false
+      THREESCALE_SUPERDOMAIN:                        <set to the key 'THREESCALE_SUPERDOMAIN' of config map 'system-environment'>                        Optional: false
+      DATABASE_URL:                                  <set to the key 'URL' in secret 'system-database'>                                                  Optional: false
+      MASTER_DOMAIN:                                 <set to the key 'MASTER_DOMAIN' in secret 'system-seed'>                                            Optional: false
+      MASTER_USER:                                   <set to the key 'MASTER_USER' in secret 'system-seed'>                                              Optional: false
+      MASTER_PASSWORD:                               <set to the key 'MASTER_PASSWORD' in secret 'system-seed'>                                          Optional: false
+      ADMIN_ACCESS_TOKEN:                            <set to the key 'ADMIN_ACCESS_TOKEN' in secret 'system-seed'>                                       Optional: false
+      USER_LOGIN:                                    <set to the key 'ADMIN_USER' in secret 'system-seed'>                                               Optional: false
+      USER_PASSWORD:                                 <set to the key 'ADMIN_PASSWORD' in secret 'system-seed'>                                           Optional: false
+      USER_EMAIL:                                    <set to the key 'ADMIN_EMAIL' in secret 'system-seed'>                                              Optional: false
+      TENANT_NAME:                                   <set to the key 'TENANT_NAME' in secret 'system-seed'>                                              Optional: false
+      THINKING_SPHINX_ADDRESS:                       system-sphinx
+      THINKING_SPHINX_CONFIGURATION_FILE:            /tmp/sphinx.conf
+      EVENTS_SHARED_SECRET:                          <set to the key 'PASSWORD' in secret 'system-events-hook'>                 Optional: false
+      RECAPTCHA_PUBLIC_KEY:                          <set to the key 'PUBLIC_KEY' in secret 'system-recaptcha'>                 Optional: false
+      RECAPTCHA_PRIVATE_KEY:                         <set to the key 'PRIVATE_KEY' in secret 'system-recaptcha'>                Optional: false
+      SECRET_KEY_BASE:                               <set to the key 'SECRET_KEY_BASE' in secret 'system-app'>                  Optional: false
+      MEMCACHE_SERVERS:                              <set to the key 'SERVERS' in secret 'system-memcache'>                     Optional: false
+      REDIS_URL:                                     <set to the key 'URL' in secret 'system-redis'>                            Optional: false
+      MESSAGE_BUS_REDIS_URL:                         <set to the key 'MESSAGE_BUS_URL' in secret 'system-redis'>                Optional: false
+      REDIS_NAMESPACE:                               <set to the key 'NAMESPACE' in secret 'system-redis'>                      Optional: false
+      MESSAGE_BUS_REDIS_NAMESPACE:                   <set to the key 'MESSAGE_BUS_NAMESPACE' in secret 'system-redis'>          Optional: false
+      REDIS_SENTINEL_HOSTS:                          <set to the key 'SENTINEL_HOSTS' in secret 'system-redis'>                 Optional: false
+      REDIS_SENTINEL_ROLE:                           <set to the key 'SENTINEL_ROLE' in secret 'system-redis'>                  Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_HOSTS:              <set to the key 'MESSAGE_BUS_SENTINEL_HOSTS' in secret 'system-redis'>     Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_ROLE:               <set to the key 'MESSAGE_BUS_SENTINEL_ROLE' in secret 'system-redis'>      Optional: false
+      BACKEND_REDIS_URL:                             <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>             Optional: false
+      BACKEND_REDIS_SENTINEL_HOSTS:                  <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>  Optional: false
+      BACKEND_REDIS_SENTINEL_ROLE:                   <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>   Optional: false
+      APICAST_BACKEND_ROOT_ENDPOINT:                 <set to the key 'route_endpoint' in secret 'backend-listener'>             Optional: false
+      BACKEND_ROUTE:                                 <set to the key 'route_endpoint' in secret 'backend-listener'>             Optional: false
+      SMTP_ADDRESS:                                  <set to the key 'address' in secret 'system-smtp'>                         Optional: false
+      SMTP_USER_NAME:                                <set to the key 'username' in secret 'system-smtp'>                        Optional: false
+      SMTP_PASSWORD:                                 <set to the key 'password' in secret 'system-smtp'>                        Optional: false
+      SMTP_DOMAIN:                                   <set to the key 'domain' in secret 'system-smtp'>                          Optional: false
+      SMTP_PORT:                                     <set to the key 'port' in secret 'system-smtp'>                            Optional: false
+      SMTP_AUTHENTICATION:                           <set to the key 'authentication' in secret 'system-smtp'>                  Optional: false
+      SMTP_OPENSSL_VERIFY_MODE:                      <set to the key 'openssl.verify.mode' in secret 'system-smtp'>             Optional: false
+      APICAST_ACCESS_TOKEN:                          <set to the key 'ACCESS_TOKEN' in secret 'system-master-apicast'>          Optional: false
+      ZYNC_AUTHENTICATION_TOKEN:                     <set to the key 'ZYNC_AUTHENTICATION_TOKEN' in secret 'zync'>              Optional: false
+      CONFIG_INTERNAL_API_USER:                      <set to the key 'username' in secret 'backend-internal-api'>               Optional: false
+      CONFIG_INTERNAL_API_PASSWORD:                  <set to the key 'password' in secret 'backend-internal-api'>               Optional: false
+    Mounts:
+      /opt/system-extra-configs from system-config (rw)
+      /opt/system/public/system from system-storage (rw)
+   system-provider:
+    Image:      registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    Port:       3000/TCP
+    Host Port:  0/TCP
+    Args:
+      env
+      TENANT_MODE=provider
+      PORT=3000
+      container-entrypoint
+      bundle
+      exec
+      unicorn
+      -c
+      config/unicorn.rb
+    Limits:
+      cpu:     1
+      memory:  800Mi
+    Requests:
+      cpu:      50m
+      memory:   600Mi
+    Liveness:   tcp-socket :provider delay=40s timeout=10s period=10s #success=1 #failure=40
+    Readiness:  http-get http://:provider/check.txt delay=60s timeout=10s period=30s #success=1 #failure=10
+    Environment:
+      AMP_RELEASE:                                   <set to the key 'AMP_RELEASE' of config map 'system-environment'>                                   Optional: false
+      APICAST_REGISTRY_URL:                          <set to the key 'APICAST_REGISTRY_URL' of config map 'system-environment'>                          Optional: false
+      FORCE_SSL:                                     <set to the key 'FORCE_SSL' of config map 'system-environment'>                                     Optional: false
+      PROVIDER_PLAN:                                 <set to the key 'PROVIDER_PLAN' of config map 'system-environment'>                                 Optional: false
+      RAILS_ENV:                                     <set to the key 'RAILS_ENV' of config map 'system-environment'>                                     Optional: false
+      RAILS_LOG_LEVEL:                               <set to the key 'RAILS_LOG_LEVEL' of config map 'system-environment'>                               Optional: false
+      RAILS_LOG_TO_STDOUT:                           <set to the key 'RAILS_LOG_TO_STDOUT' of config map 'system-environment'>                           Optional: false
+      SSL_CERT_DIR:                                  <set to the key 'SSL_CERT_DIR' of config map 'system-environment'>                                  Optional: false
+      THINKING_SPHINX_PORT:                          <set to the key 'THINKING_SPHINX_PORT' of config map 'system-environment'>                          Optional: false
+      THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE:  <set to the key 'THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE' of config map 'system-environment'>  Optional: false
+      THREESCALE_SUPERDOMAIN:                        <set to the key 'THREESCALE_SUPERDOMAIN' of config map 'system-environment'>                        Optional: false
+      DATABASE_URL:                                  <set to the key 'URL' in secret 'system-database'>                                                  Optional: false
+      MASTER_DOMAIN:                                 <set to the key 'MASTER_DOMAIN' in secret 'system-seed'>                                            Optional: false
+      MASTER_USER:                                   <set to the key 'MASTER_USER' in secret 'system-seed'>                                              Optional: false
+      MASTER_PASSWORD:                               <set to the key 'MASTER_PASSWORD' in secret 'system-seed'>                                          Optional: false
+      ADMIN_ACCESS_TOKEN:                            <set to the key 'ADMIN_ACCESS_TOKEN' in secret 'system-seed'>                                       Optional: false
+      USER_LOGIN:                                    <set to the key 'ADMIN_USER' in secret 'system-seed'>                                               Optional: false
+      USER_PASSWORD:                                 <set to the key 'ADMIN_PASSWORD' in secret 'system-seed'>                                           Optional: false
+      USER_EMAIL:                                    <set to the key 'ADMIN_EMAIL' in secret 'system-seed'>                                              Optional: false
+      TENANT_NAME:                                   <set to the key 'TENANT_NAME' in secret 'system-seed'>                                              Optional: false
+      THINKING_SPHINX_ADDRESS:                       system-sphinx
+      THINKING_SPHINX_CONFIGURATION_FILE:            /tmp/sphinx.conf
+      EVENTS_SHARED_SECRET:                          <set to the key 'PASSWORD' in secret 'system-events-hook'>                 Optional: false
+      RECAPTCHA_PUBLIC_KEY:                          <set to the key 'PUBLIC_KEY' in secret 'system-recaptcha'>                 Optional: false
+      RECAPTCHA_PRIVATE_KEY:                         <set to the key 'PRIVATE_KEY' in secret 'system-recaptcha'>                Optional: false
+      SECRET_KEY_BASE:                               <set to the key 'SECRET_KEY_BASE' in secret 'system-app'>                  Optional: false
+      MEMCACHE_SERVERS:                              <set to the key 'SERVERS' in secret 'system-memcache'>                     Optional: false
+      REDIS_URL:                                     <set to the key 'URL' in secret 'system-redis'>                            Optional: false
+      MESSAGE_BUS_REDIS_URL:                         <set to the key 'MESSAGE_BUS_URL' in secret 'system-redis'>                Optional: false
+      REDIS_NAMESPACE:                               <set to the key 'NAMESPACE' in secret 'system-redis'>                      Optional: false
+      MESSAGE_BUS_REDIS_NAMESPACE:                   <set to the key 'MESSAGE_BUS_NAMESPACE' in secret 'system-redis'>          Optional: false
+      REDIS_SENTINEL_HOSTS:                          <set to the key 'SENTINEL_HOSTS' in secret 'system-redis'>                 Optional: false
+      REDIS_SENTINEL_ROLE:                           <set to the key 'SENTINEL_ROLE' in secret 'system-redis'>                  Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_HOSTS:              <set to the key 'MESSAGE_BUS_SENTINEL_HOSTS' in secret 'system-redis'>     Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_ROLE:               <set to the key 'MESSAGE_BUS_SENTINEL_ROLE' in secret 'system-redis'>      Optional: false
+      BACKEND_REDIS_URL:                             <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>             Optional: false
+      BACKEND_REDIS_SENTINEL_HOSTS:                  <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>  Optional: false
+      BACKEND_REDIS_SENTINEL_ROLE:                   <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>   Optional: false
+      APICAST_BACKEND_ROOT_ENDPOINT:                 <set to the key 'route_endpoint' in secret 'backend-listener'>             Optional: false
+      BACKEND_ROUTE:                                 <set to the key 'route_endpoint' in secret 'backend-listener'>             Optional: false
+      SMTP_ADDRESS:                                  <set to the key 'address' in secret 'system-smtp'>                         Optional: false
+      SMTP_USER_NAME:                                <set to the key 'username' in secret 'system-smtp'>                        Optional: false
+      SMTP_PASSWORD:                                 <set to the key 'password' in secret 'system-smtp'>                        Optional: false
+      SMTP_DOMAIN:                                   <set to the key 'domain' in secret 'system-smtp'>                          Optional: false
+      SMTP_PORT:                                     <set to the key 'port' in secret 'system-smtp'>                            Optional: false
+      SMTP_AUTHENTICATION:                           <set to the key 'authentication' in secret 'system-smtp'>                  Optional: false
+      SMTP_OPENSSL_VERIFY_MODE:                      <set to the key 'openssl.verify.mode' in secret 'system-smtp'>             Optional: false
+      APICAST_ACCESS_TOKEN:                          <set to the key 'ACCESS_TOKEN' in secret 'system-master-apicast'>          Optional: false
+      ZYNC_AUTHENTICATION_TOKEN:                     <set to the key 'ZYNC_AUTHENTICATION_TOKEN' in secret 'zync'>              Optional: false
+      CONFIG_INTERNAL_API_USER:                      <set to the key 'username' in secret 'backend-internal-api'>               Optional: false
+      CONFIG_INTERNAL_API_PASSWORD:                  <set to the key 'password' in secret 'backend-internal-api'>               Optional: false
+    Mounts:
+      /opt/system-extra-configs from system-config (rw)
+      /opt/system/public/system from system-storage (rw)
+   system-developer:
+    Image:      registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    Port:       3001/TCP
+    Host Port:  0/TCP
+    Args:
+      env
+      PORT=3001
+      container-entrypoint
+      bundle
+      exec
+      unicorn
+      -c
+      config/unicorn.rb
+    Limits:
+      cpu:     1
+      memory:  800Mi
+    Requests:
+      cpu:      50m
+      memory:   600Mi
+    Liveness:   tcp-socket :developer delay=40s timeout=10s period=10s #success=1 #failure=40
+    Readiness:  http-get http://:developer/check.txt delay=60s timeout=10s period=30s #success=1 #failure=10
+    Environment:
+      AMP_RELEASE:                                   <set to the key 'AMP_RELEASE' of config map 'system-environment'>                                   Optional: false
+      APICAST_REGISTRY_URL:                          <set to the key 'APICAST_REGISTRY_URL' of config map 'system-environment'>                          Optional: false
+      FORCE_SSL:                                     <set to the key 'FORCE_SSL' of config map 'system-environment'>                                     Optional: false
+      PROVIDER_PLAN:                                 <set to the key 'PROVIDER_PLAN' of config map 'system-environment'>                                 Optional: false
+      RAILS_ENV:                                     <set to the key 'RAILS_ENV' of config map 'system-environment'>                                     Optional: false
+      RAILS_LOG_LEVEL:                               <set to the key 'RAILS_LOG_LEVEL' of config map 'system-environment'>                               Optional: false
+      RAILS_LOG_TO_STDOUT:                           <set to the key 'RAILS_LOG_TO_STDOUT' of config map 'system-environment'>                           Optional: false
+      SSL_CERT_DIR:                                  <set to the key 'SSL_CERT_DIR' of config map 'system-environment'>                                  Optional: false
+      THINKING_SPHINX_PORT:                          <set to the key 'THINKING_SPHINX_PORT' of config map 'system-environment'>                          Optional: false
+      THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE:  <set to the key 'THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE' of config map 'system-environment'>  Optional: false
+      THREESCALE_SUPERDOMAIN:                        <set to the key 'THREESCALE_SUPERDOMAIN' of config map 'system-environment'>                        Optional: false
+      DATABASE_URL:                                  <set to the key 'URL' in secret 'system-database'>                                                  Optional: false
+      MASTER_DOMAIN:                                 <set to the key 'MASTER_DOMAIN' in secret 'system-seed'>                                            Optional: false
+      MASTER_USER:                                   <set to the key 'MASTER_USER' in secret 'system-seed'>                                              Optional: false
+      MASTER_PASSWORD:                               <set to the key 'MASTER_PASSWORD' in secret 'system-seed'>                                          Optional: false
+      ADMIN_ACCESS_TOKEN:                            <set to the key 'ADMIN_ACCESS_TOKEN' in secret 'system-seed'>                                       Optional: false
+      USER_LOGIN:                                    <set to the key 'ADMIN_USER' in secret 'system-seed'>                                               Optional: false
+      USER_PASSWORD:                                 <set to the key 'ADMIN_PASSWORD' in secret 'system-seed'>                                           Optional: false
+      USER_EMAIL:                                    <set to the key 'ADMIN_EMAIL' in secret 'system-seed'>                                              Optional: false
+      TENANT_NAME:                                   <set to the key 'TENANT_NAME' in secret 'system-seed'>                                              Optional: false
+      THINKING_SPHINX_ADDRESS:                       system-sphinx
+      THINKING_SPHINX_CONFIGURATION_FILE:            /tmp/sphinx.conf
+      EVENTS_SHARED_SECRET:                          <set to the key 'PASSWORD' in secret 'system-events-hook'>                 Optional: false
+      RECAPTCHA_PUBLIC_KEY:                          <set to the key 'PUBLIC_KEY' in secret 'system-recaptcha'>                 Optional: false
+      RECAPTCHA_PRIVATE_KEY:                         <set to the key 'PRIVATE_KEY' in secret 'system-recaptcha'>                Optional: false
+      SECRET_KEY_BASE:                               <set to the key 'SECRET_KEY_BASE' in secret 'system-app'>                  Optional: false
+      MEMCACHE_SERVERS:                              <set to the key 'SERVERS' in secret 'system-memcache'>                     Optional: false
+      REDIS_URL:                                     <set to the key 'URL' in secret 'system-redis'>                            Optional: false
+      MESSAGE_BUS_REDIS_URL:                         <set to the key 'MESSAGE_BUS_URL' in secret 'system-redis'>                Optional: false
+      REDIS_NAMESPACE:                               <set to the key 'NAMESPACE' in secret 'system-redis'>                      Optional: false
+      MESSAGE_BUS_REDIS_NAMESPACE:                   <set to the key 'MESSAGE_BUS_NAMESPACE' in secret 'system-redis'>          Optional: false
+      REDIS_SENTINEL_HOSTS:                          <set to the key 'SENTINEL_HOSTS' in secret 'system-redis'>                 Optional: false
+      REDIS_SENTINEL_ROLE:                           <set to the key 'SENTINEL_ROLE' in secret 'system-redis'>                  Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_HOSTS:              <set to the key 'MESSAGE_BUS_SENTINEL_HOSTS' in secret 'system-redis'>     Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_ROLE:               <set to the key 'MESSAGE_BUS_SENTINEL_ROLE' in secret 'system-redis'>      Optional: false
+      BACKEND_REDIS_URL:                             <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>             Optional: false
+      BACKEND_REDIS_SENTINEL_HOSTS:                  <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>  Optional: false
+      BACKEND_REDIS_SENTINEL_ROLE:                   <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>   Optional: false
+      APICAST_BACKEND_ROOT_ENDPOINT:                 <set to the key 'route_endpoint' in secret 'backend-listener'>             Optional: false
+      BACKEND_ROUTE:                                 <set to the key 'route_endpoint' in secret 'backend-listener'>             Optional: false
+      SMTP_ADDRESS:                                  <set to the key 'address' in secret 'system-smtp'>                         Optional: false
+      SMTP_USER_NAME:                                <set to the key 'username' in secret 'system-smtp'>                        Optional: false
+      SMTP_PASSWORD:                                 <set to the key 'password' in secret 'system-smtp'>                        Optional: false
+      SMTP_DOMAIN:                                   <set to the key 'domain' in secret 'system-smtp'>                          Optional: false
+      SMTP_PORT:                                     <set to the key 'port' in secret 'system-smtp'>                            Optional: false
+      SMTP_AUTHENTICATION:                           <set to the key 'authentication' in secret 'system-smtp'>                  Optional: false
+      SMTP_OPENSSL_VERIFY_MODE:                      <set to the key 'openssl.verify.mode' in secret 'system-smtp'>             Optional: false
+      APICAST_ACCESS_TOKEN:                          <set to the key 'ACCESS_TOKEN' in secret 'system-master-apicast'>          Optional: false
+      ZYNC_AUTHENTICATION_TOKEN:                     <set to the key 'ZYNC_AUTHENTICATION_TOKEN' in secret 'zync'>              Optional: false
+      CONFIG_INTERNAL_API_USER:                      <set to the key 'username' in secret 'backend-internal-api'>               Optional: false
+      CONFIG_INTERNAL_API_PASSWORD:                  <set to the key 'password' in secret 'backend-internal-api'>               Optional: false
+    Mounts:
+      /opt/system-extra-configs from system-config (rw)
+      /opt/system/public/system from system-storage (ro)
+  Volumes:
+   system-storage:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  system-storage
+    ReadOnly:   false
+   system-config:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      system
+    Optional:  false
+Events:        <none>

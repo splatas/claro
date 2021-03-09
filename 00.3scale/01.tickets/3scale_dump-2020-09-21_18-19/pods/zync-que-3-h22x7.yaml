@@ -1,0 +1,187 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.3.159"
+          ],
+          "dns": {},
+          "default-route": [
+              "10.129.2.1"
+          ]
+      }]
+    openshift.io/deployment-config.latest-version: "3"
+    openshift.io/deployment-config.name: zync-que
+    openshift.io/deployment.name: zync-que-3
+    openshift.io/scc: restricted
+    prometheus.io/port: "9394"
+    prometheus.io/scrape: "true"
+  creationTimestamp: "2020-09-17T16:51:50Z"
+  generateName: zync-que-3-
+  labels:
+    app: 3scale-api-management
+    deployment: zync-que-3
+    deploymentConfig: zync-que
+    deploymentconfig: zync-que
+    node-role.kubernetes.io/worker: ""
+  name: zync-que-3-h22x7
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicationController
+    name: zync-que-3
+    uid: 3ea55efe-68d9-4247-a1ac-f174083436f8
+  resourceVersion: "260712778"
+  selfLink: /api/v1/namespaces/3scale-project/pods/zync-que-3-h22x7
+  uid: a9e0a0af-0db6-409c-b3f7-64e0debf3255
+spec:
+  containers:
+  - args:
+    - -c
+    - bundle exec rake 'que[--worker-count 10]'
+    command:
+    - /usr/bin/bash
+    env:
+    - name: RAILS_LOG_TO_STDOUT
+      value: "true"
+    - name: RAILS_ENV
+      value: production
+    - name: DATABASE_URL
+      valueFrom:
+        secretKeyRef:
+          key: DATABASE_URL
+          name: zync
+    - name: SECRET_KEY_BASE
+      valueFrom:
+        secretKeyRef:
+          key: SECRET_KEY_BASE
+          name: zync
+    - name: ZYNC_AUTHENTICATION_TOKEN
+      valueFrom:
+        secretKeyRef:
+          key: ZYNC_AUTHENTICATION_TOKEN
+          name: zync
+    - name: POD_NAME
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.name
+    - name: POD_NAMESPACE
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.namespace
+    image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    imagePullPolicy: Always
+    livenessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /metrics
+        port: 9394
+        scheme: HTTP
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 60
+    name: que
+    ports:
+    - containerPort: 9394
+      name: metrics
+      protocol: TCP
+    resources:
+      limits:
+        cpu: "1"
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 250M
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: zync-que-sa-token-2fdkc
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: threescale-registry-auth
+  - name: zync-que-sa-dockercfg-bd56x
+  nodeName: infra-03.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: zync-que-sa
+  serviceAccountName: zync-que-sa
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - name: zync-que-sa-token-2fdkc
+    secret:
+      defaultMode: 420
+      secretName: zync-que-sa-token-2fdkc
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-17T16:51:50Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-17T16:51:57Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-17T16:51:57Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-17T16:51:50Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://1cb5fbae8493c5f44bce6bde523810a9b219c678a6d1817b9cb70b3dc1d3d881
+    image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    imageID: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    lastState: {}
+    name: que
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-09-17T16:51:56Z"
+  hostIP: 10.92.114.130
+  phase: Running
+  podIP: 10.129.3.159
+  podIPs:
+  - ip: 10.129.3.159
+  qosClass: Burstable
+  startTime: "2020-09-17T16:51:50Z"

@@ -1,0 +1,67 @@
+Name:               claro-mock-service-dc-3-4xl2q
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               infra-01.osepext01.claro.amx/10.92.114.128
+Start Time:         Tue, 08 Sep 2020 10:16:51 -0300
+Labels:             app=claro-mock-service
+                    deployment=claro-mock-service-dc-3
+                    deploymentconfig=claro-mock-service-dc
+Annotations:        k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.128.1.106"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.128.0.1"
+                          ]
+                      }]
+                    kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu, memory request for container claro-mock-service; cpu, memory limit for container claro-mock-service
+                    openshift.io/deployment-config.latest-version: 3
+                    openshift.io/deployment-config.name: claro-mock-service-dc
+                    openshift.io/deployment.name: claro-mock-service-dc-3
+                    openshift.io/scc: restricted
+Status:             Running
+IP:                 10.128.1.106
+Controlled By:      ReplicationController/claro-mock-service-dc-3
+Containers:
+  claro-mock-service:
+    Container ID:   cri-o://4ee35b2832e14ae5e73b09b7789f807cc6b88cf65c49fa377e6fa7eb4e2dea31
+    Image:          image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service:1.0
+    Image ID:       image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service@sha256:3d4219df0aeb172d1a4ada20c268ea47dd04ae10a67f599e90075f81b80608d1
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 08 Sep 2020 10:17:05 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:        200m
+      memory:     1Gi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-fc8nn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-fc8nn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-fc8nn
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

@@ -1,0 +1,16 @@
+apiVersion: v1
+imagePullSecrets:
+- name: builder-dockercfg-jtvsh
+- name: threescale-registry-auth
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2020-07-27T12:56:31Z"
+  name: builder
+  namespace: 3scale-project
+  resourceVersion: "252219690"
+  selfLink: /api/v1/namespaces/3scale-project/serviceaccounts/builder
+  uid: 2eb0b80d-ff94-4f65-8bc5-bfb115d03c4d
+secrets:
+- name: builder-token-gv4x9
+- name: builder-dockercfg-jtvsh
+- name: threescale-registry-auth

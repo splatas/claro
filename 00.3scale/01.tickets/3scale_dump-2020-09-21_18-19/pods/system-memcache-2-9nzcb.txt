@@ -1,0 +1,75 @@
+Name:               system-memcache-2-9nzcb
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               worker-01.osepext01.claro.amx/10.92.114.131
+Start Time:         Mon, 27 Jul 2020 12:15:08 -0300
+Labels:             app=3scale-api-management
+                    deployment=system-memcache-2
+                    deploymentConfig=system-memcache
+                    deploymentconfig=system-memcache
+                    node-role.kubernetes.io/worker=
+                    threescale_component=system
+                    threescale_component_element=memcache
+Annotations:        k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.130.3.72"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.130.2.1"
+                          ]
+                      }]
+                    openshift.io/deployment-config.latest-version: 2
+                    openshift.io/deployment-config.name: system-memcache
+                    openshift.io/deployment.name: system-memcache-2
+                    openshift.io/scc: restricted
+Status:             Running
+IP:                 10.130.3.72
+Controlled By:      ReplicationController/system-memcache-2
+Containers:
+  memcache:
+    Container ID:  cri-o://54bda975abe1b07119a5c78054291f33ec9a7088214fcd2fbbca4e7812a6f3ef
+    Image:         registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    Image ID:      registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    Port:          11211/TCP
+    Host Port:     0/TCP
+    Command:
+      memcached
+      -m
+      64
+    State:          Running
+      Started:      Mon, 27 Jul 2020 12:15:14 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     250m
+      memory:  96Mi
+    Requests:
+      cpu:        50m
+      memory:     64Mi
+    Liveness:     tcp-socket :11211 delay=10s timeout=1s period=10s #success=1 #failure=3
+    Readiness:    exec [sh -c echo version | nc $HOSTNAME 11211 | grep VERSION] delay=10s timeout=5s period=30s #success=1 #failure=3
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  amp-token-5cmpq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  amp-token-5cmpq
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

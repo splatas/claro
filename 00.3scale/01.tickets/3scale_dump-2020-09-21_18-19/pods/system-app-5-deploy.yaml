@@ -1,0 +1,108 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: ""
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container
+      deployment; cpu, memory limit for container deployment'
+    openshift.io/deployment-config.name: system-app
+    openshift.io/deployment.name: system-app-5
+    openshift.io/scc: restricted
+  creationTimestamp: "2020-08-11T18:05:43Z"
+  labels:
+    openshift.io/deployer-pod-for.name: system-app-5
+  name: system-app-5-deploy
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: ReplicationController
+    name: system-app-5
+    uid: a3b62a5f-b663-4dfc-9339-4acc8a4989c3
+  resourceVersion: "217278819"
+  selfLink: /api/v1/namespaces/3scale-project/pods/system-app-5-deploy
+  uid: e48ca62d-8c14-4b69-b724-92aa6d486e02
+spec:
+  activeDeadlineSeconds: 21600
+  containers:
+  - env:
+    - name: OPENSHIFT_DEPLOYMENT_NAME
+      value: system-app-5
+    - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+      value: 3scale-project
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    imagePullPolicy: IfNotPresent
+    name: deployment
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: deployer-token-679s7
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: deployer-dockercfg-dl94k
+  nodeName: worker-01.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: deployer
+  serviceAccountName: deployer
+  shareProcessNamespace: false
+  terminationGracePeriodSeconds: 10
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - name: deployer-token-679s7
+    secret:
+      defaultMode: 420
+      secretName: deployer-token-679s7
+status:
+  containerStatuses:
+  - containerID: cri-o://aae91f183a73b37560d61fad1ad82d090dea27c97dbe4ab20bb4f92a16210033
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    lastState: {}
+    name: deployment
+    ready: false
+    restartCount: 0
+    state:
+      running:
+        startedAt: "2020-08-11T18:05:45Z"
+  message: Pod was active on the node longer than the specified deadline
+  phase: Failed
+  podIP: 10.130.3.153
+  podIPs:
+  - ip: 10.130.3.153
+  qosClass: Burstable
+  reason: DeadlineExceeded
+  startTime: "2020-08-11T18:05:42Z"

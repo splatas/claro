@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  policy.json: '{"default":[{"type":"insecureAcceptAnything"}],"transports":{"atomic":{"docker.io":[{"type":"reject"}]},"docker":{"docker.io":[{"type":"reject"}]}}}'
+  registries.conf: |
+    unqualified-search-registries = ["docker.io"]
+
+    [[registry]]
+      prefix = ""
+      location = "docker.io"
+      blocked = true
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-09-09T20:32:52Z"
+  name: apicast-openidc-policy-32-sys-config
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: Pod
+    name: apicast-openidc-policy-32-build
+    uid: 5d5bde73-4462-4ac2-9a49-5d1320a5f963
+  resourceVersion: "252219789"
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/apicast-openidc-policy-32-sys-config
+  uid: 79208f7f-8c48-4a38-8ab4-dbd7d64bf462

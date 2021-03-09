@@ -1,0 +1,23 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ResourceQuota
+  metadata:
+    creationTimestamp: "2020-07-27T12:56:31Z"
+    name: default-quota
+    namespace: 3scale-project
+    resourceVersion: "198370302"
+    selfLink: /api/v1/namespaces/3scale-project/resourcequotas/default-quota
+    uid: 139bd3e3-c30d-4c9a-b8f5-721517ac674b
+  spec:
+    hard:
+      thin.storageclass.storage.k8s.io/requests.storage: 10Gi
+  status:
+    hard:
+      thin.storageclass.storage.k8s.io/requests.storage: 10Gi
+    used:
+      thin.storageclass.storage.k8s.io/requests.storage: "0"
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

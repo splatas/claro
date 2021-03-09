@@ -1,0 +1,11 @@
+# deploymentconfigs/backend-listener, container backend-listener
+# CONFIG_REDIS_PROXY from secret backend-redis, key REDIS_STORAGE_URL
+# CONFIG_REDIS_SENTINEL_HOSTS from secret backend-redis, key REDIS_STORAGE_SENTINEL_HOSTS
+# CONFIG_REDIS_SENTINEL_ROLE from secret backend-redis, key REDIS_STORAGE_SENTINEL_ROLE
+# CONFIG_QUEUES_MASTER_NAME from secret backend-redis, key REDIS_QUEUES_URL
+# CONFIG_QUEUES_SENTINEL_HOSTS from secret backend-redis, key REDIS_QUEUES_SENTINEL_HOSTS
+# CONFIG_QUEUES_SENTINEL_ROLE from secret backend-redis, key REDIS_QUEUES_SENTINEL_ROLE
+# RACK_ENV from configmap backend-environment, key RACK_ENV
+PUMA_WORKERS=16
+# CONFIG_INTERNAL_API_USER from secret backend-internal-api, key username
+# CONFIG_INTERNAL_API_PASSWORD from secret backend-internal-api, key password

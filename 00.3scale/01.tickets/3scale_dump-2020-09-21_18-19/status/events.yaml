@@ -1,0 +1,39 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  count: 29033
+  eventTime: null
+  firstTimestamp: "2020-08-11T18:07:55Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: system-app-5-hook-pre
+    namespace: 3scale-project
+    resourceVersion: "216974456"
+    uid: c957a53a-8bad-4b50-a56f-ad55a6efa1db
+  kind: Event
+  lastTimestamp: "2020-09-21T18:17:08Z"
+  message: |
+    (combined from similar events): MountVolume.SetUp failed for volume "system-app" : mount failed: exit status 32
+    Mounting command: systemd-run
+    Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/c957a53a-8bad-4b50-a56f-ad55a6efa1db/volumes/kubernetes.io~nfs/system-app --scope -- mount -t nfs 10.92.49.14:/CMS_PRDE_p_openshift_apu /var/lib/kubelet/pods/c957a53a-8bad-4b50-a56f-ad55a6efa1db/volumes/kubernetes.io~nfs/system-app
+    Output: Running scope as unit: run-rcd45f1d88c264962bde89b1c806627b9.scope
+    mount.nfs: mounting 10.92.49.14:/CMS_PRDE_p_openshift_apu failed, reason given by server: No such file or directory
+  metadata:
+    creationTimestamp: "2020-08-11T18:07:54Z"
+    name: system-app-5-hook-pre.162a48fe5772221e
+    namespace: 3scale-project
+    resourceVersion: "265144188"
+    selfLink: /api/v1/namespaces/3scale-project/events/system-app-5-hook-pre.162a48fe5772221e
+    uid: e90b54b3-c1d7-4d6c-a489-d859ec0903da
+  reason: FailedMount
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Warning
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

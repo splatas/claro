@@ -1,0 +1,21 @@
+apiVersion: v1
+imagePullSecrets:
+- name: apicast-operator-dockercfg-mjbtv
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2020-09-09T20:05:15Z"
+  name: apicast-operator
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: operators.coreos.com/v1alpha1
+    blockOwnerDeletion: false
+    controller: false
+    kind: ClusterServiceVersion
+    name: apicast-operator.v0.2.4
+    uid: 8781c9c5-f5d5-403a-824d-cff9d4f3906f
+  resourceVersion: "252198340"
+  selfLink: /api/v1/namespaces/3scale-project/serviceaccounts/apicast-operator
+  uid: aeefaf32-a1ba-4378-a8cc-4d1587b062f5
+secrets:
+- name: apicast-operator-token-qpx9t
+- name: apicast-operator-dockercfg-mjbtv

@@ -1,0 +1,1 @@
+# deploymentconfigs/system-memcache, container memcache

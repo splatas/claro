@@ -1,0 +1,181 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    openshift.io/deployer-pod.completed-at: 2020-08-11 18:06:18 +0000 UTC
+    openshift.io/deployer-pod.created-at: 2020-08-11 18:05:45 +0000 UTC
+    openshift.io/deployer-pod.name: backend-worker-3-deploy
+    openshift.io/deployment-config.latest-version: "3"
+    openshift.io/deployment-config.name: backend-worker
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: ""
+    openshift.io/deployment.status-reason: image change
+    openshift.io/encoded-deployment-config: |
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"backend-worker","namespace":"3scale-project","selfLink":"/apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/backend-worker","uid":"02d85144-f363-4545-aafc-2c04c4d74095","resourceVersion":"216974404","generation":4,"creationTimestamp":"2020-07-27T13:05:50Z","labels":{"app":"3scale-api-management","threescale_component":"backend","threescale_component_element":"worker"},"ownerReferences":[{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIManager","name":"claro-apimanager-pelado","uid":"3d48e8a8-df41-4aa1-9516-43d087853cca","controller":true,"blockOwnerDeletion":true}]},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":1200,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["backend-redis-svc","backend-worker"],"from":{"kind":"ImageStreamTag","namespace":"3scale-project","name":"amp-backend:latest"},"lastTriggeredImage":"registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentConfig":"backend-worker"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"3scale-api-management","deploymentConfig":"backend-worker","node-role.kubernetes.io/worker":"","threescale_component":"backend","threescale_component_element":"worker"}},"spec":{"initContainers":[{"name":"backend-redis-svc","image":"registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0","command":["/opt/app/entrypoint.sh","sh","-c","until rake connectivity:redis_storage_queue_check; do sleep $SLEEP_SECONDS; done"],"env":[{"name":"CONFIG_REDIS_PROXY","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_URL"}}},{"name":"CONFIG_REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_SENTINEL_HOSTS"}}},{"name":"CONFIG_REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_SENTINEL_ROLE"}}},{"name":"CONFIG_QUEUES_MASTER_NAME","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_URL"}}},{"name":"CONFIG_QUEUES_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_SENTINEL_HOSTS"}}},{"name":"CONFIG_QUEUES_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_SENTINEL_ROLE"}}},{"name":"RACK_ENV","valueFrom":{"configMapKeyRef":{"name":"backend-environment","key":"RACK_ENV"}}},{"name":"SLEEP_SECONDS","value":"1"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"containers":[{"name":"backend-worker","image":"registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0","args":["bin/3scale_backend_worker","run"],"env":[{"name":"CONFIG_REDIS_PROXY","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_URL"}}},{"name":"CONFIG_REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_SENTINEL_HOSTS"}}},{"name":"CONFIG_REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_SENTINEL_ROLE"}}},{"name":"CONFIG_QUEUES_MASTER_NAME","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_URL"}}},{"name":"CONFIG_QUEUES_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_SENTINEL_HOSTS"}}},{"name":"CONFIG_QUEUES_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_SENTINEL_ROLE"}}},{"name":"RACK_ENV","valueFrom":{"configMapKeyRef":{"name":"backend-environment","key":"RACK_ENV"}}},{"name":"CONFIG_EVENTS_HOOK","valueFrom":{"secretKeyRef":{"name":"system-events-hook","key":"URL"}}},{"name":"CONFIG_EVENTS_HOOK_SHARED_SECRET","valueFrom":{"secretKeyRef":{"name":"system-events-hook","key":"PASSWORD"}}}],"resources":{"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"150m","memory":"50Mi"}},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"amp","serviceAccount":"amp","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":3,"observedGeneration":3,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"DockerImage","name":"registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2020-07-27T13:06:01Z","lastTransitionTime":"2020-07-27T13:06:01Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2020-07-27T15:14:36Z","lastTransitionTime":"2020-07-27T15:14:33Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"backend-worker-2\" successfully rolled out"}],"readyReplicas":1}}
+  creationTimestamp: "2020-08-11T18:05:45Z"
+  generation: 2
+  labels:
+    app: 3scale-api-management
+    openshift.io/deployment-config.name: backend-worker
+    threescale_component: backend
+    threescale_component_element: worker
+  name: backend-worker-3
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DeploymentConfig
+    name: backend-worker
+    uid: 02d85144-f363-4545-aafc-2c04c4d74095
+  resourceVersion: "216975165"
+  selfLink: /api/v1/namespaces/3scale-project/replicationcontrollers/backend-worker-3
+  uid: af56ccb1-f616-41fa-b8a1-869b24671dbc
+spec:
+  replicas: 1
+  selector:
+    deployment: backend-worker-3
+    deploymentConfig: backend-worker
+    deploymentconfig: backend-worker
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: "3"
+        openshift.io/deployment-config.name: backend-worker
+        openshift.io/deployment.name: backend-worker-3
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deployment: backend-worker-3
+        deploymentConfig: backend-worker
+        deploymentconfig: backend-worker
+        node-role.kubernetes.io/worker: ""
+        threescale_component: backend
+        threescale_component_element: worker
+    spec:
+      containers:
+      - args:
+        - bin/3scale_backend_worker
+        - run
+        env:
+        - name: CONFIG_REDIS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: CONFIG_QUEUES_MASTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_URL
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_ROLE
+              name: backend-redis
+        - name: RACK_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RACK_ENV
+              name: backend-environment
+        - name: CONFIG_EVENTS_HOOK
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-events-hook
+        - name: CONFIG_EVENTS_HOOK_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: system-events-hook
+        image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+        imagePullPolicy: IfNotPresent
+        name: backend-worker
+        resources:
+          limits:
+            cpu: "1"
+            memory: 300Mi
+          requests:
+            cpu: 150m
+            memory: 50Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - /opt/app/entrypoint.sh
+        - sh
+        - -c
+        - until rake connectivity:redis_storage_queue_check; do sleep $SLEEP_SECONDS;
+          done
+        env:
+        - name: CONFIG_REDIS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: CONFIG_QUEUES_MASTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_URL
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_ROLE
+              name: backend-redis
+        - name: RACK_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RACK_ENV
+              name: backend-environment
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+        imagePullPolicy: Always
+        name: backend-redis-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1

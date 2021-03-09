@@ -1,0 +1,137 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.4.197"
+          ],
+          "dns": {},
+          "default-route": [
+              "10.129.4.1"
+          ]
+      }]
+    openshift.io/deployment-config.latest-version: "1"
+    openshift.io/deployment-config.name: book-service
+    openshift.io/deployment.name: book-service-1
+    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/scc: restricted
+  creationTimestamp: "2020-09-08T15:41:34Z"
+  generateName: book-service-1-
+  labels:
+    app: book-service
+    deployment: book-service-1
+    deploymentconfig: book-service
+  name: book-service-1-jll5j
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicationController
+    name: book-service-1
+    uid: c43e1655-8091-4046-beeb-8d9a68b52121
+  resourceVersion: "250880974"
+  selfLink: /api/v1/namespaces/3scale-project/pods/book-service-1-jll5j
+  uid: 081b41f1-3d5f-497a-a4bd-e304907ab8f3
+spec:
+  containers:
+  - image: image-registry.openshift-image-registry.svc:5000/3scale-project/book-service@sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+    imagePullPolicy: Always
+    name: book-service
+    ports:
+    - containerPort: 8181
+      protocol: TCP
+    resources:
+      limits:
+        cpu: "1"
+        memory: 512Mi
+      requests:
+        cpu: 50m
+        memory: 256Mi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-fc8nn
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: default-dockercfg-h648n
+  nodeName: worker-04.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - name: default-token-fc8nn
+    secret:
+      defaultMode: 420
+      secretName: default-token-fc8nn
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-08T15:41:34Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-08T15:41:49Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-08T15:41:49Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-08T15:41:34Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://61557c0774a2ada6fdeb5aeaaee4900338fbb270af528d1c1cd1a8211800f887
+    image: image-registry.openshift-image-registry.svc:5000/3scale-project/book-service@sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+    imageID: image-registry.openshift-image-registry.svc:5000/3scale-project/book-service@sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+    lastState: {}
+    name: book-service
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-09-08T15:41:48Z"
+  hostIP: 10.92.114.134
+  phase: Running
+  podIP: 10.129.4.197
+  podIPs:
+  - ip: 10.129.4.197
+  qosClass: Burstable
+  startTime: "2020-09-08T15:41:34Z"

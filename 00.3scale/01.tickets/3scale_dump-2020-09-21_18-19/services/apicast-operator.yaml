@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-09-09T20:05:19Z"
+  labels:
+    name: apicast-operator
+  name: apicast-operator
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: apicast-operator
+    uid: 0190f03e-38da-4f67-b25f-f19a1e54e5a5
+  resourceVersion: "252198421"
+  selfLink: /api/v1/namespaces/3scale-project/services/apicast-operator
+  uid: 7b085055-43e1-4fb7-be51-cc298c404fb8
+spec:
+  clusterIP: 172.30.41.147
+  ports:
+  - name: metrics
+    port: 8383
+    protocol: TCP
+    targetPort: 8383
+  selector:
+    name: apicast-operator
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

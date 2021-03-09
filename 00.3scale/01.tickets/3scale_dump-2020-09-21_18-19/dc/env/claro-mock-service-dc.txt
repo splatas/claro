@@ -1,0 +1,1 @@
+# deploymentconfigs/claro-mock-service-dc, container claro-mock-service

@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  labels:
+    name: "3scale-update-service-pipeline"
+  name: "3scale-update-service-pipeline"
+spec:
+  strategy:
+    type: "JenkinsPipeline"
+    jenkinsPipelineStrategy:
+      env:
+        - name: ACCESS_TOKEN_NOPROD
+          value: REEMPLAZAR_c903ebd69db06c50332b2adbd05300f82f36829231da66e0abb5d45c0adc8826
+        - name: ACCESS_TOKEN_SANDBOX
+          value: REEMPLAZAR_bb254da6b6a1096341c0f2b73a83eda3ca0bbbcd01273c40e1d8c9e0592102c4
+        - name: ACCESS_TOKEN_PROD
+          value: REEMPLAZAR_dd7113ece660c2cca5e2bb9ddb1fe8d5dcaa8fbe540098b4768e1492fb74bbca
+        - name: URL_NOPROD
+          value: REEMPLAZAR_noprod-admin.prod-comafi-3scale.apps.bue299.comafi.com.ar
+        - name: URL_SANDBOX
+          value: REEMPLAZAR_sandbox-admin.prod-comafi-3scale.apps.bue299.comafi.com.ar
+        - name: URL_PROD
+          value: REEMPLAZAR_3scale-admin.prod-comafi-3scale.apps.bue299.comafi.com.ar
+      jenkinsfile: |-
+        node("3scale_toolbox") {
+          stage("Initialize") {
+            def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
+            parameters: [
+              choice(name: 'ID_SOURCES', choices: ['5:API'].join('\n'), description: 'Seleccione un ID de servicio origen'),
+              choice(name: 'ID_DESTINATION', choices: ['6:API','10:API'], description: 'Seleccione un ID de servicio destino')
+            ]
+            env.ID_SOURCES = INPUT_PARAMS.ID_SOURCES
+            env.ID_DESTINATION = INPUT_PARAMS.ID_DESTINATION
+          }
+          stage("Update Policies") {
+              def idS = env.ID_SOURCES.split(":")[0].trim()
+              def idD = env.ID_DESTINATION.split(":")[0].trim()
+              echo "All parameters have been set as Environment Variables"
+              echo "Selected Service Source: ${idS}"
+              echo "Selected Service Destination: ${idD}"
+
+              sh "3scale update service --source=https://${ACCESS_TOKEN_SOURCE}@{URL_NOPROD} --destination=https://${ACCESS_TOKEN_DESTINATION}@{URL_SANDBOX} ${idS} ${idD} -k"
+          }
+        }

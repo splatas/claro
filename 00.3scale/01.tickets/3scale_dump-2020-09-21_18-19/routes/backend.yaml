@@ -1,0 +1,49 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: "2020-07-27T13:05:51Z"
+  labels:
+    app: 3scale-api-management
+    threescale_component: backend
+  name: backend
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378410"
+  selfLink: /apis/route.openshift.io/v1/namespaces/3scale-project/routes/backend
+  uid: 8ded6a06-add7-41af-a0e6-454074102727
+spec:
+  host: backend-3scale.apps.osepext01.claro.amx
+  port:
+    targetPort: http
+  tls:
+    insecureEdgeTerminationPolicy: Allow
+    termination: edge
+  to:
+    kind: Service
+    name: backend-listener
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2020-07-27T13:05:52Z"
+      status: "True"
+      type: Admitted
+    host: backend-3scale.apps.osepext01.claro.amx
+    routerCanonicalHostname: pci.testing.org
+    routerName: testpci
+    wildcardPolicy: None
+  - conditions:
+    - lastTransitionTime: "2020-07-27T13:05:50Z"
+      status: "True"
+      type: Admitted
+    host: backend-3scale.apps.osepext01.claro.amx
+    routerCanonicalHostname: apps.osepext01.claro.amx
+    routerName: default
+    wildcardPolicy: None

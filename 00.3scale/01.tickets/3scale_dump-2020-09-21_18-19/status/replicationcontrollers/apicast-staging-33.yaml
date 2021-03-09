@@ -1,0 +1,140 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    kubectl.kubernetes.io/original-replicas: "0"
+    openshift.io/deployer-pod.completed-at: 2020-09-09 20:39:23 +0000 UTC
+    openshift.io/deployer-pod.created-at: 2020-09-09 20:38:29 +0000 UTC
+    openshift.io/deployer-pod.name: apicast-staging-33-deploy
+    openshift.io/deployment-config.latest-version: "33"
+    openshift.io/deployment-config.name: apicast-staging
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: ""
+    openshift.io/deployment.status-reason: image change
+    openshift.io/encoded-deployment-config: |
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"apicast-staging","namespace":"3scale-project","selfLink":"/apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/apicast-staging","uid":"a22c4ba7-e086-4149-a18f-fd0eafed19d1","resourceVersion":"252224434","generation":34,"creationTimestamp":"2020-08-31T13:39:49Z","labels":{"app":"3scale-api-management","threescale_component":"apicast","threescale_component_element":"staging"},"ownerReferences":[{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIManager","name":"claro-apimanager-pelado","uid":"3d48e8a8-df41-4aa1-9516-43d087853cca","controller":true,"blockOwnerDeletion":true}]},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":1800,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["apicast-staging"],"from":{"kind":"ImageStreamTag","namespace":"3scale-project","name":"amp-apicast:latest"},"lastTriggeredImage":"image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentConfig":"apicast-staging"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"3scale-api-management","deploymentConfig":"apicast-staging","threescale_component":"apicast","threescale_component_element":"staging"},"annotations":{"prometheus.io/port":"9421","prometheus.io/scrape":"true"}},"spec":{"containers":[{"name":"apicast-staging","image":"image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863","ports":[{"containerPort":8080,"protocol":"TCP"},{"containerPort":8090,"protocol":"TCP"},{"name":"metrics","containerPort":9421,"protocol":"TCP"}],"env":[{"name":"THREESCALE_PORTAL_ENDPOINT","valueFrom":{"secretKeyRef":{"name":"system-master-apicast","key":"PROXY_CONFIGS_ENDPOINT"}}},{"name":"BACKEND_ENDPOINT_OVERRIDE","valueFrom":{"secretKeyRef":{"name":"backend-listener","key":"service_endpoint"}}},{"name":"APICAST_MANAGEMENT_API","valueFrom":{"configMapKeyRef":{"name":"apicast-environment","key":"APICAST_MANAGEMENT_API"}}},{"name":"OPENSSL_VERIFY","valueFrom":{"configMapKeyRef":{"name":"apicast-environment","key":"OPENSSL_VERIFY"}}},{"name":"APICAST_RESPONSE_CODES","valueFrom":{"configMapKeyRef":{"name":"apicast-environment","key":"APICAST_RESPONSE_CODES"}}},{"name":"APICAST_CONFIGURATION_LOADER","value":"lazy"},{"name":"APICAST_CONFIGURATION_CACHE","value":"0"},{"name":"THREESCALE_DEPLOYMENT_ENV","value":"staging"}],"resources":{"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}},"livenessProbe":{"httpGet":{"path":"/status/live","port":8090,"scheme":"HTTP"},"initialDelaySeconds":10,"timeoutSeconds":5,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"readinessProbe":{"httpGet":{"path":"/status/ready","port":8090,"scheme":"HTTP"},"initialDelaySeconds":15,"timeoutSeconds":5,"periodSeconds":30,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"amp","serviceAccount":"amp","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":33,"observedGeneration":33,"replicas":2,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":1,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2020-08-31T15:14:36Z","lastTransitionTime":"2020-08-31T15:14:36Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2020-09-09T20:34:04Z","lastTransitionTime":"2020-09-09T20:34:04Z","reason":"ReplicationControllerUpdated","message":"replication controller \"apicast-staging-32\" is progressing"}],"readyReplicas":1}}
+  creationTimestamp: "2020-09-09T20:38:28Z"
+  generation: 5
+  labels:
+    app: 3scale-api-management
+    openshift.io/deployment-config.name: apicast-staging
+    threescale_component: apicast
+    threescale_component_element: staging
+  name: apicast-staging-33
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DeploymentConfig
+    name: apicast-staging
+    uid: a22c4ba7-e086-4149-a18f-fd0eafed19d1
+  resourceVersion: "259728216"
+  selfLink: /api/v1/namespaces/3scale-project/replicationcontrollers/apicast-staging-33
+  uid: 34bba7aa-6099-4574-b0b7-a9e727e0b76c
+spec:
+  replicas: 0
+  selector:
+    deployment: apicast-staging-33
+    deploymentConfig: apicast-staging
+    deploymentconfig: apicast-staging
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: "33"
+        openshift.io/deployment-config.name: apicast-staging
+        openshift.io/deployment.name: apicast-staging-33
+        prometheus.io/port: "9421"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deployment: apicast-staging-33
+        deploymentConfig: apicast-staging
+        deploymentconfig: apicast-staging
+        threescale_component: apicast
+        threescale_component_element: staging
+    spec:
+      containers:
+      - env:
+        - name: THREESCALE_PORTAL_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: PROXY_CONFIGS_ENDPOINT
+              name: system-master-apicast
+        - name: BACKEND_ENDPOINT_OVERRIDE
+          valueFrom:
+            secretKeyRef:
+              key: service_endpoint
+              name: backend-listener
+        - name: APICAST_MANAGEMENT_API
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_MANAGEMENT_API
+              name: apicast-environment
+        - name: OPENSSL_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              key: OPENSSL_VERIFY
+              name: apicast-environment
+        - name: APICAST_RESPONSE_CODES
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_RESPONSE_CODES
+              name: apicast-environment
+        - name: APICAST_CONFIGURATION_LOADER
+          value: lazy
+        - name: APICAST_CONFIGURATION_CACHE
+          value: "0"
+        - name: THREESCALE_DEPLOYMENT_ENV
+          value: staging
+        image: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/live
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: apicast-staging
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8090
+          protocol: TCP
+        - containerPort: 9421
+          name: metrics
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/ready
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 50m
+            memory: 64Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+status:
+  observedGeneration: 5
+  replicas: 0

@@ -1,0 +1,24 @@
+10.131.2.1 - - [17/Sep/2020:16:16:42 +0000] "GET /metrics HTTP/1.1" 200 - 0.0150
+{"adapter":"KeycloakAdapter","client_id":"d3f5dc80","action":"update_client","duration":32.82,"exception":"AbstractAdapter::OIDC::AuthenticationError","error":"AbstractAdapter::OIDC::AuthenticationError: Connection refused - Connection refused - connect(2) for \"desa-login.claro.com.ar\" port 80 (desa-login.claro.com.ar:80)","metadata":{"faraday":{"uri":"https://desa-login.claro.com.ar/auth/realms/DEV/"}}}
+{"adapter":"Que","job":"ProcessIntegrationEntryJob","priority":null,"queue":"default","arguments":["gid://zync/Integration::Keycloak/15","gid://zync/Model/38"],"action":"perform","duration":73.86,"exception":"AbstractAdapter::OIDC::AuthenticationError","error":"AbstractAdapter::OIDC::AuthenticationError: Connection refused - Connection refused - connect(2) for \"desa-login.claro.com.ar\" port 80 (desa-login.claro.com.ar:80)","metadata":{"faraday":{"uri":"https://desa-login.claro.com.ar/auth/realms/DEV/"}}}
+{"lib":"que","hostname":"zync-que-3-fpxhf","pid":1,"thread":40166760,"event":"job_errored","job_id":1004,"elapsed":0.084243229,"error":"AbstractAdapter::OIDC::AuthenticationError: Connection refused - Connection refused - connect(2) for \"desa-login.claro.com.ar\" port 80 (desa-login.claro.com.ar:80)"}
+10.131.2.1 - - [17/Sep/2020:16:16:52 +0000] "GET /metrics HTTP/1.1" 200 - 0.0128
+10.131.
+
+
+
+10.131.2.1 - - [17/Sep/2020:16:23:12 +0000] "GET /metrics HTTP/1.1" 200 - 0.0110
+{"adapter":"Que","job":"ProcessIntegrationEntryJob","priority":null,"queue":"default","arguments":["gid://zync/Integration::Keycloak/15","gid://zync/Model/18"],"action":"perform","duration":83.37,"exception":"AbstractAdapter::OIDC::AuthenticationError","error":"AbstractAdapter::OIDC::AuthenticationError: Connection refused - Connection refused - connect(2) for \"desa-login.claro.com.ar\" port 80 (desa-login.claro.com.ar:80)","metadata":{"faraday":{"uri":"https://desa-login.claro.com.ar/auth/realms/DEV/"}}}
+{"lib":"que","hostname":"zync-que-3-fpxhf","pid":1,"thread":40166760,"event":"job_errored","job_id":1055,"elapsed":0.091833155,"error":"AbstractAdapter::OIDC::AuthenticationError: Connection refused - Connection refused - connect(2) for \"desa-login.claro.com.ar\" port 80 (desa-login.claro.com.ar:80)"}
+10.131.2.1 - - [17/Sep/2020:16:23:22 +0000] "GET /metrics HTTP/1.1" 200 - 0.0121
+
+
+
+
+
+Configuration
+https://3scale-client-ws:c48ab397-bac9-444b-afe9-b559fd609938@desa-login.claro.com.ar:443/auth/realms/DEV
+
+
+OK
+curl -v https://3scale-client-ws:c48ab397-bac9-444b-afe9-b559fd609938@desa-login.claro.com.ar:443/auth/realms/DEV

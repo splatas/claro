@@ -1,0 +1,70 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: AMP System
+    openshift.io/image.dockerRepositoryCheck: "2020-08-11T18:05:42Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+  name: amp-system
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216974294"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/amp-system
+  uid: 23533da5-be8d-4f81-b8fd-4791f5b40c4c
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: AMP system 2.8
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    generation: 4
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: AMP System (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-system
+  tags:
+  - items:
+    - created: "2020-08-11T18:05:42Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      generation: 4
+      image: sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+      generation: 2
+      image: sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    tag: "2.8"
+  - items:
+    - created: "2020-08-11T18:05:42Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      generation: 4
+      image: sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+      generation: 2
+      image: sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    tag: latest

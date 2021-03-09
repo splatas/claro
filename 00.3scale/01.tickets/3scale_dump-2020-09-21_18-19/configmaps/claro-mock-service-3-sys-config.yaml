@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  policy.json: '{"default":[{"type":"insecureAcceptAnything"}],"transports":{"atomic":{"docker.io":[{"type":"reject"}]},"docker":{"docker.io":[{"type":"reject"}]}}}'
+  registries.conf: |
+    unqualified-search-registries = ["docker.io"]
+
+    [[registry]]
+      prefix = ""
+      location = "docker.io"
+      blocked = true
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-09-07T21:46:14Z"
+  name: claro-mock-service-3-sys-config
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: Pod
+    name: claro-mock-service-3-build
+    uid: 7afe43f2-559e-4841-96a4-e1f91e14ddf8
+  resourceVersion: "249968916"
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/claro-mock-service-3-sys-config
+  uid: 20a638a2-f983-4b06-8300-fece4c7f7dfe

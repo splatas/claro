@@ -1,0 +1,40 @@
+Name:         book-service-1
+Namespace:    3scale-project
+Selector:     app=book-service,deployment=book-service-1,deploymentconfig=book-service
+Labels:       app=book-service
+              openshift.io/deployment-config.name=book-service
+Annotations:  openshift.io/deployer-pod.completed-at: 2020-09-08 15:41:49 +0000 UTC
+              openshift.io/deployer-pod.created-at: 2020-09-08 15:41:31 +0000 UTC
+              openshift.io/deployer-pod.name: book-service-1-deploy
+              openshift.io/deployment-config.latest-version: 1
+              openshift.io/deployment-config.name: book-service
+              openshift.io/deployment.phase: Complete
+              openshift.io/deployment.replicas: 1
+              openshift.io/deployment.status-reason: config change
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"book-service","namespace":"3scale-project","selfLink":"...
+Replicas:     1 current / 1 desired
+Pods Status:  1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:       app=book-service
+                deployment=book-service-1
+                deploymentconfig=book-service
+  Annotations:  openshift.io/deployment-config.latest-version: 1
+                openshift.io/deployment-config.name: book-service
+                openshift.io/deployment.name: book-service-1
+                openshift.io/generated-by: OpenShiftNewApp
+  Containers:
+   book-service:
+    Image:      image-registry.openshift-image-registry.svc:5000/3scale-project/book-service@sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+    Port:       8181/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     1
+      memory:  512Mi
+    Requests:
+      cpu:        50m
+      memory:     256Mi
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:           <none>

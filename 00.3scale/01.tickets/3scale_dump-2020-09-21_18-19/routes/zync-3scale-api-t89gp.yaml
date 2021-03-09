@@ -1,0 +1,56 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    3scale.net/gid: gid://zync/Entry/209
+    zync.3scale.net/gid: gid://zync/Proxy/7
+    zync.3scale.net/host: apicast-test-production
+  creationTimestamp: "2020-09-14T18:30:45Z"
+  generateName: zync-3scale-api-
+  labels:
+    3scale.net/created-by: zync
+    3scale.net/service_id: "7"
+    3scale.net/tenant_id: "9"
+    zync.3scale.net/ingress: proxy
+    zync.3scale.net/record: Z2lkOi8venluYy9Qcm94eS83
+    zync.3scale.net/route-to: apicast-production
+  name: zync-3scale-api-t89gp
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    kind: DeploymentConfig
+    name: zync-que
+    uid: 466152c8-1c88-42e0-83bb-45eb3d7fefe4
+  resourceVersion: "257557107"
+  selfLink: /apis/route.openshift.io/v1/namespaces/3scale-project/routes/zync-3scale-api-t89gp
+  uid: 838fac3d-9db5-4414-95db-741b59307c4f
+spec:
+  host: apicast-test-production
+  port:
+    targetPort: gateway
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: apicast-production
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2020-09-14T18:30:45Z"
+      status: "True"
+      type: Admitted
+    host: apicast-test-production
+    routerCanonicalHostname: apps.osepext01.claro.amx
+    routerName: default
+    wildcardPolicy: None
+  - conditions:
+    - lastTransitionTime: "2020-09-14T18:30:48Z"
+      status: "True"
+      type: Admitted
+    host: apicast-test-production
+    routerCanonicalHostname: pci.testing.org
+    routerName: testpci
+    wildcardPolicy: None

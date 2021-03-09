@@ -1,0 +1,14 @@
+apiVersion: v1
+imagePullSecrets:
+- name: default-dockercfg-h648n
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2020-07-27T12:56:31Z"
+  name: default
+  namespace: 3scale-project
+  resourceVersion: "198370281"
+  selfLink: /api/v1/namespaces/3scale-project/serviceaccounts/default
+  uid: c7c97b93-0236-468e-995d-d333c07da460
+secrets:
+- name: default-dockercfg-h648n
+- name: default-token-fc8nn

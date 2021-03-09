@@ -1,0 +1,172 @@
+Name:               claro-mock-service-1-build
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               infra-01.osepext01.claro.amx/10.92.114.128
+Start Time:         Mon, 07 Sep 2020 18:04:23 -0300
+Labels:             openshift.io/build.name=claro-mock-service-1
+Annotations:        k8s.v1.cni.cncf.io/networks-status: 
+                    kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu, memory request for container sti-build; cpu, memory limit for container sti-build; cpu, memory request for in...
+                    openshift.io/build.name: claro-mock-service-1
+                    openshift.io/scc: privileged
+Status:             Failed
+IP:                 10.128.1.19
+Controlled By:      Build/claro-mock-service-1
+Init Containers:
+  manage-dockerfile:
+    Container ID:  cri-o://2077391d0e5cc92f3213b05b21b126c3261e807eb83cfb4a14ba1a7070d43638
+    Image:         quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    Image ID:      quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      openshift-manage-dockerfile
+    Args:
+      --loglevel=0
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Mon, 07 Sep 2020 18:04:27 -0300
+      Finished:     Mon, 07 Sep 2020 18:04:27 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      BUILD:                        {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"claro-mock-service-1","namespace":"3scale-project","selfLink":"/apis/build.openshift.io/v1/namespaces/3scale-project/builds/claro-mock-service-1","uid":"1a93a373-267b-4c54-8173-fb4f462d7545","resourceVersion":"249932390","creationTimestamp":"2020-09-07T21:04:24Z","labels":{"build":"claro-mock-service","buildconfig":"claro-mock-service","openshift.io/build-config.name":"claro-mock-service","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"claro-mock-service","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"claro-mock-service","uid":"e9570f67-9198-4571-b424-9b0e8aadb30e","controller":true}]},"spec":{"serviceAccount":"builder","source":{"type":"None"},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"registry.redhat.io/fuse7/fuse-java-openshift@sha256:df0102150f7065d64a11c35091e8d41fa208e9a372c69e5a81638f62f8a1569d"},"pullSecret":{"name":"builder-dockercfg-jtvsh"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service:1.0"},"pushSecret":{"name":"builder-dockercfg-jtvsh"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Image change","imageChangeBuild":{"imageID":"registry.redhat.io/fuse7/fuse-java-openshift@sha256:df0102150f7065d64a11c35091e8d41fa208e9a372c69e5a81638f62f8a1569d","fromRef":{"kind":"ImageStreamTag","name":"fuse-java-openshift:latest"}}}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service:1.0","config":{"kind":"BuildConfig","namespace":"3scale-project","name":"claro-mock-service"},"output":{}}}
+                                    
+      LANG:                         en_US.utf8
+      ALLOWED_UIDS:                 1-
+      DROP_CAPS:                    KILL,MKNOD,SETGID,SETUID
+      BUILD_REGISTRIES_CONF_PATH:   /var/run/configs/openshift.io/build-system/registries.conf
+      BUILD_REGISTRIES_DIR_PATH:    /var/run/configs/openshift.io/build-system/registries.d
+      BUILD_SIGNATURE_POLICY_PATH:  /var/run/configs/openshift.io/build-system/policy.json
+      BUILD_STORAGE_CONF_PATH:      /var/run/configs/openshift.io/build-system/storage.conf
+      BUILD_BLOBCACHE_DIR:          /var/cache/blobs
+      HTTP_PROXY:                   
+      HTTPS_PROXY:                  
+      NO_PROXY:                     
+    Mounts:
+      /etc/pki/ca-trust/extracted/pem from build-proxy-ca-bundles (rw)
+      /tmp/build from buildworkdir (rw)
+      /var/cache/blobs from build-blob-cache (rw)
+      /var/run/configs/openshift.io/build-system from build-system-configs (ro)
+      /var/run/configs/openshift.io/certs from build-ca-bundles (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from builder-token-gv4x9 (ro)
+Containers:
+  sti-build:
+    Container ID:  cri-o://755f6533550ce9d9d17eac836cf23408c31ae99487aee2fbbdb331fec1cc31b1
+    Image:         quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    Image ID:      quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      openshift-sti-build
+    Args:
+      --loglevel=0
+    State:      Terminated
+      Reason:   Error
+      Message:  Caching blobs under "/var/cache/blobs".
+Warning: Pull failed, retrying in 5s ...
+Warning: Pull failed, retrying in 5s ...
+Warning: Pull failed, retrying in 5s ...
+error: build error: After retrying 2 times, Pull image still failed due to error: unable to retrieve auth token: invalid username/password: unauthorized: Please login to the Red Hat Registry using your Customer Portal credentials. Further instructions can be found here: https://access.redhat.com/RegistryAuthentication
+
+      Exit Code:    1
+      Started:      Mon, 07 Sep 2020 18:04:27 -0300
+      Finished:     Mon, 07 Sep 2020 18:04:44 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      BUILD:                        {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"claro-mock-service-1","namespace":"3scale-project","selfLink":"/apis/build.openshift.io/v1/namespaces/3scale-project/builds/claro-mock-service-1","uid":"1a93a373-267b-4c54-8173-fb4f462d7545","resourceVersion":"249932390","creationTimestamp":"2020-09-07T21:04:24Z","labels":{"build":"claro-mock-service","buildconfig":"claro-mock-service","openshift.io/build-config.name":"claro-mock-service","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"claro-mock-service","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"claro-mock-service","uid":"e9570f67-9198-4571-b424-9b0e8aadb30e","controller":true}]},"spec":{"serviceAccount":"builder","source":{"type":"None"},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"registry.redhat.io/fuse7/fuse-java-openshift@sha256:df0102150f7065d64a11c35091e8d41fa208e9a372c69e5a81638f62f8a1569d"},"pullSecret":{"name":"builder-dockercfg-jtvsh"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service:1.0"},"pushSecret":{"name":"builder-dockercfg-jtvsh"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Image change","imageChangeBuild":{"imageID":"registry.redhat.io/fuse7/fuse-java-openshift@sha256:df0102150f7065d64a11c35091e8d41fa208e9a372c69e5a81638f62f8a1569d","fromRef":{"kind":"ImageStreamTag","name":"fuse-java-openshift:latest"}}}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service:1.0","config":{"kind":"BuildConfig","namespace":"3scale-project","name":"claro-mock-service"},"output":{}}}
+                                    
+      LANG:                         en_US.utf8
+      ALLOWED_UIDS:                 1-
+      DROP_CAPS:                    KILL,MKNOD,SETGID,SETUID
+      PUSH_DOCKERCFG_PATH:          /var/run/secrets/openshift.io/push
+      PULL_DOCKERCFG_PATH:          /var/run/secrets/openshift.io/pull
+      BUILD_REGISTRIES_CONF_PATH:   /var/run/configs/openshift.io/build-system/registries.conf
+      BUILD_REGISTRIES_DIR_PATH:    /var/run/configs/openshift.io/build-system/registries.d
+      BUILD_SIGNATURE_POLICY_PATH:  /var/run/configs/openshift.io/build-system/policy.json
+      BUILD_STORAGE_CONF_PATH:      /var/run/configs/openshift.io/build-system/storage.conf
+      BUILD_STORAGE_DRIVER:         overlay
+      BUILD_ISOLATION:              chroot
+      BUILD_BLOBCACHE_DIR:          /var/cache/blobs
+      HTTP_PROXY:                   
+      HTTPS_PROXY:                  
+      NO_PROXY:                     
+    Mounts:
+      /etc/pki/ca-trust/extracted/pem from build-proxy-ca-bundles (rw)
+      /tmp/build from buildworkdir (rw)
+      /var/cache/blobs from build-blob-cache (rw)
+      /var/lib/containers/cache from buildcachedir (rw)
+      /var/lib/containers/storage from container-storage-root (rw)
+      /var/run/configs/openshift.io/build-system from build-system-configs (ro)
+      /var/run/configs/openshift.io/certs from build-ca-bundles (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from builder-token-gv4x9 (ro)
+      /var/run/secrets/openshift.io/pull from builder-dockercfg-jtvsh-pull (ro)
+      /var/run/secrets/openshift.io/push from builder-dockercfg-jtvsh-push (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  buildcachedir:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/containers/cache
+    HostPathType:  
+  buildworkdir:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  builder-dockercfg-jtvsh-push:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  builder-dockercfg-jtvsh
+    Optional:    false
+  builder-dockercfg-jtvsh-pull:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  builder-dockercfg-jtvsh
+    Optional:    false
+  build-system-configs:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      claro-mock-service-1-sys-config
+    Optional:  false
+  build-ca-bundles:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      claro-mock-service-1-ca
+    Optional:  false
+  build-proxy-ca-bundles:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      claro-mock-service-1-global-ca
+    Optional:  false
+  container-storage-root:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  build-blob-cache:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  builder-token-gv4x9:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  builder-token-gv4x9
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  kubernetes.io/os=linux
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

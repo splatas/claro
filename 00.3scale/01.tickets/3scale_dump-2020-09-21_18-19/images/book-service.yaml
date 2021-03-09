@@ -1,0 +1,26 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-09-08T15:07:35Z"
+  generation: 1
+  labels:
+    app: book-service
+  name: book-service
+  namespace: 3scale-project
+  resourceVersion: "250880718"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/book-service
+  uid: 18959f56-8a73-4083-9df7-2dd2511f4f4f
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/book-service
+  tags:
+  - items:
+    - created: "2020-09-08T15:41:30Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/book-service@sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+      generation: 1
+      image: sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+    tag: latest

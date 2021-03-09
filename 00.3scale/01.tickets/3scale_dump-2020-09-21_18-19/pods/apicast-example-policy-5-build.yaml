@@ -1,0 +1,371 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: ""
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container
+      sti-build; cpu, memory limit for container sti-build; cpu, memory request for
+      init container git-clone; cpu, memory limit for init container git-clone; cpu,
+      memory request for init container manage-dockerfile; cpu, memory limit for init
+      container manage-dockerfile'
+    openshift.io/build.name: apicast-example-policy-5
+    openshift.io/scc: privileged
+  creationTimestamp: "2020-08-28T20:58:08Z"
+  labels:
+    openshift.io/build.name: apicast-example-policy-5
+  name: apicast-example-policy-5-build
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: build.openshift.io/v1
+    controller: true
+    kind: Build
+    name: apicast-example-policy-5
+    uid: 7cebbe69-0abb-4ffe-92a0-a3b85cdbf21f
+  resourceVersion: "237774946"
+  selfLink: /api/v1/namespaces/3scale-project/pods/apicast-example-policy-5-build
+  uid: 40686ab3-2210-4ba7-ae36-3ed6f23a67fc
+spec:
+  activeDeadlineSeconds: 604800
+  containers:
+  - args:
+    - --loglevel=0
+    command:
+    - openshift-sti-build
+    env:
+    - name: BUILD
+      value: |
+        {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"apicast-example-policy-5","namespace":"3scale-project","selfLink":"/apis/build.openshift.io/v1/namespaces/3scale-project/builds/apicast-example-policy-5","uid":"7cebbe69-0abb-4ffe-92a0-a3b85cdbf21f","resourceVersion":"237774364","creationTimestamp":"2020-08-28T20:58:08Z","labels":{"app":"apicast","buildconfig":"apicast-example-policy","openshift.io/build-config.name":"apicast-example-policy","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"apicast-example-policy","openshift.io/build.number":"5"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"apicast-example-policy","uid":"0dd71cbf-2d71-4dfe-ba4e-4339ba10038f","controller":true}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/3scale/apicast-example-policy.git","ref":"master"}},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b"},"pullSecret":{"name":"threescale-registry-auth"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy:example"},"pushSecret":{"name":"builder-dockercfg-jtvsh"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Manually triggered"}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy:example","config":{"kind":"BuildConfig","namespace":"3scale-project","name":"apicast-example-policy"},"output":{}}}
+    - name: LANG
+      value: en_US.utf8
+    - name: SOURCE_REPOSITORY
+      value: https://github.com/3scale/apicast-example-policy.git
+    - name: SOURCE_URI
+      value: https://github.com/3scale/apicast-example-policy.git
+    - name: SOURCE_REF
+      value: master
+    - name: ALLOWED_UIDS
+      value: 1-
+    - name: DROP_CAPS
+      value: KILL,MKNOD,SETGID,SETUID
+    - name: PUSH_DOCKERCFG_PATH
+      value: /var/run/secrets/openshift.io/push
+    - name: PULL_DOCKERCFG_PATH
+      value: /var/run/secrets/openshift.io/pull
+    - name: BUILD_REGISTRIES_CONF_PATH
+      value: /var/run/configs/openshift.io/build-system/registries.conf
+    - name: BUILD_REGISTRIES_DIR_PATH
+      value: /var/run/configs/openshift.io/build-system/registries.d
+    - name: BUILD_SIGNATURE_POLICY_PATH
+      value: /var/run/configs/openshift.io/build-system/policy.json
+    - name: BUILD_STORAGE_CONF_PATH
+      value: /var/run/configs/openshift.io/build-system/storage.conf
+    - name: BUILD_STORAGE_DRIVER
+      value: overlay
+    - name: BUILD_ISOLATION
+      value: chroot
+    - name: BUILD_BLOBCACHE_DIR
+      value: /var/cache/blobs
+    - name: HTTP_PROXY
+    - name: HTTPS_PROXY
+    - name: NO_PROXY
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    imagePullPolicy: IfNotPresent
+    name: sti-build
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    securityContext:
+      privileged: true
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: FallbackToLogsOnError
+    volumeMounts:
+    - mountPath: /tmp/build
+      name: buildworkdir
+    - mountPath: /var/lib/containers/cache
+      name: buildcachedir
+    - mountPath: /var/run/secrets/openshift.io/push
+      name: builder-dockercfg-jtvsh-push
+      readOnly: true
+    - mountPath: /var/run/secrets/openshift.io/pull
+      name: threescale-registry-auth-pull
+      readOnly: true
+    - mountPath: /var/run/configs/openshift.io/build-system
+      name: build-system-configs
+      readOnly: true
+    - mountPath: /var/run/configs/openshift.io/certs
+      name: build-ca-bundles
+    - mountPath: /etc/pki/ca-trust/extracted/pem
+      name: build-proxy-ca-bundles
+    - mountPath: /var/lib/containers/storage
+      name: container-storage-root
+    - mountPath: /var/cache/blobs
+      name: build-blob-cache
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: builder-token-gv4x9
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: builder-dockercfg-jtvsh
+  - name: threescale-registry-auth
+  initContainers:
+  - args:
+    - --loglevel=0
+    command:
+    - openshift-git-clone
+    env:
+    - name: BUILD
+      value: |
+        {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"apicast-example-policy-5","namespace":"3scale-project","selfLink":"/apis/build.openshift.io/v1/namespaces/3scale-project/builds/apicast-example-policy-5","uid":"7cebbe69-0abb-4ffe-92a0-a3b85cdbf21f","resourceVersion":"237774364","creationTimestamp":"2020-08-28T20:58:08Z","labels":{"app":"apicast","buildconfig":"apicast-example-policy","openshift.io/build-config.name":"apicast-example-policy","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"apicast-example-policy","openshift.io/build.number":"5"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"apicast-example-policy","uid":"0dd71cbf-2d71-4dfe-ba4e-4339ba10038f","controller":true}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/3scale/apicast-example-policy.git","ref":"master"}},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b"},"pullSecret":{"name":"threescale-registry-auth"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy:example"},"pushSecret":{"name":"builder-dockercfg-jtvsh"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Manually triggered"}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy:example","config":{"kind":"BuildConfig","namespace":"3scale-project","name":"apicast-example-policy"},"output":{}}}
+    - name: LANG
+      value: en_US.utf8
+    - name: SOURCE_REPOSITORY
+      value: https://github.com/3scale/apicast-example-policy.git
+    - name: SOURCE_URI
+      value: https://github.com/3scale/apicast-example-policy.git
+    - name: SOURCE_REF
+      value: master
+    - name: ALLOWED_UIDS
+      value: 1-
+    - name: DROP_CAPS
+      value: KILL,MKNOD,SETGID,SETUID
+    - name: BUILD_REGISTRIES_CONF_PATH
+      value: /var/run/configs/openshift.io/build-system/registries.conf
+    - name: BUILD_REGISTRIES_DIR_PATH
+      value: /var/run/configs/openshift.io/build-system/registries.d
+    - name: BUILD_SIGNATURE_POLICY_PATH
+      value: /var/run/configs/openshift.io/build-system/policy.json
+    - name: BUILD_STORAGE_CONF_PATH
+      value: /var/run/configs/openshift.io/build-system/storage.conf
+    - name: BUILD_BLOBCACHE_DIR
+      value: /var/cache/blobs
+    - name: HTTP_PROXY
+    - name: HTTPS_PROXY
+    - name: NO_PROXY
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    imagePullPolicy: IfNotPresent
+    name: git-clone
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: FallbackToLogsOnError
+    volumeMounts:
+    - mountPath: /tmp/build
+      name: buildworkdir
+    - mountPath: /var/run/configs/openshift.io/build-system
+      name: build-system-configs
+      readOnly: true
+    - mountPath: /var/run/configs/openshift.io/certs
+      name: build-ca-bundles
+    - mountPath: /etc/pki/ca-trust/extracted/pem
+      name: build-proxy-ca-bundles
+    - mountPath: /var/cache/blobs
+      name: build-blob-cache
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: builder-token-gv4x9
+      readOnly: true
+  - args:
+    - --loglevel=0
+    command:
+    - openshift-manage-dockerfile
+    env:
+    - name: BUILD
+      value: |
+        {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"apicast-example-policy-5","namespace":"3scale-project","selfLink":"/apis/build.openshift.io/v1/namespaces/3scale-project/builds/apicast-example-policy-5","uid":"7cebbe69-0abb-4ffe-92a0-a3b85cdbf21f","resourceVersion":"237774364","creationTimestamp":"2020-08-28T20:58:08Z","labels":{"app":"apicast","buildconfig":"apicast-example-policy","openshift.io/build-config.name":"apicast-example-policy","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"apicast-example-policy","openshift.io/build.number":"5"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"apicast-example-policy","uid":"0dd71cbf-2d71-4dfe-ba4e-4339ba10038f","controller":true}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/3scale/apicast-example-policy.git","ref":"master"}},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b"},"pullSecret":{"name":"threescale-registry-auth"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy:example"},"pushSecret":{"name":"builder-dockercfg-jtvsh"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Manually triggered"}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/3scale-project/apicast-policy:example","config":{"kind":"BuildConfig","namespace":"3scale-project","name":"apicast-example-policy"},"output":{}}}
+    - name: LANG
+      value: en_US.utf8
+    - name: SOURCE_REPOSITORY
+      value: https://github.com/3scale/apicast-example-policy.git
+    - name: SOURCE_URI
+      value: https://github.com/3scale/apicast-example-policy.git
+    - name: SOURCE_REF
+      value: master
+    - name: ALLOWED_UIDS
+      value: 1-
+    - name: DROP_CAPS
+      value: KILL,MKNOD,SETGID,SETUID
+    - name: BUILD_REGISTRIES_CONF_PATH
+      value: /var/run/configs/openshift.io/build-system/registries.conf
+    - name: BUILD_REGISTRIES_DIR_PATH
+      value: /var/run/configs/openshift.io/build-system/registries.d
+    - name: BUILD_SIGNATURE_POLICY_PATH
+      value: /var/run/configs/openshift.io/build-system/policy.json
+    - name: BUILD_STORAGE_CONF_PATH
+      value: /var/run/configs/openshift.io/build-system/storage.conf
+    - name: BUILD_BLOBCACHE_DIR
+      value: /var/cache/blobs
+    - name: HTTP_PROXY
+    - name: HTTPS_PROXY
+    - name: NO_PROXY
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    imagePullPolicy: IfNotPresent
+    name: manage-dockerfile
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: FallbackToLogsOnError
+    volumeMounts:
+    - mountPath: /tmp/build
+      name: buildworkdir
+    - mountPath: /var/run/configs/openshift.io/build-system
+      name: build-system-configs
+      readOnly: true
+    - mountPath: /var/run/configs/openshift.io/certs
+      name: build-ca-bundles
+    - mountPath: /etc/pki/ca-trust/extracted/pem
+      name: build-proxy-ca-bundles
+    - mountPath: /var/cache/blobs
+      name: build-blob-cache
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: builder-token-gv4x9
+      readOnly: true
+  nodeName: infra-01.osepext01.claro.amx
+  nodeSelector:
+    kubernetes.io/os: linux
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: builder
+  serviceAccountName: builder
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - hostPath:
+      path: /var/lib/containers/cache
+      type: ""
+    name: buildcachedir
+  - emptyDir: {}
+    name: buildworkdir
+  - name: builder-dockercfg-jtvsh-push
+    secret:
+      defaultMode: 384
+      secretName: builder-dockercfg-jtvsh
+  - name: threescale-registry-auth-pull
+    secret:
+      defaultMode: 384
+      secretName: threescale-registry-auth
+  - configMap:
+      defaultMode: 420
+      name: apicast-example-policy-5-sys-config
+    name: build-system-configs
+  - configMap:
+      defaultMode: 420
+      items:
+      - key: service-ca.crt
+        path: certs.d/image-registry.openshift-image-registry.svc:5000/ca.crt
+      name: apicast-example-policy-5-ca
+    name: build-ca-bundles
+  - configMap:
+      defaultMode: 420
+      items:
+      - key: ca-bundle.crt
+        path: tls-ca-bundle.pem
+      name: apicast-example-policy-5-global-ca
+    name: build-proxy-ca-bundles
+  - emptyDir: {}
+    name: container-storage-root
+  - emptyDir: {}
+    name: build-blob-cache
+  - name: builder-token-gv4x9
+    secret:
+      defaultMode: 420
+      secretName: builder-token-gv4x9
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-28T20:58:15Z"
+    reason: PodCompleted
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-28T20:58:39Z"
+    reason: PodCompleted
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-28T20:58:39Z"
+    reason: PodCompleted
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-28T20:58:08Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://5726d305c92d12fd4f24658c06fdf33e636c1e731bf015306162fae51bde460b
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    lastState: {}
+    name: sti-build
+    ready: false
+    restartCount: 0
+    started: false
+    state:
+      terminated:
+        containerID: cri-o://5726d305c92d12fd4f24658c06fdf33e636c1e731bf015306162fae51bde460b
+        exitCode: 0
+        finishedAt: "2020-08-28T20:58:38Z"
+        reason: Completed
+        startedAt: "2020-08-28T20:58:15Z"
+  hostIP: 10.92.114.128
+  initContainerStatuses:
+  - containerID: cri-o://d7fc02cda388de53d121c4b1956ccf3cb15ebc5050efa7fda9f840c3744d9b55
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    lastState: {}
+    name: git-clone
+    ready: true
+    restartCount: 0
+    state:
+      terminated:
+        containerID: cri-o://d7fc02cda388de53d121c4b1956ccf3cb15ebc5050efa7fda9f840c3744d9b55
+        exitCode: 0
+        finishedAt: "2020-08-28T20:58:14Z"
+        reason: Completed
+        startedAt: "2020-08-28T20:58:11Z"
+  - containerID: cri-o://dac3144f1df7583cf4a67961b6a556af3b1e17da4930821b902171b4eb9df055
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    lastState: {}
+    name: manage-dockerfile
+    ready: true
+    restartCount: 0
+    state:
+      terminated:
+        containerID: cri-o://dac3144f1df7583cf4a67961b6a556af3b1e17da4930821b902171b4eb9df055
+        exitCode: 0
+        finishedAt: "2020-08-28T20:58:14Z"
+        reason: Completed
+        startedAt: "2020-08-28T20:58:14Z"
+  phase: Succeeded
+  podIP: 10.128.1.104
+  podIPs:
+  - ip: 10.128.1.104
+  qosClass: Burstable
+  startTime: "2020-08-28T20:58:08Z"

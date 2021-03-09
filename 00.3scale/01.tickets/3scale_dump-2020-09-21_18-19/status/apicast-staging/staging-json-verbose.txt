@@ -1,0 +1,96 @@
+Note: Unnecessary use of -X or --request, GET is already inferred.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 10.92.150.39...
+* TCP_NODELAY set
+* Connected to dev-3scale-admin.apps.osepext01.claro.amx (10.92.150.39) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [93 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [1579 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server did not agree to a protocol
+* Server certificate:
+*  subject: CN=*.apps.osepext01.claro.amx
+*  start date: Dec 12 21:27:54 2019 GMT
+*  expire date: Dec 11 21:27:55 2021 GMT
+*  issuer: CN=ingress-operator@1576186074
+*  SSL certificate verify result: self signed certificate in certificate chain (19), continuing anyway.
+* Server auth using Basic with user '31b2147eab780e4961823ca1ef96a51c31d8cadeb19f98ddf89cc2b554d44900'
+} [5 bytes data]
+> GET /staging.json HTTP/1.1
+> Host: dev-3scale-admin.apps.osepext01.claro.amx
+> Authorization: Basic MzFiMjE0N2VhYjc4MGU0OTYxODIzY2ExZWY5NmE1MWMzMWQ4Y2FkZWIxOWY5OGRkZjg5Y2MyYjU1NGQ0NDkwMDo=
+> User-Agent: curl/7.61.1
+> Accept: */*
+> 
+{ [5 bytes data]
+< HTTP/1.1 404 Not Found
+< date: Mon, 21 Sep 2020 18:31:40 GMT
+< content-type: text/html; charset=utf-8
+< content-length: 803
+< x-request-id: a491270b-0f94-40f0-9e94-a393bdc807e3
+< x-runtime: 0.005577
+< x-served-by: system-app-4-sbh5t
+< vary: Accept-Encoding
+< strict-transport-security: max-age=15552000
+< x-frame-options: DENY
+< x-content-type-options: nosniff
+< x-xss-protection: 1; mode=block
+< set-cookie: 888eef26138932cf79496519e898a6e0=89fbfea60f26f845b4ca411d194b4810; path=/; HttpOnly; Secure
+< cache-control: private
+< 
+{ [803 bytes data]
+100   803  100   803    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Not Found</title>
+    <link href="/assets/error.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div id="content">
+        <h1 class='logo-3scale logo-3scale--svg logo-3scale--boxed' id="logo">
+          3scale
+        </h1>
+
+        <h1>Not Found</h1>
+        <p>Sorry. We can't find what you're looking for.</p>
+      </div>
+
+      <div id="footer">
+        <ul>
+          <li class="powered-by-3scale last">
+            <a href="http://www.3scale.net" target="_blank">
+              Powered by <span class="logo-3scale logo-3scale--svg logo-3scale--powered">3scale</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+0     0  23617      0 --:--:-- --:--:-- --:--:-- 23617
+* Connection #0 to host dev-3scale-admin.apps.osepext01.claro.amx left intact

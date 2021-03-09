@@ -1,0 +1,60 @@
+Name:         apicast-staging-24
+Namespace:    3scale-project
+Selector:     deployment=apicast-staging-24,deploymentConfig=apicast-staging,deploymentconfig=apicast-staging
+Labels:       app=3scale-api-management
+              openshift.io/deployment-config.name=apicast-staging
+              threescale_component=apicast
+              threescale_component_element=staging
+Annotations:  kubectl.kubernetes.io/desired-replicas: 1
+              kubectl.kubernetes.io/update-source-id: apicast-staging-1:08205bac-cc72-446e-a2f3-f869d2aa1ea7
+              openshift.io/deployer-pod.completed-at: 2020-09-03 21:31:06 +0000 UTC
+              openshift.io/deployer-pod.created-at: 2020-09-03 21:25:58 +0000 UTC
+              openshift.io/deployer-pod.name: apicast-staging-24-deploy
+              openshift.io/deployment-config.latest-version: 24
+              openshift.io/deployment-config.name: apicast-staging
+              openshift.io/deployment.cancelled: true
+              openshift.io/deployment.phase: Failed
+              openshift.io/deployment.replicas: 0
+              openshift.io/deployment.status-reason: newer deployment was found running
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"apicast-staging","namespace":"3scale-project","selfLink...
+Replicas:     0 current / 0 desired
+Pods Status:  0 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:           app=3scale-api-management
+                    deployment=apicast-staging-24
+                    deploymentConfig=apicast-staging
+                    deploymentconfig=apicast-staging
+                    threescale_component=apicast
+                    threescale_component_element=staging
+  Annotations:      openshift.io/deployment-config.latest-version: 24
+                    openshift.io/deployment-config.name: apicast-staging
+                    openshift.io/deployment.name: apicast-staging-24
+                    prometheus.io/port: 9421
+                    prometheus.io/scrape: true
+  Service Account:  amp
+  Containers:
+   apicast-staging:
+    Image:       image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:9220dd6cbfa14b42794b4995381684fa474999890f4fd4195a75466e03ed30a1
+    Ports:       8080/TCP, 8090/TCP, 9421/TCP
+    Host Ports:  0/TCP, 0/TCP, 0/TCP
+    Limits:
+      cpu:     100m
+      memory:  128Mi
+    Requests:
+      cpu:      50m
+      memory:   64Mi
+    Liveness:   http-get http://:8090/status/live delay=10s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:8090/status/ready delay=15s timeout=5s period=30s #success=1 #failure=3
+    Environment:
+      THREESCALE_PORTAL_ENDPOINT:    <set to the key 'PROXY_CONFIGS_ENDPOINT' in secret 'system-master-apicast'>    Optional: false
+      BACKEND_ENDPOINT_OVERRIDE:     <set to the key 'service_endpoint' in secret 'backend-listener'>               Optional: false
+      APICAST_MANAGEMENT_API:        <set to the key 'APICAST_MANAGEMENT_API' of config map 'apicast-environment'>  Optional: false
+      OPENSSL_VERIFY:                <set to the key 'OPENSSL_VERIFY' of config map 'apicast-environment'>          Optional: false
+      APICAST_RESPONSE_CODES:        <set to the key 'APICAST_RESPONSE_CODES' of config map 'apicast-environment'>  Optional: false
+      APICAST_CONFIGURATION_LOADER:  lazy
+      APICAST_CONFIGURATION_CACHE:   0
+      THREESCALE_DEPLOYMENT_ENV:     staging
+    Mounts:                          <none>
+  Volumes:                           <none>
+Events:                              <none>

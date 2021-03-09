@@ -1,0 +1,38 @@
+The following containers have been ignored as there were no previous logs:
+
+
+Error from server (BadRequest): previous terminated container "3scale-operator" in pod "3scale-operator-5f86664c4b-j9tbl" not found
+
+Error from server (BadRequest): previous terminated container "apicast-apicast-production-dev" in pod "apicast-apicast-production-dev-569c594c88-dhnb4" not found
+
+Error from server (BadRequest): previous terminated container "apicast-apicast-staging-dev" in pod "apicast-apicast-staging-dev-79d87c66c9-dpnwt" not found
+
+Error from server (BadRequest): previous terminated container "backend-cron" in pod "backend-cron-3-28zrg" not found
+
+Error from server (BadRequest): previous terminated container "backend-listener" in pod "backend-listener-3-b6df6" not found
+
+Error from server (BadRequest): previous terminated container "backend-worker" in pod "backend-worker-3-c6ft8" not found
+
+Error from server (BadRequest): previous terminated container "lifecycle" in pod "system-app-3-hook-post" not found
+
+Error from server (BadRequest): previous terminated container "lifecycle" in pod "system-app-3-hook-pre" not found
+
+Error from server (BadRequest): previous terminated container "lifecycle" in pod "system-app-4-hook-post" not found
+
+Error from server (BadRequest): previous terminated container "system-master" in pod "system-app-4-sbh5t" not found
+
+Error from server (BadRequest): previous terminated container "system-provider" in pod "system-app-4-sbh5t" not found
+
+Error from server (BadRequest): previous terminated container "system-developer" in pod "system-app-4-sbh5t" not found
+
+Error from server (BadRequest): previous terminated container "lifecycle" in pod "system-app-5-hook-pre" not found
+
+Error from server (BadRequest): previous terminated container "memcache" in pod "system-memcache-2-9nzcb" not found
+
+Error from server (BadRequest): previous terminated container "system-sphinx" in pod "system-sphinx-4-mtj2w" not found
+
+Error from server (BadRequest): previous terminated container "zync" in pod "zync-3-nqhk6" not found
+
+Error from server (BadRequest): previous terminated container "postgresql" in pod "zync-database-2-fwt2w" not found
+
+Error from server (BadRequest): previous terminated container "que" in pod "zync-que-3-h22x7" not found

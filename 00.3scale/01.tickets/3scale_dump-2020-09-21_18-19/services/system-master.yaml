@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+    threescale_component_element: master-ui
+  name: system-master
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378380"
+  selfLink: /api/v1/namespaces/3scale-project/services/system-master
+  uid: 963e3227-8297-4eb3-9c98-30c665a83ee9
+spec:
+  clusterIP: 172.30.253.72
+  ports:
+  - name: http
+    port: 3000
+    protocol: TCP
+    targetPort: master
+  selector:
+    deploymentConfig: system-app
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

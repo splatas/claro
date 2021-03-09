@@ -1,0 +1,3487 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-08-31T13:39:49Z"
+  generation: 38
+  labels:
+    app: 3scale-api-management
+    threescale_component: apicast
+    threescale_component_element: production
+  name: apicast-production
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "259737325"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/apicast-production
+  uid: faa93aa1-2f0e-4734-ba36-491ec82052fe
+spec:
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: apicast-production
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 1800
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        prometheus.io/port: "9421"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: apicast-production
+        threescale_component: apicast
+        threescale_component_element: production
+    spec:
+      containers:
+      - env:
+        - name: THREESCALE_PORTAL_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: PROXY_CONFIGS_ENDPOINT
+              name: system-master-apicast
+        - name: BACKEND_ENDPOINT_OVERRIDE
+          valueFrom:
+            secretKeyRef:
+              key: service_endpoint
+              name: backend-listener
+        - name: APICAST_MANAGEMENT_API
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_MANAGEMENT_API
+              name: apicast-environment
+        - name: OPENSSL_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              key: OPENSSL_VERIFY
+              name: apicast-environment
+        - name: APICAST_RESPONSE_CODES
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_RESPONSE_CODES
+              name: apicast-environment
+        - name: APICAST_CONFIGURATION_LOADER
+          value: boot
+        - name: APICAST_CONFIGURATION_CACHE
+          value: "300"
+        - name: THREESCALE_DEPLOYMENT_ENV
+          value: production
+        image: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/live
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: apicast-production
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8090
+          protocol: TCP
+        - containerPort: 9421
+          name: metrics
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/ready
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: "1"
+            memory: 128Mi
+          requests:
+            cpu: 500m
+            memory: 64Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status);
+          do sleep $SLEEP_SECONDS; done
+        env:
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+        imagePullPolicy: Always
+        name: system-master-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - system-master-svc
+      - apicast-production
+      from:
+        kind: ImageStreamTag
+        name: amp-apicast:latest
+        namespace: 3scale-project
+      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+    type: ImageChange
+status:
+  availableReplicas: 0
+  conditions:
+  - lastTransitionTime: "2020-09-11T14:51:27Z"
+    lastUpdateTime: "2020-09-11T14:51:27Z"
+    message: Deployment config does not have minimum availability.
+    status: "False"
+    type: Available
+  - lastTransitionTime: "2020-09-16T19:24:02Z"
+    lastUpdateTime: "2020-09-16T19:24:02Z"
+    message: replication controller "apicast-production-32" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - type: Manual
+    message: manual change
+  latestVersion: 32
+  observedGeneration: 38
+  replicas: 0
+  unavailableReplicas: 0
+  updatedReplicas: 0
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-08-31T13:39:49Z"
+  generation: 40
+  labels:
+    app: 3scale-api-management
+    threescale_component: apicast
+    threescale_component_element: staging
+  name: apicast-staging
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "259730031"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/apicast-staging
+  uid: a22c4ba7-e086-4149-a18f-fd0eafed19d1
+spec:
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: apicast-staging
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 1800
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        prometheus.io/port: "9421"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: apicast-staging
+        threescale_component: apicast
+        threescale_component_element: staging
+    spec:
+      containers:
+      - env:
+        - name: THREESCALE_PORTAL_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: PROXY_CONFIGS_ENDPOINT
+              name: system-master-apicast
+        - name: BACKEND_ENDPOINT_OVERRIDE
+          valueFrom:
+            secretKeyRef:
+              key: service_endpoint
+              name: backend-listener
+        - name: APICAST_MANAGEMENT_API
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_MANAGEMENT_API
+              name: apicast-environment
+        - name: OPENSSL_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              key: OPENSSL_VERIFY
+              name: apicast-environment
+        - name: APICAST_RESPONSE_CODES
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_RESPONSE_CODES
+              name: apicast-environment
+        - name: APICAST_CONFIGURATION_LOADER
+          value: lazy
+        - name: APICAST_CONFIGURATION_CACHE
+          value: "0"
+        - name: THREESCALE_DEPLOYMENT_ENV
+          value: staging
+        image: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/live
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: apicast-staging
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8090
+          protocol: TCP
+        - containerPort: 9421
+          name: metrics
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/ready
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 50m
+            memory: 64Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - apicast-staging
+      from:
+        kind: ImageStreamTag
+        name: amp-apicast:latest
+        namespace: 3scale-project
+      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+    type: ImageChange
+status:
+  availableReplicas: 0
+  conditions:
+  - lastTransitionTime: "2020-09-11T14:51:27Z"
+    lastUpdateTime: "2020-09-11T14:51:27Z"
+    message: Deployment config does not have minimum availability.
+    status: "False"
+    type: Available
+  - lastTransitionTime: "2020-09-16T19:12:04Z"
+    lastUpdateTime: "2020-09-16T19:12:04Z"
+    message: replication controller "apicast-staging-34" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - type: Manual
+    message: manual change
+  latestVersion: 34
+  observedGeneration: 40
+  replicas: 0
+  unavailableReplicas: 0
+  updatedReplicas: 0
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:51Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    threescale_component: backend
+    threescale_component_element: cron
+  name: backend-cron
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216975137"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/backend-cron
+  uid: f335d24f-a280-4f84-8db6-26ccf6375a61
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: backend-cron
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 1200
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: backend-cron
+        node-role.kubernetes.io/worker: ""
+        threescale_component: backend
+        threescale_component_element: cron
+    spec:
+      containers:
+      - args:
+        - backend-cron
+        env:
+        - name: CONFIG_REDIS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: CONFIG_QUEUES_MASTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_URL
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_ROLE
+              name: backend-redis
+        - name: RACK_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RACK_ENV
+              name: backend-environment
+        image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+        imagePullPolicy: IfNotPresent
+        name: backend-cron
+        resources:
+          limits:
+            cpu: 150m
+            memory: 80Mi
+          requests:
+            cpu: 50m
+            memory: 40Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - /opt/app/entrypoint.sh
+        - sh
+        - -c
+        - until rake connectivity:redis_storage_queue_check; do sleep $SLEEP_SECONDS;
+          done
+        env:
+        - name: CONFIG_REDIS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: CONFIG_QUEUES_MASTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_URL
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_ROLE
+              name: backend-redis
+        - name: RACK_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RACK_ENV
+              name: backend-environment
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+        imagePullPolicy: Always
+        name: backend-redis-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - backend-redis-svc
+      - backend-cron
+      from:
+        kind: ImageStreamTag
+        name: amp-backend:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-27T13:06:00Z"
+    lastUpdateTime: "2020-07-27T13:06:00Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-08-11T18:06:15Z"
+    lastUpdateTime: "2020-08-11T18:06:18Z"
+    message: replication controller "backend-cron-3" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+      type: ImageChange
+    message: image change
+  latestVersion: 3
+  observedGeneration: 4
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    threescale_component: backend
+    threescale_component_element: listener
+  name: backend-listener
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216975772"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/backend-listener
+  uid: bd8d873d-6cf2-4d48-954e-b1afb18cca09
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: backend-listener
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: backend-listener
+        node-role.kubernetes.io/worker: ""
+        threescale_component: backend
+        threescale_component_element: listener
+    spec:
+      containers:
+      - args:
+        - bin/3scale_backend
+        - start
+        - -e
+        - production
+        - -p
+        - "3000"
+        - -x
+        - /dev/stdout
+        env:
+        - name: CONFIG_REDIS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: CONFIG_QUEUES_MASTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_URL
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_ROLE
+              name: backend-redis
+        - name: RACK_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RACK_ENV
+              name: backend-environment
+        - name: PUMA_WORKERS
+          value: "16"
+        - name: CONFIG_INTERNAL_API_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: backend-internal-api
+        - name: CONFIG_INTERNAL_API_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: backend-internal-api
+        image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 3000
+          timeoutSeconds: 1
+        name: backend-listener
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: "1"
+            memory: 700Mi
+          requests:
+            cpu: 500m
+            memory: 550Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - backend-listener
+      from:
+        kind: ImageStreamTag
+        name: amp-backend:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-27T15:21:33Z"
+    lastUpdateTime: "2020-07-27T15:21:33Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-08-11T18:06:53Z"
+    lastUpdateTime: "2020-08-11T18:06:56Z"
+    message: replication controller "backend-listener-3" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+      type: ImageChange
+    message: image change
+  latestVersion: 3
+  observedGeneration: 4
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    threescale_component: backend
+    threescale_component_element: worker
+  name: backend-worker
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216975166"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/backend-worker
+  uid: 02d85144-f363-4545-aafc-2c04c4d74095
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: backend-worker
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 1200
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: backend-worker
+        node-role.kubernetes.io/worker: ""
+        threescale_component: backend
+        threescale_component_element: worker
+    spec:
+      containers:
+      - args:
+        - bin/3scale_backend_worker
+        - run
+        env:
+        - name: CONFIG_REDIS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: CONFIG_QUEUES_MASTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_URL
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_ROLE
+              name: backend-redis
+        - name: RACK_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RACK_ENV
+              name: backend-environment
+        - name: CONFIG_EVENTS_HOOK
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-events-hook
+        - name: CONFIG_EVENTS_HOOK_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: system-events-hook
+        image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+        imagePullPolicy: IfNotPresent
+        name: backend-worker
+        resources:
+          limits:
+            cpu: "1"
+            memory: 300Mi
+          requests:
+            cpu: 150m
+            memory: 50Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - /opt/app/entrypoint.sh
+        - sh
+        - -c
+        - until rake connectivity:redis_storage_queue_check; do sleep $SLEEP_SECONDS;
+          done
+        env:
+        - name: CONFIG_REDIS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: CONFIG_QUEUES_MASTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_URL
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_ROLE
+              name: backend-redis
+        - name: RACK_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RACK_ENV
+              name: backend-environment
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+        imagePullPolicy: Always
+        name: backend-redis-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - backend-redis-svc
+      - backend-worker
+      from:
+        kind: ImageStreamTag
+        name: amp-backend:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-27T13:06:01Z"
+    lastUpdateTime: "2020-07-27T13:06:01Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-08-11T18:06:16Z"
+    lastUpdateTime: "2020-08-11T18:06:19Z"
+    message: replication controller "backend-worker-3" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+      type: ImageChange
+    message: image change
+  latestVersion: 3
+  observedGeneration: 4
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:52Z"
+  generation: 6
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+    threescale_component_element: app
+  name: system-app
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "217278818"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/system-app
+  uid: 1abc9ef3-5a0c-428e-a0df-945acb1f9185
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: system-app
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      post:
+        execNewPod:
+          command:
+          - bash
+          - -c
+          - bundle exec rake boot openshift:post_deploy
+          containerName: system-master
+        failurePolicy: Abort
+      pre:
+        execNewPod:
+          command:
+          - bash
+          - -c
+          - bundle exec rake boot openshift:deploy
+          containerName: system-master
+          env:
+          - name: AMP_RELEASE
+            valueFrom:
+              configMapKeyRef:
+                key: AMP_RELEASE
+                name: system-environment
+          - name: APICAST_REGISTRY_URL
+            valueFrom:
+              configMapKeyRef:
+                key: APICAST_REGISTRY_URL
+                name: system-environment
+          - name: FORCE_SSL
+            valueFrom:
+              configMapKeyRef:
+                key: FORCE_SSL
+                name: system-environment
+          - name: PROVIDER_PLAN
+            valueFrom:
+              configMapKeyRef:
+                key: PROVIDER_PLAN
+                name: system-environment
+          - name: RAILS_ENV
+            valueFrom:
+              configMapKeyRef:
+                key: RAILS_ENV
+                name: system-environment
+          - name: RAILS_LOG_LEVEL
+            valueFrom:
+              configMapKeyRef:
+                key: RAILS_LOG_LEVEL
+                name: system-environment
+          - name: RAILS_LOG_TO_STDOUT
+            valueFrom:
+              configMapKeyRef:
+                key: RAILS_LOG_TO_STDOUT
+                name: system-environment
+          - name: SSL_CERT_DIR
+            valueFrom:
+              configMapKeyRef:
+                key: SSL_CERT_DIR
+                name: system-environment
+          - name: THINKING_SPHINX_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: THINKING_SPHINX_PORT
+                name: system-environment
+          - name: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+            valueFrom:
+              configMapKeyRef:
+                key: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+                name: system-environment
+          - name: THREESCALE_SUPERDOMAIN
+            valueFrom:
+              configMapKeyRef:
+                key: THREESCALE_SUPERDOMAIN
+                name: system-environment
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                key: URL
+                name: system-database
+          - name: MASTER_DOMAIN
+            valueFrom:
+              secretKeyRef:
+                key: MASTER_DOMAIN
+                name: system-seed
+          - name: MASTER_USER
+            valueFrom:
+              secretKeyRef:
+                key: MASTER_USER
+                name: system-seed
+          - name: MASTER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MASTER_PASSWORD
+                name: system-seed
+          - name: ADMIN_ACCESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: ADMIN_ACCESS_TOKEN
+                name: system-seed
+          - name: USER_LOGIN
+            valueFrom:
+              secretKeyRef:
+                key: ADMIN_USER
+                name: system-seed
+          - name: USER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: ADMIN_PASSWORD
+                name: system-seed
+          - name: USER_EMAIL
+            valueFrom:
+              secretKeyRef:
+                key: ADMIN_EMAIL
+                name: system-seed
+          - name: TENANT_NAME
+            valueFrom:
+              secretKeyRef:
+                key: TENANT_NAME
+                name: system-seed
+          - name: THINKING_SPHINX_ADDRESS
+            value: system-sphinx
+          - name: THINKING_SPHINX_CONFIGURATION_FILE
+            value: /tmp/sphinx.conf
+          - name: EVENTS_SHARED_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: PASSWORD
+                name: system-events-hook
+          - name: RECAPTCHA_PUBLIC_KEY
+            valueFrom:
+              secretKeyRef:
+                key: PUBLIC_KEY
+                name: system-recaptcha
+          - name: RECAPTCHA_PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                key: PRIVATE_KEY
+                name: system-recaptcha
+          - name: SECRET_KEY_BASE
+            valueFrom:
+              secretKeyRef:
+                key: SECRET_KEY_BASE
+                name: system-app
+          - name: MEMCACHE_SERVERS
+            valueFrom:
+              secretKeyRef:
+                key: SERVERS
+                name: system-memcache
+          - name: REDIS_URL
+            valueFrom:
+              secretKeyRef:
+                key: URL
+                name: system-redis
+          - name: MESSAGE_BUS_REDIS_URL
+            valueFrom:
+              secretKeyRef:
+                key: MESSAGE_BUS_URL
+                name: system-redis
+          - name: REDIS_NAMESPACE
+            valueFrom:
+              secretKeyRef:
+                key: NAMESPACE
+                name: system-redis
+          - name: MESSAGE_BUS_REDIS_NAMESPACE
+            valueFrom:
+              secretKeyRef:
+                key: MESSAGE_BUS_NAMESPACE
+                name: system-redis
+          - name: REDIS_SENTINEL_HOSTS
+            valueFrom:
+              secretKeyRef:
+                key: SENTINEL_HOSTS
+                name: system-redis
+          - name: REDIS_SENTINEL_ROLE
+            valueFrom:
+              secretKeyRef:
+                key: SENTINEL_ROLE
+                name: system-redis
+          - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+            valueFrom:
+              secretKeyRef:
+                key: MESSAGE_BUS_SENTINEL_HOSTS
+                name: system-redis
+          - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+            valueFrom:
+              secretKeyRef:
+                key: MESSAGE_BUS_SENTINEL_ROLE
+                name: system-redis
+          - name: BACKEND_REDIS_URL
+            valueFrom:
+              secretKeyRef:
+                key: REDIS_STORAGE_URL
+                name: backend-redis
+          - name: BACKEND_REDIS_SENTINEL_HOSTS
+            valueFrom:
+              secretKeyRef:
+                key: REDIS_STORAGE_SENTINEL_HOSTS
+                name: backend-redis
+          - name: BACKEND_REDIS_SENTINEL_ROLE
+            valueFrom:
+              secretKeyRef:
+                key: REDIS_STORAGE_SENTINEL_ROLE
+                name: backend-redis
+          - name: APICAST_BACKEND_ROOT_ENDPOINT
+            valueFrom:
+              secretKeyRef:
+                key: route_endpoint
+                name: backend-listener
+          - name: BACKEND_ROUTE
+            valueFrom:
+              secretKeyRef:
+                key: route_endpoint
+                name: backend-listener
+          - name: SMTP_ADDRESS
+            valueFrom:
+              secretKeyRef:
+                key: address
+                name: system-smtp
+          - name: SMTP_USER_NAME
+            valueFrom:
+              secretKeyRef:
+                key: username
+                name: system-smtp
+          - name: SMTP_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: password
+                name: system-smtp
+          - name: SMTP_DOMAIN
+            valueFrom:
+              secretKeyRef:
+                key: domain
+                name: system-smtp
+          - name: SMTP_PORT
+            valueFrom:
+              secretKeyRef:
+                key: port
+                name: system-smtp
+          - name: SMTP_AUTHENTICATION
+            valueFrom:
+              secretKeyRef:
+                key: authentication
+                name: system-smtp
+          - name: SMTP_OPENSSL_VERIFY_MODE
+            valueFrom:
+              secretKeyRef:
+                key: openssl.verify.mode
+                name: system-smtp
+          - name: APICAST_ACCESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: ACCESS_TOKEN
+                name: system-master-apicast
+          - name: ZYNC_AUTHENTICATION_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: ZYNC_AUTHENTICATION_TOKEN
+                name: zync
+          - name: CONFIG_INTERNAL_API_USER
+            valueFrom:
+              secretKeyRef:
+                key: username
+                name: backend-internal-api
+          - name: CONFIG_INTERNAL_API_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: password
+                name: backend-internal-api
+          - name: MASTER_ACCESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: MASTER_ACCESS_TOKEN
+                name: system-seed
+          volumes:
+          - system-storage
+        failurePolicy: Retry
+      timeoutSeconds: 1200
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: system-app
+        node-role.kubernetes.io/worker: ""
+        threescale_component: system
+        threescale_component_element: app
+    spec:
+      containers:
+      - args:
+        - env
+        - TENANT_MODE=master
+        - PORT=3002
+        - container-entrypoint
+        - bundle
+        - exec
+        - unicorn
+        - -c
+        - config/unicorn.rb
+        env:
+        - name: AMP_RELEASE
+          valueFrom:
+            configMapKeyRef:
+              key: AMP_RELEASE
+              name: system-environment
+        - name: APICAST_REGISTRY_URL
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_REGISTRY_URL
+              name: system-environment
+        - name: FORCE_SSL
+          valueFrom:
+            configMapKeyRef:
+              key: FORCE_SSL
+              name: system-environment
+        - name: PROVIDER_PLAN
+          valueFrom:
+            configMapKeyRef:
+              key: PROVIDER_PLAN
+              name: system-environment
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_ENV
+              name: system-environment
+        - name: RAILS_LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_LEVEL
+              name: system-environment
+        - name: RAILS_LOG_TO_STDOUT
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_TO_STDOUT
+              name: system-environment
+        - name: SSL_CERT_DIR
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_CERT_DIR
+              name: system-environment
+        - name: THINKING_SPHINX_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: THINKING_SPHINX_PORT
+              name: system-environment
+        - name: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+              name: system-environment
+        - name: THREESCALE_SUPERDOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SUPERDOMAIN
+              name: system-environment
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-database
+        - name: MASTER_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_DOMAIN
+              name: system-seed
+        - name: MASTER_USER
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_USER
+              name: system-seed
+        - name: MASTER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_PASSWORD
+              name: system-seed
+        - name: ADMIN_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_ACCESS_TOKEN
+              name: system-seed
+        - name: USER_LOGIN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_USER
+              name: system-seed
+        - name: USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_PASSWORD
+              name: system-seed
+        - name: USER_EMAIL
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_EMAIL
+              name: system-seed
+        - name: TENANT_NAME
+          valueFrom:
+            secretKeyRef:
+              key: TENANT_NAME
+              name: system-seed
+        - name: THINKING_SPHINX_ADDRESS
+          value: system-sphinx
+        - name: THINKING_SPHINX_CONFIGURATION_FILE
+          value: /tmp/sphinx.conf
+        - name: EVENTS_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: system-events-hook
+        - name: RECAPTCHA_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PUBLIC_KEY
+              name: system-recaptcha
+        - name: RECAPTCHA_PRIVATE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PRIVATE_KEY
+              name: system-recaptcha
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: SECRET_KEY_BASE
+              name: system-app
+        - name: MEMCACHE_SERVERS
+          valueFrom:
+            secretKeyRef:
+              key: SERVERS
+              name: system-memcache
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        - name: BACKEND_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: APICAST_BACKEND_ROOT_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: BACKEND_ROUTE
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: SMTP_ADDRESS
+          valueFrom:
+            secretKeyRef:
+              key: address
+              name: system-smtp
+        - name: SMTP_USER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: system-smtp
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: system-smtp
+        - name: SMTP_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: domain
+              name: system-smtp
+        - name: SMTP_PORT
+          valueFrom:
+            secretKeyRef:
+              key: port
+              name: system-smtp
+        - name: SMTP_AUTHENTICATION
+          valueFrom:
+            secretKeyRef:
+              key: authentication
+              name: system-smtp
+        - name: SMTP_OPENSSL_VERIFY_MODE
+          valueFrom:
+            secretKeyRef:
+              key: openssl.verify.mode
+              name: system-smtp
+        - name: APICAST_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ACCESS_TOKEN
+              name: system-master-apicast
+        - name: ZYNC_AUTHENTICATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_AUTHENTICATION_TOKEN
+              name: zync
+        - name: CONFIG_INTERNAL_API_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: backend-internal-api
+        - name: CONFIG_INTERNAL_API_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: backend-internal-api
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 40
+          initialDelaySeconds: 40
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: master
+          timeoutSeconds: 10
+        name: system-master
+        ports:
+        - containerPort: 3002
+          name: master
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 10
+          httpGet:
+            httpHeaders:
+            - name: X-Forwarded-Proto
+              value: https
+            path: /check.txt
+            port: master
+            scheme: HTTP
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 10
+        resources:
+          limits:
+            cpu: "1"
+            memory: 800Mi
+          requests:
+            cpu: 50m
+            memory: 600Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/system/public/system
+          name: system-storage
+        - mountPath: /opt/system-extra-configs
+          name: system-config
+      - args:
+        - env
+        - TENANT_MODE=provider
+        - PORT=3000
+        - container-entrypoint
+        - bundle
+        - exec
+        - unicorn
+        - -c
+        - config/unicorn.rb
+        env:
+        - name: AMP_RELEASE
+          valueFrom:
+            configMapKeyRef:
+              key: AMP_RELEASE
+              name: system-environment
+        - name: APICAST_REGISTRY_URL
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_REGISTRY_URL
+              name: system-environment
+        - name: FORCE_SSL
+          valueFrom:
+            configMapKeyRef:
+              key: FORCE_SSL
+              name: system-environment
+        - name: PROVIDER_PLAN
+          valueFrom:
+            configMapKeyRef:
+              key: PROVIDER_PLAN
+              name: system-environment
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_ENV
+              name: system-environment
+        - name: RAILS_LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_LEVEL
+              name: system-environment
+        - name: RAILS_LOG_TO_STDOUT
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_TO_STDOUT
+              name: system-environment
+        - name: SSL_CERT_DIR
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_CERT_DIR
+              name: system-environment
+        - name: THINKING_SPHINX_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: THINKING_SPHINX_PORT
+              name: system-environment
+        - name: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+              name: system-environment
+        - name: THREESCALE_SUPERDOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SUPERDOMAIN
+              name: system-environment
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-database
+        - name: MASTER_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_DOMAIN
+              name: system-seed
+        - name: MASTER_USER
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_USER
+              name: system-seed
+        - name: MASTER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_PASSWORD
+              name: system-seed
+        - name: ADMIN_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_ACCESS_TOKEN
+              name: system-seed
+        - name: USER_LOGIN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_USER
+              name: system-seed
+        - name: USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_PASSWORD
+              name: system-seed
+        - name: USER_EMAIL
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_EMAIL
+              name: system-seed
+        - name: TENANT_NAME
+          valueFrom:
+            secretKeyRef:
+              key: TENANT_NAME
+              name: system-seed
+        - name: THINKING_SPHINX_ADDRESS
+          value: system-sphinx
+        - name: THINKING_SPHINX_CONFIGURATION_FILE
+          value: /tmp/sphinx.conf
+        - name: EVENTS_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: system-events-hook
+        - name: RECAPTCHA_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PUBLIC_KEY
+              name: system-recaptcha
+        - name: RECAPTCHA_PRIVATE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PRIVATE_KEY
+              name: system-recaptcha
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: SECRET_KEY_BASE
+              name: system-app
+        - name: MEMCACHE_SERVERS
+          valueFrom:
+            secretKeyRef:
+              key: SERVERS
+              name: system-memcache
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        - name: BACKEND_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: APICAST_BACKEND_ROOT_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: BACKEND_ROUTE
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: SMTP_ADDRESS
+          valueFrom:
+            secretKeyRef:
+              key: address
+              name: system-smtp
+        - name: SMTP_USER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: system-smtp
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: system-smtp
+        - name: SMTP_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: domain
+              name: system-smtp
+        - name: SMTP_PORT
+          valueFrom:
+            secretKeyRef:
+              key: port
+              name: system-smtp
+        - name: SMTP_AUTHENTICATION
+          valueFrom:
+            secretKeyRef:
+              key: authentication
+              name: system-smtp
+        - name: SMTP_OPENSSL_VERIFY_MODE
+          valueFrom:
+            secretKeyRef:
+              key: openssl.verify.mode
+              name: system-smtp
+        - name: APICAST_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ACCESS_TOKEN
+              name: system-master-apicast
+        - name: ZYNC_AUTHENTICATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_AUTHENTICATION_TOKEN
+              name: zync
+        - name: CONFIG_INTERNAL_API_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: backend-internal-api
+        - name: CONFIG_INTERNAL_API_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: backend-internal-api
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 40
+          initialDelaySeconds: 40
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: provider
+          timeoutSeconds: 10
+        name: system-provider
+        ports:
+        - containerPort: 3000
+          name: provider
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 10
+          httpGet:
+            httpHeaders:
+            - name: X-Forwarded-Proto
+              value: https
+            path: /check.txt
+            port: provider
+            scheme: HTTP
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 10
+        resources:
+          limits:
+            cpu: "1"
+            memory: 800Mi
+          requests:
+            cpu: 50m
+            memory: 600Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/system/public/system
+          name: system-storage
+        - mountPath: /opt/system-extra-configs
+          name: system-config
+      - args:
+        - env
+        - PORT=3001
+        - container-entrypoint
+        - bundle
+        - exec
+        - unicorn
+        - -c
+        - config/unicorn.rb
+        env:
+        - name: AMP_RELEASE
+          valueFrom:
+            configMapKeyRef:
+              key: AMP_RELEASE
+              name: system-environment
+        - name: APICAST_REGISTRY_URL
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_REGISTRY_URL
+              name: system-environment
+        - name: FORCE_SSL
+          valueFrom:
+            configMapKeyRef:
+              key: FORCE_SSL
+              name: system-environment
+        - name: PROVIDER_PLAN
+          valueFrom:
+            configMapKeyRef:
+              key: PROVIDER_PLAN
+              name: system-environment
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_ENV
+              name: system-environment
+        - name: RAILS_LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_LEVEL
+              name: system-environment
+        - name: RAILS_LOG_TO_STDOUT
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_TO_STDOUT
+              name: system-environment
+        - name: SSL_CERT_DIR
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_CERT_DIR
+              name: system-environment
+        - name: THINKING_SPHINX_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: THINKING_SPHINX_PORT
+              name: system-environment
+        - name: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+              name: system-environment
+        - name: THREESCALE_SUPERDOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SUPERDOMAIN
+              name: system-environment
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-database
+        - name: MASTER_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_DOMAIN
+              name: system-seed
+        - name: MASTER_USER
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_USER
+              name: system-seed
+        - name: MASTER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_PASSWORD
+              name: system-seed
+        - name: ADMIN_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_ACCESS_TOKEN
+              name: system-seed
+        - name: USER_LOGIN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_USER
+              name: system-seed
+        - name: USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_PASSWORD
+              name: system-seed
+        - name: USER_EMAIL
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_EMAIL
+              name: system-seed
+        - name: TENANT_NAME
+          valueFrom:
+            secretKeyRef:
+              key: TENANT_NAME
+              name: system-seed
+        - name: THINKING_SPHINX_ADDRESS
+          value: system-sphinx
+        - name: THINKING_SPHINX_CONFIGURATION_FILE
+          value: /tmp/sphinx.conf
+        - name: EVENTS_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: system-events-hook
+        - name: RECAPTCHA_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PUBLIC_KEY
+              name: system-recaptcha
+        - name: RECAPTCHA_PRIVATE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PRIVATE_KEY
+              name: system-recaptcha
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: SECRET_KEY_BASE
+              name: system-app
+        - name: MEMCACHE_SERVERS
+          valueFrom:
+            secretKeyRef:
+              key: SERVERS
+              name: system-memcache
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        - name: BACKEND_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: APICAST_BACKEND_ROOT_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: BACKEND_ROUTE
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: SMTP_ADDRESS
+          valueFrom:
+            secretKeyRef:
+              key: address
+              name: system-smtp
+        - name: SMTP_USER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: system-smtp
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: system-smtp
+        - name: SMTP_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: domain
+              name: system-smtp
+        - name: SMTP_PORT
+          valueFrom:
+            secretKeyRef:
+              key: port
+              name: system-smtp
+        - name: SMTP_AUTHENTICATION
+          valueFrom:
+            secretKeyRef:
+              key: authentication
+              name: system-smtp
+        - name: SMTP_OPENSSL_VERIFY_MODE
+          valueFrom:
+            secretKeyRef:
+              key: openssl.verify.mode
+              name: system-smtp
+        - name: APICAST_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ACCESS_TOKEN
+              name: system-master-apicast
+        - name: ZYNC_AUTHENTICATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_AUTHENTICATION_TOKEN
+              name: zync
+        - name: CONFIG_INTERNAL_API_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: backend-internal-api
+        - name: CONFIG_INTERNAL_API_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: backend-internal-api
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 40
+          initialDelaySeconds: 40
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: developer
+          timeoutSeconds: 10
+        name: system-developer
+        ports:
+        - containerPort: 3001
+          name: developer
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 10
+          httpGet:
+            httpHeaders:
+            - name: X-Forwarded-Proto
+              value: https
+            path: /check.txt
+            port: developer
+            scheme: HTTP
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 10
+        resources:
+          limits:
+            cpu: "1"
+            memory: 800Mi
+          requests:
+            cpu: 50m
+            memory: 600Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/system/public/system
+          name: system-storage
+          readOnly: true
+        - mountPath: /opt/system-extra-configs
+          name: system-config
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: system-storage
+        persistentVolumeClaim:
+          claimName: system-storage
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: zync.yml
+            path: zync.yml
+          - key: rolling_updates.yml
+            path: rolling_updates.yml
+          - key: service_discovery.yml
+            path: service_discovery.yml
+          name: system
+        name: system-config
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - system-provider
+      - system-developer
+      - system-master
+      from:
+        kind: ImageStreamTag
+        name: amp-system:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-27T15:18:23Z"
+    lastUpdateTime: "2020-07-27T15:18:23Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-08-12T00:05:42Z"
+    lastUpdateTime: "2020-08-12T00:05:42Z"
+    message: replication controller "system-app-5" has failed progressing
+    reason: ProgressDeadlineExceeded
+    status: "False"
+    type: Progressing
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      type: ImageChange
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      type: ImageChange
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      type: ImageChange
+    message: image change
+  latestVersion: 5
+  observedGeneration: 6
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 0
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  generation: 3
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+    threescale_component_element: memcache
+  name: system-memcache
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198490977"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/system-memcache
+  uid: df1d1c60-d1ae-4f70-8caf-91ba2dd77a4b
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: system-memcache
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: system-memcache
+        node-role.kubernetes.io/worker: ""
+        threescale_component: system
+        threescale_component_element: memcache
+    spec:
+      containers:
+      - command:
+        - memcached
+        - -m
+        - "64"
+        image: registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 11211
+          timeoutSeconds: 1
+        name: memcache
+        ports:
+        - containerPort: 11211
+          protocol: TCP
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - echo version | nc $HOSTNAME 11211 | grep VERSION
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: 250m
+            memory: 96Mi
+          requests:
+            cpu: 50m
+            memory: 64Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - memcache
+      from:
+        kind: ImageStreamTag
+        name: system-memcached:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-27T13:06:37Z"
+    lastUpdateTime: "2020-07-27T13:06:37Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-07-27T15:15:50Z"
+    lastUpdateTime: "2020-07-27T15:15:53Z"
+    message: replication controller "system-memcache-2" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - type: ConfigChange
+    message: config change
+  latestVersion: 2
+  observedGeneration: 3
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  generation: 5
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+    threescale_component_element: sidekiq
+  name: system-sidekiq
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "264679227"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/system-sidekiq
+  uid: a0e70fb0-b766-4010-a7e5-2ff90c824e4f
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: system-sidekiq
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 1200
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: system-sidekiq
+        node-role.kubernetes.io/worker: ""
+        threescale_component: system
+        threescale_component_element: sidekiq
+    spec:
+      containers:
+      - args:
+        - rake
+        - sidekiq:worker
+        - RAILS_MAX_THREADS=25
+        env:
+        - name: AMP_RELEASE
+          valueFrom:
+            configMapKeyRef:
+              key: AMP_RELEASE
+              name: system-environment
+        - name: APICAST_REGISTRY_URL
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_REGISTRY_URL
+              name: system-environment
+        - name: FORCE_SSL
+          valueFrom:
+            configMapKeyRef:
+              key: FORCE_SSL
+              name: system-environment
+        - name: PROVIDER_PLAN
+          valueFrom:
+            configMapKeyRef:
+              key: PROVIDER_PLAN
+              name: system-environment
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_ENV
+              name: system-environment
+        - name: RAILS_LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_LEVEL
+              name: system-environment
+        - name: RAILS_LOG_TO_STDOUT
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_TO_STDOUT
+              name: system-environment
+        - name: SSL_CERT_DIR
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_CERT_DIR
+              name: system-environment
+        - name: THINKING_SPHINX_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: THINKING_SPHINX_PORT
+              name: system-environment
+        - name: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+              name: system-environment
+        - name: THREESCALE_SUPERDOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SUPERDOMAIN
+              name: system-environment
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-database
+        - name: MASTER_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_DOMAIN
+              name: system-seed
+        - name: MASTER_USER
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_USER
+              name: system-seed
+        - name: MASTER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_PASSWORD
+              name: system-seed
+        - name: ADMIN_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_ACCESS_TOKEN
+              name: system-seed
+        - name: USER_LOGIN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_USER
+              name: system-seed
+        - name: USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_PASSWORD
+              name: system-seed
+        - name: USER_EMAIL
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_EMAIL
+              name: system-seed
+        - name: TENANT_NAME
+          valueFrom:
+            secretKeyRef:
+              key: TENANT_NAME
+              name: system-seed
+        - name: THINKING_SPHINX_ADDRESS
+          value: system-sphinx
+        - name: THINKING_SPHINX_CONFIGURATION_FILE
+          value: /tmp/sphinx.conf
+        - name: EVENTS_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: system-events-hook
+        - name: RECAPTCHA_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PUBLIC_KEY
+              name: system-recaptcha
+        - name: RECAPTCHA_PRIVATE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PRIVATE_KEY
+              name: system-recaptcha
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: SECRET_KEY_BASE
+              name: system-app
+        - name: MEMCACHE_SERVERS
+          valueFrom:
+            secretKeyRef:
+              key: SERVERS
+              name: system-memcache
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        - name: BACKEND_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: APICAST_BACKEND_ROOT_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: BACKEND_ROUTE
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: SMTP_ADDRESS
+          valueFrom:
+            secretKeyRef:
+              key: address
+              name: system-smtp
+        - name: SMTP_USER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: system-smtp
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: system-smtp
+        - name: SMTP_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: domain
+              name: system-smtp
+        - name: SMTP_PORT
+          valueFrom:
+            secretKeyRef:
+              key: port
+              name: system-smtp
+        - name: SMTP_AUTHENTICATION
+          valueFrom:
+            secretKeyRef:
+              key: authentication
+              name: system-smtp
+        - name: SMTP_OPENSSL_VERIFY_MODE
+          valueFrom:
+            secretKeyRef:
+              key: openssl.verify.mode
+              name: system-smtp
+        - name: APICAST_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ACCESS_TOKEN
+              name: system-master-apicast
+        - name: ZYNC_AUTHENTICATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_AUTHENTICATION_TOKEN
+              name: zync
+        - name: CONFIG_INTERNAL_API_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: backend-internal-api
+        - name: CONFIG_INTERNAL_API_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: backend-internal-api
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: IfNotPresent
+        name: system-sidekiq
+        resources:
+          limits:
+            cpu: "1"
+            memory: 2Gi
+          requests:
+            cpu: 100m
+            memory: 500Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/system/public/system
+          name: system-storage
+        - mountPath: /tmp
+          name: system-tmp
+        - mountPath: /opt/system-extra-configs
+          name: system-config
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - bash
+        - -c
+        - bundle exec sh -c "until rake boot:redis && curl --output /dev/null --silent
+          --fail --head http://system-master:3000/status; do sleep $SLEEP_SECONDS;
+          done"
+        env:
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: Always
+        name: check-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: system-tmp
+      - name: system-storage
+        persistentVolumeClaim:
+          claimName: system-storage
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: zync.yml
+            path: zync.yml
+          - key: rolling_updates.yml
+            path: rolling_updates.yml
+          - key: service_discovery.yml
+            path: service_discovery.yml
+          name: system
+        name: system-config
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - check-svc
+      - system-sidekiq
+      from:
+        kind: ImageStreamTag
+        name: amp-system:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-08-11T18:07:06Z"
+    lastUpdateTime: "2020-08-11T18:07:09Z"
+    message: replication controller "system-sidekiq-4" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2020-09-21T08:03:38Z"
+    lastUpdateTime: "2020-09-21T08:03:38Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      type: ImageChange
+    message: image change
+  latestVersion: 4
+  observedGeneration: 5
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:52Z"
+  generation: 5
+  labels:
+    app: 3scale-api-management
+    node-role.kubernetes.io/worker: ""
+    threescale_component: system
+    threescale_component_element: sphinx
+  name: system-sphinx
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216975716"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/system-sphinx
+  uid: 8ab59406-9355-4bd3-a676-2bb61ab918f0
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: system-sphinx
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 1200
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: system-sphinx
+        node-role.kubernetes.io/worker: ""
+        threescale_component: system
+        threescale_component_element: sphinx
+    spec:
+      containers:
+      - args:
+        - rake
+        - openshift:thinking_sphinx:start
+        env:
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_ENV
+              name: system-environment
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-database
+        - name: THINKING_SPHINX_ADDRESS
+          value: 0.0.0.0
+        - name: THINKING_SPHINX_CONFIGURATION_FILE
+          value: db/sphinx/production.conf
+        - name: THINKING_SPHINX_PID_FILE
+          value: db/sphinx/searchd.pid
+        - name: DELTA_INDEX_INTERVAL
+          value: "5"
+        - name: FULL_REINDEX_INTERVAL
+          value: "60"
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 9306
+          timeoutSeconds: 1
+        name: system-sphinx
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 80m
+            memory: 250Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/system/db/sphinx
+          name: system-sphinx-database
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status);
+          do sleep $SLEEP_SECONDS; done
+        env:
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: Always
+        name: system-master-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: system-sphinx-database
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - system-master-svc
+      - system-sphinx
+      from:
+        kind: ImageStreamTag
+        name: amp-system:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-27T13:58:30Z"
+    lastUpdateTime: "2020-07-27T13:58:30Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-08-11T18:06:50Z"
+    lastUpdateTime: "2020-08-11T18:06:53Z"
+    message: replication controller "system-sphinx-4" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      type: ImageChange
+    message: image change
+  latestVersion: 4
+  observedGeneration: 5
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    prometheus.io/port: "9393"
+    prometheus.io/scrape: "true"
+  creationTimestamp: "2020-07-27T13:05:51Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    node-role.kubernetes.io/worker: ""
+    threescale_component: zync
+  name: zync
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "260707738"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/zync
+  uid: 45f7ed93-5911-4389-906a-f7d6e6fd7edb
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: zync
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: zync
+        node-role.kubernetes.io/worker: ""
+        threescale_component: zync
+    spec:
+      containers:
+      - env:
+        - name: RAILS_LOG_TO_STDOUT
+          value: "true"
+        - name: RAILS_ENV
+          value: production
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: DATABASE_URL
+              name: zync
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: SECRET_KEY_BASE
+              name: zync
+        - name: ZYNC_AUTHENTICATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_AUTHENTICATION_TOKEN
+              name: zync
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 10
+          httpGet:
+            path: /status/live
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 60
+        name: zync
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/ready
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 100
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 150m
+            memory: 250M
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - bash
+        - -c
+        - bundle exec sh -c "until rake boot:db; do sleep $SLEEP_SECONDS; done"
+        env:
+        - name: SLEEP_SECONDS
+          value: "1"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: DATABASE_URL
+              name: zync
+        image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+        imagePullPolicy: Always
+        name: zync-db-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - zync-db-svc
+      - zync
+      from:
+        kind: ImageStreamTag
+        name: amp-zync:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-08-11T18:08:04Z"
+    lastUpdateTime: "2020-08-11T18:08:07Z"
+    message: replication controller "zync-3" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2020-09-17T16:45:27Z"
+    lastUpdateTime: "2020-09-17T16:45:27Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+      type: ImageChange
+    message: image change
+  latestVersion: 3
+  observedGeneration: 4
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:51Z"
+  generation: 3
+  labels:
+    app: 3scale-api-management
+    node-role.kubernetes.io/worker: ""
+    threescale_component: zync
+    threescale_component_element: database
+  name: zync-database
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198503094"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/zync-database
+  uid: 18b1f8a3-66ae-4df8-a511-fe68788d1261
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: zync-database
+  strategy:
+    activeDeadlineSeconds: 21600
+    recreateParams:
+      timeoutSeconds: 600
+    resources: {}
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: zync-database
+        node-role.kubernetes.io/worker: ""
+        threescale_component: zync
+        threescale_component_element: database
+    spec:
+      containers:
+      - env:
+        - name: POSTGRESQL_USER
+          value: zync
+        - name: POSTGRESQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_DATABASE_PASSWORD
+              name: zync
+        - name: POSTGRESQL_DATABASE
+          value: zync_production
+        image: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 5432
+          timeoutSeconds: 1
+        name: postgresql
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -i
+            - -c
+            - psql -h 127.0.0.1 -U zync -q -d zync_production -c 'SELECT 1'
+          failureThreshold: 3
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: 250m
+            memory: 2G
+          requests:
+            cpu: 50m
+            memory: 250M
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/pgsql/data
+          name: zync-database-data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: zync-database-data
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - postgresql
+      from:
+        kind: ImageStreamTag
+        name: zync-database-postgresql:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-27T15:16:46Z"
+    lastUpdateTime: "2020-07-27T15:21:44Z"
+    message: replication controller "zync-database-2" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2020-07-27T15:29:20Z"
+    lastUpdateTime: "2020-07-27T15:29:20Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  details:
+    causes:
+    - type: ConfigChange
+    message: config change
+  latestVersion: 2
+  observedGeneration: 3
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:51Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    node-role.kubernetes.io/worker: ""
+    threescale_component: zync
+  name: zync-que
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "260712780"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/zync-que
+  uid: 466152c8-1c88-42e0-83bb-45eb3d7fefe4
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: zync-que
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        prometheus.io/port: "9394"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: zync-que
+        node-role.kubernetes.io/worker: ""
+    spec:
+      containers:
+      - args:
+        - -c
+        - bundle exec rake 'que[--worker-count 10]'
+        command:
+        - /usr/bin/bash
+        env:
+        - name: RAILS_LOG_TO_STDOUT
+          value: "true"
+        - name: RAILS_ENV
+          value: production
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: DATABASE_URL
+              name: zync
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: SECRET_KEY_BASE
+              name: zync
+        - name: ZYNC_AUTHENTICATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_AUTHENTICATION_TOKEN
+              name: zync
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /metrics
+            port: 9394
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 60
+        name: que
+        ports:
+        - containerPort: 9394
+          name: metrics
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            memory: 250M
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: zync-que-sa
+      serviceAccountName: zync-que-sa
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - que
+      from:
+        kind: ImageStreamTag
+        name: amp-zync:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-08-11T18:06:10Z"
+    lastUpdateTime: "2020-08-11T18:06:12Z"
+    message: replication controller "zync-que-3" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2020-09-17T16:51:56Z"
+    lastUpdateTime: "2020-09-17T16:51:56Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+      type: ImageChange
+    message: image change
+  latestVersion: 3
+  observedGeneration: 4
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1

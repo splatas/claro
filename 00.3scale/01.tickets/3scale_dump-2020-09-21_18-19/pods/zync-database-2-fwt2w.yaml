@@ -1,0 +1,175 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.128.0.66"
+          ],
+          "dns": {},
+          "default-route": [
+              "10.128.0.1"
+          ]
+      }]
+    openshift.io/deployment-config.latest-version: "2"
+    openshift.io/deployment-config.name: zync-database
+    openshift.io/deployment.name: zync-database-2
+    openshift.io/scc: restricted
+  creationTimestamp: "2020-07-27T15:29:11Z"
+  generateName: zync-database-2-
+  labels:
+    app: 3scale-api-management
+    deployment: zync-database-2
+    deploymentConfig: zync-database
+    deploymentconfig: zync-database
+    node-role.kubernetes.io/worker: ""
+    threescale_component: zync
+    threescale_component_element: database
+  name: zync-database-2-fwt2w
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicationController
+    name: zync-database-2
+    uid: eff4b82d-a691-4fa9-9695-563725131fd0
+  resourceVersion: "198503009"
+  selfLink: /api/v1/namespaces/3scale-project/pods/zync-database-2-fwt2w
+  uid: 34e63ac4-e4ea-460f-9e4c-e0587bceb4e8
+spec:
+  containers:
+  - env:
+    - name: POSTGRESQL_USER
+      value: zync
+    - name: POSTGRESQL_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: ZYNC_DATABASE_PASSWORD
+          name: zync
+    - name: POSTGRESQL_DATABASE
+      value: zync_production
+    image: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      failureThreshold: 3
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      successThreshold: 1
+      tcpSocket:
+        port: 5432
+      timeoutSeconds: 1
+    name: postgresql
+    ports:
+    - containerPort: 5432
+      protocol: TCP
+    readinessProbe:
+      exec:
+        command:
+        - /bin/sh
+        - -i
+        - -c
+        - psql -h 127.0.0.1 -U zync -q -d zync_production -c 'SELECT 1'
+      failureThreshold: 3
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    resources:
+      limits:
+        cpu: 250m
+        memory: 2G
+      requests:
+        cpu: 50m
+        memory: 250M
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/lib/pgsql/data
+      name: zync-database-data
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: amp-token-5cmpq
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: threescale-registry-auth
+  - name: amp-dockercfg-cvfh4
+  nodeName: infra-01.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: amp
+  serviceAccountName: amp
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - emptyDir: {}
+    name: zync-database-data
+  - name: amp-token-5cmpq
+    secret:
+      defaultMode: 420
+      secretName: amp-token-5cmpq
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T15:29:11Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T15:29:20Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T15:29:20Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T15:29:11Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://4b1179654e9858aa0a62f5d40ac913aaa2d9349d5baa23c517153bd4a395dd21
+    image: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    imageID: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    lastState: {}
+    name: postgresql
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-07-27T15:29:13Z"
+  hostIP: 10.92.114.128
+  phase: Running
+  podIP: 10.128.0.66
+  podIPs:
+  - ip: 10.128.0.66
+  qosClass: Burstable
+  startTime: "2020-07-27T15:29:11Z"

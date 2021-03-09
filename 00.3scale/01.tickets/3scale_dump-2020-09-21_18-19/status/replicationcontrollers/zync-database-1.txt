@@ -1,0 +1,55 @@
+Name:         zync-database-1
+Namespace:    3scale-project
+Selector:     deployment=zync-database-1,deploymentConfig=zync-database,deploymentconfig=zync-database
+Labels:       app=3scale-api-management
+              openshift.io/deployment-config.name=zync-database
+              threescale_component=zync
+              threescale_component_element=database
+Annotations:  openshift.io/deployer-pod.completed-at: 2020-07-27 13:06:11 +0000 UTC
+              openshift.io/deployer-pod.created-at: 2020-07-27 13:05:53 +0000 UTC
+              openshift.io/deployer-pod.name: zync-database-1-deploy
+              openshift.io/deployment-config.latest-version: 1
+              openshift.io/deployment-config.name: zync-database
+              openshift.io/deployment.phase: Complete
+              openshift.io/deployment.replicas: 1
+              openshift.io/deployment.status-reason: config change
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"zync-database","namespace":"3scale-project","selfLink":...
+Replicas:     0 current / 0 desired
+Pods Status:  0 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:           app=3scale-api-management
+                    deployment=zync-database-1
+                    deploymentConfig=zync-database
+                    deploymentconfig=zync-database
+                    threescale_component=zync
+                    threescale_component_element=database
+  Annotations:      openshift.io/deployment-config.latest-version: 1
+                    openshift.io/deployment-config.name: zync-database
+                    openshift.io/deployment.name: zync-database-1
+  Service Account:  amp
+  Containers:
+   postgresql:
+    Image:      registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    Port:       5432/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     250m
+      memory:  2G
+    Requests:
+      cpu:      50m
+      memory:   250M
+    Liveness:   tcp-socket :5432 delay=30s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  exec [/bin/sh -i -c psql -h 127.0.0.1 -U zync -q -d zync_production -c 'SELECT 1'] delay=5s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      POSTGRESQL_USER:      zync
+      POSTGRESQL_PASSWORD:  <set to the key 'ZYNC_DATABASE_PASSWORD' in secret 'zync'>  Optional: false
+      POSTGRESQL_DATABASE:  zync_production
+    Mounts:
+      /var/lib/pgsql/data from zync-database-data (rw)
+  Volumes:
+   zync-database-data:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+Events:         <none>

@@ -1,0 +1,910 @@
+Name:               infra-01.osepext01.claro.amx
+Roles:              infra
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=infra-01.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/infra=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-infra-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/desiredConfig: rendered-infra-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Thu, 12 Dec 2019 18:22:02 -0300
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:31:48 -0300   Thu, 02 Jul 2020 11:10:07 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:31:48 -0300   Thu, 02 Jul 2020 11:10:07 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:31:48 -0300   Thu, 02 Jul 2020 11:10:07 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:31:48 -0300   Thu, 02 Jul 2020 11:10:07 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.128
+  InternalIP:  10.92.114.128
+  Hostname:    infra-01.osepext01.claro.amx
+Capacity:
+ cpu:                16
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             65964244Ki
+ pods:               250
+Allocatable:
+ cpu:                15500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             64813268Ki
+ pods:               250
+System Info:
+ Machine ID:                              5ef44f73721c4e0f9689447afd2f1dd7
+ System UUID:                             06190742-92c0-4e9e-b362-b97264c23468
+ Boot ID:                                 e2d35f42-42eb-444f-b9d9-42501b1dd21e
+ Kernel Version:                          4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                        linux
+ Architecture:                            amd64
+ Container Runtime Version:               cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                         v1.17.1
+ Kube-Proxy Version:                      v1.17.1
+ProviderID:                               vsphere://42071906-c092-9e4e-b362-b97264c23468
+Non-terminated Pods:                      (26 in total)
+  Namespace                               Name                                        CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                               ----                                        ------------  ----------  ---------------  -------------  ---
+  3scale-project                          apicast-prod-staging-56f69c7499-wl29q       500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     7d3h
+  3scale-project                          claro-mock-service-dc-3-4xl2q               200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       13d
+  3scale-project                          system-sphinx-4-mtj2w                       200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       41d
+  3scale-project                          zync-database-2-fwt2w                       50m (0%)      250m (1%)   250M (0%)        2G (3%)        56d
+  claro-arquitectura                      nats-server-0                               400m (2%)     4 (25%)     2Gi (3%)         2Gi (3%)       2d19h
+  idp                                     claro-sso-4-2lcgk                           200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       2d23h
+  istio-system                            kiali-7564cbd696-fbsr2                      0 (0%)        0 (0%)      0 (0%)           0 (0%)         81d
+  openshift-cluster-node-tuning-operator  tuned-pv9zl                                 10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-cluster-storage-operator      csi-snapshot-controller-6dcf7c7b4f-bv97s    10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         81d
+  openshift-dns                           dns-default-rtwc7                           110m (0%)     0 (0%)      70Mi (0%)        512Mi (0%)     104d
+  openshift-image-registry                image-registry-67d655946b-dzx7r             100m (0%)     0 (0%)      256Mi (0%)       0 (0%)         9d
+  openshift-image-registry                node-ca-gr24v                               10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-ingress                       router-default-766ccf669c-7q4vd             100m (0%)     0 (0%)      256Mi (0%)       0 (0%)         81d
+  openshift-logging                       fluentd-7nhqj                               200m (1%)     0 (0%)      1Gi (1%)         1Gi (1%)       69d
+  openshift-machine-config-operator       machine-config-daemon-q5klp                 20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                    alertmanager-main-2                         105m (0%)     100m (0%)   245Mi (0%)       25Mi (0%)      69d
+  openshift-monitoring                    grafana-65b749d6f4-ggd24                    5m (0%)       0 (0%)      120Mi (0%)       0 (0%)         16d
+  openshift-monitoring                    node-exporter-ltskf                         9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-monitoring                    prometheus-adapter-7c476577b5-tnpnz         1m (0%)       0 (0%)      20Mi (0%)        0 (0%)         11d
+  openshift-monitoring                    prometheus-k8s-1                            76m (0%)      200m (1%)   1234Mi (1%)      50Mi (0%)      16d
+  openshift-monitoring                    telemeter-client-5d9858f55d-kgmgc           3m (0%)       0 (0%)      20Mi (0%)        0 (0%)         69d
+  openshift-monitoring                    thanos-querier-86b7c944f9-2dvrq             8m (0%)       0 (0%)      72Mi (0%)        0 (0%)         4d21h
+  openshift-multus                        multus-ccbzh                                10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operators                     istio-node-9jbdt                            20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                           ovs-hgw8m                                   100m (0%)     0 (0%)      400Mi (0%)       0 (0%)         104d
+  openshift-sdn                           sdn-ddbh5                                   100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests           Limits
+  --------           --------           ------
+  cpu                2547m (16%)        11550m (74%)
+  memory             10548064896 (15%)  8976741Ki (13%)
+  ephemeral-storage  0 (0%)             0 (0%)
+Events:              <none>
+
+Name:               infra-02.osepext01.claro.amx
+Roles:              infra
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=infra-02.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/infra=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-infra-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/desiredConfig: rendered-infra-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 13 Dec 2019 12:09:38 -0300
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:28:09 -0300   Thu, 02 Jul 2020 11:06:27 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:28:09 -0300   Thu, 02 Jul 2020 11:06:27 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:28:09 -0300   Thu, 02 Jul 2020 11:06:27 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:28:09 -0300   Thu, 02 Jul 2020 11:06:27 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.129
+  InternalIP:  10.92.114.129
+  Hostname:    infra-02.osepext01.claro.amx
+Capacity:
+ cpu:                16
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             65964244Ki
+ pods:               250
+Allocatable:
+ cpu:                15500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             64813268Ki
+ pods:               250
+System Info:
+ Machine ID:                              bb99a5049a4d4047a1341ed347a762be
+ System UUID:                             f51b0742-3d1d-1edc-2951-2c9ffdd7bf9a
+ Boot ID:                                 86495644-6feb-48e6-87f4-6b36d7388d5e
+ Kernel Version:                          4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                        linux
+ Architecture:                            amd64
+ Container Runtime Version:               cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                         v1.17.1
+ Kube-Proxy Version:                      v1.17.1
+ProviderID:                               vsphere://42071bf5-1d3d-dc1e-2951-2c9ffdd7bf9a
+Non-terminated Pods:                      (18 in total)
+  Namespace                               Name                                             CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                               ----                                             ------------  ----------  ---------------  -------------  ---
+  3scale-project                          backend-listener-3-b6df6                         500m (3%)     1 (6%)      550Mi (0%)       700Mi (1%)     41d
+  claro-arquitectura                      nats-server-2                                    400m (2%)     4 (25%)     2Gi (3%)         2Gi (3%)       2d19h
+  openshift-cluster-node-tuning-operator  tuned-tjwvn                                      10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-dns                           dns-default-df4qk                                110m (0%)     0 (0%)      70Mi (0%)        512Mi (0%)     104d
+  openshift-image-registry                image-registry-67d655946b-hskb8                  100m (0%)     0 (0%)      256Mi (0%)       0 (0%)         69d
+  openshift-image-registry                node-ca-zjc89                                    10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-ingress                       router-default-766ccf669c-6vrbn                  100m (0%)     0 (0%)      256Mi (0%)       0 (0%)         81d
+  openshift-logging                       elasticsearch-cdm-3gbif9u8-1-544494f65b-n7xct    300m (1%)     0 (0%)      2112Mi (3%)      4160Mi (6%)    81d
+  openshift-logging                       elasticsearch-cdm-3gbif9u8-3-5666cf4766-bs2g9    300m (1%)     0 (0%)      2112Mi (3%)      4160Mi (6%)    81d
+  openshift-logging                       fluentd-qgpmk                                    200m (1%)     0 (0%)      1Gi (1%)         1Gi (1%)       69d
+  openshift-machine-config-operator       machine-config-daemon-shvb5                      20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                    alertmanager-main-0                              105m (0%)     100m (0%)   245Mi (0%)       25Mi (0%)      69d
+  openshift-monitoring                    node-exporter-jttvx                              9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-monitoring                    prometheus-k8s-0                                 76m (0%)      200m (1%)   1234Mi (1%)      50Mi (0%)      16d
+  openshift-multus                        multus-8cjnq                                     10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operators                     istio-node-ff48x                                 20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                           ovs-cq86q                                        100m (0%)     0 (0%)      400Mi (0%)       0 (0%)         104d
+  openshift-sdn                           sdn-x529q                                        100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests       Limits
+  --------           --------       ------
+  cpu                2470m (15%)    5300m (34%)
+  memory             11177Mi (17%)  12679Mi (20%)
+  ephemeral-storage  0 (0%)         0 (0%)
+Events:              <none>
+
+Name:               infra-03.osepext01.claro.amx
+Roles:              infra
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=infra-03.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/infra=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-infra-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/desiredConfig: rendered-infra-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 13 Dec 2019 15:03:36 -0300
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:30:31 -0300   Thu, 02 Jul 2020 11:03:14 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:30:31 -0300   Thu, 02 Jul 2020 11:03:14 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:30:31 -0300   Thu, 02 Jul 2020 11:03:14 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:30:31 -0300   Thu, 02 Jul 2020 11:03:14 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.130
+  InternalIP:  10.92.114.130
+  Hostname:    infra-03.osepext01.claro.amx
+Capacity:
+ cpu:                16
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             65964456Ki
+ pods:               250
+Allocatable:
+ cpu:                15500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             64813480Ki
+ pods:               250
+System Info:
+ Machine ID:                              190778e8add24953b3b88c070c14434c
+ System UUID:                             231d0742-0924-e2bf-8332-f2b5ef01d680
+ Boot ID:                                 9a37bfef-7655-42e7-83e5-7bcbaba0602f
+ Kernel Version:                          4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                        linux
+ Architecture:                            amd64
+ Container Runtime Version:               cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                         v1.17.1
+ Kube-Proxy Version:                      v1.17.1
+ProviderID:                               vsphere://42071d23-2409-bfe2-8332-f2b5ef01d680
+Non-terminated Pods:                      (24 in total)
+  Namespace                               Name                                            CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                               ----                                            ------------  ----------  ---------------  -------------  ---
+  3scale-project                          3scale-operator-5f86664c4b-j9tbl                200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       41d
+  3scale-project                          backend-cron-3-28zrg                            200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       41d
+  3scale-project                          zync-que-3-h22x7                                250m (1%)     1 (6%)      250M (0%)        512Mi (0%)     4d1h
+  claro-arquitectura                      nats-server-1                                   400m (2%)     4 (25%)     2Gi (3%)         2Gi (3%)       2d19h
+  openshift-cluster-node-tuning-operator  tuned-wvmbz                                     10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-dns                           dns-default-kxmm5                               110m (0%)     0 (0%)      70Mi (0%)        512Mi (0%)     104d
+  openshift-image-registry                image-registry-67d655946b-xxbw8                 100m (0%)     0 (0%)      256Mi (0%)       0 (0%)         9d
+  openshift-image-registry                node-ca-fqxck                                   10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-ingress                       router-default-766ccf669c-rhzv8                 100m (0%)     0 (0%)      256Mi (0%)       0 (0%)         81d
+  openshift-logging                       elasticsearch-cdm-3gbif9u8-2-f47659947-kt6ml    300m (1%)     0 (0%)      2112Mi (3%)      4160Mi (6%)    81d
+  openshift-logging                       fluentd-xmq9g                                   200m (1%)     0 (0%)      1Gi (1%)         1Gi (1%)       69d
+  openshift-logging                       kibana-7ffc8f6f87-gn9jj                         200m (1%)     0 (0%)      992Mi (1%)       992Mi (1%)     87m
+  openshift-machine-config-operator       machine-config-daemon-s4q7w                     20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                    alertmanager-main-1                             105m (0%)     100m (0%)   245Mi (0%)       25Mi (0%)      69d
+  openshift-monitoring                    kube-state-metrics-55d848764b-85wlv             4m (0%)       0 (0%)      120Mi (0%)       0 (0%)         81d
+  openshift-monitoring                    node-exporter-wsgrr                             9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-monitoring                    prometheus-adapter-7c476577b5-btbgx             1m (0%)       0 (0%)      20Mi (0%)        0 (0%)         11d
+  openshift-monitoring                    prometheus-operator-c9cfdb655-qflhc             5m (0%)       0 (0%)      60Mi (0%)        0 (0%)         81d
+  openshift-monitoring                    thanos-querier-86b7c944f9-fprc9                 8m (0%)       0 (0%)      72Mi (0%)        0 (0%)         4d21h
+  openshift-multus                        multus-mjftz                                    10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operators                     istio-node-v69q7                                20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                           ovs-nkdgj                                       100m (0%)     0 (0%)      400Mi (0%)       0 (0%)         104d
+  openshift-sdn                           sdn-whll8                                       100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+  openshift-user-workload-monitoring      prometheus-user-workload-0                      360m (2%)     200m (1%)   1194Mi (1%)      50Mi (0%)      4d21h
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests           Limits
+  --------           --------           ------
+  cpu                2822m (18%)        9300m (60%)
+  memory             12609565312 (18%)  11371Mi (17%)
+  ephemeral-storage  0 (0%)             0 (0%)
+Events:              <none>
+
+Name:               master-01.osepext01.claro.amx
+Roles:              master
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=master-01.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/master=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-master-e0840997b474ccd01c413f14f0ddffe8
+                    machineconfiguration.openshift.io/desiredConfig: rendered-master-e0840997b474ccd01c413f14f0ddffe8
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Thu, 12 Dec 2019 18:21:31 -0300
+Taints:             node-role.kubernetes.io/master:NoSchedule
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:32:40 -0300   Tue, 09 Jun 2020 11:57:51 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:32:40 -0300   Tue, 09 Jun 2020 11:57:51 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:32:40 -0300   Tue, 09 Jun 2020 11:57:51 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:32:40 -0300   Tue, 09 Jun 2020 11:57:51 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.125
+  InternalIP:  10.92.114.125
+  Hostname:    master-01.osepext01.claro.amx
+Capacity:
+ cpu:                8
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             32935636Ki
+ pods:               250
+Allocatable:
+ cpu:                7500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             31784660Ki
+ pods:               250
+System Info:
+ Machine ID:                                    89754aa0403b46d2b1c88ee3728f6324
+ System UUID:                                   d3290742-2417-783d-90d3-6bbfc28b7e36
+ Boot ID:                                       844ae68b-1dd8-4ddb-a0f0-6bf8b818ecdf
+ Kernel Version:                                4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                      Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                              linux
+ Architecture:                                  amd64
+ Container Runtime Version:                     cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                               v1.17.1
+ Kube-Proxy Version:                            v1.17.1
+ProviderID:                                     vsphere://420729d3-1724-3d78-90d3-6bbfc28b7e36
+Non-terminated Pods:                            (32 in total)
+  Namespace                                     Name                                                            CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                                     ----                                                            ------------  ----------  ---------------  -------------  ---
+  openshift-apiserver                           apiserver-675dc5df8b-lg5dt                                      100m (1%)     0 (0%)      200Mi (0%)       0 (0%)         2d19h
+  openshift-authentication                      oauth-openshift-6f56b4c499-gcmwk                                10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         69d
+  openshift-cloud-credential-operator           cloud-credential-operator-594567c7b4-jz47z                      10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-cluster-machine-approver            machine-approver-6c47f76bb5-b47lw                               20m (0%)      0 (0%)      70Mi (0%)        0 (0%)         104d
+  openshift-cluster-node-tuning-operator        cluster-node-tuning-operator-5d58586bd4-ctbb6                   10m (0%)      0 (0%)      20Mi (0%)        0 (0%)         104d
+  openshift-cluster-node-tuning-operator        tuned-vwjbc                                                     10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-cluster-version                     cluster-version-operator-5995b9c89c-2wzg7                       20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-console                             console-56dd687b6f-2v9kp                                        10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         69d
+  openshift-controller-manager                  controller-manager-dchb7                                        100m (1%)     0 (0%)      100Mi (0%)       0 (0%)         11d
+  openshift-dns                                 dns-default-pvbmb                                               110m (1%)     0 (0%)      70Mi (0%)        512Mi (1%)     104d
+  openshift-etcd-operator                       etcd-operator-dd8898d94-6j42s                                   10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-etcd                                etcd-master-01.osepext01.claro.amx                              430m (5%)     0 (0%)      860Mi (2%)       0 (0%)         104d
+  openshift-image-registry                      node-ca-p5dsj                                                   10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-kube-apiserver-operator             kube-apiserver-operator-67b58c6f5f-2n44n                        10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-kube-apiserver                      kube-apiserver-master-01.osepext01.claro.amx                    330m (4%)     0 (0%)      1174Mi (3%)      0 (0%)         11d
+  openshift-kube-controller-manager             kube-controller-manager-master-01.osepext01.claro.amx           100m (1%)     0 (0%)      500Mi (1%)       0 (0%)         104d
+  openshift-kube-scheduler                      openshift-kube-scheduler-master-01.osepext01.claro.amx          20m (0%)      0 (0%)      100Mi (0%)       0 (0%)         104d
+  openshift-logging                             fluentd-gpdh7                                                   200m (2%)     0 (0%)      1Gi (3%)         1Gi (3%)       69d
+  openshift-machine-config-operator             etcd-quorum-guard-7657d4dcc9-4jdh2                              10m (0%)      0 (0%)      5Mi (0%)         0 (0%)         104d
+  openshift-machine-config-operator             machine-config-controller-594ff887c6-xgjbm                      20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-machine-config-operator             machine-config-daemon-h59ph                                     20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-machine-config-operator             machine-config-server-tv98q                                     20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                          node-exporter-nkbcq                                             9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-multus                              multus-admission-controller-c9msq                               20m (0%)      0 (0%)      20Mi (0%)        0 (0%)         104d
+  openshift-multus                              multus-jxhxw                                                    10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operator-lifecycle-manager          catalog-operator-7644fc6f76-n4fwz                               10m (0%)      0 (0%)      80Mi (0%)        0 (0%)         104d
+  openshift-operator-lifecycle-manager          packageserver-59dcd66f46-bg6f2                                  10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         11d
+  openshift-operators                           istio-node-7p577                                                20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                                 ovs-7pbjg                                                       100m (1%)     0 (0%)      400Mi (1%)       0 (0%)         104d
+  openshift-sdn                                 sdn-controller-8fvfx                                            10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-sdn                                 sdn-qpl8l                                                       100m (1%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+  openshift-service-catalog-apiserver-operator  openshift-service-catalog-apiserver-operator-764b6db9b-knkpt    0 (0%)        0 (0%)      50Mi (0%)        0 (0%)         104d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                1869m (24%)   0 (0%)
+  memory             6193Mi (19%)  1536Mi (4%)
+  ephemeral-storage  0 (0%)        0 (0%)
+Events:              <none>
+
+Name:               master-02.osepext01.claro.amx
+Roles:              master
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=master-02.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/master=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-master-e0840997b474ccd01c413f14f0ddffe8
+                    machineconfiguration.openshift.io/desiredConfig: rendered-master-e0840997b474ccd01c413f14f0ddffe8
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Thu, 12 Dec 2019 18:21:35 -0300
+Taints:             node-role.kubernetes.io/master:NoSchedule
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:29:13 -0300   Tue, 09 Jun 2020 11:12:50 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:29:13 -0300   Tue, 09 Jun 2020 11:12:50 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:29:13 -0300   Tue, 09 Jun 2020 11:12:50 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:29:13 -0300   Tue, 09 Jun 2020 11:13:00 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.126
+  InternalIP:  10.92.114.126
+  Hostname:    master-02.osepext01.claro.amx
+Capacity:
+ cpu:                8
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             32935636Ki
+ pods:               250
+Allocatable:
+ cpu:                7500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             31784660Ki
+ pods:               250
+System Info:
+ Machine ID:                                             e5d985f2b5b749fa8f1206a0262244d9
+ System UUID:                                            34430742-023b-b0b2-d566-c52a052c3fb8
+ Boot ID:                                                150f90ec-b55c-4f8d-93d9-b9f215f70987
+ Kernel Version:                                         4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                               Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                                       linux
+ Architecture:                                           amd64
+ Container Runtime Version:                              cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                                        v1.17.1
+ Kube-Proxy Version:                                     v1.17.1
+ProviderID:                                              vsphere://42074334-3b02-b2b0-d566-c52a052c3fb8
+Non-terminated Pods:                                     (41 in total)
+  Namespace                                              Name                                                               CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                                              ----                                                               ------------  ----------  ---------------  -------------  ---
+  openshift-apiserver-operator                           openshift-apiserver-operator-54b67788df-2wxvk                      10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-apiserver                                    apiserver-675dc5df8b-hctwj                                         100m (1%)     0 (0%)      200Mi (0%)       0 (0%)         2d20h
+  openshift-authentication-operator                      authentication-operator-5b96cc9776-m2bb8                           10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-cluster-node-tuning-operator                 tuned-nth7b                                                        10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-cluster-samples-operator                     cluster-samples-operator-6f4dc4d977-9jkwf                          20m (0%)      0 (0%)      0 (0%)           0 (0%)         104d
+  openshift-cluster-storage-operator                     cluster-storage-operator-7f6dfc96-4qnd8                            10m (0%)      0 (0%)      20Mi (0%)        0 (0%)         104d
+  openshift-console-operator                             console-operator-5b46f54579-8prkq                                  10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         104d
+  openshift-controller-manager-operator                  openshift-controller-manager-operator-777bfd7d68-77f6w             10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-controller-manager                           controller-manager-zdfsq                                           100m (1%)     0 (0%)      100Mi (0%)       0 (0%)         11d
+  openshift-dns-operator                                 dns-operator-5995b99c68-bjdvs                                      20m (0%)      0 (0%)      40Mi (0%)        0 (0%)         104d
+  openshift-dns                                          dns-default-hlrsd                                                  110m (1%)     0 (0%)      70Mi (0%)        512Mi (1%)     104d
+  openshift-etcd                                         etcd-master-02.osepext01.claro.amx                                 430m (5%)     0 (0%)      860Mi (2%)       0 (0%)         104d
+  openshift-image-registry                               cluster-image-registry-operator-5846d46b6f-jm54v                   20m (0%)      0 (0%)      0 (0%)           0 (0%)         104d
+  openshift-image-registry                               node-ca-grjpj                                                      10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-ingress-operator                             ingress-operator-6b48d895b6-dn4p4                                  20m (0%)      0 (0%)      40Mi (0%)        0 (0%)         104d
+  openshift-kube-apiserver                               kube-apiserver-master-02.osepext01.claro.amx                       330m (4%)     0 (0%)      1174Mi (3%)      0 (0%)         11d
+  openshift-kube-controller-manager-operator             kube-controller-manager-operator-659dd9c4fb-sf4dw                  10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-kube-controller-manager                      kube-controller-manager-master-02.osepext01.claro.amx              100m (1%)     0 (0%)      500Mi (1%)       0 (0%)         104d
+  openshift-kube-scheduler-operator                      openshift-kube-scheduler-operator-576b576bc5-76nz6                 0 (0%)        0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-kube-scheduler                               openshift-kube-scheduler-master-02.osepext01.claro.amx             20m (0%)      0 (0%)      100Mi (0%)       0 (0%)         104d
+  openshift-kube-storage-version-migrator-operator       kube-storage-version-migrator-operator-6fc5f59c5f-tllns            10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-logging                                      fluentd-sk2tj                                                      200m (2%)     0 (0%)      1Gi (3%)         1Gi (3%)       69d
+  openshift-machine-api                                  cluster-autoscaler-operator-785c9b6c7-hbzd8                        30m (0%)      0 (0%)      70Mi (0%)        0 (0%)         104d
+  openshift-machine-api                                  machine-api-operator-7884c69997-zs8n4                              20m (0%)      0 (0%)      70Mi (0%)        0 (0%)         104d
+  openshift-machine-config-operator                      etcd-quorum-guard-7657d4dcc9-wc8z6                                 10m (0%)      0 (0%)      5Mi (0%)         0 (0%)         104d
+  openshift-machine-config-operator                      machine-config-daemon-r282r                                        20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-machine-config-operator                      machine-config-server-mq8qq                                        20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-marketplace                                  marketplace-operator-697674c9db-tnl74                              10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                                   cluster-monitoring-operator-6ff6bdb969-k2wmv                       10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                                   node-exporter-tj6cc                                                9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-multus                                       multus-admission-controller-hzpgd                                  20m (0%)      0 (0%)      20Mi (0%)        0 (0%)         104d
+  openshift-multus                                       multus-j4l42                                                       10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-network-operator                             network-operator-786bc89f9d-mxrwb                                  10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-operator-lifecycle-manager                   olm-operator-6bb497d455-sgcnl                                      10m (0%)      0 (0%)      160Mi (0%)       0 (0%)         104d
+  openshift-operators                                    istio-node-fq7br                                                   20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                                          ovs-dnm98                                                          100m (1%)     0 (0%)      400Mi (1%)       0 (0%)         104d
+  openshift-sdn                                          sdn-552j5                                                          100m (1%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+  openshift-sdn                                          sdn-controller-2lvtk                                               10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-service-ca-operator                          service-ca-operator-866d4cbd87-hftjg                               10m (0%)      0 (0%)      80Mi (0%)        0 (0%)         104d
+  openshift-service-ca                                   service-ca-6f8846957b-8xs8n                                        10m (0%)      0 (0%)      120Mi (0%)       0 (0%)         104d
+  openshift-service-catalog-controller-manager-operator  openshift-service-catalog-controller-manager-operator-59b5kqwb4    10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                1999m (26%)   0 (0%)
+  memory             6623Mi (21%)  1536Mi (4%)
+  ephemeral-storage  0 (0%)        0 (0%)
+Events:              <none>
+
+Name:               master-03.osepext01.claro.amx
+Roles:              master
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=master-03.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/master=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-master-e0840997b474ccd01c413f14f0ddffe8
+                    machineconfiguration.openshift.io/desiredConfig: rendered-master-e0840997b474ccd01c413f14f0ddffe8
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Thu, 12 Dec 2019 18:21:34 -0300
+Taints:             node-role.kubernetes.io/master:NoSchedule
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:28:03 -0300   Tue, 09 Jun 2020 13:39:34 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:28:03 -0300   Tue, 09 Jun 2020 13:39:34 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:28:03 -0300   Tue, 09 Jun 2020 13:39:34 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:28:03 -0300   Tue, 09 Jun 2020 13:39:34 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.127
+  InternalIP:  10.92.114.127
+  Hostname:    master-03.osepext01.claro.amx
+Capacity:
+ cpu:                8
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             32935636Ki
+ pods:               250
+Allocatable:
+ cpu:                7500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             31784660Ki
+ pods:               250
+System Info:
+ Machine ID:                              02157d731bd842b0876c3adead6b0b03
+ System UUID:                             be260742-b1a2-a97f-780e-94c57ac348d7
+ Boot ID:                                 014662a5-9497-4675-8081-f1a627cffa81
+ Kernel Version:                          4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                        linux
+ Architecture:                            amd64
+ Container Runtime Version:               cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                         v1.17.1
+ Kube-Proxy Version:                      v1.17.1
+ProviderID:                               vsphere://420726be-a2b1-7fa9-780e-94c57ac348d7
+Non-terminated Pods:                      (26 in total)
+  Namespace                               Name                                                      CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                               ----                                                      ------------  ----------  ---------------  -------------  ---
+  openshift-apiserver                     apiserver-675dc5df8b-vfg4s                                100m (1%)     0 (0%)      200Mi (0%)       0 (0%)         2d19h
+  openshift-authentication                oauth-openshift-6f56b4c499-8tfrz                          10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         69d
+  openshift-cluster-node-tuning-operator  tuned-zf7jb                                               10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-console                       console-56dd687b6f-n5v87                                  10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         69d
+  openshift-controller-manager            controller-manager-vh2r7                                  100m (1%)     0 (0%)      100Mi (0%)       0 (0%)         11d
+  openshift-dns                           dns-default-z6tgn                                         110m (1%)     0 (0%)      70Mi (0%)        512Mi (1%)     104d
+  openshift-etcd                          etcd-master-03.osepext01.claro.amx                        430m (5%)     0 (0%)      860Mi (2%)       0 (0%)         104d
+  openshift-image-registry                node-ca-l7xbd                                             10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-insights                      insights-operator-75f4f6c5f-sdrjc                         10m (0%)      0 (0%)      30Mi (0%)        0 (0%)         28d
+  openshift-kube-apiserver                kube-apiserver-master-03.osepext01.claro.amx              330m (4%)     0 (0%)      1174Mi (3%)      0 (0%)         11d
+  openshift-kube-controller-manager       kube-controller-manager-master-03.osepext01.claro.amx     100m (1%)     0 (0%)      500Mi (1%)       0 (0%)         104d
+  openshift-kube-scheduler                openshift-kube-scheduler-master-03.osepext01.claro.amx    20m (0%)      0 (0%)      100Mi (0%)       0 (0%)         104d
+  openshift-logging                       fluentd-mlh4w                                             200m (2%)     0 (0%)      1Gi (3%)         1Gi (3%)       69d
+  openshift-machine-config-operator       etcd-quorum-guard-7657d4dcc9-g2smh                        10m (0%)      0 (0%)      5Mi (0%)         0 (0%)         104d
+  openshift-machine-config-operator       machine-config-daemon-tqh7x                               20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-machine-config-operator       machine-config-operator-768f8b57db-gkhp7                  20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         97d
+  openshift-machine-config-operator       machine-config-server-h7dww                               20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                    node-exporter-9zgwx                                       9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-multus                        multus-admission-controller-b5hqn                         20m (0%)      0 (0%)      20Mi (0%)        0 (0%)         104d
+  openshift-multus                        multus-q2dmm                                              10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operator-lifecycle-manager    packageserver-59dcd66f46-vgknj                            10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         11d
+  openshift-operators                     istio-node-trsm6                                          20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                           ovs-shfbw                                                 100m (1%)     0 (0%)      400Mi (1%)       0 (0%)         104d
+  openshift-sdn                           sdn-c8rvw                                                 100m (1%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+  openshift-sdn                           sdn-controller-znqrw                                      10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-user-workload-monitoring      prometheus-operator-f55d8b559-klzf2                       10m (0%)      0 (0%)      60Mi (0%)        0 (0%)         4d21h
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                1799m (23%)   0 (0%)
+  memory             5763Mi (18%)  1536Mi (4%)
+  ephemeral-storage  0 (0%)        0 (0%)
+Events:              <none>
+
+Name:               worker-01.osepext01.claro.amx
+Roles:              worker
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=worker-01.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/worker=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/desiredConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 13 Dec 2019 16:46:18 -0300
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:31:37 -0300   Thu, 02 Jul 2020 11:11:47 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:31:37 -0300   Thu, 02 Jul 2020 11:11:47 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:31:37 -0300   Thu, 02 Jul 2020 11:11:47 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:31:37 -0300   Thu, 02 Jul 2020 11:11:47 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.131
+  InternalIP:  10.92.114.131
+  Hostname:    worker-01.osepext01.claro.amx
+Capacity:
+ cpu:                16
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             65964244Ki
+ pods:               250
+Allocatable:
+ cpu:                15500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             64813268Ki
+ pods:               250
+System Info:
+ Machine ID:                              2601c7a10caa434fb76e9c9ffbac6824
+ System UUID:                             1a240742-1aee-1e83-8d39-6a07fb5eef12
+ Boot ID:                                 398efc04-dcd1-45b8-966e-438cc504e606
+ Kernel Version:                          4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                        linux
+ Architecture:                            amd64
+ Container Runtime Version:               cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                         v1.17.1
+ Kube-Proxy Version:                      v1.17.1
+ProviderID:                               vsphere://4207241a-ee1a-831e-8d39-6a07fb5eef12
+Non-terminated Pods:                      (17 in total)
+  Namespace                               Name                                            CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                               ----                                            ------------  ----------  ---------------  -------------  ---
+  3scale-project                          apicast-apicast-staging-dev-79d87c66c9-dpnwt    500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     11d
+  3scale-project                          apicast-dev-production-7fcfff6745-86k97         500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     7d3h
+  3scale-project                          system-memcache-2-9nzcb                         50m (0%)      250m (1%)   64Mi (0%)        96Mi (0%)      56d
+  openshift-cluster-node-tuning-operator  tuned-gq9j4                                     10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-dns                           dns-default-29wlc                               110m (0%)     0 (0%)      70Mi (0%)        512Mi (0%)     104d
+  openshift-image-registry                node-ca-86jz9                                   10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-logging                       fluentd-xxznq                                   200m (1%)     0 (0%)      1Gi (1%)         1Gi (1%)       69d
+  openshift-machine-config-operator       machine-config-daemon-snp2v                     20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-marketplace                   certified-operators-6fdf4f8b88-knm9f            10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         117m
+  openshift-marketplace                   community-operators-58bf5c5cc6-7rd4d            10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         7h57m
+  openshift-marketplace                   redhat-marketplace-6747cd7798-nkhlc             10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         2d15h
+  openshift-marketplace                   redhat-operators-c98c4bd68-klp4k                10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         3d2h
+  openshift-monitoring                    node-exporter-gkw5r                             9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-multus                        multus-vstr6                                    10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operators                     istio-node-vhdnz                                20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                           ovs-rqg6g                                       100m (0%)     0 (0%)      400Mi (0%)       0 (0%)         104d
+  openshift-sdn                           sdn-bz9q2                                       100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests     Limits
+  --------           --------     ------
+  cpu                1679m (10%)  2250m (14%)
+  memory             2956Mi (4%)  1888Mi (2%)
+  ephemeral-storage  0 (0%)       0 (0%)
+Events:              <none>
+
+Name:               worker-02.osepext01.claro.amx
+Roles:              worker
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=worker-02.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/worker=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/desiredConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 13 Dec 2019 17:33:10 -0300
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:29:22 -0300   Thu, 02 Jul 2020 11:05:30 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:29:22 -0300   Thu, 02 Jul 2020 11:05:30 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:29:22 -0300   Thu, 02 Jul 2020 11:05:30 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:29:22 -0300   Thu, 02 Jul 2020 11:05:30 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.132
+  InternalIP:  10.92.114.132
+  Hostname:    worker-02.osepext01.claro.amx
+Capacity:
+ cpu:                16
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             65964244Ki
+ pods:               250
+Allocatable:
+ cpu:                15500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             64813268Ki
+ pods:               250
+System Info:
+ Machine ID:                               c3799ba9c3834dbf904850c7c0eb807c
+ System UUID:                              fcb50742-c318-1f68-2d2a-7f692f87ec3e
+ Boot ID:                                  3298a597-ff1f-4408-8721-6ede7d6435f8
+ Kernel Version:                           4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                 Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                         linux
+ Architecture:                             amd64
+ Container Runtime Version:                cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                          v1.17.1
+ Kube-Proxy Version:                       v1.17.1
+ProviderID:                                vsphere://4207b5fc-18c3-681f-2d2a-7f692f87ec3e
+Non-terminated Pods:                       (18 in total)
+  Namespace                                Name                                               CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                                ----                                               ------------  ----------  ---------------  -------------  ---
+  3scale-project                           apicast-apicast-production-dev-569c594c88-dhnb4    500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     10d
+  3scale-project                           apicast-prod-production-854f6486dd-2s5pn           500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     7d2h
+  3scale-project                           system-app-4-sbh5t                                 150m (0%)     3 (19%)     1800Mi (2%)      2400Mi (3%)    41d
+  3scale-project                           zync-3-nqhk6                                       200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       4d1h
+  openshift-cluster-node-tuning-operator   tuned-d8ndx                                        10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-console                        downloads-5cf6d9d8ff-ndllv                         10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         81d
+  openshift-dns                            dns-default-9prnr                                  110m (0%)     0 (0%)      70Mi (0%)        512Mi (0%)     104d
+  openshift-image-registry                 node-ca-mjn28                                      10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-kube-storage-version-migrator  migrator-6cfd75d5b4-lpgs6                          100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         81d
+  openshift-logging                        cluster-logging-operator-5b85499c95-m5mjh          0 (0%)        0 (0%)      0 (0%)           0 (0%)         81d
+  openshift-logging                        fluentd-srdk5                                      200m (1%)     0 (0%)      1Gi (1%)         1Gi (1%)       69d
+  openshift-machine-config-operator        machine-config-daemon-25jp6                        20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                     node-exporter-9hrbg                                9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-multus                         multus-45s7r                                       10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operators                      istio-node-gh8rr                                   20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                            ovs-nq6ct                                          100m (0%)     0 (0%)      400Mi (0%)       0 (0%)         104d
+  openshift-sdn                            sdn-kwr6n                                          100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+  pelucatest                               httpd-1-kpnpf                                      0 (0%)        0 (0%)      0 (0%)           0 (0%)         81d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests     Limits
+  --------           --------     ------
+  cpu                2049m (13%)  7 (45%)
+  memory             5566Mi (8%)  5216Mi (8%)
+  ephemeral-storage  0 (0%)       0 (0%)
+Events:              <none>
+
+Name:               worker-03.osepext01.claro.amx
+Roles:              worker
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=worker-03.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/worker=
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/desiredConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Mon, 16 Dec 2019 11:03:52 -0300
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:29:56 -0300   Thu, 02 Jul 2020 11:02:44 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:29:56 -0300   Thu, 02 Jul 2020 11:02:44 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:29:56 -0300   Thu, 02 Jul 2020 11:02:44 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:29:56 -0300   Thu, 02 Jul 2020 11:02:44 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.133
+  InternalIP:  10.92.114.133
+  Hostname:    worker-03.osepext01.claro.amx
+Capacity:
+ cpu:                16
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             65964244Ki
+ pods:               250
+Allocatable:
+ cpu:                15500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             64813268Ki
+ pods:               250
+System Info:
+ Machine ID:                              78b7bab49d9f4176bcef20ce2204d0e6
+ System UUID:                             78870742-6ccc-cba8-064b-16e3475130de
+ Boot ID:                                 1fc8f0bc-eb7e-4dee-bef4-c48e3e4331ad
+ Kernel Version:                          4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                        linux
+ Architecture:                            amd64
+ Container Runtime Version:               cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                         v1.17.1
+ Kube-Proxy Version:                      v1.17.1
+ProviderID:                               vsphere://42078778-cc6c-a8cb-064b-16e3475130de
+Non-terminated Pods:                      (16 in total)
+  Namespace                               Name                                       CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                               ----                                       ------------  ----------  ---------------  -------------  ---
+  3scale-project                          apicast-dev-staging-5bc85bbcb6-kg299       500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     7d3h
+  3scale-project                          apicast-test-staging-7c6dd47ff8-8dtpk      500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     7d3h
+  atp                                     redhatopenjdk8-1-4kxzt                     0 (0%)        0 (0%)      0 (0%)           0 (0%)         81d
+  openshift-cluster-node-tuning-operator  tuned-6pzgt                                10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-console                       downloads-5cf6d9d8ff-mspr7                 10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         81d
+  openshift-dns                           dns-default-tdzjl                          110m (0%)     0 (0%)      70Mi (0%)        512Mi (0%)     104d
+  openshift-image-registry                node-ca-nrlh6                              10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-logging                       fluentd-zj97c                              200m (1%)     0 (0%)      1Gi (1%)         1Gi (1%)       69d
+  openshift-machine-config-operator       machine-config-daemon-twb62                20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                    node-exporter-lmtw2                        9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-multus                        multus-sldrv                               10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operators-redhat              elasticsearch-operator-77f97c65fd-g2jh4    0 (0%)        0 (0%)      0 (0%)           0 (0%)         81d
+  openshift-operators                     istio-node-24l7k                           20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                           ovs-v4h8v                                  100m (0%)     0 (0%)      400Mi (0%)       0 (0%)         104d
+  openshift-sdn                           sdn-wcqqd                                  100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+  testpciapp                              httpd-1-frz7m                              200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       81d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests     Limits
+  --------           --------     ------
+  cpu                1799m (11%)  4 (25%)
+  memory             3566Mi (5%)  2816Mi (4%)
+  ephemeral-storage  0 (0%)       0 (0%)
+Events:              <none>
+
+Name:               worker-04.osepext01.claro.amx
+Roles:              worker
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=worker-04.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/worker=
+                    node.openshift.io/ingress-testing-pci=testpci
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/desiredConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Mon, 16 Dec 2019 15:34:38 -0300
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:30:27 -0300   Thu, 02 Jul 2020 11:08:37 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:30:27 -0300   Thu, 02 Jul 2020 11:08:37 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:30:27 -0300   Thu, 02 Jul 2020 11:08:37 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:30:27 -0300   Thu, 02 Jul 2020 11:08:37 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.134
+  InternalIP:  10.92.114.134
+  Hostname:    worker-04.osepext01.claro.amx
+Capacity:
+ cpu:                16
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             65964244Ki
+ pods:               250
+Allocatable:
+ cpu:                15500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             64813268Ki
+ pods:               250
+System Info:
+ Machine ID:                              4bb9c60ca0354495b4edc528d04621e0
+ System UUID:                             d6760742-2d6b-b0a0-0a3e-2fcbdc492813
+ Boot ID:                                 a9bd4c74-1b32-40ea-9200-dd742e8c8e70
+ Kernel Version:                          4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                        linux
+ Architecture:                            amd64
+ Container Runtime Version:               cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                         v1.17.1
+ Kube-Proxy Version:                      v1.17.1
+ProviderID:                               vsphere://420776d6-6b2d-a0b0-0a3e-2fcbdc492813
+Non-terminated Pods:                      (21 in total)
+  Namespace                               Name                                                CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                               ----                                                ------------  ----------  ---------------  -------------  ---
+  3scale-project                          apicast-operator-7b4998676-rhtnc                    200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       11d
+  3scale-project                          apicast-test-production-99d865767-zz8bl             500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     7d3h
+  3scale-project                          backend-worker-3-c6ft8                              200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       41d
+  3scale-project                          book-service-1-jll5j                                50m (0%)      1 (6%)      256Mi (0%)       512Mi (0%)     13d
+  3scale-project                          system-sidekiq-4-5shk9                              200m (1%)     2 (12%)     1Gi (1%)         2Gi (3%)       41d
+  atp                                     redhatopenjdk8-1-m9hjp                              0 (0%)        0 (0%)      0 (0%)           0 (0%)         81d
+  idp                                     claro-sso-4-ftw4j                                   200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       2d23h
+  openshift-cluster-node-tuning-operator  tuned-2z69w                                         10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-cluster-storage-operator      csi-snapshot-controller-operator-5965bfcb6-wbt59    10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         81d
+  openshift-dns                           dns-default-s8pvx                                   110m (0%)     0 (0%)      70Mi (0%)        512Mi (0%)     104d
+  openshift-image-registry                node-ca-sw7x6                                       10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-ingress                       router-testpci-6886b96884-rz5pz                     100m (0%)     0 (0%)      256Mi (0%)       0 (0%)         81d
+  openshift-logging                       fluentd-7rmc9                                       200m (1%)     0 (0%)      1Gi (1%)         1Gi (1%)       69d
+  openshift-machine-config-operator       machine-config-daemon-b4zjs                         20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                    node-exporter-sh7nd                                 9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-monitoring                    openshift-state-metrics-94f4757b5-v7s8g             3m (0%)       0 (0%)      190Mi (0%)       0 (0%)         81d
+  openshift-multus                        multus-cbpb5                                        10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operators                     istio-node-27cl5                                    20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                           ovs-qn6kt                                           100m (0%)     0 (0%)      400Mi (0%)       0 (0%)         104d
+  openshift-sdn                           sdn-55nzl                                           100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+  openshift-user-workload-monitoring      prometheus-user-workload-1                          360m (2%)     200m (1%)   1194Mi (1%)      50Mi (0%)      4d21h
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                2412m (15%)   10200m (65%)
+  memory             8470Mi (13%)  7346Mi (11%)
+  ephemeral-storage  0 (0%)        0 (0%)
+Events:              <none>
+

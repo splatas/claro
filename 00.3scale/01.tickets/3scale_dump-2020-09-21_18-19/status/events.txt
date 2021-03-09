@@ -1,0 +1,6 @@
+LAST SEEN   TYPE      REASON        OBJECT                      MESSAGE
+2m59s       Warning   FailedMount   pod/system-app-5-hook-pre   (combined from similar events): MountVolume.SetUp failed for volume "system-app" : mount failed: exit status 32
+Mounting command: systemd-run
+Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/c957a53a-8bad-4b50-a56f-ad55a6efa1db/volumes/kubernetes.io~nfs/system-app --scope -- mount -t nfs 10.92.49.14:/CMS_PRDE_p_openshift_apu /var/lib/kubelet/pods/c957a53a-8bad-4b50-a56f-ad55a6efa1db/volumes/kubernetes.io~nfs/system-app
+Output: Running scope as unit: run-rcd45f1d88c264962bde89b1c806627b9.scope
+mount.nfs: mounting 10.92.49.14:/CMS_PRDE_p_openshift_apu failed, reason given by server: No such file or directory

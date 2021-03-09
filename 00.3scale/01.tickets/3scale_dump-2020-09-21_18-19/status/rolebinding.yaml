@@ -1,0 +1,254 @@
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-08-11T18:04:47Z"
+    labels:
+      olm.owner: 3scale-operator.v0.5.5
+      olm.owner.kind: ClusterServiceVersion
+      olm.owner.namespace: 3scale-project
+    name: 3scale-operator.v0.5.5-xjw4t-3scale-operator-rwsvk
+    namespace: 3scale-project
+    ownerReferences:
+    - apiVersion: operators.coreos.com/v1alpha1
+      blockOwnerDeletion: false
+      controller: false
+      kind: ClusterServiceVersion
+      name: 3scale-operator.v0.5.5
+      uid: 50bfacc3-5b28-48e7-9516-865e8f786b9c
+    resourceVersion: "216973431"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/3scale-operator.v0.5.5-xjw4t-3scale-operator-rwsvk
+    uid: 8d73b496-9bdc-4308-9c49-3571e9a08ae7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: 3scale-operator.v0.5.5-xjw4t
+  subjects:
+  - kind: ServiceAccount
+    name: 3scale-operator
+    namespace: 3scale-project
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-07-27T12:56:31Z"
+    name: admin
+    namespace: 3scale-project
+    resourceVersion: "198370286"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/admin
+    uid: a01d0be7-c7a0-4bdc-98c4-8b5147cfe42a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: kube:admin
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-08-28T18:46:19Z"
+    name: admin-0
+    namespace: 3scale-project
+    resourceVersion: "237662555"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/admin-0
+    uid: 46280d1c-15eb-43dd-87f9-8ab428ea82c9
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: osepext01-Admin-Project
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-09-03T20:25:16Z"
+    name: admin-1
+    namespace: 3scale-project
+    resourceVersion: "245041824"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/admin-1
+    uid: 2133cfb6-b372-4805-a0f0-d57558993964
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: osepext01-Dev
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-09-09T20:05:16Z"
+    labels:
+      olm.owner: apicast-operator.v0.2.4
+      olm.owner.kind: ClusterServiceVersion
+      olm.owner.namespace: 3scale-project
+    name: apicast-operator.v0.2.4-m28h7-apicast-operator-wrfcw
+    namespace: 3scale-project
+    ownerReferences:
+    - apiVersion: operators.coreos.com/v1alpha1
+      blockOwnerDeletion: false
+      controller: false
+      kind: ClusterServiceVersion
+      name: apicast-operator.v0.2.4
+      uid: 8781c9c5-f5d5-403a-824d-cff9d4f3906f
+    resourceVersion: "252198355"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/apicast-operator.v0.2.4-m28h7-apicast-operator-wrfcw
+    uid: 4d0fb5fd-4d2e-4fc1-8b5f-3fa1e1e87e05
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: apicast-operator.v0.2.4-m28h7
+  subjects:
+  - kind: ServiceAccount
+    name: apicast-operator
+    namespace: 3scale-project
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-07-27T12:56:31Z"
+    name: robot-deployer
+    namespace: 3scale-project
+    resourceVersion: "198370289"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/robot-deployer
+    uid: 653f5911-844d-4874-8d1f-5802b55ddf02
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: robot-deployer
+  subjects:
+  - kind: ServiceAccount
+    name: robot-deployer
+    namespace: 3scale-project
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-08-28T18:47:02Z"
+    name: robot-deployer-0
+    namespace: 3scale-project
+    resourceVersion: "237663137"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/robot-deployer-0
+    uid: 5fa7ba75-1d3f-4d26-81e3-08825eccb25f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: robot-deployer
+  subjects:
+  - kind: ServiceAccount
+    name: robot-deployer
+    namespace: claro-implementaciones
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: –
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: "n"
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      openshift.io/description: Allows deploymentconfigs in this namespace to rollout
+        pods in this namespace.  It is auto-managed by a controller; remove subjects
+        to disable.
+    creationTimestamp: "2020-07-27T12:56:31Z"
+    name: system:deployers
+    namespace: 3scale-project
+    resourceVersion: "198370285"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/system:deployers
+    uid: 66257e8f-48b8-4e08-9b3d-5ed4a2834e08
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:deployer
+  subjects:
+  - kind: ServiceAccount
+    name: deployer
+    namespace: 3scale-project
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      openshift.io/description: Allows builds in this namespace to push images to
+        this namespace.  It is auto-managed by a controller; remove subjects to disable.
+    creationTimestamp: "2020-07-27T12:56:31Z"
+    name: system:image-builders
+    namespace: 3scale-project
+    resourceVersion: "198370284"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/system:image-builders
+    uid: fa4b3e8f-e4a6-4a03-8c9b-b09a8f586168
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:image-builder
+  subjects:
+  - kind: ServiceAccount
+    name: builder
+    namespace: 3scale-project
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      openshift.io/description: Allows all pods in this namespace to pull images from
+        this namespace.  It is auto-managed by a controller; remove subjects to disable.
+    creationTimestamp: "2020-07-27T12:56:31Z"
+    name: system:image-pullers
+    namespace: 3scale-project
+    resourceVersion: "198370276"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/system:image-pullers
+    uid: a050de92-746a-4d0e-ab90-b08983d1e7ab
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:image-puller
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:serviceaccounts:3scale-project
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-08-28T18:46:40Z"
+    name: view
+    namespace: 3scale-project
+    resourceVersion: "237662843"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/view
+    uid: c91a81e3-1728-431c-95ec-1f9a179fa9bb
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: osepext01-Dev
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2020-07-27T13:05:51Z"
+    name: zync-que-rolebinding
+    namespace: 3scale-project
+    ownerReferences:
+    - apiVersion: apps.3scale.net/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: APIManager
+      name: claro-apimanager-pelado
+      uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+    resourceVersion: "198378422"
+    selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/3scale-project/rolebindings/zync-que-rolebinding
+    uid: 3c1faf29-89df-44cf-82eb-c97eac8560f4
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: zync-que-role
+  subjects:
+  - kind: ServiceAccount
+    name: zync-que-sa
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

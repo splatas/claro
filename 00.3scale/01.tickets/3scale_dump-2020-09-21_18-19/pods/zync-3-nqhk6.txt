@@ -1,0 +1,108 @@
+Name:               zync-3-nqhk6
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               worker-02.osepext01.claro.amx/10.92.114.132
+Start Time:         Thu, 17 Sep 2020 13:43:18 -0300
+Labels:             app=3scale-api-management
+                    deployment=zync-3
+                    deploymentConfig=zync
+                    deploymentconfig=zync
+                    node-role.kubernetes.io/worker=
+                    threescale_component=zync
+Annotations:        k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.131.3.50"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.131.2.1"
+                          ]
+                      }]
+                    kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu, memory request for init container zync-db-svc; cpu, memory limit for init container zync-db-svc
+                    openshift.io/deployment-config.latest-version: 3
+                    openshift.io/deployment-config.name: zync
+                    openshift.io/deployment.name: zync-3
+                    openshift.io/scc: restricted
+Status:             Running
+IP:                 10.131.3.50
+Controlled By:      ReplicationController/zync-3
+Init Containers:
+  zync-db-svc:
+    Container ID:  cri-o://d20e7f95608832e72372ac8051f820e0d7757fb85501694d7e4e3b471a905500
+    Image:         registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    Image ID:      registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      bash
+      -c
+      bundle exec sh -c "until rake boot:db; do sleep $SLEEP_SECONDS; done"
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Thu, 17 Sep 2020 13:43:35 -0300
+      Finished:     Thu, 17 Sep 2020 13:43:37 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      SLEEP_SECONDS:  1
+      DATABASE_URL:   <set to the key 'DATABASE_URL' in secret 'zync'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Containers:
+  zync:
+    Container ID:   cri-o://4187fbeff7f0c2db3f71c130f0631d3310c141bfc5ecbbc913bb5ccc26cb82c2
+    Image:          registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    Image ID:       registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 17 Sep 2020 13:43:40 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  512Mi
+    Requests:
+      cpu:      150m
+      memory:   250M
+    Liveness:   http-get http://:8080/status/live delay=10s timeout=60s period=10s #success=1 #failure=10
+    Readiness:  http-get http://:8080/status/ready delay=100s timeout=10s period=10s #success=1 #failure=3
+    Environment:
+      RAILS_LOG_TO_STDOUT:        true
+      RAILS_ENV:                  production
+      DATABASE_URL:               <set to the key 'DATABASE_URL' in secret 'zync'>               Optional: false
+      SECRET_KEY_BASE:            <set to the key 'SECRET_KEY_BASE' in secret 'zync'>            Optional: false
+      ZYNC_AUTHENTICATION_TOKEN:  <set to the key 'ZYNC_AUTHENTICATION_TOKEN' in secret 'zync'>  Optional: false
+      POD_NAME:                   zync-3-nqhk6 (v1:metadata.name)
+      POD_NAMESPACE:              3scale-project (v1:metadata.namespace)
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  amp-token-5cmpq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  amp-token-5cmpq
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

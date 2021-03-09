@@ -1,0 +1,121 @@
+NAME                            HOST                            HOST IP         SUBNET          EGRESS CIDRS   EGRESS IPS
+infra-01.osepext01.claro.amx    infra-01.osepext01.claro.amx    10.92.114.128   10.128.0.0/23                  
+infra-02.osepext01.claro.amx    infra-02.osepext01.claro.amx    10.92.114.129   10.128.2.0/23                  
+infra-03.osepext01.claro.amx    infra-03.osepext01.claro.amx    10.92.114.130   10.129.2.0/23                  
+master-01.osepext01.claro.amx   master-01.osepext01.claro.amx   10.92.114.125   10.129.0.0/23                  
+master-02.osepext01.claro.amx   master-02.osepext01.claro.amx   10.92.114.126   10.131.0.0/23                  
+master-03.osepext01.claro.amx   master-03.osepext01.claro.amx   10.92.114.127   10.130.0.0/23                  
+worker-01.osepext01.claro.amx   worker-01.osepext01.claro.amx   10.92.114.131   10.130.2.0/23                  
+worker-02.osepext01.claro.amx   worker-02.osepext01.claro.amx   10.92.114.132   10.131.2.0/23                  
+worker-03.osepext01.claro.amx   worker-03.osepext01.claro.amx   10.92.114.133   10.128.4.0/23                  
+worker-04.osepext01.claro.amx   worker-04.osepext01.claro.amx   10.92.114.134   10.129.4.0/23                  
+
+
+Name:		infra-01.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=702d312e-1d25-11ea-9024-00505687a3a5
+Node:		infra-01.osepext01.claro.amx
+Node IP:	10.92.114.128
+Pod Subnet:	10.128.0.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		infra-02.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=94c004f8-1dba-11ea-ad52-0050568742f4
+Node:		infra-02.osepext01.claro.amx
+Node IP:	10.92.114.129
+Pod Subnet:	10.128.2.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		infra-03.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=e24060ee-1dd2-11ea-b595-00505687c5a5
+Node:		infra-03.osepext01.claro.amx
+Node IP:	10.92.114.130
+Pod Subnet:	10.129.2.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		master-01.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=5e03206e-1d25-11ea-9024-00505687a3a5
+Node:		master-01.osepext01.claro.amx
+Node IP:	10.92.114.125
+Pod Subnet:	10.129.0.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		master-02.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=607aa840-1d25-11ea-9024-00505687a3a5
+Node:		master-02.osepext01.claro.amx
+Node IP:	10.92.114.126
+Pod Subnet:	10.131.0.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		master-03.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=5fb0c47c-1d25-11ea-9024-00505687a3a5
+Node:		master-03.osepext01.claro.amx
+Node IP:	10.92.114.127
+Pod Subnet:	10.130.0.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		worker-01.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=3ade9270-1de1-11ea-aae8-0050568729cc
+Node:		worker-01.osepext01.claro.amx
+Node IP:	10.92.114.131
+Pod Subnet:	10.130.2.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		worker-02.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=c7570147-1de7-11ea-a063-0050568729cc
+Node:		worker-02.osepext01.claro.amx
+Node IP:	10.92.114.132
+Pod Subnet:	10.131.2.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		worker-03.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=e3db5f5a-200c-11ea-befb-00505687c5a5
+Node:		worker-03.osepext01.claro.amx
+Node IP:	10.92.114.133
+Pod Subnet:	10.128.4.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>
+
+
+Name:		worker-04.osepext01.claro.amx
+Created:	9 months ago
+Labels:		<none>
+Annotations:	pod.network.openshift.io/node-uid=b76594bd-2032-11ea-bb7a-0050568742f4
+Node:		worker-04.osepext01.claro.amx
+Node IP:	10.92.114.134
+Pod Subnet:	10.129.4.0/23
+Egress CIDRs:	<none>
+Egress IPs:	<none>

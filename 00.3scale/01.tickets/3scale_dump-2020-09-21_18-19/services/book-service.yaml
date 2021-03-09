@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-09-08T15:07:36Z"
+  labels:
+    app: book-service
+  name: book-service
+  namespace: 3scale-project
+  resourceVersion: "254098216"
+  selfLink: /api/v1/namespaces/3scale-project/services/book-service
+  uid: bb1800ff-e7c2-4c7b-a9d7-a05b596164a6
+spec:
+  clusterIP: 172.30.96.68
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: book-service
+    deploymentconfig: book-service
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

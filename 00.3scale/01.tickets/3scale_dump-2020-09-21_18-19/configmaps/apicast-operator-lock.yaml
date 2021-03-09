@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-09-09T20:05:19Z"
+  name: apicast-operator-lock
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: Pod
+    name: apicast-operator-7b4998676-rhtnc
+    uid: 4cd6a069-0a68-42ea-b242-e3a76acb017f
+  resourceVersion: "252198415"
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/apicast-operator-lock
+  uid: 9cddd788-738e-4085-b8fa-1b38c0742d47

@@ -1,0 +1,66 @@
+Name:               book-service-1-jll5j
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               worker-04.osepext01.claro.amx/10.92.114.134
+Start Time:         Tue, 08 Sep 2020 12:41:34 -0300
+Labels:             app=book-service
+                    deployment=book-service-1
+                    deploymentconfig=book-service
+Annotations:        k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.129.4.197"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.129.4.1"
+                          ]
+                      }]
+                    openshift.io/deployment-config.latest-version: 1
+                    openshift.io/deployment-config.name: book-service
+                    openshift.io/deployment.name: book-service-1
+                    openshift.io/generated-by: OpenShiftNewApp
+                    openshift.io/scc: restricted
+Status:             Running
+IP:                 10.129.4.197
+Controlled By:      ReplicationController/book-service-1
+Containers:
+  book-service:
+    Container ID:   cri-o://61557c0774a2ada6fdeb5aeaaee4900338fbb270af528d1c1cd1a8211800f887
+    Image:          image-registry.openshift-image-registry.svc:5000/3scale-project/book-service@sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+    Image ID:       image-registry.openshift-image-registry.svc:5000/3scale-project/book-service@sha256:580fff8b679089ef830b1b128687a02bda68ae0f6f6d1320ee10ca7c937f8191
+    Port:           8181/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 08 Sep 2020 12:41:48 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  512Mi
+    Requests:
+      cpu:        50m
+      memory:     256Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-fc8nn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-fc8nn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-fc8nn
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

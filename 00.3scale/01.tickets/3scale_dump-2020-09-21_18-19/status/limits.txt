@@ -1,0 +1,1815 @@
+# Pod: 3scale-operator-5f86664c4b-j9tbl | Container: 3scale-operator #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-apicast-production-dev-569c594c88-dhnb4 | Container: apicast-apicast-production-dev #
+
+Limits:
+  cpu:     1
+  memory:  128Mi
+
+Requests:
+  cpu:      500m
+  memory:   64Mi
+
+
+# Pod: apicast-apicast-staging-dev-79d87c66c9-dpnwt | Container: apicast-apicast-staging-dev #
+
+Limits:
+  cpu:     1
+  memory:  128Mi
+
+Requests:
+  cpu:      500m
+  memory:   64Mi
+
+
+# Pod: apicast-custom-policies-1-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-1-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-1-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-2-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-2-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-2-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-29-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-29-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-29-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-3-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-3-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-3-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-30-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-30-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-30-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-31-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-31-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-31-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-32-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-32-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-32-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-33-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-33-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-33-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-34-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-34-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-34-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-5-build | Container: extract-image-content #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-5-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-custom-policies-5-build | Container: docker-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-dev-production-7fcfff6745-86k97 | Container: apicast-dev-production #
+
+Limits:
+  cpu:     1
+  memory:  128Mi
+
+Requests:
+  cpu:      500m
+  memory:   64Mi
+
+
+# Pod: apicast-dev-staging-5bc85bbcb6-kg299 | Container: apicast-dev-staging #
+
+Limits:
+  cpu:     1
+  memory:  128Mi
+
+Requests:
+  cpu:      500m
+  memory:   64Mi
+
+
+# Pod: apicast-example-policy-1-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-1-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-1-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-2-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-2-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-2-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-3-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-3-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-3-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-4-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-4-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-4-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-5-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-5-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-5-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-6-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-6-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-example-policy-6-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-2-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-2-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-2-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-27-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-27-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-27-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-28-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-28-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-28-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-29-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-29-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-29-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-30-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-30-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-30-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-31-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-31-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-31-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-32-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-32-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-32-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-33-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-33-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-openidc-policy-33-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-operator-7b4998676-rhtnc | Container: apicast-operator #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-prod-production-854f6486dd-2s5pn | Container: apicast-prod-production #
+
+Limits:
+  cpu:     1
+  memory:  128Mi
+
+Requests:
+  cpu:      500m
+  memory:   64Mi
+
+
+# Pod: apicast-prod-staging-56f69c7499-wl29q | Container: apicast-prod-staging #
+
+Limits:
+  cpu:     1
+  memory:  128Mi
+
+Requests:
+  cpu:      500m
+  memory:   64Mi
+
+
+# Pod: apicast-production-21-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-production-23-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-production-26-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-production-27-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-production-29-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-production-31-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-production-32-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-staging-25-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-staging-28-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-staging-29-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-staging-31-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-staging-33-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-staging-34-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: apicast-test-production-99d865767-zz8bl | Container: apicast-test-production #
+
+Limits:
+  cpu:     1
+  memory:  128Mi
+
+Requests:
+  cpu:      500m
+  memory:   64Mi
+
+
+# Pod: apicast-test-staging-7c6dd47ff8-8dtpk | Container: apicast-test-staging #
+
+Limits:
+  cpu:     1
+  memory:  128Mi
+
+Requests:
+  cpu:      500m
+  memory:   64Mi
+
+
+# Pod: backend-cron-1-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: backend-cron-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: backend-cron-3-28zrg | Container: backend-cron #
+
+Limits:
+  cpu:     150m
+  memory:  80Mi
+
+Requests:
+  cpu:     50m
+  memory:  40Mi
+
+
+# Pod: backend-cron-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: backend-listener-1-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: backend-listener-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: backend-listener-3-b6df6 | Container: backend-listener #
+
+Limits:
+  cpu:     1
+  memory:  700Mi
+
+Requests:
+  cpu:      500m
+  memory:   550Mi
+
+
+# Pod: backend-listener-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: backend-worker-1-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: backend-worker-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: backend-worker-3-c6ft8 | Container: backend-worker #
+
+Limits:
+  cpu:     1
+  memory:  300Mi
+
+Requests:
+  cpu:     150m
+  memory:  50Mi
+
+
+# Pod: backend-worker-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: book-service-1-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: book-service-1-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: book-service-1-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: book-service-1-jll5j | Container: book-service #
+
+Limits:
+  cpu:     1
+  memory:  512Mi
+
+Requests:
+  cpu:        50m
+  memory:     256Mi
+
+
+# Pod: book-service-2-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: book-service-2-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: book-service-3-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: book-service-3-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-1-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-1-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-2-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-2-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-2-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-3-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-3-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-4-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-4-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-5-build | Container: git-clone #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-5-build | Container: manage-dockerfile #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-5-build | Container: sti-build #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: claro-mock-service-dc-3-4xl2q | Container: claro-mock-service #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:        200m
+  memory:     1Gi
+
+
+# Pod: claro-mock-service-dc-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-app-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-app-3-hook-post | Container: lifecycle #
+
+Limits:
+  cpu:     1
+  memory:  800Mi
+
+Requests:
+  cpu:     50m
+  memory:  600Mi
+
+
+# Pod: system-app-3-hook-pre | Container: lifecycle #
+
+Limits:
+  cpu:     1
+  memory:  800Mi
+
+Requests:
+  cpu:     50m
+  memory:  600Mi
+
+
+# Pod: system-app-4-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-app-4-hook-post | Container: lifecycle #
+
+Limits:
+  cpu:     1
+  memory:  800Mi
+
+Requests:
+  cpu:     50m
+  memory:  600Mi
+
+
+# Pod: system-app-4-hook-pre | Container: lifecycle #
+
+Limits:
+  cpu:     1
+  memory:  800Mi
+
+Requests:
+  cpu:     50m
+  memory:  600Mi
+
+
+# Pod: system-app-4-sbh5t | Container: system-master #
+
+Limits:
+  cpu:     1
+  memory:  800Mi
+
+Requests:
+  cpu:      50m
+  memory:   600Mi
+
+
+# Pod: system-app-4-sbh5t | Container: system-provider #
+
+Limits:
+  cpu:     1
+  memory:  800Mi
+
+Requests:
+  cpu:      50m
+  memory:   600Mi
+
+
+# Pod: system-app-4-sbh5t | Container: system-developer #
+
+Limits:
+  cpu:     1
+  memory:  800Mi
+
+Requests:
+  cpu:      50m
+  memory:   600Mi
+
+
+# Pod: system-app-5-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-app-5-hook-pre | Container: lifecycle #
+
+Limits:
+  cpu:     1
+  memory:  800Mi
+
+Requests:
+  cpu:     50m
+  memory:  600Mi
+
+
+# Pod: system-memcache-1-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-memcache-2-9nzcb | Container: memcache #
+
+Limits:
+  cpu:     250m
+  memory:  96Mi
+
+Requests:
+  cpu:        50m
+  memory:     64Mi
+
+
+# Pod: system-memcache-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-sidekiq-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-sidekiq-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-sidekiq-4-5shk9 | Container: system-sidekiq #
+
+Limits:
+  cpu:     1
+  memory:  2Gi
+
+Requests:
+  cpu:     100m
+  memory:  500Mi
+
+
+# Pod: system-sidekiq-4-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-sphinx-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-sphinx-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-sphinx-4-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: system-sphinx-4-mtj2w | Container: system-sphinx #
+
+Limits:
+  cpu:     1
+  memory:  512Mi
+
+Requests:
+  cpu:     80m
+  memory:  250Mi
+
+
+# Pod: zync-1-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: zync-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: zync-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: zync-3-nqhk6 | Container: zync #
+
+Limits:
+  cpu:     1
+  memory:  512Mi
+
+Requests:
+  cpu:      150m
+  memory:   250M
+
+
+# Pod: zync-database-1-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: zync-database-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: zync-database-2-fwt2w | Container: postgresql #
+
+Limits:
+  cpu:     250m
+  memory:  2G
+
+Requests:
+  cpu:      50m
+  memory:   250M
+
+
+# Pod: zync-que-1-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: zync-que-2-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: zync-que-3-deploy | Container: deployment #
+
+Limits:
+  cpu:     2
+  memory:  1Gi
+
+Requests:
+  cpu:     200m
+  memory:  1Gi
+
+
+# Pod: zync-que-3-h22x7 | Container: que #
+
+Limits:
+  cpu:     1
+  memory:  512Mi
+
+Requests:
+  cpu:     250m
+  memory:  250M

@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  policy.json: '{"default":[{"type":"insecureAcceptAnything"}],"transports":{"atomic":{"docker.io":[{"type":"reject"}]},"docker":{"docker.io":[{"type":"reject"}]}}}'
+  registries.conf: |
+    unqualified-search-registries = ["docker.io"]
+
+    [[registry]]
+      prefix = ""
+      location = "docker.io"
+      blocked = true
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-09-07T15:22:20Z"
+  name: apicast-custom-policies-30-sys-config
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: Pod
+    name: apicast-custom-policies-30-build
+    uid: 6fa09ba9-842a-4292-89ba-dfffcffe0481
+  resourceVersion: "249642586"
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/apicast-custom-policies-30-sys-config
+  uid: 23ab4813-2787-4274-aeb9-a8993c8d80e0

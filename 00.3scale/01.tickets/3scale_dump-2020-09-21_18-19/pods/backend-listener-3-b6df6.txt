@@ -1,0 +1,90 @@
+Name:               backend-listener-3-b6df6
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               infra-02.osepext01.claro.amx/10.92.114.129
+Start Time:         Tue, 11 Aug 2020 15:05:49 -0300
+Labels:             app=3scale-api-management
+                    deployment=backend-listener-3
+                    deploymentConfig=backend-listener
+                    deploymentconfig=backend-listener
+                    node-role.kubernetes.io/worker=
+                    threescale_component=backend
+                    threescale_component_element=listener
+Annotations:        k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.128.3.208"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.128.2.1"
+                          ]
+                      }]
+                    openshift.io/deployment-config.latest-version: 3
+                    openshift.io/deployment-config.name: backend-listener
+                    openshift.io/deployment.name: backend-listener-3
+                    openshift.io/scc: restricted
+Status:             Running
+IP:                 10.128.3.208
+Controlled By:      ReplicationController/backend-listener-3
+Containers:
+  backend-listener:
+    Container ID:  cri-o://1af8c0b4b5df82a9c997aeb4e84bb7bdf0bdd0f48de77d89b19af961f231ba17
+    Image:         registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    Image ID:      registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    Port:          3000/TCP
+    Host Port:     0/TCP
+    Args:
+      bin/3scale_backend
+      start
+      -e
+      production
+      -p
+      3000
+      -x
+      /dev/stdout
+    State:          Running
+      Started:      Tue, 11 Aug 2020 15:06:16 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  700Mi
+    Requests:
+      cpu:      500m
+      memory:   550Mi
+    Liveness:   tcp-socket :3000 delay=30s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:3000/status delay=30s timeout=5s period=10s #success=1 #failure=3
+    Environment:
+      CONFIG_REDIS_PROXY:            <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>             Optional: false
+      CONFIG_REDIS_SENTINEL_HOSTS:   <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>  Optional: false
+      CONFIG_REDIS_SENTINEL_ROLE:    <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_MASTER_NAME:     <set to the key 'REDIS_QUEUES_URL' in secret 'backend-redis'>              Optional: false
+      CONFIG_QUEUES_SENTINEL_HOSTS:  <set to the key 'REDIS_QUEUES_SENTINEL_HOSTS' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_SENTINEL_ROLE:   <set to the key 'REDIS_QUEUES_SENTINEL_ROLE' in secret 'backend-redis'>    Optional: false
+      RACK_ENV:                      <set to the key 'RACK_ENV' of config map 'backend-environment'>            Optional: false
+      PUMA_WORKERS:                  16
+      CONFIG_INTERNAL_API_USER:      <set to the key 'username' in secret 'backend-internal-api'>  Optional: false
+      CONFIG_INTERNAL_API_PASSWORD:  <set to the key 'password' in secret 'backend-internal-api'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  amp-token-5cmpq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  amp-token-5cmpq
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

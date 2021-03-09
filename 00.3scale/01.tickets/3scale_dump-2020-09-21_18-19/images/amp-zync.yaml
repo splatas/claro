@@ -1,0 +1,70 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: AMP Zync
+    openshift.io/image.dockerRepositoryCheck: "2020-08-11T18:05:43Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 4
+  labels:
+    app: 3scale-api-management
+    threescale_component: zync
+  name: amp-zync
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216974351"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/amp-zync
+  uid: a0a18408-cf1e-4a13-9621-09353ff07c6e
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: AMP Zync 2.8
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    generation: 4
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: AMP Zync (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-zync
+  tags:
+  - items:
+    - created: "2020-08-11T18:05:43Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+      generation: 4
+      image: sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    - created: "2020-07-27T13:05:53Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+      generation: 2
+      image: sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+    tag: "2.8"
+  - items:
+    - created: "2020-08-11T18:05:43Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+      generation: 4
+      image: sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    - created: "2020-07-27T13:05:53Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+      generation: 2
+      image: sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+    tag: latest

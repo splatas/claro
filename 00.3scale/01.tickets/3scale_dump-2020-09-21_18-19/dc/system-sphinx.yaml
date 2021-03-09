@@ -1,0 +1,202 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-07-27T13:05:52Z"
+  generation: 5
+  labels:
+    app: 3scale-api-management
+    node-role.kubernetes.io/worker: ""
+    threescale_component: system
+    threescale_component_element: sphinx
+  name: system-sphinx
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "216975716"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/system-sphinx
+  uid: 8ab59406-9355-4bd3-a676-2bb61ab918f0
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: system-sphinx
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 1200
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: system-sphinx
+        node-role.kubernetes.io/worker: ""
+        threescale_component: system
+        threescale_component_element: sphinx
+    spec:
+      containers:
+      - args:
+        - rake
+        - openshift:thinking_sphinx:start
+        env:
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_ENV
+              name: system-environment
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-database
+        - name: THINKING_SPHINX_ADDRESS
+          value: 0.0.0.0
+        - name: THINKING_SPHINX_CONFIGURATION_FILE
+          value: db/sphinx/production.conf
+        - name: THINKING_SPHINX_PID_FILE
+          value: db/sphinx/searchd.pid
+        - name: DELTA_INDEX_INTERVAL
+          value: "5"
+        - name: FULL_REINDEX_INTERVAL
+          value: "60"
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 9306
+          timeoutSeconds: 1
+        name: system-sphinx
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 80m
+            memory: 250Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/system/db/sphinx
+          name: system-sphinx-database
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status);
+          do sleep $SLEEP_SECONDS; done
+        env:
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+        imagePullPolicy: Always
+        name: system-master-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: system-sphinx-database
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - system-master-svc
+      - system-sphinx
+      from:
+        kind: ImageStreamTag
+        name: amp-system:latest
+        namespace: 3scale-project
+      lastTriggeredImage: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    type: ImageChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-27T13:58:30Z"
+    lastUpdateTime: "2020-07-27T13:58:30Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-08-11T18:06:50Z"
+    lastUpdateTime: "2020-08-11T18:06:53Z"
+    message: replication controller "system-sphinx-4" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - imageTrigger:
+        from:
+          kind: DockerImage
+          name: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      type: ImageChange
+    message: image change
+  latestVersion: 4
+  observedGeneration: 5
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1

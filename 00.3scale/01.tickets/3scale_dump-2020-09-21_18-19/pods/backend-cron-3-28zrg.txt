@@ -1,0 +1,116 @@
+Name:               backend-cron-3-28zrg
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               infra-03.osepext01.claro.amx/10.92.114.130
+Start Time:         Tue, 11 Aug 2020 15:05:48 -0300
+Labels:             app=3scale-api-management
+                    deployment=backend-cron-3
+                    deploymentConfig=backend-cron
+                    deploymentconfig=backend-cron
+                    node-role.kubernetes.io/worker=
+                    threescale_component=backend
+                    threescale_component_element=cron
+Annotations:        k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.129.3.41"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.129.2.1"
+                          ]
+                      }]
+                    kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu, memory request for init container backend-redis-svc; cpu, memory limit for init container backend-redis-svc
+                    openshift.io/deployment-config.latest-version: 3
+                    openshift.io/deployment-config.name: backend-cron
+                    openshift.io/deployment.name: backend-cron-3
+                    openshift.io/scc: restricted
+Status:             Running
+IP:                 10.129.3.41
+Controlled By:      ReplicationController/backend-cron-3
+Init Containers:
+  backend-redis-svc:
+    Container ID:  cri-o://25ef5eeade25d9cdf9d27906874ddc15dc59bb0a6b1383818982da315c851473
+    Image:         registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    Image ID:      registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /opt/app/entrypoint.sh
+      sh
+      -c
+      until rake connectivity:redis_storage_queue_check; do sleep $SLEEP_SECONDS; done
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 11 Aug 2020 15:06:14 -0300
+      Finished:     Tue, 11 Aug 2020 15:06:15 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      CONFIG_REDIS_PROXY:            <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>             Optional: false
+      CONFIG_REDIS_SENTINEL_HOSTS:   <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>  Optional: false
+      CONFIG_REDIS_SENTINEL_ROLE:    <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_MASTER_NAME:     <set to the key 'REDIS_QUEUES_URL' in secret 'backend-redis'>              Optional: false
+      CONFIG_QUEUES_SENTINEL_HOSTS:  <set to the key 'REDIS_QUEUES_SENTINEL_HOSTS' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_SENTINEL_ROLE:   <set to the key 'REDIS_QUEUES_SENTINEL_ROLE' in secret 'backend-redis'>    Optional: false
+      RACK_ENV:                      <set to the key 'RACK_ENV' of config map 'backend-environment'>            Optional: false
+      SLEEP_SECONDS:                 1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Containers:
+  backend-cron:
+    Container ID:  cri-o://e026610a0312969b3328942262b490128b4687841e912977bf606ce9579d80a3
+    Image:         registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    Image ID:      registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      backend-cron
+    State:          Running
+      Started:      Tue, 11 Aug 2020 15:06:15 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     150m
+      memory:  80Mi
+    Requests:
+      cpu:     50m
+      memory:  40Mi
+    Environment:
+      CONFIG_REDIS_PROXY:            <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>             Optional: false
+      CONFIG_REDIS_SENTINEL_HOSTS:   <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>  Optional: false
+      CONFIG_REDIS_SENTINEL_ROLE:    <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_MASTER_NAME:     <set to the key 'REDIS_QUEUES_URL' in secret 'backend-redis'>              Optional: false
+      CONFIG_QUEUES_SENTINEL_HOSTS:  <set to the key 'REDIS_QUEUES_SENTINEL_HOSTS' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_SENTINEL_ROLE:   <set to the key 'REDIS_QUEUES_SENTINEL_ROLE' in secret 'backend-redis'>    Optional: false
+      RACK_ENV:                      <set to the key 'RACK_ENV' of config map 'backend-environment'>            Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  amp-token-5cmpq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  amp-token-5cmpq
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

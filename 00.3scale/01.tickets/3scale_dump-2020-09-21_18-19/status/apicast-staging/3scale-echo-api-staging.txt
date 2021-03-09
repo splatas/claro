@@ -1,0 +1,76 @@
+* Rebuilt URL to: https://echo-api.3scale.net/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0*   Trying 3.211.17.112...
+* TCP_NODELAY set
+* Connected to echo-api.3scale.net (3.211.17.112) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [89 bytes data]
+  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [4855 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server did not agree to a protocol
+* Server certificate:
+*  subject: CN=*.3scale.net
+*  start date: Mar 18 00:00:00 2020 GMT
+*  expire date: Apr 18 12:00:00 2021 GMT
+*  issuer: C=US; O=Amazon; OU=Server CA 1B; CN=Amazon
+*  SSL certificate verify ok.
+} [5 bytes data]
+> GET / HTTP/1.1
+> Host: echo-api.3scale.net
+> User-Agent: curl/7.61.1
+> Accept: */*
+> 
+{ [5 bytes data]
+< HTTP/1.1 200 OK
+< Cache-control: private
+< Content-Type: application/json
+< Set-Cookie: d8c1dd0e39ac4456ed39ce5889b9a5a5=a6a9d9aa7e8f3706ec5632d6f463e602; path=/; HttpOnly
+< Vary: Origin
+< X-3scale-Echo-API: echo-api/1.0.1
+< X-Content-Type-Options: nosniff
+< Content-Length: 534
+< Connection: keep-alive
+< 
+{ [534 bytes data]
+100   534  100   534    0     0     86      0  0:00:06  0:00:06 --:--:--   123
+* Connection #0 to host echo-api.3scale.net left intact
+{
+  "method": "GET",
+  "path": "/",
+  "args": "",
+  "body": "",
+  "headers": {
+    "HTTP_VERSION": "HTTP/1.1",
+    "HTTP_HOST": "echo-api.3scale.net",
+    "HTTP_ACCEPT": "*/*",
+    "HTTP_USER_AGENT": "curl/7.61.1",
+    "HTTP_X_FORWARDED_FOR": "170.51.242.41, 10.0.101.242",
+    "HTTP_X_FORWARDED_HOST": "echo-api.3scale.net",
+    "HTTP_X_FORWARDED_PORT": "443",
+    "HTTP_X_FORWARDED_PROTO": "https",
+    "HTTP_FORWARDED": "for=10.0.101.242;host=echo-api.3scale.net;proto=https"
+  },
+  "uuid": "3a3cc1ed-7d58-4c14-ac6d-dcf17e6dc3ca"
+}

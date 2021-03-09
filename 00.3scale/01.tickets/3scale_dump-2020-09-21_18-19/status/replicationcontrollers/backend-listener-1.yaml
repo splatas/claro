@@ -1,0 +1,156 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    kubectl.kubernetes.io/original-replicas: "1"
+    openshift.io/deployer-pod.completed-at: 2020-07-27 13:06:36 +0000 UTC
+    openshift.io/deployer-pod.created-at: 2020-07-27 13:05:52 +0000 UTC
+    openshift.io/deployer-pod.name: backend-listener-1-deploy
+    openshift.io/deployment-config.latest-version: "1"
+    openshift.io/deployment-config.name: backend-listener
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: "1"
+    openshift.io/deployment.status-reason: config change
+    openshift.io/encoded-deployment-config: |
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"backend-listener","namespace":"3scale-project","selfLink":"/apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/backend-listener","uid":"bd8d873d-6cf2-4d48-954e-b1afb18cca09","resourceVersion":"198378515","generation":2,"creationTimestamp":"2020-07-27T13:05:50Z","labels":{"app":"3scale-api-management","threescale_component":"backend","threescale_component_element":"listener"},"ownerReferences":[{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIManager","name":"claro-apimanager-pelado","uid":"3d48e8a8-df41-4aa1-9516-43d087853cca","controller":true,"blockOwnerDeletion":true}]},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["backend-listener"],"from":{"kind":"ImageStreamTag","namespace":"3scale-project","name":"amp-backend:latest"},"lastTriggeredImage":"registry.redhat.io/3scale-amp2/backend-rhel7@sha256:d8322db4149afc5672ebc3d0430a077c58a8e3e98d7fce720b6a5a3d2498c9c5"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentConfig":"backend-listener"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"3scale-api-management","deploymentConfig":"backend-listener","threescale_component":"backend","threescale_component_element":"listener"}},"spec":{"containers":[{"name":"backend-listener","image":"registry.redhat.io/3scale-amp2/backend-rhel7@sha256:d8322db4149afc5672ebc3d0430a077c58a8e3e98d7fce720b6a5a3d2498c9c5","args":["bin/3scale_backend","start","-e","production","-p","3000","-x","/dev/stdout"],"ports":[{"containerPort":3000,"protocol":"TCP"}],"env":[{"name":"CONFIG_REDIS_PROXY","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_URL"}}},{"name":"CONFIG_REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_SENTINEL_HOSTS"}}},{"name":"CONFIG_REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_SENTINEL_ROLE"}}},{"name":"CONFIG_QUEUES_MASTER_NAME","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_URL"}}},{"name":"CONFIG_QUEUES_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_SENTINEL_HOSTS"}}},{"name":"CONFIG_QUEUES_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_QUEUES_SENTINEL_ROLE"}}},{"name":"RACK_ENV","valueFrom":{"configMapKeyRef":{"name":"backend-environment","key":"RACK_ENV"}}},{"name":"PUMA_WORKERS","value":"16"},{"name":"CONFIG_INTERNAL_API_USER","valueFrom":{"secretKeyRef":{"name":"backend-internal-api","key":"username"}}},{"name":"CONFIG_INTERNAL_API_PASSWORD","valueFrom":{"secretKeyRef":{"name":"backend-internal-api","key":"password"}}}],"resources":{"limits":{"cpu":"1","memory":"700Mi"},"requests":{"cpu":"500m","memory":"550Mi"}},"livenessProbe":{"tcpSocket":{"port":3000},"initialDelaySeconds":30,"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"readinessProbe":{"httpGet":{"path":"/status","port":3000,"scheme":"HTTP"},"initialDelaySeconds":30,"timeoutSeconds":5,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"amp","serviceAccount":"amp","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2020-07-27T13:05:50Z","lastTransitionTime":"2020-07-27T13:05:50Z","message":"Deployment config does not have minimum availability."}]}}
+  creationTimestamp: "2020-07-27T13:05:52Z"
+  generation: 3
+  labels:
+    app: 3scale-api-management
+    openshift.io/deployment-config.name: backend-listener
+    threescale_component: backend
+    threescale_component_element: listener
+  name: backend-listener-1
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DeploymentConfig
+    name: backend-listener
+    uid: bd8d873d-6cf2-4d48-954e-b1afb18cca09
+  resourceVersion: "198489489"
+  selfLink: /api/v1/namespaces/3scale-project/replicationcontrollers/backend-listener-1
+  uid: 206d894c-1fb7-4bed-a86e-9868f3866cfa
+spec:
+  replicas: 0
+  selector:
+    deployment: backend-listener-1
+    deploymentConfig: backend-listener
+    deploymentconfig: backend-listener
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: "1"
+        openshift.io/deployment-config.name: backend-listener
+        openshift.io/deployment.name: backend-listener-1
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deployment: backend-listener-1
+        deploymentConfig: backend-listener
+        deploymentconfig: backend-listener
+        threescale_component: backend
+        threescale_component_element: listener
+    spec:
+      containers:
+      - args:
+        - bin/3scale_backend
+        - start
+        - -e
+        - production
+        - -p
+        - "3000"
+        - -x
+        - /dev/stdout
+        env:
+        - name: CONFIG_REDIS_PROXY
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: CONFIG_QUEUES_MASTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_URL
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_HOSTS
+              name: backend-redis
+        - name: CONFIG_QUEUES_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_QUEUES_SENTINEL_ROLE
+              name: backend-redis
+        - name: RACK_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RACK_ENV
+              name: backend-environment
+        - name: PUMA_WORKERS
+          value: "16"
+        - name: CONFIG_INTERNAL_API_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: backend-internal-api
+        - name: CONFIG_INTERNAL_API_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: backend-internal-api
+        image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:d8322db4149afc5672ebc3d0430a077c58a8e3e98d7fce720b6a5a3d2498c9c5
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 3000
+          timeoutSeconds: 1
+        name: backend-listener
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: "1"
+            memory: 700Mi
+          requests:
+            cpu: 500m
+            memory: 550Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+status:
+  observedGeneration: 3
+  replicas: 0

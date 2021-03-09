@@ -1,0 +1,44 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2020-09-11T15:12:36Z"
+  labels:
+    app: apicast
+    threescale_component: apicast
+  name: api-dev-3scale-apicast-apicast-staging-dev
+  namespace: 3scale-project
+  resourceVersion: "254133744"
+  selfLink: /apis/route.openshift.io/v1/namespaces/3scale-project/routes/api-dev-3scale-apicast-apicast-staging-dev
+  uid: 77f632ec-8238-427e-b2fb-2f6a0fee66d2
+spec:
+  host: api-dev-3scale-apicast-apicast-staging-dev-3scale-project.apps.osepext01.claro.amx
+  port:
+    targetPort: proxy
+  tls:
+    insecureEdgeTerminationPolicy: None
+    termination: edge
+  to:
+    kind: Service
+    name: apicast-apicast-staging-dev
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2020-09-11T15:12:35Z"
+      status: "True"
+      type: Admitted
+    host: api-dev-3scale-apicast-apicast-staging-dev-3scale-project.apps.osepext01.claro.amx
+    routerCanonicalHostname: apps.osepext01.claro.amx
+    routerName: default
+    wildcardPolicy: None
+  - conditions:
+    - lastTransitionTime: "2020-09-11T15:12:36Z"
+      status: "True"
+      type: Admitted
+    host: api-dev-3scale-apicast-apicast-staging-dev-3scale-project.apps.osepext01.claro.amx
+    routerCanonicalHostname: pci.testing.org
+    routerName: testpci
+    wildcardPolicy: None

@@ -1,0 +1,88 @@
+Name:               worker-04.osepext01.claro.amx
+Roles:              worker
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=worker-04.osepext01.claro.amx
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/worker=
+                    node.openshift.io/ingress-testing-pci=testpci
+                    node.openshift.io/os_id=rhcos
+Annotations:        machineconfiguration.openshift.io/currentConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/desiredConfig: rendered-worker-cba531973cc724757fe0cee98b0e5e1b
+                    machineconfiguration.openshift.io/reason: 
+                    machineconfiguration.openshift.io/ssh: accessed
+                    machineconfiguration.openshift.io/state: Done
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Mon, 16 Dec 2019 15:34:38 -0300
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Mon, 21 Sep 2020 15:15:26 -0300   Thu, 02 Jul 2020 11:08:37 -0300   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 21 Sep 2020 15:15:26 -0300   Thu, 02 Jul 2020 11:08:37 -0300   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 21 Sep 2020 15:15:26 -0300   Thu, 02 Jul 2020 11:08:37 -0300   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 21 Sep 2020 15:15:26 -0300   Thu, 02 Jul 2020 11:08:37 -0300   KubeletReady                 kubelet is posting ready status
+Addresses:
+  ExternalIP:  10.92.114.134
+  InternalIP:  10.92.114.134
+  Hostname:    worker-04.osepext01.claro.amx
+Capacity:
+ cpu:                16
+ ephemeral-storage:  124768236Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             65964244Ki
+ pods:               250
+Allocatable:
+ cpu:                15500m
+ ephemeral-storage:  113912664284
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             64813268Ki
+ pods:               250
+System Info:
+ Machine ID:                              4bb9c60ca0354495b4edc528d04621e0
+ System UUID:                             d6760742-2d6b-b0a0-0a3e-2fcbdc492813
+ Boot ID:                                 a9bd4c74-1b32-40ea-9200-dd742e8c8e70
+ Kernel Version:                          4.18.0-147.8.1.el8_1.x86_64
+ OS Image:                                Red Hat Enterprise Linux CoreOS 44.81.202005250830-0 (Ootpa)
+ Operating System:                        linux
+ Architecture:                            amd64
+ Container Runtime Version:               cri-o://1.17.4-12.dev.rhaos4.4.git2be4d9c.el8
+ Kubelet Version:                         v1.17.1
+ Kube-Proxy Version:                      v1.17.1
+ProviderID:                               vsphere://420776d6-6b2d-a0b0-0a3e-2fcbdc492813
+Non-terminated Pods:                      (21 in total)
+  Namespace                               Name                                                CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                               ----                                                ------------  ----------  ---------------  -------------  ---
+  3scale-project                          apicast-operator-7b4998676-rhtnc                    200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       11d
+  3scale-project                          apicast-test-production-99d865767-zz8bl             500m (3%)     1 (6%)      64Mi (0%)        128Mi (0%)     7d2h
+  3scale-project                          backend-worker-3-c6ft8                              200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       41d
+  3scale-project                          book-service-1-jll5j                                50m (0%)      1 (6%)      256Mi (0%)       512Mi (0%)     13d
+  3scale-project                          system-sidekiq-4-5shk9                              200m (1%)     2 (12%)     1Gi (1%)         2Gi (3%)       41d
+  atp                                     redhatopenjdk8-1-m9hjp                              0 (0%)        0 (0%)      0 (0%)           0 (0%)         81d
+  idp                                     claro-sso-4-ftw4j                                   200m (1%)     2 (12%)     1Gi (1%)         1Gi (1%)       2d23h
+  openshift-cluster-node-tuning-operator  tuned-2z69w                                         10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-cluster-storage-operator      csi-snapshot-controller-operator-5965bfcb6-wbt59    10m (0%)      0 (0%)      50Mi (0%)        0 (0%)         81d
+  openshift-dns                           dns-default-s8pvx                                   110m (0%)     0 (0%)      70Mi (0%)        512Mi (0%)     104d
+  openshift-image-registry                node-ca-sw7x6                                       10m (0%)      0 (0%)      10Mi (0%)        0 (0%)         104d
+  openshift-ingress                       router-testpci-6886b96884-rz5pz                     100m (0%)     0 (0%)      256Mi (0%)       0 (0%)         81d
+  openshift-logging                       fluentd-7rmc9                                       200m (1%)     0 (0%)      1Gi (1%)         1Gi (1%)       69d
+  openshift-machine-config-operator       machine-config-daemon-b4zjs                         20m (0%)      0 (0%)      50Mi (0%)        0 (0%)         104d
+  openshift-monitoring                    node-exporter-sh7nd                                 9m (0%)       0 (0%)      210Mi (0%)       0 (0%)         104d
+  openshift-monitoring                    openshift-state-metrics-94f4757b5-v7s8g             3m (0%)       0 (0%)      190Mi (0%)       0 (0%)         81d
+  openshift-multus                        multus-cbpb5                                        10m (0%)      0 (0%)      150Mi (0%)       0 (0%)         104d
+  openshift-operators                     istio-node-27cl5                                    20m (0%)      0 (0%)      200Mi (0%)       0 (0%)         118d
+  openshift-sdn                           ovs-qn6kt                                           100m (0%)     0 (0%)      400Mi (0%)       0 (0%)         104d
+  openshift-sdn                           sdn-55nzl                                           100m (0%)     0 (0%)      200Mi (0%)       0 (0%)         104d
+  openshift-user-workload-monitoring      prometheus-user-workload-1                          360m (2%)     200m (1%)   1194Mi (1%)      50Mi (0%)      4d20h
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                2412m (15%)   10200m (65%)
+  memory             8470Mi (13%)  7346Mi (11%)
+  ephemeral-storage  0 (0%)        0 (0%)
+Events:              <none>

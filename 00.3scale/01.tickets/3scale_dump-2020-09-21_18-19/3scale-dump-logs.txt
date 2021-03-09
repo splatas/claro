@@ -1,0 +1,586 @@
+
+Already on project "3scale-project" on server "https://api.osepext01.claro.amx:6443".
+Please enter the number of the Red Hat Case which this dump belongs to (Optional): 
+NOTE: No Case has been specified. Proceeding anyway.
+
+NOTE: A temporary directory will be created in order to store the information about the 3scale dump: ./3scale_dump-2020-09-21_18-19
+
+Press [ENTER] to continue or <Ctrl + C> to abort...
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19’
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/status’
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/status/apicast-staging’
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/status/apicast-production’
+
+1. Status: Nodes (First Check)
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/status/nodes-before’
+
+2. Fetch: All pods and Events
+
+
+3. Fetch: DeploymentConfig
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/dc’
+	Skipping: book-service
+	Skipping: claro-mock-service-dc
+
+4. Fetch: DeploymentConfig (Environment Variables)
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/dc/env’
+
+5. Fetch: Logs
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/logs’
+
+	Process: 3scale-operator-5f86664c4b-j9tbl
+
+	Process: apicast-apicast-production-dev-569c594c88-dhnb4
+
+	Process: apicast-apicast-staging-dev-79d87c66c9-dpnwt
+	Skipping: apicast-custom-policies-1-build
+	Skipping: apicast-custom-policies-2-build
+	Skipping: apicast-custom-policies-29-build
+	Skipping: apicast-custom-policies-3-build
+	Skipping: apicast-custom-policies-30-build
+	Skipping: apicast-custom-policies-31-build
+	Skipping: apicast-custom-policies-32-build
+	Skipping: apicast-custom-policies-33-build
+	Skipping: apicast-custom-policies-34-build
+	Skipping: apicast-custom-policies-5-build
+	Skipping: apicast-dev-production-7fcfff6745-86k97
+	Skipping: apicast-dev-staging-5bc85bbcb6-kg299
+	Skipping: apicast-example-policy-1-build
+	Skipping: apicast-example-policy-2-build
+	Skipping: apicast-example-policy-3-build
+	Skipping: apicast-example-policy-4-build
+	Skipping: apicast-example-policy-5-build
+	Skipping: apicast-example-policy-6-build
+	Skipping: apicast-openidc-policy-2-build
+	Skipping: apicast-openidc-policy-27-build
+	Skipping: apicast-openidc-policy-28-build
+	Skipping: apicast-openidc-policy-29-build
+	Skipping: apicast-openidc-policy-30-build
+	Skipping: apicast-openidc-policy-31-build
+	Skipping: apicast-openidc-policy-32-build
+	Skipping: apicast-openidc-policy-33-build
+	Skipping: apicast-operator-7b4998676-rhtnc
+	Skipping: apicast-prod-production-854f6486dd-2s5pn
+	Skipping: apicast-prod-staging-56f69c7499-wl29q
+	Skipping: apicast-test-production-99d865767-zz8bl
+	Skipping: apicast-test-staging-7c6dd47ff8-8dtpk
+
+	Process: backend-cron-3-28zrg
+
+	Process: backend-listener-3-b6df6
+
+	Process: backend-worker-3-c6ft8
+	Skipping: book-service-1-build
+	Skipping: book-service-1-jll5j
+	Skipping: book-service-2-build
+	Skipping: book-service-3-build
+	Skipping: claro-mock-service-1-build
+	Skipping: claro-mock-service-2-build
+	Skipping: claro-mock-service-3-build
+	Skipping: claro-mock-service-4-build
+	Skipping: claro-mock-service-5-build
+	Skipping: claro-mock-service-dc-3-4xl2q
+
+	Process: system-app-3-hook-post
+
+	Process: system-app-3-hook-pre
+
+	Process: system-app-4-hook-post
+
+	Process: system-app-4-hook-pre
+
+	Process: system-app-4-sbh5t
+
+	Process: system-app-5-hook-pre
+
+	Process: system-memcache-2-9nzcb
+
+	Process: system-sidekiq-4-5shk9
+
+	Process: system-sphinx-4-mtj2w
+
+	Process: zync-3-nqhk6
+
+	Process: zync-database-2-fwt2w
+
+	Process: zync-que-3-h22x7
+
+
+	# Logs from previous pods (if any) #
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/logs/previous’
+
+	Process: 3scale-operator-5f86664c4b-j9tbl
+
+	Process: apicast-apicast-production-dev-569c594c88-dhnb4
+
+	Process: apicast-apicast-staging-dev-79d87c66c9-dpnwt
+	Skipping: apicast-custom-policies-1-build
+	Skipping: apicast-custom-policies-2-build
+	Skipping: apicast-custom-policies-29-build
+	Skipping: apicast-custom-policies-3-build
+	Skipping: apicast-custom-policies-30-build
+	Skipping: apicast-custom-policies-31-build
+	Skipping: apicast-custom-policies-32-build
+	Skipping: apicast-custom-policies-33-build
+	Skipping: apicast-custom-policies-34-build
+	Skipping: apicast-custom-policies-5-build
+	Skipping: apicast-dev-production-7fcfff6745-86k97
+	Skipping: apicast-dev-staging-5bc85bbcb6-kg299
+	Skipping: apicast-example-policy-1-build
+	Skipping: apicast-example-policy-2-build
+	Skipping: apicast-example-policy-3-build
+	Skipping: apicast-example-policy-4-build
+	Skipping: apicast-example-policy-5-build
+	Skipping: apicast-example-policy-6-build
+	Skipping: apicast-openidc-policy-2-build
+	Skipping: apicast-openidc-policy-27-build
+	Skipping: apicast-openidc-policy-28-build
+	Skipping: apicast-openidc-policy-29-build
+	Skipping: apicast-openidc-policy-30-build
+	Skipping: apicast-openidc-policy-31-build
+	Skipping: apicast-openidc-policy-32-build
+	Skipping: apicast-openidc-policy-33-build
+	Skipping: apicast-operator-7b4998676-rhtnc
+	Skipping: apicast-prod-production-854f6486dd-2s5pn
+	Skipping: apicast-prod-staging-56f69c7499-wl29q
+	Skipping: apicast-test-production-99d865767-zz8bl
+	Skipping: apicast-test-staging-7c6dd47ff8-8dtpk
+
+	Process: backend-cron-3-28zrg
+
+	Process: backend-listener-3-b6df6
+
+	Process: backend-worker-3-c6ft8
+	Skipping: book-service-1-build
+	Skipping: book-service-1-jll5j
+	Skipping: book-service-2-build
+	Skipping: book-service-3-build
+	Skipping: claro-mock-service-1-build
+	Skipping: claro-mock-service-2-build
+	Skipping: claro-mock-service-3-build
+	Skipping: claro-mock-service-4-build
+	Skipping: claro-mock-service-5-build
+	Skipping: claro-mock-service-dc-3-4xl2q
+
+	Process: system-app-3-hook-post
+
+	Process: system-app-3-hook-pre
+
+	Process: system-app-4-hook-post
+
+	Process: system-app-4-hook-pre
+
+	Process: system-app-4-sbh5t
+
+	Process: system-app-5-hook-pre
+
+	Process: system-memcache-2-9nzcb
+
+	Process: system-sidekiq-4-5shk9
+
+	Process: system-sphinx-4-mtj2w
+
+	Process: zync-3-nqhk6
+
+	Process: zync-database-2-fwt2w
+
+	Process: zync-que-3-h22x7
+
+
+	# Logs from pods in a 'deploy' state #
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/logs/deploy’
+
+	Process: apicast-production-21-deploy
+
+	Process: apicast-production-23-deploy
+
+	Process: apicast-production-26-deploy
+
+	Process: apicast-production-27-deploy
+
+	Process: apicast-production-29-deploy
+
+	Process: apicast-production-31-deploy
+
+	Process: apicast-production-32-deploy
+
+	Process: apicast-staging-25-deploy
+
+	Process: apicast-staging-28-deploy
+
+	Process: apicast-staging-29-deploy
+
+	Process: apicast-staging-31-deploy
+
+	Process: apicast-staging-33-deploy
+
+	Process: apicast-staging-34-deploy
+
+	Process: backend-cron-1-deploy
+
+	Process: backend-cron-2-deploy
+
+	Process: backend-cron-3-deploy
+
+	Process: backend-listener-1-deploy
+
+	Process: backend-listener-2-deploy
+
+	Process: backend-listener-3-deploy
+
+	Process: backend-worker-1-deploy
+
+	Process: backend-worker-2-deploy
+
+	Process: backend-worker-3-deploy
+	Skipping: book-service-1-deploy
+	Skipping: claro-mock-service-dc-3-deploy
+
+	Process: system-app-3-deploy
+
+	Process: system-app-4-deploy
+
+	Process: system-app-5-deploy
+
+	Process: system-memcache-1-deploy
+
+	Process: system-memcache-2-deploy
+
+	Process: system-sidekiq-2-deploy
+
+	Process: system-sidekiq-3-deploy
+
+	Process: system-sidekiq-4-deploy
+
+	Process: system-sphinx-2-deploy
+
+	Process: system-sphinx-3-deploy
+
+	Process: system-sphinx-4-deploy
+
+	Process: zync-1-deploy
+
+	Process: zync-2-deploy
+
+	Process: zync-3-deploy
+
+	Process: zync-database-1-deploy
+
+	Process: zync-database-2-deploy
+
+	Process: zync-que-1-deploy
+
+	Process: zync-que-2-deploy
+
+	Process: zync-que-3-deploy
+
+6. Fetch: Secrets
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/secrets’
+
+7. Fetch: Routes
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/routes’
+
+8. Fetch: Services
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/services’
+
+9. Fetch: Image Streams
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/images’
+
+10. Fetch: ConfigMaps
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/configmaps’
+
+11. Fetch: Pods
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/pods’
+
+12. Fetch: PV
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/pv’
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/pv/describe’
+
+13. Fetch: PVC
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/pvc’
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/pvc/describe’
+
+14. Fetch: ServiceAccounts
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/serviceaccounts’
+
+15. Status: Replication Controllers
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/status/replicationcontrollers’
+
+16. Status: Quotas
+
+
+17. Status: Limits
+
+
+	Process: 3scale-operator-5f86664c4b-j9tbl
+
+	Process: apicast-apicast-production-dev-569c594c88-dhnb4
+
+	Process: apicast-apicast-staging-dev-79d87c66c9-dpnwt
+
+	Process: apicast-custom-policies-1-build
+
+	Process: apicast-custom-policies-2-build
+
+	Process: apicast-custom-policies-29-build
+
+	Process: apicast-custom-policies-3-build
+
+	Process: apicast-custom-policies-30-build
+
+	Process: apicast-custom-policies-31-build
+
+	Process: apicast-custom-policies-32-build
+
+	Process: apicast-custom-policies-33-build
+
+	Process: apicast-custom-policies-34-build
+
+	Process: apicast-custom-policies-5-build
+
+	Process: apicast-dev-production-7fcfff6745-86k97
+
+	Process: apicast-dev-staging-5bc85bbcb6-kg299
+
+	Process: apicast-example-policy-1-build
+
+	Process: apicast-example-policy-2-build
+
+	Process: apicast-example-policy-3-build
+
+	Process: apicast-example-policy-4-build
+
+	Process: apicast-example-policy-5-build
+
+	Process: apicast-example-policy-6-build
+
+	Process: apicast-openidc-policy-2-build
+
+	Process: apicast-openidc-policy-27-build
+
+	Process: apicast-openidc-policy-28-build
+
+	Process: apicast-openidc-policy-29-build
+
+	Process: apicast-openidc-policy-30-build
+
+	Process: apicast-openidc-policy-31-build
+
+	Process: apicast-openidc-policy-32-build
+
+	Process: apicast-openidc-policy-33-build
+
+	Process: apicast-operator-7b4998676-rhtnc
+
+	Process: apicast-prod-production-854f6486dd-2s5pn
+
+	Process: apicast-prod-staging-56f69c7499-wl29q
+
+	Process: apicast-production-21-deploy
+
+	Process: apicast-production-23-deploy
+
+	Process: apicast-production-26-deploy
+
+	Process: apicast-production-27-deploy
+
+	Process: apicast-production-29-deploy
+
+	Process: apicast-production-31-deploy
+
+	Process: apicast-production-32-deploy
+
+	Process: apicast-staging-25-deploy
+
+	Process: apicast-staging-28-deploy
+
+	Process: apicast-staging-29-deploy
+
+	Process: apicast-staging-31-deploy
+
+	Process: apicast-staging-33-deploy
+
+	Process: apicast-staging-34-deploy
+
+	Process: apicast-test-production-99d865767-zz8bl
+
+	Process: apicast-test-staging-7c6dd47ff8-8dtpk
+
+	Process: backend-cron-1-deploy
+
+	Process: backend-cron-2-deploy
+
+	Process: backend-cron-3-28zrg
+
+	Process: backend-cron-3-deploy
+
+	Process: backend-listener-1-deploy
+
+	Process: backend-listener-2-deploy
+
+	Process: backend-listener-3-b6df6
+
+	Process: backend-listener-3-deploy
+
+	Process: backend-worker-1-deploy
+
+	Process: backend-worker-2-deploy
+
+	Process: backend-worker-3-c6ft8
+
+	Process: backend-worker-3-deploy
+
+	Process: book-service-1-build
+
+	Process: book-service-1-deploy
+
+	Process: book-service-1-jll5j
+
+	Process: book-service-2-build
+
+	Process: book-service-3-build
+
+	Process: claro-mock-service-1-build
+
+	Process: claro-mock-service-2-build
+
+	Process: claro-mock-service-3-build
+
+	Process: claro-mock-service-4-build
+
+	Process: claro-mock-service-5-build
+
+	Process: claro-mock-service-dc-3-4xl2q
+
+	Process: claro-mock-service-dc-3-deploy
+
+	Process: system-app-3-deploy
+
+	Process: system-app-3-hook-post
+
+	Process: system-app-3-hook-pre
+
+	Process: system-app-4-deploy
+
+	Process: system-app-4-hook-post
+
+	Process: system-app-4-hook-pre
+
+	Process: system-app-4-sbh5t
+
+	Process: system-app-5-deploy
+
+	Process: system-app-5-hook-pre
+
+	Process: system-memcache-1-deploy
+
+	Process: system-memcache-2-9nzcb
+
+	Process: system-memcache-2-deploy
+
+	Process: system-sidekiq-2-deploy
+
+	Process: system-sidekiq-3-deploy
+
+	Process: system-sidekiq-4-5shk9
+
+	Process: system-sidekiq-4-deploy
+
+	Process: system-sphinx-2-deploy
+
+	Process: system-sphinx-3-deploy
+
+	Process: system-sphinx-4-deploy
+
+	Process: system-sphinx-4-mtj2w
+
+	Process: zync-1-deploy
+
+	Process: zync-2-deploy
+
+	Process: zync-3-deploy
+
+	Process: zync-3-nqhk6
+
+	Process: zync-database-1-deploy
+
+	Process: zync-database-2-deploy
+
+	Process: zync-database-2-fwt2w
+
+	Process: zync-que-1-deploy
+
+	Process: zync-que-2-deploy
+
+	Process: zync-que-3-deploy
+
+	Process: zync-que-3-h22x7
+
+18. Status: OpenShift Project Debug
+
+
+19. Status: Host Subnet
+
+
+20. Status: SCC
+
+
+21. Status: (Cluster) Role Binding
+
+
+22. Status: Storage Class
+
+
+# Variables used in the next following steps #
+
+	APICAST_POD_PRD: apicast-apicast-production-dev-569c594c88-dhnb4
+	APICAST_POD_STG: apicast-apicast-staging-dev-79d87c66c9-dpnwt
+	MGMT_API_PRD: 
+	MGMT_API_STG: 
+	APICAST_ROUTE_PRD: apicast-prod-production
+	APICAST_ROUTE_STG: api-dev-3scale-apicast-apicast-staging-dev-3scale-project.apps.osepext01.claro.amx
+	WILDCARD POD: 
+	THREESCALE_PORTAL_ENDPOINT: https://31b2147eab780e4961823ca1ef96a51c31d8cadeb19f98ddf89cc2b554d44900@dev-3scale-admin.apps.osepext01.claro.amx
+	SYSTEM_APP_POD: system-app-4-sbh5t
+
+23. Status: 3scale Echo API
+
+
+24. Status: Staging/Production Backend JSON
+
+
+25. Status: Management API
+
+
+26. Status: APIcast Certificates
+
+
+27. Status: Project and Pods 'runAsUser'
+
+
+28. Status: Rails Console Queries (might take up to 3 minutes)
+
+
+30. Status: Nodes (Last Check)
+
+	mkdir: created directory ‘./3scale_dump-2020-09-21_18-19/status/nodes-after’
+
+# Compacting... #
+

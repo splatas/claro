@@ -1,0 +1,79 @@
+Name:               zync-database-2-fwt2w
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               infra-01.osepext01.claro.amx/10.92.114.128
+Start Time:         Mon, 27 Jul 2020 12:29:11 -0300
+Labels:             app=3scale-api-management
+                    deployment=zync-database-2
+                    deploymentConfig=zync-database
+                    deploymentconfig=zync-database
+                    node-role.kubernetes.io/worker=
+                    threescale_component=zync
+                    threescale_component_element=database
+Annotations:        k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.128.0.66"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.128.0.1"
+                          ]
+                      }]
+                    openshift.io/deployment-config.latest-version: 2
+                    openshift.io/deployment-config.name: zync-database
+                    openshift.io/deployment.name: zync-database-2
+                    openshift.io/scc: restricted
+Status:             Running
+IP:                 10.128.0.66
+Controlled By:      ReplicationController/zync-database-2
+Containers:
+  postgresql:
+    Container ID:   cri-o://4b1179654e9858aa0a62f5d40ac913aaa2d9349d5baa23c517153bd4a395dd21
+    Image:          registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    Image ID:       registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    Port:           5432/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 27 Jul 2020 12:29:13 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     250m
+      memory:  2G
+    Requests:
+      cpu:      50m
+      memory:   250M
+    Liveness:   tcp-socket :5432 delay=30s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  exec [/bin/sh -i -c psql -h 127.0.0.1 -U zync -q -d zync_production -c 'SELECT 1'] delay=5s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      POSTGRESQL_USER:      zync
+      POSTGRESQL_PASSWORD:  <set to the key 'ZYNC_DATABASE_PASSWORD' in secret 'zync'>  Optional: false
+      POSTGRESQL_DATABASE:  zync_production
+    Mounts:
+      /var/lib/pgsql/data from zync-database-data (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  zync-database-data:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  amp-token-5cmpq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  amp-token-5cmpq
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

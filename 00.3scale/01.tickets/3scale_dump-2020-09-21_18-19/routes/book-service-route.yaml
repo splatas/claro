@@ -1,0 +1,40 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2020-09-11T14:25:58Z"
+  labels:
+    app: book-service
+  name: book-service-route
+  namespace: 3scale-project
+  resourceVersion: "254098957"
+  selfLink: /apis/route.openshift.io/v1/namespaces/3scale-project/routes/book-service-route
+  uid: 53f943ba-557d-4445-85be-465d0df33e45
+spec:
+  host: book-service-route-3scale-project.apps.osepext01.claro.amx
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: book-service
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2020-09-11T14:25:59Z"
+      status: "True"
+      type: Admitted
+    host: book-service-route-3scale-project.apps.osepext01.claro.amx
+    routerCanonicalHostname: pci.testing.org
+    routerName: testpci
+    wildcardPolicy: None
+  - conditions:
+    - lastTransitionTime: "2020-09-11T14:25:58Z"
+      status: "True"
+      type: Admitted
+    host: book-service-route-3scale-project.apps.osepext01.claro.amx
+    routerCanonicalHostname: apps.osepext01.claro.amx
+    routerName: default
+    wildcardPolicy: None

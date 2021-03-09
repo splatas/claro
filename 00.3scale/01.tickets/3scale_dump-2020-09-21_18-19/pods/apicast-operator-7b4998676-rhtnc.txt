@@ -1,0 +1,84 @@
+Name:               apicast-operator-7b4998676-rhtnc
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               worker-04.osepext01.claro.amx/10.92.114.134
+Start Time:         Wed, 09 Sep 2020 17:05:17 -0300
+Labels:             name=apicast-operator
+                    pod-template-hash=7b4998676
+Annotations:        alm-examples:
+                      [{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIcast","metadata":{"name":"example-apicast"},"spec":{"adminPortalCredentialsRef":{"nam...
+                    capabilities: Full Lifecycle
+                    categories: Integration & Delivery
+                    certified: false
+                    containerImage:
+                      registry.redhat.io/3scale-amp2/apicast-rhel7-operator@sha256:bcf2f453d7f828ad9df2a29e31cde4b4d3bd08b1205e1928b8362d7331854761
+                    createdAt: 2019-10-27T22:40:00Z
+                    description: APIcast is an API gateway to be used together with Red Hat 3scale
+                    k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.129.4.230"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.129.4.1"
+                          ]
+                      }]
+                    kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu, memory request for container apicast-operator; cpu, memory limit for container apicast-operator
+                    olm.operatorGroup: 3scale-project-h5p24
+                    olm.operatorNamespace: 3scale-project
+                    olm.targetNamespaces: 3scale-project
+                    openshift.io/scc: restricted
+                    repository: https://github.com/3scale/apicast-operator
+                    support: Red Hat, Inc.
+                    tectonic-visibility: ocs
+Status:             Running
+IP:                 10.129.4.230
+Controlled By:      ReplicaSet/apicast-operator-7b4998676
+Containers:
+  apicast-operator:
+    Container ID:  cri-o://e815be3a32bb9efe4a0833010a12eebd7e81ab5ace25bf41978bd0a522c2d9fb
+    Image:         registry.redhat.io/3scale-amp2/apicast-rhel7-operator@sha256:bcf2f453d7f828ad9df2a29e31cde4b4d3bd08b1205e1928b8362d7331854761
+    Image ID:      registry.redhat.io/3scale-amp2/apicast-rhel7-operator@sha256:bcf2f453d7f828ad9df2a29e31cde4b4d3bd08b1205e1928b8362d7331854761
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      apicast-operator
+    State:          Running
+      Started:      Wed, 09 Sep 2020 17:05:19 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      WATCH_NAMESPACE:  3scale-project (v1:metadata.namespace)
+      POD_NAME:         apicast-operator-7b4998676-rhtnc (v1:metadata.name)
+      OPERATOR_NAME:    apicast-operator
+      APICAST_IMAGE:    registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from apicast-operator-token-qpx9t (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  apicast-operator-token-qpx9t:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  apicast-operator-token-qpx9t
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

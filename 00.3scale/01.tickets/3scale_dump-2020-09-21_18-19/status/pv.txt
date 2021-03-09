@@ -1,0 +1,1 @@
+system-app                                 100Mi      RWX            Retain           Bound    3scale-project/system-storage                                                            62d

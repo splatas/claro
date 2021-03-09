@@ -1,0 +1,164 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: "2020-08-31T13:39:49Z"
+  generation: 40
+  labels:
+    app: 3scale-api-management
+    threescale_component: apicast
+    threescale_component_element: staging
+  name: apicast-staging
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "259730031"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/apicast-staging
+  uid: a22c4ba7-e086-4149-a18f-fd0eafed19d1
+spec:
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    deploymentConfig: apicast-staging
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 1800
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        prometheus.io/port: "9421"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deploymentConfig: apicast-staging
+        threescale_component: apicast
+        threescale_component_element: staging
+    spec:
+      containers:
+      - env:
+        - name: THREESCALE_PORTAL_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: PROXY_CONFIGS_ENDPOINT
+              name: system-master-apicast
+        - name: BACKEND_ENDPOINT_OVERRIDE
+          valueFrom:
+            secretKeyRef:
+              key: service_endpoint
+              name: backend-listener
+        - name: APICAST_MANAGEMENT_API
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_MANAGEMENT_API
+              name: apicast-environment
+        - name: OPENSSL_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              key: OPENSSL_VERIFY
+              name: apicast-environment
+        - name: APICAST_RESPONSE_CODES
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_RESPONSE_CODES
+              name: apicast-environment
+        - name: APICAST_CONFIGURATION_LOADER
+          value: lazy
+        - name: APICAST_CONFIGURATION_CACHE
+          value: "0"
+        - name: THREESCALE_DEPLOYMENT_ENV
+          value: staging
+        image: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/live
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: apicast-staging
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8090
+          protocol: TCP
+        - containerPort: 9421
+          name: metrics
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/ready
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 50m
+            memory: 64Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - apicast-staging
+      from:
+        kind: ImageStreamTag
+        name: amp-apicast:latest
+        namespace: 3scale-project
+      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:7e5d6f382e7e834e11609e5e43cdfeeb4a2e0923e8cf4b9d866e9833e0bb8863
+    type: ImageChange
+status:
+  availableReplicas: 0
+  conditions:
+  - lastTransitionTime: "2020-09-11T14:51:27Z"
+    lastUpdateTime: "2020-09-11T14:51:27Z"
+    message: Deployment config does not have minimum availability.
+    status: "False"
+    type: Available
+  - lastTransitionTime: "2020-09-16T19:12:04Z"
+    lastUpdateTime: "2020-09-16T19:12:04Z"
+    message: replication controller "apicast-staging-34" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - type: Manual
+    message: manual change
+  latestVersion: 34
+  observedGeneration: 40
+  replicas: 0
+  unavailableReplicas: 0
+  updatedReplicas: 0

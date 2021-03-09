@@ -1,0 +1,8 @@
+# deploymentconfigs/zync-que, container que
+RAILS_LOG_TO_STDOUT=true
+RAILS_ENV=production
+# DATABASE_URL from secret zync, key DATABASE_URL
+# SECRET_KEY_BASE from secret zync, key SECRET_KEY_BASE
+# ZYNC_AUTHENTICATION_TOKEN from secret zync, key ZYNC_AUTHENTICATION_TOKEN
+# POD_NAME from field path metadata.name
+# POD_NAMESPACE from field path metadata.namespace

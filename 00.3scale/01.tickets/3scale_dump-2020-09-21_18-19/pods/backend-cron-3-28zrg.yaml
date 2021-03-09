@@ -1,0 +1,262 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.3.41"
+          ],
+          "dns": {},
+          "default-route": [
+              "10.129.2.1"
+          ]
+      }]
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for init
+      container backend-redis-svc; cpu, memory limit for init container backend-redis-svc'
+    openshift.io/deployment-config.latest-version: "3"
+    openshift.io/deployment-config.name: backend-cron
+    openshift.io/deployment.name: backend-cron-3
+    openshift.io/scc: restricted
+  creationTimestamp: "2020-08-11T18:05:48Z"
+  generateName: backend-cron-3-
+  labels:
+    app: 3scale-api-management
+    deployment: backend-cron-3
+    deploymentConfig: backend-cron
+    deploymentconfig: backend-cron
+    node-role.kubernetes.io/worker: ""
+    threescale_component: backend
+    threescale_component_element: cron
+  name: backend-cron-3-28zrg
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicationController
+    name: backend-cron-3
+    uid: 06b3ef9a-5c2d-4a71-8959-a738308b66f2
+  resourceVersion: "216975061"
+  selfLink: /api/v1/namespaces/3scale-project/pods/backend-cron-3-28zrg
+  uid: 8a63fe88-6cef-46ec-9f21-3db5a63d9a1f
+spec:
+  containers:
+  - args:
+    - backend-cron
+    env:
+    - name: CONFIG_REDIS_PROXY
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_URL
+          name: backend-redis
+    - name: CONFIG_REDIS_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_SENTINEL_HOSTS
+          name: backend-redis
+    - name: CONFIG_REDIS_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_SENTINEL_ROLE
+          name: backend-redis
+    - name: CONFIG_QUEUES_MASTER_NAME
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_QUEUES_URL
+          name: backend-redis
+    - name: CONFIG_QUEUES_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_QUEUES_SENTINEL_HOSTS
+          name: backend-redis
+    - name: CONFIG_QUEUES_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_QUEUES_SENTINEL_ROLE
+          name: backend-redis
+    - name: RACK_ENV
+      valueFrom:
+        configMapKeyRef:
+          key: RACK_ENV
+          name: backend-environment
+    image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    imagePullPolicy: IfNotPresent
+    name: backend-cron
+    resources:
+      limits:
+        cpu: 150m
+        memory: 80Mi
+      requests:
+        cpu: 50m
+        memory: 40Mi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: amp-token-5cmpq
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: threescale-registry-auth
+  - name: amp-dockercfg-cvfh4
+  initContainers:
+  - command:
+    - /opt/app/entrypoint.sh
+    - sh
+    - -c
+    - until rake connectivity:redis_storage_queue_check; do sleep $SLEEP_SECONDS;
+      done
+    env:
+    - name: CONFIG_REDIS_PROXY
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_URL
+          name: backend-redis
+    - name: CONFIG_REDIS_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_SENTINEL_HOSTS
+          name: backend-redis
+    - name: CONFIG_REDIS_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_SENTINEL_ROLE
+          name: backend-redis
+    - name: CONFIG_QUEUES_MASTER_NAME
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_QUEUES_URL
+          name: backend-redis
+    - name: CONFIG_QUEUES_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_QUEUES_SENTINEL_HOSTS
+          name: backend-redis
+    - name: CONFIG_QUEUES_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_QUEUES_SENTINEL_ROLE
+          name: backend-redis
+    - name: RACK_ENV
+      valueFrom:
+        configMapKeyRef:
+          key: RACK_ENV
+          name: backend-environment
+    - name: SLEEP_SECONDS
+      value: "1"
+    image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    imagePullPolicy: Always
+    name: backend-redis-svc
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: amp-token-5cmpq
+      readOnly: true
+  nodeName: infra-03.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: amp
+  serviceAccountName: amp
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - name: amp-token-5cmpq
+    secret:
+      defaultMode: 420
+      secretName: amp-token-5cmpq
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T18:06:15Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T18:06:16Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T18:06:16Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T18:05:48Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://e026610a0312969b3328942262b490128b4687841e912977bf606ce9579d80a3
+    image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    imageID: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    lastState: {}
+    name: backend-cron
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-08-11T18:06:15Z"
+  hostIP: 10.92.114.130
+  initContainerStatuses:
+  - containerID: cri-o://25ef5eeade25d9cdf9d27906874ddc15dc59bb0a6b1383818982da315c851473
+    image: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    imageID: registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    lastState: {}
+    name: backend-redis-svc
+    ready: true
+    restartCount: 0
+    state:
+      terminated:
+        containerID: cri-o://25ef5eeade25d9cdf9d27906874ddc15dc59bb0a6b1383818982da315c851473
+        exitCode: 0
+        finishedAt: "2020-08-11T18:06:15Z"
+        reason: Completed
+        startedAt: "2020-08-11T18:06:14Z"
+  phase: Running
+  podIP: 10.129.3.41
+  podIPs:
+  - ip: 10.129.3.41
+  qosClass: Burstable
+  startTime: "2020-08-11T18:05:48Z"

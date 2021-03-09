@@ -1,0 +1,20 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  annotations:
+    openshift.io/description: ""
+    openshift.io/display-name: ""
+    openshift.io/requester: kube:admin
+    openshift.io/sa.scc.mcs: s0:c27,c4
+    openshift.io/sa.scc.supplemental-groups: 1000710000/10000
+    openshift.io/sa.scc.uid-range: 1000710000/10000
+  creationTimestamp: "2020-07-27T12:56:32Z"
+  name: 3scale-project
+  resourceVersion: "198370271"
+  selfLink: /apis/project.openshift.io/v1/projects/3scale-project
+  uid: b919eb05-1c6a-498b-9d75-b71a9a929c06
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

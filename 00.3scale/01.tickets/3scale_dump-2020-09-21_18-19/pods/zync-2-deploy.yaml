@@ -1,0 +1,132 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: ""
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container
+      deployment; cpu, memory limit for container deployment'
+    openshift.io/deployment-config.name: zync
+    openshift.io/deployment.name: zync-2
+    openshift.io/scc: restricted
+  creationTimestamp: "2020-07-27T15:15:56Z"
+  labels:
+    openshift.io/deployer-pod-for.name: zync-2
+  name: zync-2-deploy
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: ReplicationController
+    name: zync-2
+    uid: e2759060-b670-4b7a-8528-2786c8e75484
+  resourceVersion: "198493189"
+  selfLink: /api/v1/namespaces/3scale-project/pods/zync-2-deploy
+  uid: 1cb86766-b76f-41a0-aad9-0fa3735fe0cb
+spec:
+  activeDeadlineSeconds: 21600
+  containers:
+  - env:
+    - name: OPENSHIFT_DEPLOYMENT_NAME
+      value: zync-2
+    - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+      value: 3scale-project
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    imagePullPolicy: IfNotPresent
+    name: deployment
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: deployer-token-679s7
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: deployer-dockercfg-dl94k
+  nodeName: worker-01.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: deployer
+  serviceAccountName: deployer
+  shareProcessNamespace: false
+  terminationGracePeriodSeconds: 10
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - name: deployer-token-679s7
+    secret:
+      defaultMode: 420
+      secretName: deployer-token-679s7
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T15:15:56Z"
+    reason: PodCompleted
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T15:17:57Z"
+    reason: PodCompleted
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T15:17:57Z"
+    reason: PodCompleted
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T15:15:56Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://e3f9a530edc2467ab8fd48e2e9e1f0cad0f5c2f54e1f2204f4081c4e085b9a23
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    lastState: {}
+    name: deployment
+    ready: false
+    restartCount: 0
+    started: false
+    state:
+      terminated:
+        containerID: cri-o://e3f9a530edc2467ab8fd48e2e9e1f0cad0f5c2f54e1f2204f4081c4e085b9a23
+        exitCode: 0
+        finishedAt: "2020-07-27T15:17:57Z"
+        reason: Completed
+        startedAt: "2020-07-27T15:15:58Z"
+  hostIP: 10.92.114.131
+  phase: Succeeded
+  podIP: 10.130.3.74
+  podIPs:
+  - ip: 10.130.3.74
+  qosClass: Burstable
+  startTime: "2020-07-27T15:15:56Z"

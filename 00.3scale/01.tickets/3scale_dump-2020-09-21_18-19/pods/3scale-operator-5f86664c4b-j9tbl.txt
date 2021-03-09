@@ -1,0 +1,92 @@
+Name:               3scale-operator-5f86664c4b-j9tbl
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               infra-03.osepext01.claro.amx/10.92.114.130
+Start Time:         Tue, 11 Aug 2020 15:05:06 -0300
+Labels:             name=threescale-operator
+                    pod-template-hash=5f86664c4b
+Annotations:        alm-examples:
+                      [{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIManager","metadata":{"name":"example-apimanager"},"spec":{"wildcardDomain":"example.c...
+                    capabilities: Full Lifecycle
+                    categories: Integration & Delivery
+                    certified: false
+                    containerImage: registry.redhat.io/3scale-amp2/3scale-rhel7-operator@sha256:1ba6ec8ed984a011796bbe1eafabb2791957f58ed66ec4a484c024dd96eaf427
+                    createdAt: 2019-05-30T22:40:00Z
+                    description: 3scale Operator to provision 3scale and publish/manage API
+                    k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.129.3.39"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.129.2.1"
+                          ]
+                      }]
+                    kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu, memory request for container 3scale-operator; cpu, memory limit for container 3scale-operator
+                    olm.operatorGroup: 3scale-project-h5p24
+                    olm.operatorNamespace: 3scale-project
+                    olm.targetNamespaces: 3scale-project
+                    openshift.io/scc: restricted
+                    repository: https://github.com/3scale/3scale-operator
+                    support: Red Hat, Inc.
+                    tectonic-visibility: ocs
+Status:             Running
+IP:                 10.129.3.39
+Controlled By:      ReplicaSet/3scale-operator-5f86664c4b
+Containers:
+  3scale-operator:
+    Container ID:  cri-o://627e8bd116352a640aeb30f5b8be65cf4f01318e9b01a9aaf67ba96a5140fa8a
+    Image:         registry.redhat.io/3scale-amp2/3scale-rhel7-operator@sha256:1ba6ec8ed984a011796bbe1eafabb2791957f58ed66ec4a484c024dd96eaf427
+    Image ID:      registry.redhat.io/3scale-amp2/3scale-rhel7-operator@sha256:1ba6ec8ed984a011796bbe1eafabb2791957f58ed66ec4a484c024dd96eaf427
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      3scale-operator
+    State:          Running
+      Started:      Tue, 11 Aug 2020 15:05:22 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      WATCH_NAMESPACE:          3scale-project (v1:metadata.namespace)
+      POD_NAME:                 3scale-operator-5f86664c4b-j9tbl (v1:metadata.name)
+      OPERATOR_NAME:            threescale-operator
+      BACKEND_IMAGE:            registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+      APICAST_IMAGE:            registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+      SYSTEM_IMAGE:             registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+      ZYNC_IMAGE:               registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+      SYSTEM_MEMCACHED_IMAGE:   registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+      BACKEND_REDIS_IMAGE:      registry.redhat.io/rhscl/redis-32-rhel7@sha256:a9bdf52384a222635efc0284db47d12fbde8c3d0fcb66517ba8eefad1d4e9dc9
+      SYSTEM_REDIS_IMAGE:       registry.redhat.io/rhscl/redis-32-rhel7@sha256:a9bdf52384a222635efc0284db47d12fbde8c3d0fcb66517ba8eefad1d4e9dc9
+      SYSTEM_MYSQL_IMAGE:       registry.redhat.io/rhscl/mysql-57-rhel7@sha256:9a781abe7581cc141e14a7e404ec34125b3e89c008b14f4e7b41e094fd3049fe
+      SYSTEM_POSTGRESQL_IMAGE:  registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+      ZYNC_POSTGRESQL_IMAGE:    registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from 3scale-operator-token-t24n9 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  3scale-operator-token-t24n9:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  3scale-operator-token-t24n9
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

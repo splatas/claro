@@ -1,0 +1,5 @@
+Name:                                              default-quota
+Namespace:                                         3scale-project
+Resource                                           Used  Hard
+--------                                           ----  ----
+thin.storageclass.storage.k8s.io/requests.storage  0     10Gi

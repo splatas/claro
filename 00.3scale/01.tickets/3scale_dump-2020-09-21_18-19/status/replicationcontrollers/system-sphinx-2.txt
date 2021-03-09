@@ -1,0 +1,82 @@
+Name:         system-sphinx-2
+Namespace:    3scale-project
+Selector:     deployment=system-sphinx-2,deploymentConfig=system-sphinx,deploymentconfig=system-sphinx
+Labels:       app=3scale-api-management
+              openshift.io/deployment-config.name=system-sphinx
+              threescale_component=system
+              threescale_component_element=sphinx
+Annotations:  kubectl.kubernetes.io/original-replicas: 1
+              openshift.io/deployer-pod.completed-at: 2020-07-27 13:58:30 +0000 UTC
+              openshift.io/deployer-pod.created-at: 2020-07-27 13:52:40 +0000 UTC
+              openshift.io/deployer-pod.name: system-sphinx-2-deploy
+              openshift.io/deployment-config.latest-version: 2
+              openshift.io/deployment-config.name: system-sphinx
+              openshift.io/deployment.phase: Complete
+              openshift.io/deployment.replicas: 1
+              openshift.io/deployment.status-reason: manual change
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"system-sphinx","namespace":"3scale-project","selfLink":...
+Replicas:     0 current / 0 desired
+Pods Status:  0 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:           app=3scale-api-management
+                    deployment=system-sphinx-2
+                    deploymentConfig=system-sphinx
+                    deploymentconfig=system-sphinx
+                    threescale_component=system
+                    threescale_component_element=sphinx
+  Annotations:      openshift.io/deployment-config.latest-version: 2
+                    openshift.io/deployment-config.name: system-sphinx
+                    openshift.io/deployment.name: system-sphinx-2
+  Service Account:  amp
+  Init Containers:
+   system-master-svc:
+    Image:      registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      sh
+      -c
+      until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status); do sleep $SLEEP_SECONDS; done
+    Environment:
+      SLEEP_SECONDS:  1
+    Mounts:           <none>
+  Containers:
+   system-sphinx:
+    Image:      registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    Port:       <none>
+    Host Port:  <none>
+    Args:
+      rake
+      openshift:thinking_sphinx:start
+    Limits:
+      cpu:     1
+      memory:  512Mi
+    Requests:
+      cpu:     80m
+      memory:  250Mi
+    Liveness:  tcp-socket :9306 delay=60s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      RAILS_ENV:                           <set to the key 'RAILS_ENV' of config map 'system-environment'>  Optional: false
+      DATABASE_URL:                        <set to the key 'URL' in secret 'system-database'>               Optional: false
+      THINKING_SPHINX_ADDRESS:             0.0.0.0
+      THINKING_SPHINX_CONFIGURATION_FILE:  db/sphinx/production.conf
+      THINKING_SPHINX_PID_FILE:            db/sphinx/searchd.pid
+      DELTA_INDEX_INTERVAL:                5
+      FULL_REINDEX_INTERVAL:               60
+      REDIS_URL:                           <set to the key 'URL' in secret 'system-redis'>                         Optional: false
+      MESSAGE_BUS_REDIS_URL:               <set to the key 'MESSAGE_BUS_URL' in secret 'system-redis'>             Optional: false
+      REDIS_NAMESPACE:                     <set to the key 'NAMESPACE' in secret 'system-redis'>                   Optional: false
+      MESSAGE_BUS_REDIS_NAMESPACE:         <set to the key 'MESSAGE_BUS_NAMESPACE' in secret 'system-redis'>       Optional: false
+      REDIS_SENTINEL_HOSTS:                <set to the key 'SENTINEL_HOSTS' in secret 'system-redis'>              Optional: false
+      REDIS_SENTINEL_ROLE:                 <set to the key 'SENTINEL_ROLE' in secret 'system-redis'>               Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_HOSTS:    <set to the key 'MESSAGE_BUS_SENTINEL_HOSTS' in secret 'system-redis'>  Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_ROLE:     <set to the key 'MESSAGE_BUS_SENTINEL_ROLE' in secret 'system-redis'>   Optional: false
+    Mounts:
+      /opt/system/db/sphinx from system-sphinx-database (rw)
+  Volumes:
+   system-sphinx-database:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+Events:         <none>

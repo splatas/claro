@@ -1,0 +1,26 @@
+apiVersion: v1
+items:
+- apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    annotations:
+      storageclass.kubernetes.io/is-default-class: "false"
+    creationTimestamp: "2019-12-12T21:27:50Z"
+    name: thin
+    ownerReferences:
+    - apiVersion: v1
+      kind: clusteroperator
+      name: storage
+      uid: 49a306d2-1d25-11ea-9024-00505687a3a5
+    resourceVersion: "1956934"
+    selfLink: /apis/storage.k8s.io/v1/storageclasses/thin
+    uid: 401a60f9-1d26-11ea-9e3d-0050568729cc
+  parameters:
+    diskformat: thin
+  provisioner: kubernetes.io/vsphere-volume
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

@@ -1,0 +1,56 @@
+apiVersion: v1
+data:
+  service-ca.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIDUTCCAjmgAwIBAgIIXR3P0FP29QIwDQYJKoZIhvcNAQELBQAwNjE0MDIGA1UE
+    Awwrb3BlbnNoaWZ0LXNlcnZpY2Utc2VydmluZy1zaWduZXJAMTU3NjE4NTc4NzAe
+    Fw0yMDA0MjgxOTA5MDNaFw0yMjA2MjcxOTA5MDRaMDYxNDAyBgNVBAMMK29wZW5z
+    aGlmdC1zZXJ2aWNlLXNlcnZpbmctc2lnbmVyQDE1NzYxODU3ODcwggEiMA0GCSqG
+    SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCk9hH0zjYLjv0xNLaYT/8CL2K6a4O3puQi
+    4LSMy+SQARtTmSm4KD3Fgvlm+sA5WbPI4AKQt0mjuxgXwigJ7nWb/7Gp0aoAItkM
+    0JEFtMvXW+bg95MI1Rs6wEZbg3V1tqoPHAUN1oylcFP2DSt/WULatWegFgKV7Jcy
+    ifsiCrPDeVBstaQeOU2Lc3pPfiC51z++cDgN15Rfn6YYbuWihghY0tcS2RZzk1S3
+    UbvUMR4VhRW9coGBxKyuU6q6k6IGgPFG4c/UxyNBishsmWTaC4setxNpjx6ynf5W
+    7iYih90b2/tps2SItTlls1E1xIHY2GmIUjXHO4yq+z74+jKczKerAgMBAAGjYzBh
+    MA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBSYZwVb
+    0XlDb6riS2EWbW1yU3KdCDAfBgNVHSMEGDAWgBSYZwVb0XlDb6riS2EWbW1yU3Kd
+    CDANBgkqhkiG9w0BAQsFAAOCAQEAbYyBTJ3hIpHsWpHT7YW2+uZtw0RSjmI64ORv
+    sbQMLiYuTwULqQtJATHpL54m0jezsMaO9CGqdG/4+PPP42qLtsBUX/3dhOf0tPsS
+    2OJveE6R9sn8KnsTjR8N9nJIWRFwng6MP0jKuwoRgSJ+lCj3CauPPCaPzIH6v74t
+    JCH83y4GsMKxTn0wIE6QaygdpP20l+mpL3wd6uIiwuGpOfvvmMk3Td58gGYJ+7wr
+    LAu3yv+8TtxCTUqgJhCxX5zsZtgJ3OGWfmjWSr6qBaQnK2Z4A9FKqiU9qev4Qram
+    0dtxdoyiLxGylb0R0GPEM+s8nO3iADlUBT73yVXVD76jWEvf8w==
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+    MIIDMjCCAhqgAwIBAgIIeIGK/1ujscAwDQYJKoZIhvcNAQELBQAwNjE0MDIGA1UE
+    Awwrb3BlbnNoaWZ0LXNlcnZpY2Utc2VydmluZy1zaWduZXJAMTU3NjE4NTc4NzAe
+    Fw0xOTEyMTIyMTIzMDdaFw0yMTA1MjgxOTA5MDRaMDYxNDAyBgNVBAMMK29wZW5z
+    aGlmdC1zZXJ2aWNlLXNlcnZpbmctc2lnbmVyQDE1NzYxODU3ODcwggEiMA0GCSqG
+    SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCpAnsAaN+4c8ryi8EZGUQZP4RHXoCYJEbY
+    5F/6wGBD2pouDOs3y+L6oF4fSd4NbJBMOUWfLxxceAfR1phAzEbd+FcZNkZd4RPm
+    jLB/pfXZ1zxMCwX6XDZyEwlLQbVMFYk5yWeTbtbiFOfu4ExiUWxmhBgV2qY5EYYb
+    Wd2ROGDSeGl3m3jyPiMvQOJLCx1dnVfY7el71qbT5PYyDKcWn+F7hC0obS0EMB92
+    sFtyfxE8TbJ43lmbP8NbHpSfaK0RnRAn8UhChVuXJzvQadRpIK6xadaB3+d8bjh9
+    UMFhXX3zcBhO8nEKP3FCgjb75e557eTP1fyeNgcLHS1CACRGaiNfAgMBAAGjRDBC
+    MA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB8GA1UdIwQYMBaAFJhn
+    BVvReUNvquJLYRZtbXJTcp0IMA0GCSqGSIb3DQEBCwUAA4IBAQBP4ZYcFuE3KlzO
+    Pk0C5XDZjcWMyZxgXqExPKIP76asCDw7nCnGYR/6I4NUsIAk0/ftT0ONFEnY17Ar
+    fUmEcLBJKVCns485IQHpg69z4RgGamoogD4FrzrSlw1csRrUYvZ4wmKaAPLgKB3+
+    8Wf/MTCQDocS9FXVDHQU8JhKIY6+LB5Xb2eu000bjtvkvLpQg5gRdwk/jkGvCCF8
+    5lMMoWNJqFBjAWppPdw/ZB6JAk6FEfGuBM7TsvSRyT9O5opdDitxah4X0tDxWEut
+    xuYiP05CGo+F0EVyKS5nSpk4LV5Xx3HDb8cQhFAfaiOI5Jq0oSxij99p9td4UCo8
+    h3BjIIAp
+    -----END CERTIFICATE-----
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-09-09T20:18:24Z"
+  name: apicast-openidc-policy-31-ca
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: Pod
+    name: apicast-openidc-policy-31-build
+    uid: a4359d24-6b89-44d7-acb9-4b05286a8c2a
+  resourceVersion: "252208659"
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/apicast-openidc-policy-31-ca
+  uid: 5b7c4dc7-f6f5-4f03-ae94-e9ce3bafdd06

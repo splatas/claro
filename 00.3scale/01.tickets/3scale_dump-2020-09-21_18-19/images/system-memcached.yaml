@@ -1,0 +1,62 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: System Memcached
+    openshift.io/image.dockerRepositoryCheck: "2020-07-27T13:05:52Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 2
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+  name: system-memcached
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378605"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/system-memcached
+  uid: a27dfd1b-1642-419c-90cb-49070ae5b2d5
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: System 2.8 Memcached
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    generation: 2
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: System Memcached (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/system-memcached
+  tags:
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+      generation: 2
+      image: sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    tag: "2.8"
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/3scale-amp2/memcached-rhel7@sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+      generation: 2
+      image: sha256:2be57d773843135c0677e31d34b0cd24fa9dafc4ef1367521caa2bab7c6122e6
+    tag: latest

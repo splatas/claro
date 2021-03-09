@@ -1,0 +1,22 @@
+apiVersion: v1
+imagePullSecrets:
+- name: threescale-registry-auth
+- name: zync-que-sa-dockercfg-bd56x
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2020-07-27T13:05:51Z"
+  name: zync-que-sa
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378419"
+  selfLink: /api/v1/namespaces/3scale-project/serviceaccounts/zync-que-sa
+  uid: a62f609e-18d5-4677-b2c1-12ee236f37a2
+secrets:
+- name: zync-que-sa-token-2fdkc
+- name: zync-que-sa-dockercfg-bd56x

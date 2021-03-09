@@ -1,0 +1,12 @@
+
+# Variables used in the next following steps #
+
+	APICAST_POD_PRD: apicast-apicast-production-dev-569c594c88-dhnb4
+	APICAST_POD_STG: apicast-apicast-staging-dev-79d87c66c9-dpnwt
+	MGMT_API_PRD: 
+	MGMT_API_STG: 
+	APICAST_ROUTE_PRD: apicast-prod-production
+	APICAST_ROUTE_STG: api-dev-3scale-apicast-apicast-staging-dev-3scale-project.apps.osepext01.claro.amx
+	WILDCARD POD: 
+	THREESCALE_PORTAL_ENDPOINT: https://31b2147eab780e4961823ca1ef96a51c31d8cadeb19f98ddf89cc2b554d44900@dev-3scale-admin.apps.osepext01.claro.amx
+	SYSTEM_APP_POD: system-app-4-sbh5t

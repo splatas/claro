@@ -1,0 +1,59 @@
+Name:         zync-que-2
+Namespace:    3scale-project
+Selector:     deployment=zync-que-2,deploymentConfig=zync-que,deploymentconfig=zync-que
+Labels:       app=3scale-api-management
+              openshift.io/deployment-config.name=zync-que
+              threescale_component=zync
+Annotations:  kubectl.kubernetes.io/original-replicas: 1
+              openshift.io/deployer-pod.completed-at: 2020-07-27 15:16:42 +0000 UTC
+              openshift.io/deployer-pod.created-at: 2020-07-27 15:16:31 +0000 UTC
+              openshift.io/deployer-pod.name: zync-que-2-deploy
+              openshift.io/deployment-config.latest-version: 2
+              openshift.io/deployment-config.name: zync-que
+              openshift.io/deployment.phase: Complete
+              openshift.io/deployment.replicas: 
+              openshift.io/deployment.status-reason: config change
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"zync-que","namespace":"3scale-project","selfLink":"/api...
+Replicas:     0 current / 0 desired
+Pods Status:  0 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:           app=3scale-api-management
+                    deployment=zync-que-2
+                    deploymentConfig=zync-que
+                    deploymentconfig=zync-que
+                    node-role.kubernetes.io/worker=
+  Annotations:      openshift.io/deployment-config.latest-version: 2
+                    openshift.io/deployment-config.name: zync-que
+                    openshift.io/deployment.name: zync-que-2
+                    prometheus.io/port: 9394
+                    prometheus.io/scrape: true
+  Service Account:  zync-que-sa
+  Containers:
+   que:
+    Image:      registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+    Port:       9394/TCP
+    Host Port:  0/TCP
+    Command:
+      /usr/bin/bash
+    Args:
+      -c
+      bundle exec rake 'que[--worker-count 10]'
+    Limits:
+      cpu:     1
+      memory:  512Mi
+    Requests:
+      cpu:     250m
+      memory:  250M
+    Liveness:  http-get http://:9394/metrics delay=10s timeout=60s period=10s #success=1 #failure=3
+    Environment:
+      RAILS_LOG_TO_STDOUT:        true
+      RAILS_ENV:                  production
+      DATABASE_URL:               <set to the key 'DATABASE_URL' in secret 'zync'>               Optional: false
+      SECRET_KEY_BASE:            <set to the key 'SECRET_KEY_BASE' in secret 'zync'>            Optional: false
+      ZYNC_AUTHENTICATION_TOKEN:  <set to the key 'ZYNC_AUTHENTICATION_TOKEN' in secret 'zync'>  Optional: false
+      POD_NAME:                    (v1:metadata.name)
+      POD_NAMESPACE:               (v1:metadata.namespace)
+    Mounts:                       <none>
+  Volumes:                        <none>
+Events:                           <none>

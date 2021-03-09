@@ -1,0 +1,116 @@
+Name:               system-app-3-hook-pre
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               worker-02.osepext01.claro.amx/10.92.114.132
+Start Time:         Mon, 27 Jul 2020 11:00:31 -0300
+Labels:             openshift.io/deployer-pod-for.name=system-app-3
+                    openshift.io/deployer-pod.type=hook-pre
+Annotations:        k8s.v1.cni.cncf.io/networks-status: 
+                    openshift.io/deployment.name: system-app-3
+                    openshift.io/scc: restricted
+Status:             Succeeded
+IP:                 10.131.2.119
+Containers:
+  lifecycle:
+    Container ID:  cri-o://607bf59d82ffbc64d817d899d42446a2065813940d3cc5adef82a0b147192b87
+    Image:         registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    Image ID:      registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      bash
+      -c
+      bundle exec rake boot openshift:deploy
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Mon, 27 Jul 2020 11:00:32 -0300
+      Finished:     Mon, 27 Jul 2020 11:00:42 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  800Mi
+    Requests:
+      cpu:     50m
+      memory:  600Mi
+    Environment:
+      SMTP_OPENSSL_VERIFY_MODE:                      <set to the key 'openssl.verify.mode' in secret 'system-smtp'>                Optional: false
+      RAILS_LOG_LEVEL:                               <set to the key 'RAILS_LOG_LEVEL' of config map 'system-environment'>         Optional: false
+      MESSAGE_BUS_REDIS_URL:                         <set to the key 'MESSAGE_BUS_URL' in secret 'system-redis'>                   Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_HOSTS:              <set to the key 'MESSAGE_BUS_SENTINEL_HOSTS' in secret 'system-redis'>        Optional: false
+      SMTP_USER_NAME:                                <set to the key 'username' in secret 'system-smtp'>                           Optional: false
+      SMTP_DOMAIN:                                   <set to the key 'domain' in secret 'system-smtp'>                             Optional: false
+      CONFIG_INTERNAL_API_USER:                      <set to the key 'username' in secret 'backend-internal-api'>                  Optional: false
+      FORCE_SSL:                                     <set to the key 'FORCE_SSL' of config map 'system-environment'>               Optional: false
+      THREESCALE_SUPERDOMAIN:                        <set to the key 'THREESCALE_SUPERDOMAIN' of config map 'system-environment'>  Optional: false
+      MASTER_PASSWORD:                               <set to the key 'MASTER_PASSWORD' in secret 'system-seed'>                    Optional: false
+      ADMIN_ACCESS_TOKEN:                            <set to the key 'ADMIN_ACCESS_TOKEN' in secret 'system-seed'>                 Optional: false
+      USER_PASSWORD:                                 <set to the key 'ADMIN_PASSWORD' in secret 'system-seed'>                     Optional: false
+      ZYNC_AUTHENTICATION_TOKEN:                     <set to the key 'ZYNC_AUTHENTICATION_TOKEN' in secret 'zync'>                 Optional: false
+      SSL_CERT_DIR:                                  <set to the key 'SSL_CERT_DIR' of config map 'system-environment'>            Optional: false
+      MASTER_DOMAIN:                                 <set to the key 'MASTER_DOMAIN' in secret 'system-seed'>                      Optional: false
+      RECAPTCHA_PRIVATE_KEY:                         <set to the key 'PRIVATE_KEY' in secret 'system-recaptcha'>                   Optional: false
+      SECRET_KEY_BASE:                               <set to the key 'SECRET_KEY_BASE' in secret 'system-app'>                     Optional: false
+      REDIS_NAMESPACE:                               <set to the key 'NAMESPACE' in secret 'system-redis'>                         Optional: false
+      BACKEND_REDIS_SENTINEL_HOSTS:                  <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>     Optional: false
+      CONFIG_INTERNAL_API_PASSWORD:                  <set to the key 'password' in secret 'backend-internal-api'>                  Optional: false
+      MASTER_ACCESS_TOKEN:                           <set to the key 'MASTER_ACCESS_TOKEN' in secret 'system-seed'>                Optional: false
+      THINKING_SPHINX_PORT:                          <set to the key 'THINKING_SPHINX_PORT' of config map 'system-environment'>    Optional: false
+      USER_LOGIN:                                    <set to the key 'ADMIN_USER' in secret 'system-seed'>                         Optional: false
+      RECAPTCHA_PUBLIC_KEY:                          <set to the key 'PUBLIC_KEY' in secret 'system-recaptcha'>                    Optional: false
+      MESSAGE_BUS_REDIS_NAMESPACE:                   <set to the key 'MESSAGE_BUS_NAMESPACE' in secret 'system-redis'>             Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_ROLE:               <set to the key 'MESSAGE_BUS_SENTINEL_ROLE' in secret 'system-redis'>         Optional: false
+      PROVIDER_PLAN:                                 <set to the key 'PROVIDER_PLAN' of config map 'system-environment'>           Optional: false
+      USER_EMAIL:                                    <set to the key 'ADMIN_EMAIL' in secret 'system-seed'>                        Optional: false
+      REDIS_SENTINEL_ROLE:                           <set to the key 'SENTINEL_ROLE' in secret 'system-redis'>                     Optional: false
+      BACKEND_REDIS_SENTINEL_ROLE:                   <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>      Optional: false
+      BACKEND_ROUTE:                                 <set to the key 'route_endpoint' in secret 'backend-listener'>                Optional: false
+      BACKEND_REDIS_URL:                             <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>                Optional: false
+      SMTP_ADDRESS:                                  <set to the key 'address' in secret 'system-smtp'>                            Optional: false
+      SMTP_PORT:                                     <set to the key 'port' in secret 'system-smtp'>                               Optional: false
+      AMP_RELEASE:                                   <set to the key 'AMP_RELEASE' of config map 'system-environment'>             Optional: false
+      RAILS_ENV:                                     <set to the key 'RAILS_ENV' of config map 'system-environment'>               Optional: false
+      MASTER_USER:                                   <set to the key 'MASTER_USER' in secret 'system-seed'>                        Optional: false
+      TENANT_NAME:                                   <set to the key 'TENANT_NAME' in secret 'system-seed'>                        Optional: false
+      THINKING_SPHINX_ADDRESS:                       system-sphinx
+      SMTP_AUTHENTICATION:                           <set to the key 'authentication' in secret 'system-smtp'>                                           Optional: false
+      APICAST_BACKEND_ROOT_ENDPOINT:                 <set to the key 'route_endpoint' in secret 'backend-listener'>                                      Optional: false
+      SMTP_PASSWORD:                                 <set to the key 'password' in secret 'system-smtp'>                                                 Optional: false
+      APICAST_ACCESS_TOKEN:                          <set to the key 'ACCESS_TOKEN' in secret 'system-master-apicast'>                                   Optional: false
+      APICAST_REGISTRY_URL:                          <set to the key 'APICAST_REGISTRY_URL' of config map 'system-environment'>                          Optional: false
+      RAILS_LOG_TO_STDOUT:                           <set to the key 'RAILS_LOG_TO_STDOUT' of config map 'system-environment'>                           Optional: false
+      DATABASE_URL:                                  <set to the key 'URL' in secret 'system-database'>                                                  Optional: false
+      REDIS_URL:                                     <set to the key 'URL' in secret 'system-redis'>                                                     Optional: false
+      REDIS_SENTINEL_HOSTS:                          <set to the key 'SENTINEL_HOSTS' in secret 'system-redis'>                                          Optional: false
+      THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE:  <set to the key 'THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE' of config map 'system-environment'>  Optional: false
+      THINKING_SPHINX_CONFIGURATION_FILE:            /tmp/sphinx.conf
+      EVENTS_SHARED_SECRET:                          <set to the key 'PASSWORD' in secret 'system-events-hook'>  Optional: false
+      MEMCACHE_SERVERS:                              <set to the key 'SERVERS' in secret 'system-memcache'>      Optional: false
+      OPENSHIFT_DEPLOYMENT_NAME:                     system-app-3
+      OPENSHIFT_DEPLOYMENT_NAMESPACE:                3scale-project
+    Mounts:
+      /opt/system/public/system from system-storage (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-fc8nn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  system-storage:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  system-storage
+    ReadOnly:   false
+  default-token-fc8nn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-fc8nn
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

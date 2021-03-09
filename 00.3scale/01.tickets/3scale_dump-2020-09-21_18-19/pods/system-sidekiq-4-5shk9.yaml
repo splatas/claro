@@ -1,0 +1,511 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.4.32"
+          ],
+          "dns": {},
+          "default-route": [
+              "10.129.4.1"
+          ]
+      }]
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for init
+      container check-svc; cpu, memory limit for init container check-svc'
+    openshift.io/deployment-config.latest-version: "4"
+    openshift.io/deployment-config.name: system-sidekiq
+    openshift.io/deployment.name: system-sidekiq-4
+    openshift.io/scc: restricted
+  creationTimestamp: "2020-08-11T18:05:46Z"
+  generateName: system-sidekiq-4-
+  labels:
+    app: 3scale-api-management
+    deployment: system-sidekiq-4
+    deploymentConfig: system-sidekiq
+    deploymentconfig: system-sidekiq
+    node-role.kubernetes.io/worker: ""
+    threescale_component: system
+    threescale_component_element: sidekiq
+  name: system-sidekiq-4-5shk9
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicationController
+    name: system-sidekiq-4
+    uid: ac7320f1-9c6c-452d-a132-1e08b20e8efd
+  resourceVersion: "264679225"
+  selfLink: /api/v1/namespaces/3scale-project/pods/system-sidekiq-4-5shk9
+  uid: d79c09ab-d9c3-468c-bb0c-7e4897a34954
+spec:
+  containers:
+  - args:
+    - rake
+    - sidekiq:worker
+    - RAILS_MAX_THREADS=25
+    env:
+    - name: AMP_RELEASE
+      valueFrom:
+        configMapKeyRef:
+          key: AMP_RELEASE
+          name: system-environment
+    - name: APICAST_REGISTRY_URL
+      valueFrom:
+        configMapKeyRef:
+          key: APICAST_REGISTRY_URL
+          name: system-environment
+    - name: FORCE_SSL
+      valueFrom:
+        configMapKeyRef:
+          key: FORCE_SSL
+          name: system-environment
+    - name: PROVIDER_PLAN
+      valueFrom:
+        configMapKeyRef:
+          key: PROVIDER_PLAN
+          name: system-environment
+    - name: RAILS_ENV
+      valueFrom:
+        configMapKeyRef:
+          key: RAILS_ENV
+          name: system-environment
+    - name: RAILS_LOG_LEVEL
+      valueFrom:
+        configMapKeyRef:
+          key: RAILS_LOG_LEVEL
+          name: system-environment
+    - name: RAILS_LOG_TO_STDOUT
+      valueFrom:
+        configMapKeyRef:
+          key: RAILS_LOG_TO_STDOUT
+          name: system-environment
+    - name: SSL_CERT_DIR
+      valueFrom:
+        configMapKeyRef:
+          key: SSL_CERT_DIR
+          name: system-environment
+    - name: THINKING_SPHINX_PORT
+      valueFrom:
+        configMapKeyRef:
+          key: THINKING_SPHINX_PORT
+          name: system-environment
+    - name: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+      valueFrom:
+        configMapKeyRef:
+          key: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+          name: system-environment
+    - name: THREESCALE_SUPERDOMAIN
+      valueFrom:
+        configMapKeyRef:
+          key: THREESCALE_SUPERDOMAIN
+          name: system-environment
+    - name: DATABASE_URL
+      valueFrom:
+        secretKeyRef:
+          key: URL
+          name: system-database
+    - name: MASTER_DOMAIN
+      valueFrom:
+        secretKeyRef:
+          key: MASTER_DOMAIN
+          name: system-seed
+    - name: MASTER_USER
+      valueFrom:
+        secretKeyRef:
+          key: MASTER_USER
+          name: system-seed
+    - name: MASTER_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: MASTER_PASSWORD
+          name: system-seed
+    - name: ADMIN_ACCESS_TOKEN
+      valueFrom:
+        secretKeyRef:
+          key: ADMIN_ACCESS_TOKEN
+          name: system-seed
+    - name: USER_LOGIN
+      valueFrom:
+        secretKeyRef:
+          key: ADMIN_USER
+          name: system-seed
+    - name: USER_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: ADMIN_PASSWORD
+          name: system-seed
+    - name: USER_EMAIL
+      valueFrom:
+        secretKeyRef:
+          key: ADMIN_EMAIL
+          name: system-seed
+    - name: TENANT_NAME
+      valueFrom:
+        secretKeyRef:
+          key: TENANT_NAME
+          name: system-seed
+    - name: THINKING_SPHINX_ADDRESS
+      value: system-sphinx
+    - name: THINKING_SPHINX_CONFIGURATION_FILE
+      value: /tmp/sphinx.conf
+    - name: EVENTS_SHARED_SECRET
+      valueFrom:
+        secretKeyRef:
+          key: PASSWORD
+          name: system-events-hook
+    - name: RECAPTCHA_PUBLIC_KEY
+      valueFrom:
+        secretKeyRef:
+          key: PUBLIC_KEY
+          name: system-recaptcha
+    - name: RECAPTCHA_PRIVATE_KEY
+      valueFrom:
+        secretKeyRef:
+          key: PRIVATE_KEY
+          name: system-recaptcha
+    - name: SECRET_KEY_BASE
+      valueFrom:
+        secretKeyRef:
+          key: SECRET_KEY_BASE
+          name: system-app
+    - name: MEMCACHE_SERVERS
+      valueFrom:
+        secretKeyRef:
+          key: SERVERS
+          name: system-memcache
+    - name: REDIS_URL
+      valueFrom:
+        secretKeyRef:
+          key: URL
+          name: system-redis
+    - name: MESSAGE_BUS_REDIS_URL
+      valueFrom:
+        secretKeyRef:
+          key: MESSAGE_BUS_URL
+          name: system-redis
+    - name: REDIS_NAMESPACE
+      valueFrom:
+        secretKeyRef:
+          key: NAMESPACE
+          name: system-redis
+    - name: MESSAGE_BUS_REDIS_NAMESPACE
+      valueFrom:
+        secretKeyRef:
+          key: MESSAGE_BUS_NAMESPACE
+          name: system-redis
+    - name: REDIS_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: SENTINEL_HOSTS
+          name: system-redis
+    - name: REDIS_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: SENTINEL_ROLE
+          name: system-redis
+    - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: MESSAGE_BUS_SENTINEL_HOSTS
+          name: system-redis
+    - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: MESSAGE_BUS_SENTINEL_ROLE
+          name: system-redis
+    - name: BACKEND_REDIS_URL
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_URL
+          name: backend-redis
+    - name: BACKEND_REDIS_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_SENTINEL_HOSTS
+          name: backend-redis
+    - name: BACKEND_REDIS_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: REDIS_STORAGE_SENTINEL_ROLE
+          name: backend-redis
+    - name: APICAST_BACKEND_ROOT_ENDPOINT
+      valueFrom:
+        secretKeyRef:
+          key: route_endpoint
+          name: backend-listener
+    - name: BACKEND_ROUTE
+      valueFrom:
+        secretKeyRef:
+          key: route_endpoint
+          name: backend-listener
+    - name: SMTP_ADDRESS
+      valueFrom:
+        secretKeyRef:
+          key: address
+          name: system-smtp
+    - name: SMTP_USER_NAME
+      valueFrom:
+        secretKeyRef:
+          key: username
+          name: system-smtp
+    - name: SMTP_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: password
+          name: system-smtp
+    - name: SMTP_DOMAIN
+      valueFrom:
+        secretKeyRef:
+          key: domain
+          name: system-smtp
+    - name: SMTP_PORT
+      valueFrom:
+        secretKeyRef:
+          key: port
+          name: system-smtp
+    - name: SMTP_AUTHENTICATION
+      valueFrom:
+        secretKeyRef:
+          key: authentication
+          name: system-smtp
+    - name: SMTP_OPENSSL_VERIFY_MODE
+      valueFrom:
+        secretKeyRef:
+          key: openssl.verify.mode
+          name: system-smtp
+    - name: APICAST_ACCESS_TOKEN
+      valueFrom:
+        secretKeyRef:
+          key: ACCESS_TOKEN
+          name: system-master-apicast
+    - name: ZYNC_AUTHENTICATION_TOKEN
+      valueFrom:
+        secretKeyRef:
+          key: ZYNC_AUTHENTICATION_TOKEN
+          name: zync
+    - name: CONFIG_INTERNAL_API_USER
+      valueFrom:
+        secretKeyRef:
+          key: username
+          name: backend-internal-api
+    - name: CONFIG_INTERNAL_API_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: password
+          name: backend-internal-api
+    image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    imagePullPolicy: IfNotPresent
+    name: system-sidekiq
+    resources:
+      limits:
+        cpu: "1"
+        memory: 2Gi
+      requests:
+        cpu: 100m
+        memory: 500Mi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /opt/system/public/system
+      name: system-storage
+    - mountPath: /tmp
+      name: system-tmp
+    - mountPath: /opt/system-extra-configs
+      name: system-config
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: amp-token-5cmpq
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: threescale-registry-auth
+  - name: amp-dockercfg-cvfh4
+  initContainers:
+  - command:
+    - bash
+    - -c
+    - bundle exec sh -c "until rake boot:redis && curl --output /dev/null --silent
+      --fail --head http://system-master:3000/status; do sleep $SLEEP_SECONDS; done"
+    env:
+    - name: REDIS_URL
+      valueFrom:
+        secretKeyRef:
+          key: URL
+          name: system-redis
+    - name: MESSAGE_BUS_REDIS_URL
+      valueFrom:
+        secretKeyRef:
+          key: MESSAGE_BUS_URL
+          name: system-redis
+    - name: REDIS_NAMESPACE
+      valueFrom:
+        secretKeyRef:
+          key: NAMESPACE
+          name: system-redis
+    - name: MESSAGE_BUS_REDIS_NAMESPACE
+      valueFrom:
+        secretKeyRef:
+          key: MESSAGE_BUS_NAMESPACE
+          name: system-redis
+    - name: REDIS_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: SENTINEL_HOSTS
+          name: system-redis
+    - name: REDIS_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: SENTINEL_ROLE
+          name: system-redis
+    - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+      valueFrom:
+        secretKeyRef:
+          key: MESSAGE_BUS_SENTINEL_HOSTS
+          name: system-redis
+    - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+      valueFrom:
+        secretKeyRef:
+          key: MESSAGE_BUS_SENTINEL_ROLE
+          name: system-redis
+    - name: SLEEP_SECONDS
+      value: "1"
+    image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    imagePullPolicy: Always
+    name: check-svc
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: amp-token-5cmpq
+      readOnly: true
+  nodeName: worker-04.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: amp
+  serviceAccountName: amp
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - emptyDir:
+      medium: Memory
+    name: system-tmp
+  - name: system-storage
+    persistentVolumeClaim:
+      claimName: system-storage
+  - configMap:
+      defaultMode: 420
+      items:
+      - key: zync.yml
+        path: zync.yml
+      - key: rolling_updates.yml
+        path: rolling_updates.yml
+      - key: service_discovery.yml
+        path: service_discovery.yml
+      name: system
+    name: system-config
+  - name: amp-token-5cmpq
+    secret:
+      defaultMode: 420
+      secretName: amp-token-5cmpq
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T18:07:05Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-21T08:03:39Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-21T08:03:39Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-11T18:05:46Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://a24847d8d5e06a4ea21778871f8c9a41d29d7d525c6dfbebafc7ac7b57ab844d
+    image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    imageID: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    lastState:
+      terminated:
+        containerID: cri-o://49785885af9e425308bc75e259e106796c542bbab214cb283ecdb538e8e0d6a7
+        exitCode: 137
+        finishedAt: "2020-09-21T08:03:37Z"
+        reason: OOMKilled
+        startedAt: "2020-09-20T08:03:41Z"
+    name: system-sidekiq
+    ready: true
+    restartCount: 41
+    started: true
+    state:
+      running:
+        startedAt: "2020-09-21T08:03:38Z"
+  hostIP: 10.92.114.134
+  initContainerStatuses:
+  - containerID: cri-o://65b081c51850d4e81c480929f9854df609acb6b67c33c47619c86cc030d9d465
+    image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    imageID: registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    lastState: {}
+    name: check-svc
+    ready: true
+    restartCount: 0
+    state:
+      terminated:
+        containerID: cri-o://65b081c51850d4e81c480929f9854df609acb6b67c33c47619c86cc030d9d465
+        exitCode: 0
+        finishedAt: "2020-08-11T18:07:04Z"
+        reason: Completed
+        startedAt: "2020-08-11T18:06:52Z"
+  phase: Running
+  podIP: 10.129.4.32
+  podIPs:
+  - ip: 10.129.4.32
+  qosClass: Burstable
+  startTime: "2020-08-11T18:05:46Z"

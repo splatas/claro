@@ -1,0 +1,16 @@
+# deploymentconfigs/system-sphinx, container system-sphinx
+# RAILS_ENV from configmap system-environment, key RAILS_ENV
+# DATABASE_URL from secret system-database, key URL
+THINKING_SPHINX_ADDRESS=0.0.0.0
+THINKING_SPHINX_CONFIGURATION_FILE=db/sphinx/production.conf
+THINKING_SPHINX_PID_FILE=db/sphinx/searchd.pid
+DELTA_INDEX_INTERVAL=5
+FULL_REINDEX_INTERVAL=60
+# REDIS_URL from secret system-redis, key URL
+# MESSAGE_BUS_REDIS_URL from secret system-redis, key MESSAGE_BUS_URL
+# REDIS_NAMESPACE from secret system-redis, key NAMESPACE
+# MESSAGE_BUS_REDIS_NAMESPACE from secret system-redis, key MESSAGE_BUS_NAMESPACE
+# REDIS_SENTINEL_HOSTS from secret system-redis, key SENTINEL_HOSTS
+# REDIS_SENTINEL_ROLE from secret system-redis, key SENTINEL_ROLE
+# MESSAGE_BUS_REDIS_SENTINEL_HOSTS from secret system-redis, key MESSAGE_BUS_SENTINEL_HOSTS
+# MESSAGE_BUS_REDIS_SENTINEL_ROLE from secret system-redis, key MESSAGE_BUS_SENTINEL_ROLE

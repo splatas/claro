@@ -1,0 +1,71 @@
+Name:         apicast-production-28
+Namespace:    3scale-project
+Selector:     deployment=apicast-production-28,deploymentConfig=apicast-production,deploymentconfig=apicast-production
+Labels:       app=3scale-api-management
+              openshift.io/deployment-config.name=apicast-production
+              threescale_component=apicast
+              threescale_component_element=production
+Annotations:  kubectl.kubernetes.io/desired-replicas: 1
+              kubectl.kubernetes.io/update-source-id: apicast-production-27:a8fe3d68-fb30-4700-a9d4-f33127fe3d49
+              openshift.io/deployer-pod.created-at: 2020-09-07 15:22:45 +0000 UTC
+              openshift.io/deployer-pod.name: apicast-production-28-deploy
+              openshift.io/deployment-config.latest-version: 28
+              openshift.io/deployment-config.name: apicast-production
+              openshift.io/deployment.cancelled: true
+              openshift.io/deployment.phase: Failed
+              openshift.io/deployment.replicas: 0
+              openshift.io/deployment.status-reason: newer deployment was found running
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"apicast-production","namespace":"3scale-project","selfL...
+Replicas:     0 current / 0 desired
+Pods Status:  0 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:           app=3scale-api-management
+                    deployment=apicast-production-28
+                    deploymentConfig=apicast-production
+                    deploymentconfig=apicast-production
+                    threescale_component=apicast
+                    threescale_component_element=production
+  Annotations:      openshift.io/deployment-config.latest-version: 28
+                    openshift.io/deployment-config.name: apicast-production
+                    openshift.io/deployment.name: apicast-production-28
+                    prometheus.io/port: 9421
+                    prometheus.io/scrape: true
+  Service Account:  amp
+  Init Containers:
+   system-master-svc:
+    Image:      image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:8a7c73acb0aa750e202e0351555482af32eb47d72f45bd1c364929b1dbf98eea
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      sh
+      -c
+      until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status); do sleep $SLEEP_SECONDS; done
+    Environment:
+      SLEEP_SECONDS:  1
+    Mounts:           <none>
+  Containers:
+   apicast-production:
+    Image:       image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:8a7c73acb0aa750e202e0351555482af32eb47d72f45bd1c364929b1dbf98eea
+    Ports:       8080/TCP, 8090/TCP, 9421/TCP
+    Host Ports:  0/TCP, 0/TCP, 0/TCP
+    Limits:
+      cpu:     1
+      memory:  128Mi
+    Requests:
+      cpu:      500m
+      memory:   64Mi
+    Liveness:   http-get http://:8090/status/live delay=10s timeout=5s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:8090/status/ready delay=15s timeout=5s period=30s #success=1 #failure=3
+    Environment:
+      THREESCALE_PORTAL_ENDPOINT:    <set to the key 'PROXY_CONFIGS_ENDPOINT' in secret 'system-master-apicast'>    Optional: false
+      BACKEND_ENDPOINT_OVERRIDE:     <set to the key 'service_endpoint' in secret 'backend-listener'>               Optional: false
+      APICAST_MANAGEMENT_API:        <set to the key 'APICAST_MANAGEMENT_API' of config map 'apicast-environment'>  Optional: false
+      OPENSSL_VERIFY:                <set to the key 'OPENSSL_VERIFY' of config map 'apicast-environment'>          Optional: false
+      APICAST_RESPONSE_CODES:        <set to the key 'APICAST_RESPONSE_CODES' of config map 'apicast-environment'>  Optional: false
+      APICAST_CONFIGURATION_LOADER:  boot
+      APICAST_CONFIGURATION_CACHE:   300
+      THREESCALE_DEPLOYMENT_ENV:     production
+    Mounts:                          <none>
+  Volumes:                           <none>
+Events:                              <none>

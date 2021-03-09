@@ -1,0 +1,195 @@
+Name:               book-service-1-build
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               worker-04.osepext01.claro.amx/10.92.114.134
+Start Time:         Tue, 08 Sep 2020 12:07:36 -0300
+Labels:             openshift.io/build.name=book-service-1
+Annotations:        k8s.v1.cni.cncf.io/networks-status: 
+                    kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu, memory request for container sti-build; cpu, memory limit for container sti-build; cpu, memory request for in...
+                    openshift.io/build.name: book-service-1
+                    openshift.io/scc: privileged
+Status:             Failed
+IP:                 10.129.4.193
+Controlled By:      Build/book-service-1
+Init Containers:
+  manage-dockerfile:
+    Container ID:  cri-o://508d15e3e2f0bbf1e159735b84c29fe1d6dfb6bd36ee12fbc7a8a8c5df28e96a
+    Image:         quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    Image ID:      quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      openshift-manage-dockerfile
+    Args:
+      --loglevel=0
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 08 Sep 2020 12:07:39 -0300
+      Finished:     Tue, 08 Sep 2020 12:07:39 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      BUILD:                        {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"book-service-1","namespace":"3scale-project","selfLink":"/apis/build.openshift.io/v1/namespaces/3scale-project/builds/book-service-1","uid":"7bf1e07a-1b4a-4c27-b2ca-dee815b8a987","resourceVersion":"250848800","creationTimestamp":"2020-09-08T15:07:36Z","labels":{"app":"book-service","buildconfig":"book-service","openshift.io/build-config.name":"book-service","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"book-service","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"book-service","uid":"02f845fa-9ea8-487b-9a33-46f047d3daa9","controller":true}]},"spec":{"serviceAccount":"builder","source":{"type":"None"},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/openshift/fuse7-java-openshift@sha256:29d831cb1f5fe839ab6e8c59d57f695094938a9f97e071bdbc854e54a90ecb94"},"pullSecret":{"name":"builder-dockercfg-jtvsh"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/book-service:latest"},"pushSecret":{"name":"builder-dockercfg-jtvsh"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Build configuration change"}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/3scale-project/book-service:latest","config":{"kind":"BuildConfig","namespace":"3scale-project","name":"book-service"},"output":{}}}
+                                    
+      LANG:                         en_US.utf8
+      ALLOWED_UIDS:                 1-
+      DROP_CAPS:                    KILL,MKNOD,SETGID,SETUID
+      BUILD_REGISTRIES_CONF_PATH:   /var/run/configs/openshift.io/build-system/registries.conf
+      BUILD_REGISTRIES_DIR_PATH:    /var/run/configs/openshift.io/build-system/registries.d
+      BUILD_SIGNATURE_POLICY_PATH:  /var/run/configs/openshift.io/build-system/policy.json
+      BUILD_STORAGE_CONF_PATH:      /var/run/configs/openshift.io/build-system/storage.conf
+      BUILD_BLOBCACHE_DIR:          /var/cache/blobs
+      HTTP_PROXY:                   
+      HTTPS_PROXY:                  
+      NO_PROXY:                     
+    Mounts:
+      /etc/pki/ca-trust/extracted/pem from build-proxy-ca-bundles (rw)
+      /tmp/build from buildworkdir (rw)
+      /var/cache/blobs from build-blob-cache (rw)
+      /var/run/configs/openshift.io/build-system from build-system-configs (ro)
+      /var/run/configs/openshift.io/certs from build-ca-bundles (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from builder-token-gv4x9 (ro)
+Containers:
+  sti-build:
+    Container ID:  cri-o://b9b9f6bd42d4763575cc0b68385285b90c0c508c65815c1bfe27a3c2b5356b37
+    Image:         quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    Image ID:      quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:84289f9fd2d94a61c1f8df840fc2f8074aec5e380522577322fde652131c4c2d
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      openshift-sti-build
+    Args:
+      --loglevel=0
+    State:      Terminated
+      Reason:   Error
+      Message:  Caching blobs under "/var/cache/blobs".
+Getting image source signatures
+Copying blob sha256:e7c59289a7545b67b0e12162f8ce6b637cabaf93171e0d7e1bf3e98d286456c7
+Copying blob sha256:cf313e71c9fd8209b9df2ee0fb7471c014b3ec6f7144546b88ad7c46b5fb2cd4
+Copying blob sha256:3c81a5d20855a6cef8b997d709410e047e2839b5ad113f4c34d25e9fae9e3beb
+Copying blob sha256:07c69678314f4cb7384c115ffd5040765fe1fe42db1b8c789af11ce865771f7b
+Copying blob sha256:76608b6b9d54251299c5d3be69fdf53e05f97a3735bbcd5889c30ebb78608428
+Copying config sha256:62f2af090f787d63bf85381a756334bfda633d175937b2dba90742cb6e16de95
+Writing manifest to image destination
+Storing signatures
+Generating dockerfile with builder image image-registry.openshift-image-registry.svc:5000/openshift/fuse7-java-openshift@sha256:29d831cb1f5fe839ab6e8c59d57f695094938a9f97e071bdbc854e54a90ecb94
+STEP 1: FROM image-registry.openshift-image-registry.svc:5000/openshift/fuse7-java-openshift@sha256:29d831cb1f5fe839ab6e8c59d57f695094938a9f97e071bdbc854e54a90ecb94
+STEP 2: LABEL "io.openshift.build.source-location"="/tmp/build/inputs"       "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/openshift/fuse7-java-openshift@sha256:29d831cb1f5fe839ab6e8c59d57f695094938a9f97e071bdbc854e54a90ecb94"
+STEP 3: ENV OPENSHIFT_BUILD_NAME="book-service-1"     OPENSHIFT_BUILD_NAMESPACE="3scale-project"
+STEP 4: USER root
+STEP 5: COPY upload/src /tmp/src
+STEP 6: RUN chown -R 185:0 /tmp/src
+STEP 7: USER 185
+STEP 8: RUN /usr/local/s2i/assemble
+==================================================================
+Starting S2I Java Build .....
+S2I source build with plain binaries detected
+Copying binaries from /tmp/src to /deployments ...
+cp: cannot stat '/tmp/src/*': No such file or directory
+Aborting due to error code 1 for copying /tmp/src to /deployments
+subprocess exited with status 1
+subprocess exited with status 1
+error: build error: error building at STEP "RUN /usr/local/s2i/assemble": exit status 1
+
+      Exit Code:    1
+      Started:      Tue, 08 Sep 2020 12:07:39 -0300
+      Finished:     Tue, 08 Sep 2020 12:08:05 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      BUILD:                        {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"book-service-1","namespace":"3scale-project","selfLink":"/apis/build.openshift.io/v1/namespaces/3scale-project/builds/book-service-1","uid":"7bf1e07a-1b4a-4c27-b2ca-dee815b8a987","resourceVersion":"250848800","creationTimestamp":"2020-09-08T15:07:36Z","labels":{"app":"book-service","buildconfig":"book-service","openshift.io/build-config.name":"book-service","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"book-service","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"book-service","uid":"02f845fa-9ea8-487b-9a33-46f047d3daa9","controller":true}]},"spec":{"serviceAccount":"builder","source":{"type":"None"},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/openshift/fuse7-java-openshift@sha256:29d831cb1f5fe839ab6e8c59d57f695094938a9f97e071bdbc854e54a90ecb94"},"pullSecret":{"name":"builder-dockercfg-jtvsh"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/book-service:latest"},"pushSecret":{"name":"builder-dockercfg-jtvsh"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Build configuration change"}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/3scale-project/book-service:latest","config":{"kind":"BuildConfig","namespace":"3scale-project","name":"book-service"},"output":{}}}
+                                    
+      LANG:                         en_US.utf8
+      ALLOWED_UIDS:                 1-
+      DROP_CAPS:                    KILL,MKNOD,SETGID,SETUID
+      PUSH_DOCKERCFG_PATH:          /var/run/secrets/openshift.io/push
+      PULL_DOCKERCFG_PATH:          /var/run/secrets/openshift.io/pull
+      BUILD_REGISTRIES_CONF_PATH:   /var/run/configs/openshift.io/build-system/registries.conf
+      BUILD_REGISTRIES_DIR_PATH:    /var/run/configs/openshift.io/build-system/registries.d
+      BUILD_SIGNATURE_POLICY_PATH:  /var/run/configs/openshift.io/build-system/policy.json
+      BUILD_STORAGE_CONF_PATH:      /var/run/configs/openshift.io/build-system/storage.conf
+      BUILD_STORAGE_DRIVER:         overlay
+      BUILD_ISOLATION:              chroot
+      BUILD_BLOBCACHE_DIR:          /var/cache/blobs
+      HTTP_PROXY:                   
+      HTTPS_PROXY:                  
+      NO_PROXY:                     
+    Mounts:
+      /etc/pki/ca-trust/extracted/pem from build-proxy-ca-bundles (rw)
+      /tmp/build from buildworkdir (rw)
+      /var/cache/blobs from build-blob-cache (rw)
+      /var/lib/containers/cache from buildcachedir (rw)
+      /var/lib/containers/storage from container-storage-root (rw)
+      /var/run/configs/openshift.io/build-system from build-system-configs (ro)
+      /var/run/configs/openshift.io/certs from build-ca-bundles (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from builder-token-gv4x9 (ro)
+      /var/run/secrets/openshift.io/pull from builder-dockercfg-jtvsh-pull (ro)
+      /var/run/secrets/openshift.io/push from builder-dockercfg-jtvsh-push (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  buildcachedir:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/containers/cache
+    HostPathType:  
+  buildworkdir:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  builder-dockercfg-jtvsh-push:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  builder-dockercfg-jtvsh
+    Optional:    false
+  builder-dockercfg-jtvsh-pull:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  builder-dockercfg-jtvsh
+    Optional:    false
+  build-system-configs:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      book-service-1-sys-config
+    Optional:  false
+  build-ca-bundles:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      book-service-1-ca
+    Optional:  false
+  build-proxy-ca-bundles:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      book-service-1-global-ca
+    Optional:  false
+  container-storage-root:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  build-blob-cache:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  builder-token-gv4x9:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  builder-token-gv4x9
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  kubernetes.io/os=linux
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

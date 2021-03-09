@@ -1,0 +1,3 @@
+Client Version: openshift-clients-4.2.2-201910250432-8-g98a84c61
+Server Version: 4.4.6
+Kubernetes Version: v1.17.1+f63db30

@@ -1,0 +1,12 @@
+NAME   PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+thin   kubernetes.io/vsphere-volume   Delete          Immediate           false                  283d
+Name:                  thin
+IsDefaultClass:        No
+Annotations:           storageclass.kubernetes.io/is-default-class=false
+Provisioner:           kubernetes.io/vsphere-volume
+Parameters:            diskformat=thin
+AllowVolumeExpansion:  <unset>
+MountOptions:          <none>
+ReclaimPolicy:         Delete
+VolumeBindingMode:     Immediate
+Events:                <none>

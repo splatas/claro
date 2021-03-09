@@ -1,0 +1,174 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    apicast.apps.3scale.net/admin-portal-secret-resource-version: "257397707"
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.128.1.10"
+          ],
+          "dns": {},
+          "default-route": [
+              "10.128.0.1"
+          ]
+      }]
+    openshift.io/scc: restricted
+    prometheus.io/port: "9421"
+    prometheus.io/scrape: "true"
+  creationTimestamp: "2020-09-14T15:30:22Z"
+  generateName: apicast-prod-staging-56f69c7499-
+  labels:
+    deployment: apicast-prod-staging
+    pod-template-hash: 56f69c7499
+  name: apicast-prod-staging-56f69c7499-wl29q
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: apicast-prod-staging-56f69c7499
+    uid: 5a1b0e52-6d6d-4a1f-b8ee-3ae1a17fac93
+  resourceVersion: "257398345"
+  selfLink: /api/v1/namespaces/3scale-project/pods/apicast-prod-staging-56f69c7499-wl29q
+  uid: 3680665c-a779-4b0e-a7da-ea9e3b1d36fa
+spec:
+  containers:
+  - env:
+    - name: THREESCALE_PORTAL_ENDPOINT
+      valueFrom:
+        secretKeyRef:
+          key: AdminPortalURL
+          name: apicastprod-staging-secret
+    - name: THREESCALE_DEPLOYMENT_ENV
+      value: staging
+    - name: APICAST_CONFIGURATION_LOADER
+      value: lazy
+    - name: APICAST_CONFIGURATION_CACHE
+      value: "0"
+    image: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    imagePullPolicy: Always
+    livenessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /status/live
+        port: 8090
+        scheme: HTTP
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 5
+    name: apicast-prod-staging
+    ports:
+    - containerPort: 8080
+      name: proxy
+      protocol: TCP
+    - containerPort: 8090
+      name: management
+      protocol: TCP
+    - containerPort: 9421
+      name: metrics
+      protocol: TCP
+    readinessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /status/ready
+        port: 8090
+        scheme: HTTP
+      initialDelaySeconds: 15
+      periodSeconds: 30
+      successThreshold: 1
+      timeoutSeconds: 5
+    resources:
+      limits:
+        cpu: "1"
+        memory: 128Mi
+      requests:
+        cpu: 500m
+        memory: 64Mi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-fc8nn
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: default-dockercfg-h648n
+  nodeName: infra-01.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - name: default-token-fc8nn
+    secret:
+      defaultMode: 420
+      secretName: default-token-fc8nn
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-14T15:30:20Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-14T15:31:05Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-14T15:31:05Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-14T15:30:20Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://be25a9068152233e5a66afcb66bda5eb16935574df9c7c590c5c22117432e2ab
+    image: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    imageID: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8@sha256:3023b37ccfc902bfafd2c344dc5595295369a2dc00ea38b27c193ca5b138942b
+    lastState: {}
+    name: apicast-prod-staging
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-09-14T15:30:24Z"
+  hostIP: 10.92.114.128
+  phase: Running
+  podIP: 10.128.1.10
+  podIPs:
+  - ip: 10.128.1.10
+  qosClass: Burstable
+  startTime: "2020-09-14T15:30:20Z"

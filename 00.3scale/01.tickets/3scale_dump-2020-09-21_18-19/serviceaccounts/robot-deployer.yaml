@@ -1,0 +1,14 @@
+apiVersion: v1
+imagePullSecrets:
+- name: robot-deployer-dockercfg-t9rl5
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2020-07-27T12:56:31Z"
+  name: robot-deployer
+  namespace: 3scale-project
+  resourceVersion: "198370305"
+  selfLink: /api/v1/namespaces/3scale-project/serviceaccounts/robot-deployer
+  uid: aea740a2-39c0-447c-99ea-d0ab537c3125
+secrets:
+- name: robot-deployer-token-gnmg9
+- name: robot-deployer-dockercfg-t9rl5

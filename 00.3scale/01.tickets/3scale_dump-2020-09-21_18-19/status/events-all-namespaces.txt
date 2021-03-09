@@ -1,0 +1,189 @@
+NAMESPACE        LAST SEEN   TYPE      REASON        OBJECT                      MESSAGE
+3scale-project   2m59s       Warning   FailedMount   pod/system-app-5-hook-pre   (combined from similar events): MountVolume.SetUp failed for volume "system-app" : mount failed: exit status 32
+Mounting command: systemd-run
+Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/c957a53a-8bad-4b50-a56f-ad55a6efa1db/volumes/kubernetes.io~nfs/system-app --scope -- mount -t nfs 10.92.49.14:/CMS_PRDE_p_openshift_apu /var/lib/kubelet/pods/c957a53a-8bad-4b50-a56f-ad55a6efa1db/volumes/kubernetes.io~nfs/system-app
+Output: Running scope as unit: run-rcd45f1d88c264962bde89b1c806627b9.scope
+mount.nfs: mounting 10.92.49.14:/CMS_PRDE_p_openshift_apu failed, reason given by server: No such file or directory
+cluster-ops               <unknown>   Normal    Scheduled               pod/cronjob-ldap-group-sync-1600704000-jw6bv   Successfully assigned cluster-ops/cronjob-ldap-group-sync-1600704000-jw6bv to worker-01.osepext01.claro.amx
+cluster-ops               139m        Normal    Pulled                  pod/cronjob-ldap-group-sync-1600704000-jw6bv   Container image "registry.access.redhat.com/openshift3/ose-cli:v3.11" already present on machine
+cluster-ops               139m        Normal    Created                 pod/cronjob-ldap-group-sync-1600704000-jw6bv   Created container cronjob-ldap-group-sync
+cluster-ops               139m        Normal    Started                 pod/cronjob-ldap-group-sync-1600704000-jw6bv   Started container cronjob-ldap-group-sync
+cluster-ops               139m        Normal    SuccessfulCreate        job/cronjob-ldap-group-sync-1600704000         Created pod: cronjob-ldap-group-sync-1600704000-jw6bv
+cluster-ops               <unknown>   Normal    Scheduled               pod/cronjob-ldap-group-sync-1600707600-s98vb   Successfully assigned cluster-ops/cronjob-ldap-group-sync-1600707600-s98vb to worker-01.osepext01.claro.amx
+cluster-ops               79m         Normal    Pulled                  pod/cronjob-ldap-group-sync-1600707600-s98vb   Container image "registry.access.redhat.com/openshift3/ose-cli:v3.11" already present on machine
+cluster-ops               79m         Normal    Created                 pod/cronjob-ldap-group-sync-1600707600-s98vb   Created container cronjob-ldap-group-sync
+cluster-ops               79m         Normal    Started                 pod/cronjob-ldap-group-sync-1600707600-s98vb   Started container cronjob-ldap-group-sync
+cluster-ops               79m         Normal    SuccessfulCreate        job/cronjob-ldap-group-sync-1600707600         Created pod: cronjob-ldap-group-sync-1600707600-s98vb
+cluster-ops               <unknown>   Normal    Scheduled               pod/cronjob-ldap-group-sync-1600711200-msbwc   Successfully assigned cluster-ops/cronjob-ldap-group-sync-1600711200-msbwc to worker-01.osepext01.claro.amx
+cluster-ops               20m         Normal    Pulled                  pod/cronjob-ldap-group-sync-1600711200-msbwc   Container image "registry.access.redhat.com/openshift3/ose-cli:v3.11" already present on machine
+cluster-ops               20m         Normal    Created                 pod/cronjob-ldap-group-sync-1600711200-msbwc   Created container cronjob-ldap-group-sync
+cluster-ops               20m         Normal    Started                 pod/cronjob-ldap-group-sync-1600711200-msbwc   Started container cronjob-ldap-group-sync
+cluster-ops               20m         Normal    SuccessfulCreate        job/cronjob-ldap-group-sync-1600711200         Created pod: cronjob-ldap-group-sync-1600711200-msbwc
+cluster-ops               139m        Normal    SuccessfulCreate        cronjob/cronjob-ldap-group-sync                Created job cronjob-ldap-group-sync-1600704000
+cluster-ops               139m        Normal    SawCompletedJob         cronjob/cronjob-ldap-group-sync                Saw completed job: cronjob-ldap-group-sync-1600704000, status: Complete
+cluster-ops               139m        Normal    SuccessfulDelete        cronjob/cronjob-ldap-group-sync                Deleted job cronjob-ldap-group-sync-1600693200
+cluster-ops               79m         Normal    SuccessfulCreate        cronjob/cronjob-ldap-group-sync                Created job cronjob-ldap-group-sync-1600707600
+cluster-ops               79m         Normal    SawCompletedJob         cronjob/cronjob-ldap-group-sync                Saw completed job: cronjob-ldap-group-sync-1600707600, status: Complete
+cluster-ops               79m         Normal    SuccessfulDelete        cronjob/cronjob-ldap-group-sync                Deleted job cronjob-ldap-group-sync-1600696800
+cluster-ops               20m         Normal    SuccessfulCreate        cronjob/cronjob-ldap-group-sync                Created job cronjob-ldap-group-sync-1600711200
+cluster-ops               19m         Normal    SawCompletedJob         cronjob/cronjob-ldap-group-sync                Saw completed job: cronjob-ldap-group-sync-1600711200, status: Complete
+cluster-ops               19m         Normal    SuccessfulDelete        cronjob/cronjob-ldap-group-sync                Deleted job cronjob-ldap-group-sync-1600700400
+openshift-etcd-operator   4m40s       Warning   UnhealthyEtcdMember     deployment/etcd-operator                       unhealthy members: master-02.osepext01.claro.amx,master-01.osepext01.claro.amx,master-03.osepext01.claro.amx
+openshift-etcd-operator   14m         Warning   UnhealthyEtcdMember     deployment/etcd-operator                       unhealthy members: master-01.osepext01.claro.amx,master-03.osepext01.claro.amx
+openshift-etcd-operator   38m         Warning   UnhealthyEtcdMember     deployment/etcd-operator                       unhealthy members: master-03.osepext01.claro.amx
+openshift-etcd-operator   172m        Normal    OperatorStatusChanged   deployment/etcd-operator                       Status for clusteroperator/etcd changed: Degraded message changed from "NodeControllerDegraded: All master nodes are ready\nEtcdMembersDegraded: No unhealthy members found" to "EtcdMemberIPMigratorDegraded: rpc error: code = Canceled desc = grpc: the client connection is closing\nNodeControllerDegraded: All master nodes are ready\nEtcdMembersDegraded: No unhealthy members found"
+openshift-etcd-operator   172m        Normal    OperatorStatusChanged   deployment/etcd-operator                       Status for clusteroperator/etcd changed: Degraded message changed from "EtcdMemberIPMigratorDegraded: rpc error: code = Canceled desc = grpc: the client connection is closing\nNodeControllerDegraded: All master nodes are ready\nEtcdMembersDegraded: No unhealthy members found" to "NodeControllerDegraded: All master nodes are ready\nEtcdMembersDegraded: No unhealthy members found"
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600701600-d9xrx                   Successfully assigned openshift-logging/curator-1600701600-d9xrx to infra-02.osepext01.claro.amx
+openshift-logging         3h          Normal    Pulled                  pod/curator-1600701600-d9xrx                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         3h          Normal    Created                 pod/curator-1600701600-d9xrx                   Created container curator
+openshift-logging         3h          Normal    Started                 pod/curator-1600701600-d9xrx                   Started container curator
+openshift-logging         3h          Normal    SuccessfulCreate        job/curator-1600701600                         Created pod: curator-1600701600-d9xrx
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600702200-nrhxr                   Successfully assigned openshift-logging/curator-1600702200-nrhxr to infra-02.osepext01.claro.amx
+openshift-logging         170m        Normal    Pulled                  pod/curator-1600702200-nrhxr                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         170m        Normal    Created                 pod/curator-1600702200-nrhxr                   Created container curator
+openshift-logging         170m        Normal    Started                 pod/curator-1600702200-nrhxr                   Started container curator
+openshift-logging         170m        Normal    SuccessfulCreate        job/curator-1600702200                         Created pod: curator-1600702200-nrhxr
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600702800-26rq2                   Successfully assigned openshift-logging/curator-1600702800-26rq2 to infra-03.osepext01.claro.amx
+openshift-logging         159m        Normal    Pulled                  pod/curator-1600702800-26rq2                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         159m        Normal    Created                 pod/curator-1600702800-26rq2                   Created container curator
+openshift-logging         159m        Normal    Started                 pod/curator-1600702800-26rq2                   Started container curator
+openshift-logging         160m        Normal    SuccessfulCreate        job/curator-1600702800                         Created pod: curator-1600702800-26rq2
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600703400-psff4                   Successfully assigned openshift-logging/curator-1600703400-psff4 to infra-03.osepext01.claro.amx
+openshift-logging         149m        Normal    Pulled                  pod/curator-1600703400-psff4                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         149m        Normal    Created                 pod/curator-1600703400-psff4                   Created container curator
+openshift-logging         149m        Normal    Started                 pod/curator-1600703400-psff4                   Started container curator
+openshift-logging         150m        Normal    SuccessfulCreate        job/curator-1600703400                         Created pod: curator-1600703400-psff4
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600704000-r8ccl                   Successfully assigned openshift-logging/curator-1600704000-r8ccl to infra-03.osepext01.claro.amx
+openshift-logging         139m        Normal    Pulled                  pod/curator-1600704000-r8ccl                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         139m        Normal    Created                 pod/curator-1600704000-r8ccl                   Created container curator
+openshift-logging         139m        Normal    Started                 pod/curator-1600704000-r8ccl                   Started container curator
+openshift-logging         139m        Normal    SuccessfulCreate        job/curator-1600704000                         Created pod: curator-1600704000-r8ccl
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600704600-vpdgv                   Successfully assigned openshift-logging/curator-1600704600-vpdgv to infra-02.osepext01.claro.amx
+openshift-logging         130m        Normal    Pulled                  pod/curator-1600704600-vpdgv                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         130m        Normal    Created                 pod/curator-1600704600-vpdgv                   Created container curator
+openshift-logging         130m        Normal    Started                 pod/curator-1600704600-vpdgv                   Started container curator
+openshift-logging         130m        Normal    SuccessfulCreate        job/curator-1600704600                         Created pod: curator-1600704600-vpdgv
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600705200-78nw7                   Successfully assigned openshift-logging/curator-1600705200-78nw7 to infra-02.osepext01.claro.amx
+openshift-logging         120m        Normal    Pulled                  pod/curator-1600705200-78nw7                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         120m        Normal    Created                 pod/curator-1600705200-78nw7                   Created container curator
+openshift-logging         120m        Normal    Started                 pod/curator-1600705200-78nw7                   Started container curator
+openshift-logging         120m        Normal    SuccessfulCreate        job/curator-1600705200                         Created pod: curator-1600705200-78nw7
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600705800-rx8vd                   Successfully assigned openshift-logging/curator-1600705800-rx8vd to infra-02.osepext01.claro.amx
+openshift-logging         110m        Normal    Pulled                  pod/curator-1600705800-rx8vd                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         110m        Normal    Created                 pod/curator-1600705800-rx8vd                   Created container curator
+openshift-logging         110m        Normal    Started                 pod/curator-1600705800-rx8vd                   Started container curator
+openshift-logging         110m        Normal    SuccessfulCreate        job/curator-1600705800                         Created pod: curator-1600705800-rx8vd
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600706400-s7jmk                   Successfully assigned openshift-logging/curator-1600706400-s7jmk to infra-03.osepext01.claro.amx
+openshift-logging         99m         Normal    Pulled                  pod/curator-1600706400-s7jmk                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         99m         Normal    Created                 pod/curator-1600706400-s7jmk                   Created container curator
+openshift-logging         99m         Normal    Started                 pod/curator-1600706400-s7jmk                   Started container curator
+openshift-logging         100m        Normal    SuccessfulCreate        job/curator-1600706400                         Created pod: curator-1600706400-s7jmk
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600707000-psslb                   Successfully assigned openshift-logging/curator-1600707000-psslb to infra-03.osepext01.claro.amx
+openshift-logging         89m         Normal    Pulled                  pod/curator-1600707000-psslb                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         89m         Normal    Created                 pod/curator-1600707000-psslb                   Created container curator
+openshift-logging         89m         Normal    Started                 pod/curator-1600707000-psslb                   Started container curator
+openshift-logging         90m         Normal    SuccessfulCreate        job/curator-1600707000                         Created pod: curator-1600707000-psslb
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600707600-lchsp                   Successfully assigned openshift-logging/curator-1600707600-lchsp to infra-03.osepext01.claro.amx
+openshift-logging         79m         Normal    Pulled                  pod/curator-1600707600-lchsp                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         79m         Normal    Created                 pod/curator-1600707600-lchsp                   Created container curator
+openshift-logging         79m         Normal    Started                 pod/curator-1600707600-lchsp                   Started container curator
+openshift-logging         79m         Normal    SuccessfulCreate        job/curator-1600707600                         Created pod: curator-1600707600-lchsp
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600708200-kf78p                   Successfully assigned openshift-logging/curator-1600708200-kf78p to infra-02.osepext01.claro.amx
+openshift-logging         70m         Normal    Pulled                  pod/curator-1600708200-kf78p                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         70m         Normal    Created                 pod/curator-1600708200-kf78p                   Created container curator
+openshift-logging         70m         Normal    Started                 pod/curator-1600708200-kf78p                   Started container curator
+openshift-logging         70m         Normal    SuccessfulCreate        job/curator-1600708200                         Created pod: curator-1600708200-kf78p
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600708800-xbmsl                   Successfully assigned openshift-logging/curator-1600708800-xbmsl to infra-02.osepext01.claro.amx
+openshift-logging         60m         Normal    Pulled                  pod/curator-1600708800-xbmsl                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         60m         Normal    Created                 pod/curator-1600708800-xbmsl                   Created container curator
+openshift-logging         60m         Normal    Started                 pod/curator-1600708800-xbmsl                   Started container curator
+openshift-logging         60m         Normal    SuccessfulCreate        job/curator-1600708800                         Created pod: curator-1600708800-xbmsl
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600709400-q8dz6                   Successfully assigned openshift-logging/curator-1600709400-q8dz6 to infra-01.osepext01.claro.amx
+openshift-logging         50m         Normal    Pulled                  pod/curator-1600709400-q8dz6                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         50m         Normal    Created                 pod/curator-1600709400-q8dz6                   Created container curator
+openshift-logging         50m         Normal    Started                 pod/curator-1600709400-q8dz6                   Started container curator
+openshift-logging         50m         Normal    SuccessfulCreate        job/curator-1600709400                         Created pod: curator-1600709400-q8dz6
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600710000-qc6lk                   Successfully assigned openshift-logging/curator-1600710000-qc6lk to infra-01.osepext01.claro.amx
+openshift-logging         39m         Normal    Pulled                  pod/curator-1600710000-qc6lk                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         39m         Normal    Created                 pod/curator-1600710000-qc6lk                   Created container curator
+openshift-logging         39m         Normal    Started                 pod/curator-1600710000-qc6lk                   Started container curator
+openshift-logging         40m         Normal    SuccessfulCreate        job/curator-1600710000                         Created pod: curator-1600710000-qc6lk
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600710600-6sz97                   Successfully assigned openshift-logging/curator-1600710600-6sz97 to infra-01.osepext01.claro.amx
+openshift-logging         29m         Normal    Pulled                  pod/curator-1600710600-6sz97                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         29m         Normal    Created                 pod/curator-1600710600-6sz97                   Created container curator
+openshift-logging         29m         Normal    Started                 pod/curator-1600710600-6sz97                   Started container curator
+openshift-logging         29m         Normal    SuccessfulCreate        job/curator-1600710600                         Created pod: curator-1600710600-6sz97
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600711200-gk82q                   Successfully assigned openshift-logging/curator-1600711200-gk82q to infra-02.osepext01.claro.amx
+openshift-logging         20m         Normal    Pulled                  pod/curator-1600711200-gk82q                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         20m         Normal    Created                 pod/curator-1600711200-gk82q                   Created container curator
+openshift-logging         20m         Normal    Started                 pod/curator-1600711200-gk82q                   Started container curator
+openshift-logging         20m         Normal    SuccessfulCreate        job/curator-1600711200                         Created pod: curator-1600711200-gk82q
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600711800-nj6sf                   Successfully assigned openshift-logging/curator-1600711800-nj6sf to infra-02.osepext01.claro.amx
+openshift-logging         10m         Normal    Pulled                  pod/curator-1600711800-nj6sf                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         10m         Normal    Created                 pod/curator-1600711800-nj6sf                   Created container curator
+openshift-logging         10m         Normal    Started                 pod/curator-1600711800-nj6sf                   Started container curator
+openshift-logging         10m         Normal    SuccessfulCreate        job/curator-1600711800                         Created pod: curator-1600711800-nj6sf
+openshift-logging         <unknown>   Normal    Scheduled               pod/curator-1600712400-gksqm                   Successfully assigned openshift-logging/curator-1600712400-gksqm to infra-01.osepext01.claro.amx
+openshift-logging         1s          Normal    Pulled                  pod/curator-1600712400-gksqm                   Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f" already present on machine
+openshift-logging         1s          Normal    Created                 pod/curator-1600712400-gksqm                   Created container curator
+openshift-logging         1s          Normal    Started                 pod/curator-1600712400-gksqm                   Started container curator
+openshift-logging         3s          Normal    SuccessfulCreate        job/curator-1600712400                         Created pod: curator-1600712400-gksqm
+openshift-logging         3h          Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600701600
+openshift-logging         179m        Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600701600, status: Complete
+openshift-logging         170m        Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600702200
+openshift-logging         169m        Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600702200, status: Complete
+openshift-logging         160m        Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600702800
+openshift-logging         159m        Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600702800, status: Complete
+openshift-logging         150m        Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600703400
+openshift-logging         149m        Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600703400, status: Complete
+openshift-logging         139m        Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600704000
+openshift-logging         139m        Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600704000, status: Complete
+openshift-logging         130m        Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600704600
+openshift-logging         129m        Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600704600, status: Complete
+openshift-logging         120m        Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600705200
+openshift-logging         119m        Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600705200, status: Complete
+openshift-logging         110m        Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600705800
+openshift-logging         109m        Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600705800, status: Complete
+openshift-logging         100m        Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600706400
+openshift-logging         99m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600706400, status: Complete
+openshift-logging         90m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600707000
+openshift-logging         89m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600707000, status: Complete
+openshift-logging         79m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600707600
+openshift-logging         79m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600707600, status: Complete
+openshift-logging         70m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600708200
+openshift-logging         69m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600708200, status: Complete
+openshift-logging         60m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600708800
+openshift-logging         59m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600708800, status: Complete
+openshift-logging         50m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600709400
+openshift-logging         49m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600709400, status: Complete
+openshift-logging         40m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600710000
+openshift-logging         39m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600710000, status: Complete
+openshift-logging         29m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600710600
+openshift-logging         29m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600710600, status: Complete
+openshift-logging         20m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600711200
+openshift-logging         19m         Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600711200, status: Complete
+openshift-logging         10m         Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600711800
+openshift-logging         9m55s       Normal    SawCompletedJob         cronjob/curator                                Saw completed job: curator-1600711800, status: Complete
+openshift-logging         3s          Normal    SuccessfulCreate        cronjob/curator                                Created job curator-1600712400
+openshift-logging         <unknown>   Normal    Scheduled               pod/kibana-7ffc8f6f87-gn9jj                    Successfully assigned openshift-logging/kibana-7ffc8f6f87-gn9jj to infra-03.osepext01.claro.amx
+openshift-logging         74m         Normal    Pulled                  pod/kibana-7ffc8f6f87-gn9jj                    Container image "registry.redhat.io/openshift4/ose-logging-kibana5@sha256:4553291ca243da1215fbae67e4970e2da3c5e53fecd59dd00f752e9e3c600db8" already present on machine
+openshift-logging         74m         Normal    Created                 pod/kibana-7ffc8f6f87-gn9jj                    Created container kibana
+openshift-logging         74m         Normal    Started                 pod/kibana-7ffc8f6f87-gn9jj                    Started container kibana
+openshift-logging         74m         Normal    Pulled                  pod/kibana-7ffc8f6f87-gn9jj                    Container image "registry.redhat.io/openshift4/ose-oauth-proxy@sha256:c8f6d7cc5b1dcc6abe060e6a5e430e59b6fb1bfdcba679fc2f387459f018c326" already present on machine
+openshift-logging         74m         Normal    Created                 pod/kibana-7ffc8f6f87-gn9jj                    Created container kibana-proxy
+openshift-logging         74m         Normal    Started                 pod/kibana-7ffc8f6f87-gn9jj                    Started container kibana-proxy
+openshift-logging         74m         Normal    Killing                 pod/kibana-7ffc8f6f87-nwjjj                    Stopping container kibana
+openshift-logging         74m         Normal    Killing                 pod/kibana-7ffc8f6f87-nwjjj                    Stopping container kibana-proxy
+openshift-logging         74m         Warning   Unhealthy               pod/kibana-7ffc8f6f87-nwjjj                    Readiness probe errored: rpc error: code = Unknown desc = container is not created or running
+openshift-logging         74m         Normal    SuccessfulCreate        replicaset/kibana-7ffc8f6f87                   Created pod: kibana-7ffc8f6f87-gn9jj
+openshift-marketplace     <unknown>   Normal    Scheduled               pod/certified-operators-6fdf4f8b88-knm9f       Successfully assigned openshift-marketplace/certified-operators-6fdf4f8b88-knm9f to worker-01.osepext01.claro.amx
+openshift-marketplace     104m        Normal    Pulled                  pod/certified-operators-6fdf4f8b88-knm9f       Container image "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d3d1332975ad3e395bea85f68093c86fcc61938a4e75f54a5a52a39ecef94097" already present on machine
+openshift-marketplace     104m        Normal    Created                 pod/certified-operators-6fdf4f8b88-knm9f       Created container certified-operators
+openshift-marketplace     104m        Normal    Started                 pod/certified-operators-6fdf4f8b88-knm9f       Started container certified-operators
+openshift-marketplace     103m        Warning   Unhealthy               pod/certified-operators-6fdf4f8b88-knm9f       Readiness probe failed: timeout: failed to connect service "localhost:50051" within 1s
+openshift-marketplace     103m        Warning   Unhealthy               pod/certified-operators-6fdf4f8b88-knm9f       Liveness probe failed: timeout: failed to connect service "localhost:50051" within 1s
+openshift-marketplace     104m        Normal    SuccessfulCreate        replicaset/certified-operators-6fdf4f8b88      Created pod: certified-operators-6fdf4f8b88-knm9f
+openshift-marketplace     103m        Normal    Killing                 pod/certified-operators-9d7986f7d-xdkzb        Stopping container certified-operators
+openshift-marketplace     103m        Normal    SuccessfulDelete        replicaset/certified-operators-9d7986f7d       Deleted pod: certified-operators-9d7986f7d-xdkzb
+openshift-marketplace     104m        Normal    ScalingReplicaSet       deployment/certified-operators                 Scaled up replica set certified-operators-6fdf4f8b88 to 1
+openshift-marketplace     103m        Normal    ScalingReplicaSet       deployment/certified-operators                 Scaled down replica set certified-operators-9d7986f7d to 0

@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  policy.json: '{"default":[{"type":"insecureAcceptAnything"}],"transports":{"atomic":{"docker.io":[{"type":"reject"}]},"docker":{"docker.io":[{"type":"reject"}]}}}'
+  registries.conf: |
+    unqualified-search-registries = ["docker.io"]
+
+    [[registry]]
+      prefix = ""
+      location = "docker.io"
+      blocked = true
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-09-08T15:14:35Z"
+  name: book-service-2-sys-config
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: Pod
+    name: book-service-2-build
+    uid: fffd6485-665b-47e4-8728-8ea0fc3c0672
+  resourceVersion: "250854751"
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/book-service-2-sys-config
+  uid: 852c05d9-64fd-44ea-8c87-40a93b2f98fa

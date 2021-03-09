@@ -1,0 +1,56 @@
+Name:               apicast-production-26-deploy
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               infra-01.osepext01.claro.amx/10.92.114.128
+Start Time:         Thu, 03 Sep 2020 19:11:21 -0300
+Labels:             openshift.io/deployer-pod-for.name=apicast-production-26
+Annotations:        k8s.v1.cni.cncf.io/networks-status: 
+                    kubernetes.io/limit-ranger: LimitRanger plugin set: cpu, memory request for container deployment; cpu, memory limit for container deployment
+                    openshift.io/deployment-config.name: apicast-production
+                    openshift.io/deployment.name: apicast-production-26
+                    openshift.io/scc: restricted
+Status:             Succeeded
+IP:                 10.128.1.61
+Containers:
+  deployment:
+    Container ID:   cri-o://983e09a46d8f9a8b4f7c4d939e86ff8473a424c61e1858bc455a3532b58e6114
+    Image:          quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    Image ID:       quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Thu, 03 Sep 2020 19:11:23 -0300
+      Finished:     Thu, 03 Sep 2020 19:11:59 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      OPENSHIFT_DEPLOYMENT_NAME:       apicast-production-26
+      OPENSHIFT_DEPLOYMENT_NAMESPACE:  3scale-project
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from deployer-token-679s7 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  deployer-token-679s7:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  deployer-token-679s7
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

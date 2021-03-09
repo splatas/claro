@@ -1,0 +1,132 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: ""
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container
+      deployment; cpu, memory limit for container deployment'
+    openshift.io/deployment-config.name: system-sphinx
+    openshift.io/deployment.name: system-sphinx-2
+    openshift.io/scc: restricted
+  creationTimestamp: "2020-07-27T13:52:40Z"
+  labels:
+    openshift.io/deployer-pod-for.name: system-sphinx-2
+  name: system-sphinx-2-deploy
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    kind: ReplicationController
+    name: system-sphinx-2
+    uid: 8f4ee145-e0d6-40ca-8bdc-b34eb19b9926
+  resourceVersion: "198424315"
+  selfLink: /api/v1/namespaces/3scale-project/pods/system-sphinx-2-deploy
+  uid: 7788bb41-21f4-42cf-bdcf-26d36fbe3319
+spec:
+  activeDeadlineSeconds: 21600
+  containers:
+  - env:
+    - name: OPENSHIFT_DEPLOYMENT_NAME
+      value: system-sphinx-2
+    - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+      value: 3scale-project
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    imagePullPolicy: IfNotPresent
+    name: deployment
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: deployer-token-679s7
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: deployer-dockercfg-dl94k
+  nodeName: worker-01.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: deployer
+  serviceAccountName: deployer
+  shareProcessNamespace: false
+  terminationGracePeriodSeconds: 10
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - name: deployer-token-679s7
+    secret:
+      defaultMode: 420
+      secretName: deployer-token-679s7
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T13:52:40Z"
+    reason: PodCompleted
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T13:58:31Z"
+    reason: PodCompleted
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T13:58:31Z"
+    reason: PodCompleted
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-27T13:52:40Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://b525abfa80f362c6201f7cd41f46ca1088b5d529aaaf541fee6171e36c3ff02b
+    image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:21f5aad0f5ec400213b30d1182d1a2308300cedd3562ccbda500ecce82f8a9de
+    lastState: {}
+    name: deployment
+    ready: false
+    restartCount: 0
+    started: false
+    state:
+      terminated:
+        containerID: cri-o://b525abfa80f362c6201f7cd41f46ca1088b5d529aaaf541fee6171e36c3ff02b
+        exitCode: 0
+        finishedAt: "2020-07-27T13:58:30Z"
+        reason: Completed
+        startedAt: "2020-07-27T13:52:44Z"
+  hostIP: 10.92.114.131
+  phase: Succeeded
+  podIP: 10.130.3.61
+  podIPs:
+  - ip: 10.130.3.61
+  qosClass: Burstable
+  startTime: "2020-07-27T13:52:40Z"

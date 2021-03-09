@@ -1,0 +1,75 @@
+Name:         backend-cron-3
+Namespace:    3scale-project
+Selector:     deployment=backend-cron-3,deploymentConfig=backend-cron,deploymentconfig=backend-cron
+Labels:       app=3scale-api-management
+              openshift.io/deployment-config.name=backend-cron
+              threescale_component=backend
+              threescale_component_element=cron
+Annotations:  openshift.io/deployer-pod.completed-at: 2020-08-11 18:06:17 +0000 UTC
+              openshift.io/deployer-pod.created-at: 2020-08-11 18:05:45 +0000 UTC
+              openshift.io/deployer-pod.name: backend-cron-3-deploy
+              openshift.io/deployment-config.latest-version: 3
+              openshift.io/deployment-config.name: backend-cron
+              openshift.io/deployment.phase: Complete
+              openshift.io/deployment.replicas: 
+              openshift.io/deployment.status-reason: image change
+              openshift.io/encoded-deployment-config:
+                {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"backend-cron","namespace":"3scale-project","selfLink":"...
+Replicas:     1 current / 1 desired
+Pods Status:  1 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:           app=3scale-api-management
+                    deployment=backend-cron-3
+                    deploymentConfig=backend-cron
+                    deploymentconfig=backend-cron
+                    node-role.kubernetes.io/worker=
+                    threescale_component=backend
+                    threescale_component_element=cron
+  Annotations:      openshift.io/deployment-config.latest-version: 3
+                    openshift.io/deployment-config.name: backend-cron
+                    openshift.io/deployment.name: backend-cron-3
+  Service Account:  amp
+  Init Containers:
+   backend-redis-svc:
+    Image:      registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      /opt/app/entrypoint.sh
+      sh
+      -c
+      until rake connectivity:redis_storage_queue_check; do sleep $SLEEP_SECONDS; done
+    Environment:
+      CONFIG_REDIS_PROXY:            <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>             Optional: false
+      CONFIG_REDIS_SENTINEL_HOSTS:   <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>  Optional: false
+      CONFIG_REDIS_SENTINEL_ROLE:    <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_MASTER_NAME:     <set to the key 'REDIS_QUEUES_URL' in secret 'backend-redis'>              Optional: false
+      CONFIG_QUEUES_SENTINEL_HOSTS:  <set to the key 'REDIS_QUEUES_SENTINEL_HOSTS' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_SENTINEL_ROLE:   <set to the key 'REDIS_QUEUES_SENTINEL_ROLE' in secret 'backend-redis'>    Optional: false
+      RACK_ENV:                      <set to the key 'RACK_ENV' of config map 'backend-environment'>            Optional: false
+      SLEEP_SECONDS:                 1
+    Mounts:                          <none>
+  Containers:
+   backend-cron:
+    Image:      registry.redhat.io/3scale-amp2/backend-rhel7@sha256:bd626295c55a7815a816d7049fba1febdec6a3305dee2a3292e92a26d56036b0
+    Port:       <none>
+    Host Port:  <none>
+    Args:
+      backend-cron
+    Limits:
+      cpu:     150m
+      memory:  80Mi
+    Requests:
+      cpu:     50m
+      memory:  40Mi
+    Environment:
+      CONFIG_REDIS_PROXY:            <set to the key 'REDIS_STORAGE_URL' in secret 'backend-redis'>             Optional: false
+      CONFIG_REDIS_SENTINEL_HOSTS:   <set to the key 'REDIS_STORAGE_SENTINEL_HOSTS' in secret 'backend-redis'>  Optional: false
+      CONFIG_REDIS_SENTINEL_ROLE:    <set to the key 'REDIS_STORAGE_SENTINEL_ROLE' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_MASTER_NAME:     <set to the key 'REDIS_QUEUES_URL' in secret 'backend-redis'>              Optional: false
+      CONFIG_QUEUES_SENTINEL_HOSTS:  <set to the key 'REDIS_QUEUES_SENTINEL_HOSTS' in secret 'backend-redis'>   Optional: false
+      CONFIG_QUEUES_SENTINEL_ROLE:   <set to the key 'REDIS_QUEUES_SENTINEL_ROLE' in secret 'backend-redis'>    Optional: false
+      RACK_ENV:                      <set to the key 'RACK_ENV' of config map 'backend-environment'>            Optional: false
+    Mounts:                          <none>
+  Volumes:                           <none>
+Events:                              <none>

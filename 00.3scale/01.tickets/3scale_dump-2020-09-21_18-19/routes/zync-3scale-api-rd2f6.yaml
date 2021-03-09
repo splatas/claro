@@ -1,0 +1,60 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    3scale.net/gid: gid://zync/Entry/121
+    zync.3scale.net/gid: gid://zync/Proxy/3
+    zync.3scale.net/host: billetera-apicastdev.apps.osepext01.claro.amx
+  creationTimestamp: "2020-08-14T18:51:53Z"
+  generateName: zync-3scale-api-
+  labels:
+    3scale.net/created-by: zync
+    3scale.net/service_id: "3"
+    3scale.net/tenant_id: "2"
+    zync.3scale.net/ingress: proxy
+    zync.3scale.net/record: Z2lkOi8venluYy9Qcm94eS8z
+    zync.3scale.net/route-to: apicast-production
+  name: zync-3scale-api-rd2f6
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    kind: DeploymentConfig
+    name: zync-que
+    uid: 466152c8-1c88-42e0-83bb-45eb3d7fefe4
+  resourceVersion: "220654166"
+  selfLink: /apis/route.openshift.io/v1/namespaces/3scale-project/routes/zync-3scale-api-rd2f6
+  uid: c545f7a2-48d3-476e-a572-0642e92a1b0d
+spec:
+  host: billetera-apicastdev.apps.osepext01.claro.amx
+  port:
+    targetPort: gateway
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: apicast-production
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2020-08-14T18:52:09Z"
+      message: replaced by older route zync-3scale-api-6rsm2
+      reason: HostAlreadyClaimed
+      status: "False"
+      type: Admitted
+    host: billetera-apicastdev.apps.osepext01.claro.amx
+    routerCanonicalHostname: pci.testing.org
+    routerName: testpci
+    wildcardPolicy: None
+  - conditions:
+    - lastTransitionTime: "2020-08-14T18:51:53Z"
+      message: replaced by older route zync-3scale-api-6rsm2
+      reason: HostAlreadyClaimed
+      status: "False"
+      type: Admitted
+    host: billetera-apicastdev.apps.osepext01.claro.amx
+    routerCanonicalHostname: apps.osepext01.claro.amx
+    routerName: default
+    wildcardPolicy: None

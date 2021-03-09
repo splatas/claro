@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+    threescale_component_element: sphinx
+  name: system-sphinx
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378386"
+  selfLink: /api/v1/namespaces/3scale-project/services/system-sphinx
+  uid: 6f551e71-e8b8-4462-8a78-ad30fff1ccca
+spec:
+  clusterIP: 172.30.157.230
+  ports:
+  - name: sphinx
+    port: 9306
+    protocol: TCP
+    targetPort: 9306
+  selector:
+    deploymentConfig: system-sphinx
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

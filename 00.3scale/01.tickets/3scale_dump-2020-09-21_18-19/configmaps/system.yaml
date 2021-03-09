@@ -1,0 +1,46 @@
+apiVersion: v1
+data:
+  rolling_updates.yml: |
+    production: {}
+  service_discovery.yml: |
+    production:
+      enabled: <%= cluster_token_file_exists = File.exists?(cluster_token_file_path = '/var/run/secrets/kubernetes.io/serviceaccount/token') %>
+      server_scheme: 'https'
+      server_host: 'kubernetes.default.svc.cluster.local'
+      server_port: 443
+      bearer_token: "<%= File.read(cluster_token_file_path) if cluster_token_file_exists %>"
+      authentication_method: service_account # can be service_account|oauth
+      oauth_server_type: builtin # can be builtin|rh_sso
+      client_id:
+      client_secret:
+      timeout: 1
+      open_timeout: 1
+      max_retry: 5
+      verify_ssl: <%= OpenSSL::SSL::VERIFY_NONE %> # 0
+  zync.yml: |
+    production:
+      endpoint: 'http://zync:8080'
+      authentication:
+        token: "<%= ENV.fetch('ZYNC_AUTHENTICATION_TOKEN') %>"
+      connect_timeout: 5
+      send_timeout: 5
+      receive_timeout: 10
+      root_url:
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+  name: system
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378397"
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/system
+  uid: 0af16fc7-c0d9-4bed-9ea5-f7efb4e98512

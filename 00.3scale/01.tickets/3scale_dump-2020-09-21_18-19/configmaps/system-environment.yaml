@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+  AMP_RELEASE: "2.8"
+  APICAST_REGISTRY_URL: http://apicast-staging:8090/policies
+  FORCE_SSL: "true"
+  PROVIDER_PLAN: enterprise
+  RAILS_ENV: production
+  RAILS_LOG_LEVEL: info
+  RAILS_LOG_TO_STDOUT: "true"
+  SSL_CERT_DIR: /etc/pki/tls/certs
+  THINKING_SPHINX_PORT: "9306"
+  THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE: VERIFY_NONE
+  THREESCALE_SUPERDOMAIN: apps.osepext01.claro.amx
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-07-27T13:05:50Z"
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+  name: system-environment
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378399"
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/system-environment
+  uid: bedde954-0dd5-4759-a9e2-96ee076f6503

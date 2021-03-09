@@ -1,0 +1,5177 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  count: 29033
+  eventTime: null
+  firstTimestamp: "2020-08-11T18:07:55Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: system-app-5-hook-pre
+    namespace: 3scale-project
+    resourceVersion: "216974456"
+    uid: c957a53a-8bad-4b50-a56f-ad55a6efa1db
+  kind: Event
+  lastTimestamp: "2020-09-21T18:17:08Z"
+  message: |
+    (combined from similar events): MountVolume.SetUp failed for volume "system-app" : mount failed: exit status 32
+    Mounting command: systemd-run
+    Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/pods/c957a53a-8bad-4b50-a56f-ad55a6efa1db/volumes/kubernetes.io~nfs/system-app --scope -- mount -t nfs 10.92.49.14:/CMS_PRDE_p_openshift_apu /var/lib/kubelet/pods/c957a53a-8bad-4b50-a56f-ad55a6efa1db/volumes/kubernetes.io~nfs/system-app
+    Output: Running scope as unit: run-rcd45f1d88c264962bde89b1c806627b9.scope
+    mount.nfs: mounting 10.92.49.14:/CMS_PRDE_p_openshift_apu failed, reason given by server: No such file or directory
+  metadata:
+    creationTimestamp: "2020-08-11T18:07:54Z"
+    name: system-app-5-hook-pre.162a48fe5772221e
+    namespace: 3scale-project
+    resourceVersion: "265144188"
+    selfLink: /api/v1/namespaces/3scale-project/events/system-app-5-hook-pre.162a48fe5772221e
+    uid: e90b54b3-c1d7-4d6c-a489-d859ec0903da
+  reason: FailedMount
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Warning
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T16:00:08.549318Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600704000-jw6bv
+    namespace: cluster-ops
+    resourceVersion: "265040160"
+    uid: 9af98cd8-a72e-48cd-ab55-32b34a3403ee
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned cluster-ops/cronjob-ldap-group-sync-1600704000-jw6bv
+    to worker-01.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:08Z"
+    name: cronjob-ldap-group-sync-1600704000-jw6bv.1636d7d09c204ea1
+    namespace: cluster-ops
+    resourceVersion: "265040164"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600704000-jw6bv.1636d7d09c204ea1
+    uid: cff33b7c-3295-4c9c-8656-050fcd2bdb61
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:10Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600704000-jw6bv
+    namespace: cluster-ops
+    resourceVersion: "265040162"
+    uid: 9af98cd8-a72e-48cd-ab55-32b34a3403ee
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:10Z"
+  message: Container image "registry.access.redhat.com/openshift3/ose-cli:v3.11" already
+    present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:11Z"
+    name: cronjob-ldap-group-sync-1600704000-jw6bv.1636d7d1210f9c39
+    namespace: cluster-ops
+    resourceVersion: "265040203"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600704000-jw6bv.1636d7d1210f9c39
+    uid: 46c9be98-e48a-4275-a381-a617740b9d13
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:10Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600704000-jw6bv
+    namespace: cluster-ops
+    resourceVersion: "265040162"
+    uid: 9af98cd8-a72e-48cd-ab55-32b34a3403ee
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:10Z"
+  message: Created container cronjob-ldap-group-sync
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:11Z"
+    name: cronjob-ldap-group-sync-1600704000-jw6bv.1636d7d12ab14607
+    namespace: cluster-ops
+    resourceVersion: "265040207"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600704000-jw6bv.1636d7d12ab14607
+    uid: cc7abb4a-3495-4339-945b-1fe3b36fe327
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:10Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600704000-jw6bv
+    namespace: cluster-ops
+    resourceVersion: "265040162"
+    uid: 9af98cd8-a72e-48cd-ab55-32b34a3403ee
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:10Z"
+  message: Started container cronjob-ldap-group-sync
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:11Z"
+    name: cronjob-ldap-group-sync-1600704000-jw6bv.1636d7d12c3f4662
+    namespace: cluster-ops
+    resourceVersion: "265040208"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600704000-jw6bv.1636d7d12c3f4662
+    uid: 92ea02a1-2b57-40d3-a9e7-c02f94faad9e
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:08Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: cronjob-ldap-group-sync-1600704000
+    namespace: cluster-ops
+    resourceVersion: "265040157"
+    uid: cb20927c-ed27-429c-9103-0e1142ec5256
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:08Z"
+  message: 'Created pod: cronjob-ldap-group-sync-1600704000-jw6bv'
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:08Z"
+    name: cronjob-ldap-group-sync-1600704000.1636d7d09c32552f
+    namespace: cluster-ops
+    resourceVersion: "265040161"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600704000.1636d7d09c32552f
+    uid: 143cef8e-3064-4cf3-9592-d623d591223e
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T17:00:09.777950Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600707600-s98vb
+    namespace: cluster-ops
+    resourceVersion: "265085738"
+    uid: 74f4894f-98a2-4ba2-ae44-b704fe3ee0c4
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned cluster-ops/cronjob-ldap-group-sync-1600707600-s98vb
+    to worker-01.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:09Z"
+    name: cronjob-ldap-group-sync-1600707600-s98vb.1636db1716146bce
+    namespace: cluster-ops
+    resourceVersion: "265085742"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600707600-s98vb.1636db1716146bce
+    uid: d03c13d6-5116-46fd-9b2f-c9db6f9c85fc
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600707600-s98vb
+    namespace: cluster-ops
+    resourceVersion: "265085740"
+    uid: 74f4894f-98a2-4ba2-ae44-b704fe3ee0c4
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:11Z"
+  message: Container image "registry.access.redhat.com/openshift3/ose-cli:v3.11" already
+    present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:12Z"
+    name: cronjob-ldap-group-sync-1600707600-s98vb.1636db178a57b078
+    namespace: cluster-ops
+    resourceVersion: "265085773"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600707600-s98vb.1636db178a57b078
+    uid: 50873cd9-10b8-400e-9b2a-9edd07ff2b45
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600707600-s98vb
+    namespace: cluster-ops
+    resourceVersion: "265085740"
+    uid: 74f4894f-98a2-4ba2-ae44-b704fe3ee0c4
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:11Z"
+  message: Created container cronjob-ldap-group-sync
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:12Z"
+    name: cronjob-ldap-group-sync-1600707600-s98vb.1636db1793941b02
+    namespace: cluster-ops
+    resourceVersion: "265085776"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600707600-s98vb.1636db1793941b02
+    uid: b6a1060f-67d8-4c1b-b724-4c926f12f8a2
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600707600-s98vb
+    namespace: cluster-ops
+    resourceVersion: "265085740"
+    uid: 74f4894f-98a2-4ba2-ae44-b704fe3ee0c4
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:11Z"
+  message: Started container cronjob-ldap-group-sync
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:12Z"
+    name: cronjob-ldap-group-sync-1600707600-s98vb.1636db1794f1fba6
+    namespace: cluster-ops
+    resourceVersion: "265085778"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600707600-s98vb.1636db1794f1fba6
+    uid: 0b5ba789-dd5c-400d-b423-9e9c8645855b
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:09Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: cronjob-ldap-group-sync-1600707600
+    namespace: cluster-ops
+    resourceVersion: "265085735"
+    uid: 2fc153a7-4734-484a-a0aa-74bd0fe5824c
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:09Z"
+  message: 'Created pod: cronjob-ldap-group-sync-1600707600-s98vb'
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:09Z"
+    name: cronjob-ldap-group-sync-1600707600.1636db171556fcd5
+    namespace: cluster-ops
+    resourceVersion: "265085739"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600707600.1636db171556fcd5
+    uid: f18552c0-0f7f-4a94-a440-3e077da5d9d6
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T18:00:00.579699Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600711200-msbwc
+    namespace: cluster-ops
+    resourceVersion: "265131147"
+    uid: 82bd2467-8d11-4e34-8405-04beb5fe1e86
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned cluster-ops/cronjob-ldap-group-sync-1600711200-msbwc
+    to worker-01.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:00Z"
+    name: cronjob-ldap-group-sync-1600711200-msbwc.1636de5b228add6b
+    namespace: cluster-ops
+    resourceVersion: "265131152"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600711200-msbwc.1636de5b228add6b
+    uid: b73d6eeb-baa0-45de-9f8d-e85145a97402
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:02Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600711200-msbwc
+    namespace: cluster-ops
+    resourceVersion: "265131149"
+    uid: 82bd2467-8d11-4e34-8405-04beb5fe1e86
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:02Z"
+  message: Container image "registry.access.redhat.com/openshift3/ose-cli:v3.11" already
+    present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:02Z"
+    name: cronjob-ldap-group-sync-1600711200-msbwc.1636de5b8799329b
+    namespace: cluster-ops
+    resourceVersion: "265131190"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600711200-msbwc.1636de5b8799329b
+    uid: ae873cf5-dd93-4d46-878e-68fa404d0313
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:02Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600711200-msbwc
+    namespace: cluster-ops
+    resourceVersion: "265131149"
+    uid: 82bd2467-8d11-4e34-8405-04beb5fe1e86
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:02Z"
+  message: Created container cronjob-ldap-group-sync
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:03Z"
+    name: cronjob-ldap-group-sync-1600711200-msbwc.1636de5b90682ee6
+    namespace: cluster-ops
+    resourceVersion: "265131194"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600711200-msbwc.1636de5b90682ee6
+    uid: 3532ea12-1f28-4e7a-8c64-3da973e7db70
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:02Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{cronjob-ldap-group-sync}
+    kind: Pod
+    name: cronjob-ldap-group-sync-1600711200-msbwc
+    namespace: cluster-ops
+    resourceVersion: "265131149"
+    uid: 82bd2467-8d11-4e34-8405-04beb5fe1e86
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:02Z"
+  message: Started container cronjob-ldap-group-sync
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:03Z"
+    name: cronjob-ldap-group-sync-1600711200-msbwc.1636de5b91b7e528
+    namespace: cluster-ops
+    resourceVersion: "265131195"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600711200-msbwc.1636de5b91b7e528
+    uid: d59644eb-fbb7-4e7e-b16a-0d796b5babf4
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:00Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: cronjob-ldap-group-sync-1600711200
+    namespace: cluster-ops
+    resourceVersion: "265131143"
+    uid: f29b2184-edba-4f20-b0a8-5f9d123cb24d
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:00Z"
+  message: 'Created pod: cronjob-ldap-group-sync-1600711200-msbwc'
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:00Z"
+    name: cronjob-ldap-group-sync-1600711200.1636de5b20c1f310
+    namespace: cluster-ops
+    resourceVersion: "265131148"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync-1600711200.1636de5b20c1f310
+    uid: 48941fda-24dd-49ff-9cec-eab4ef93cfd6
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:08Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "264994914"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:08Z"
+  message: Created job cronjob-ldap-group-sync-1600704000
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:08Z"
+    name: cronjob-ldap-group-sync.1636d7d09b76db4c
+    namespace: cluster-ops
+    resourceVersion: "265040159"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636d7d09b76db4c
+    uid: e05571c6-dca7-4bae-b8a9-2e5075f9e830
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:18Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "265040158"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:18Z"
+  message: 'Saw completed job: cronjob-ldap-group-sync-1600704000, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:18Z"
+    name: cronjob-ldap-group-sync.1636d7d2f2b7e082
+    namespace: cluster-ops
+    resourceVersion: "265040308"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636d7d2f2b7e082
+    uid: 1f84258c-7ac1-4fbd-8d69-f07809e02c35
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:18Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "265040307"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:18Z"
+  message: Deleted job cronjob-ldap-group-sync-1600693200
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:18Z"
+    name: cronjob-ldap-group-sync.1636d7d2f42029c2
+    namespace: cluster-ops
+    resourceVersion: "265040310"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636d7d2f42029c2
+    uid: e43f4e7c-debf-49c0-b41c-62a984f912e3
+  reason: SuccessfulDelete
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:09Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "265040307"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:09Z"
+  message: Created job cronjob-ldap-group-sync-1600707600
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:09Z"
+    name: cronjob-ldap-group-sync.1636db17148273b6
+    namespace: cluster-ops
+    resourceVersion: "265085737"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636db17148273b6
+    uid: d0b25a52-2868-46b4-88e8-74e670f4dd07
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:19Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "265085736"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:19Z"
+  message: 'Saw completed job: cronjob-ldap-group-sync-1600707600, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:19Z"
+    name: cronjob-ldap-group-sync.1636db196bfb8697
+    namespace: cluster-ops
+    resourceVersion: "265085891"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636db196bfb8697
+    uid: bb97b012-1ffa-405b-83c0-c8d67b096788
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:19Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "265085890"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:19Z"
+  message: Deleted job cronjob-ldap-group-sync-1600696800
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:19Z"
+    name: cronjob-ldap-group-sync.1636db196cbca433
+    namespace: cluster-ops
+    resourceVersion: "265085893"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636db196cbca433
+    uid: 24d0623a-af5a-4c2a-bce5-b72395b22664
+  reason: SuccessfulDelete
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:00Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "265085890"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:00Z"
+  message: Created job cronjob-ldap-group-sync-1600711200
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:00Z"
+    name: cronjob-ldap-group-sync.1636de5b1e39d879
+    namespace: cluster-ops
+    resourceVersion: "265131145"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636de5b1e39d879
+    uid: 9021cb0a-1050-452a-9a67-5194b8466b3f
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:10Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "265131144"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:10Z"
+  message: 'Saw completed job: cronjob-ldap-group-sync-1600711200, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:10Z"
+    name: cronjob-ldap-group-sync.1636de5d7715c8a6
+    namespace: cluster-ops
+    resourceVersion: "265131299"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636de5d7715c8a6
+    uid: 7295564e-66af-46c7-9bc2-61f054e6c89f
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:10Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: cronjob-ldap-group-sync
+    namespace: cluster-ops
+    resourceVersion: "265131298"
+    uid: 1016c525-28c2-11ea-89ca-00505687c5a5
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:10Z"
+  message: Deleted job cronjob-ldap-group-sync-1600700400
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:10Z"
+    name: cronjob-ldap-group-sync.1636de5d77bc643e
+    namespace: cluster-ops
+    resourceVersion: "265131301"
+    selfLink: /api/v1/namespaces/cluster-ops/events/cronjob-ldap-group-sync.1636de5d77bc643e
+    uid: f9ea863a-b73e-41a9-9492-26afcf2b444d
+  reason: SuccessfulDelete
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 177340
+  eventTime: null
+  firstTimestamp: "2020-06-09T15:03:15Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: etcd-operator
+    namespace: openshift-etcd-operator
+    uid: b5b3627c-d4b3-4e93-86cb-2bef9cd29708
+  kind: Event
+  lastTimestamp: "2020-09-21T18:15:27Z"
+  message: 'unhealthy members: master-02.osepext01.claro.amx,master-01.osepext01.claro.amx,master-03.osepext01.claro.amx'
+  metadata:
+    creationTimestamp: "2020-06-09T15:03:15Z"
+    name: etcd-operator.1616e85af9ab2bc2
+    namespace: openshift-etcd-operator
+    resourceVersion: "265142870"
+    selfLink: /api/v1/namespaces/openshift-etcd-operator/events/etcd-operator.1616e85af9ab2bc2
+    uid: bdd0ede4-251d-401e-adba-c91c2c54fe53
+  reason: UnhealthyEtcdMember
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: openshift-cluster-etcd-operator-etcd-client
+  type: Warning
+- apiVersion: v1
+  count: 50966
+  eventTime: null
+  firstTimestamp: "2020-06-09T15:03:33Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: etcd-operator
+    namespace: openshift-etcd-operator
+    uid: b5b3627c-d4b3-4e93-86cb-2bef9cd29708
+  kind: Event
+  lastTimestamp: "2020-09-21T18:05:26Z"
+  message: 'unhealthy members: master-01.osepext01.claro.amx,master-03.osepext01.claro.amx'
+  metadata:
+    creationTimestamp: "2020-06-09T15:03:33Z"
+    name: etcd-operator.1616e85f349088df
+    namespace: openshift-etcd-operator
+    resourceVersion: "265135239"
+    selfLink: /api/v1/namespaces/openshift-etcd-operator/events/etcd-operator.1616e85f349088df
+    uid: fb9ad12b-31b9-4424-afa9-bcd4c6762a7f
+  reason: UnhealthyEtcdMember
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: openshift-cluster-etcd-operator-etcd-client
+  type: Warning
+- apiVersion: v1
+  count: 12051
+  eventTime: null
+  firstTimestamp: "2020-06-09T15:13:14Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: etcd-operator
+    namespace: openshift-etcd-operator
+    uid: b5b3627c-d4b3-4e93-86cb-2bef9cd29708
+  kind: Event
+  lastTimestamp: "2020-09-21T17:42:00Z"
+  message: 'unhealthy members: master-03.osepext01.claro.amx'
+  metadata:
+    creationTimestamp: "2020-09-21T13:20:37Z"
+    name: etcd-operator.1616e8e6650f7fbd
+    namespace: openshift-etcd-operator
+    resourceVersion: "265117572"
+    selfLink: /api/v1/namespaces/openshift-etcd-operator/events/etcd-operator.1616e8e6650f7fbd
+    uid: f97b23c6-7d7b-4a7c-8101-3fb0b106a5d9
+  reason: UnhealthyEtcdMember
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: openshift-cluster-etcd-operator-etcd-client
+  type: Warning
+- apiVersion: v1
+  count: 487
+  eventTime: null
+  firstTimestamp: "2020-06-09T18:10:15Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: etcd-operator
+    namespace: openshift-etcd-operator
+    uid: b5b3627c-d4b3-4e93-86cb-2bef9cd29708
+  kind: Event
+  lastTimestamp: "2020-09-21T15:27:42Z"
+  message: 'Status for clusteroperator/etcd changed: Degraded message changed from
+    "NodeControllerDegraded: All master nodes are ready\nEtcdMembersDegraded: No unhealthy
+    members found" to "EtcdMemberIPMigratorDegraded: rpc error: code = Canceled desc
+    = grpc: the client connection is closing\nNodeControllerDegraded: All master nodes
+    are ready\nEtcdMembersDegraded: No unhealthy members found"'
+  metadata:
+    creationTimestamp: "2020-09-21T13:44:59Z"
+    name: etcd-operator.1616f28f4bcdfee8
+    namespace: openshift-etcd-operator
+    resourceVersion: "265015687"
+    selfLink: /api/v1/namespaces/openshift-etcd-operator/events/etcd-operator.1616f28f4bcdfee8
+    uid: 08747698-83ae-4031-a2d1-d8bb9c380cf7
+  reason: OperatorStatusChanged
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: openshift-cluster-etcd-operator-status-controller
+  type: Normal
+- apiVersion: v1
+  count: 484
+  eventTime: null
+  firstTimestamp: "2020-06-09T18:10:15Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: etcd-operator
+    namespace: openshift-etcd-operator
+    uid: b5b3627c-d4b3-4e93-86cb-2bef9cd29708
+  kind: Event
+  lastTimestamp: "2020-09-21T15:27:42Z"
+  message: 'Status for clusteroperator/etcd changed: Degraded message changed from
+    "EtcdMemberIPMigratorDegraded: rpc error: code = Canceled desc = grpc: the client
+    connection is closing\nNodeControllerDegraded: All master nodes are ready\nEtcdMembersDegraded:
+    No unhealthy members found" to "NodeControllerDegraded: All master nodes are ready\nEtcdMembersDegraded:
+    No unhealthy members found"'
+  metadata:
+    creationTimestamp: "2020-09-21T13:44:59Z"
+    name: etcd-operator.1616f28f4f32a3ab
+    namespace: openshift-etcd-operator
+    resourceVersion: "265015690"
+    selfLink: /api/v1/namespaces/openshift-etcd-operator/events/etcd-operator.1616f28f4f32a3ab
+    uid: 7d9ab620-0186-41f0-b1f4-86a4c6267c49
+  reason: OperatorStatusChanged
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: openshift-cluster-etcd-operator-status-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T15:20:00.853214Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600701600-d9xrx
+    namespace: openshift-logging
+    resourceVersion: "265009815"
+    uid: f7965434-e7de-4183-8248-b5e97ffadfb4
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600701600-d9xrx to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T15:20:00Z"
+    name: curator-1600701600-d9xrx.1636d5a0064156ff
+    namespace: openshift-logging
+    resourceVersion: "265009820"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600701600-d9xrx.1636d5a0064156ff
+    uid: 7a34347e-e586-4107-9046-772d9f44b7ea
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:20:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600701600-d9xrx
+    namespace: openshift-logging
+    resourceVersion: "265009817"
+    uid: f7965434-e7de-4183-8248-b5e97ffadfb4
+  kind: Event
+  lastTimestamp: "2020-09-21T15:20:03Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T15:20:04Z"
+    name: curator-1600701600-d9xrx.1636d5a0b52c4bd7
+    namespace: openshift-logging
+    resourceVersion: "265009859"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600701600-d9xrx.1636d5a0b52c4bd7
+    uid: 8d49713e-8812-4d31-bd0b-8804239c0ec7
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:20:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600701600-d9xrx
+    namespace: openshift-logging
+    resourceVersion: "265009817"
+    uid: f7965434-e7de-4183-8248-b5e97ffadfb4
+  kind: Event
+  lastTimestamp: "2020-09-21T15:20:03Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T15:20:04Z"
+    name: curator-1600701600-d9xrx.1636d5a0be78c944
+    namespace: openshift-logging
+    resourceVersion: "265009863"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600701600-d9xrx.1636d5a0be78c944
+    uid: 1220f043-3743-4126-b3df-038f7eed64cc
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:20:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600701600-d9xrx
+    namespace: openshift-logging
+    resourceVersion: "265009817"
+    uid: f7965434-e7de-4183-8248-b5e97ffadfb4
+  kind: Event
+  lastTimestamp: "2020-09-21T15:20:03Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T15:20:04Z"
+    name: curator-1600701600-d9xrx.1636d5a0c1479339
+    namespace: openshift-logging
+    resourceVersion: "265009865"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600701600-d9xrx.1636d5a0c1479339
+    uid: e4056385-1766-42b2-b233-b0157d50fab7
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:20:00Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600701600
+    namespace: openshift-logging
+    resourceVersion: "265009812"
+    uid: 20e51081-3776-4af5-9631-cd7a8880bae9
+  kind: Event
+  lastTimestamp: "2020-09-21T15:20:00Z"
+  message: 'Created pod: curator-1600701600-d9xrx'
+  metadata:
+    creationTimestamp: "2020-09-21T15:20:00Z"
+    name: curator-1600701600.1636d5a007087991
+    namespace: openshift-logging
+    resourceVersion: "265009816"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600701600.1636d5a007087991
+    uid: 9e34ea86-22ac-44af-8cf8-a28eff1069d1
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T15:30:02.805940Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600702200-nrhxr
+    namespace: openshift-logging
+    resourceVersion: "265017432"
+    uid: 33b0f13c-eb07-4c92-86f1-bebecdb4f920
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600702200-nrhxr to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T15:30:02Z"
+    name: curator-1600702200-nrhxr.1636d62c2d6f0927
+    namespace: openshift-logging
+    resourceVersion: "265017436"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702200-nrhxr.1636d62c2d6f0927
+    uid: da900162-c8a8-4253-845d-64df0bf2b41e
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:30:05Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600702200-nrhxr
+    namespace: openshift-logging
+    resourceVersion: "265017434"
+    uid: 33b0f13c-eb07-4c92-86f1-bebecdb4f920
+  kind: Event
+  lastTimestamp: "2020-09-21T15:30:05Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T15:30:05Z"
+    name: curator-1600702200-nrhxr.1636d62cb1d3824b
+    namespace: openshift-logging
+    resourceVersion: "265017471"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702200-nrhxr.1636d62cb1d3824b
+    uid: e2291ef6-fc85-448f-b6c3-f50c21f734d6
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:30:05Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600702200-nrhxr
+    namespace: openshift-logging
+    resourceVersion: "265017434"
+    uid: 33b0f13c-eb07-4c92-86f1-bebecdb4f920
+  kind: Event
+  lastTimestamp: "2020-09-21T15:30:05Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T15:30:05Z"
+    name: curator-1600702200-nrhxr.1636d62cbb172008
+    namespace: openshift-logging
+    resourceVersion: "265017472"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702200-nrhxr.1636d62cbb172008
+    uid: 1f26ba7a-51f2-4e55-bec0-2c89502e2976
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:30:05Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600702200-nrhxr
+    namespace: openshift-logging
+    resourceVersion: "265017434"
+    uid: 33b0f13c-eb07-4c92-86f1-bebecdb4f920
+  kind: Event
+  lastTimestamp: "2020-09-21T15:30:05Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T15:30:05Z"
+    name: curator-1600702200-nrhxr.1636d62cbc795719
+    namespace: openshift-logging
+    resourceVersion: "265017473"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702200-nrhxr.1636d62cbc795719
+    uid: f7031cd5-8c4d-4488-84cc-d2cf6baed695
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:30:02Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600702200
+    namespace: openshift-logging
+    resourceVersion: "265017429"
+    uid: c3049127-1b77-45cf-aa4a-576ec1c34fb8
+  kind: Event
+  lastTimestamp: "2020-09-21T15:30:02Z"
+  message: 'Created pod: curator-1600702200-nrhxr'
+  metadata:
+    creationTimestamp: "2020-09-21T15:30:02Z"
+    name: curator-1600702200.1636d62c2e13d8d7
+    namespace: openshift-logging
+    resourceVersion: "265017433"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702200.1636d62c2e13d8d7
+    uid: 14284408-32a8-495b-9560-d29e05925eae
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T15:40:04.630829Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600702800-26rq2
+    namespace: openshift-logging
+    resourceVersion: "265024985"
+    uid: 33e239af-6cae-4ea9-831d-294315988c31
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600702800-26rq2 to infra-03.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T15:40:04Z"
+    name: curator-1600702800-26rq2.1636d6b84cfe12ef
+    namespace: openshift-logging
+    resourceVersion: "265024989"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702800-26rq2.1636d6b84cfe12ef
+    uid: bfa582cb-2ee9-4792-9fa0-af8fce032915
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:40:08Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600702800-26rq2
+    namespace: openshift-logging
+    resourceVersion: "265024987"
+    uid: 33e239af-6cae-4ea9-831d-294315988c31
+  kind: Event
+  lastTimestamp: "2020-09-21T15:40:08Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T15:40:08Z"
+    name: curator-1600702800-26rq2.1636d6b94ab4cfde
+    namespace: openshift-logging
+    resourceVersion: "265025028"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702800-26rq2.1636d6b94ab4cfde
+    uid: fd1598f3-8f84-487e-baf0-43f014fa3757
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:40:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600702800-26rq2
+    namespace: openshift-logging
+    resourceVersion: "265024987"
+    uid: 33e239af-6cae-4ea9-831d-294315988c31
+  kind: Event
+  lastTimestamp: "2020-09-21T15:40:09Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T15:40:08Z"
+    name: curator-1600702800-26rq2.1636d6b954ea88a5
+    namespace: openshift-logging
+    resourceVersion: "265025031"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702800-26rq2.1636d6b954ea88a5
+    uid: 5101dca8-9ba3-45f4-90e5-6204ef8279b4
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:40:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600702800-26rq2
+    namespace: openshift-logging
+    resourceVersion: "265024987"
+    uid: 33e239af-6cae-4ea9-831d-294315988c31
+  kind: Event
+  lastTimestamp: "2020-09-21T15:40:09Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T15:40:08Z"
+    name: curator-1600702800-26rq2.1636d6b95666eae7
+    namespace: openshift-logging
+    resourceVersion: "265025032"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702800-26rq2.1636d6b95666eae7
+    uid: 72101551-e010-4c47-a890-6eb343548ca3
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:40:04Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600702800
+    namespace: openshift-logging
+    resourceVersion: "265024982"
+    uid: 83fdc357-c23e-423d-94fb-eab15a804742
+  kind: Event
+  lastTimestamp: "2020-09-21T15:40:04Z"
+  message: 'Created pod: curator-1600702800-26rq2'
+  metadata:
+    creationTimestamp: "2020-09-21T15:40:04Z"
+    name: curator-1600702800.1636d6b84d8c54cb
+    namespace: openshift-logging
+    resourceVersion: "265024986"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600702800.1636d6b84d8c54cb
+    uid: ef10be9b-f8cd-499b-97ce-2e06fbf7ba30
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T15:50:06.465938Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600703400-psff4
+    namespace: openshift-logging
+    resourceVersion: "265032596"
+    uid: 4dfa5b08-1aee-4c16-a4e9-9233e361894d
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600703400-psff4 to infra-03.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T15:50:06Z"
+    name: curator-1600703400-psff4.1636d7446d291e9d
+    namespace: openshift-logging
+    resourceVersion: "265032600"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600703400-psff4.1636d7446d291e9d
+    uid: dfb81304-9140-4b9c-9d6b-5d4ad6cd334f
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:50:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600703400-psff4
+    namespace: openshift-logging
+    resourceVersion: "265032598"
+    uid: 4dfa5b08-1aee-4c16-a4e9-9233e361894d
+  kind: Event
+  lastTimestamp: "2020-09-21T15:50:09Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T15:50:09Z"
+    name: curator-1600703400-psff4.1636d7452b3c3a69
+    namespace: openshift-logging
+    resourceVersion: "265032625"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600703400-psff4.1636d7452b3c3a69
+    uid: 0cdba1b0-141b-4d43-bc02-2bd04b60efa3
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:50:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600703400-psff4
+    namespace: openshift-logging
+    resourceVersion: "265032598"
+    uid: 4dfa5b08-1aee-4c16-a4e9-9233e361894d
+  kind: Event
+  lastTimestamp: "2020-09-21T15:50:09Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T15:50:09Z"
+    name: curator-1600703400-psff4.1636d74535e3d628
+    namespace: openshift-logging
+    resourceVersion: "265032629"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600703400-psff4.1636d74535e3d628
+    uid: c9270278-8944-4b23-a28f-e42115791b6f
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:50:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600703400-psff4
+    namespace: openshift-logging
+    resourceVersion: "265032598"
+    uid: 4dfa5b08-1aee-4c16-a4e9-9233e361894d
+  kind: Event
+  lastTimestamp: "2020-09-21T15:50:09Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T15:50:09Z"
+    name: curator-1600703400-psff4.1636d745377d856e
+    namespace: openshift-logging
+    resourceVersion: "265032630"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600703400-psff4.1636d745377d856e
+    uid: 2ac99ca3-1df8-4834-97aa-b6a4032d0293
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:50:06Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600703400
+    namespace: openshift-logging
+    resourceVersion: "265032593"
+    uid: b396c13e-e4da-40f5-8cea-9bdaed4a7cf1
+  kind: Event
+  lastTimestamp: "2020-09-21T15:50:06Z"
+  message: 'Created pod: curator-1600703400-psff4'
+  metadata:
+    creationTimestamp: "2020-09-21T15:50:06Z"
+    name: curator-1600703400.1636d7446d6efc49
+    namespace: openshift-logging
+    resourceVersion: "265032597"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600703400.1636d7446d6efc49
+    uid: fcf9e043-6848-4eb4-a3c5-bc24911680d3
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T16:00:08.592556Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600704000-r8ccl
+    namespace: openshift-logging
+    resourceVersion: "265040170"
+    uid: e1034d49-b15d-45a2-8db0-01d96360e27e
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600704000-r8ccl to infra-03.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:08Z"
+    name: curator-1600704000-r8ccl.1636d7d09eb4168b
+    namespace: openshift-logging
+    resourceVersion: "265040174"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704000-r8ccl.1636d7d09eb4168b
+    uid: eddea9e4-4245-47a8-aff2-f9f4bc497e4c
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600704000-r8ccl
+    namespace: openshift-logging
+    resourceVersion: "265040171"
+    uid: e1034d49-b15d-45a2-8db0-01d96360e27e
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:11Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:10Z"
+    name: curator-1600704000-r8ccl.1636d7d13abf991e
+    namespace: openshift-logging
+    resourceVersion: "265040192"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704000-r8ccl.1636d7d13abf991e
+    uid: 639510f5-c882-4b49-be3e-418ef48f791f
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600704000-r8ccl
+    namespace: openshift-logging
+    resourceVersion: "265040171"
+    uid: e1034d49-b15d-45a2-8db0-01d96360e27e
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:11Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:11Z"
+    name: curator-1600704000-r8ccl.1636d7d14483e861
+    namespace: openshift-logging
+    resourceVersion: "265040196"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704000-r8ccl.1636d7d14483e861
+    uid: d6993002-639e-4e13-af53-e41c4bf3461e
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600704000-r8ccl
+    namespace: openshift-logging
+    resourceVersion: "265040171"
+    uid: e1034d49-b15d-45a2-8db0-01d96360e27e
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:11Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:11Z"
+    name: curator-1600704000-r8ccl.1636d7d146242e57
+    namespace: openshift-logging
+    resourceVersion: "265040197"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704000-r8ccl.1636d7d146242e57
+    uid: b8bef618-b527-492c-8906-f2332ff7e169
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:08Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600704000
+    namespace: openshift-logging
+    resourceVersion: "265040165"
+    uid: a87d12b4-85cc-442a-a1a2-4cca3d0427b1
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:08Z"
+  message: 'Created pod: curator-1600704000-r8ccl'
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:08Z"
+    name: curator-1600704000.1636d7d09efbd801
+    namespace: openshift-logging
+    resourceVersion: "265040172"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704000.1636d7d09efbd801
+    uid: 17b62237-c314-4527-8a82-70bb4c8a600f
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T16:10:00.445320Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600704600-vpdgv
+    namespace: openshift-logging
+    resourceVersion: "265047681"
+    uid: 5e18e21d-4dc4-4a34-9090-b4f63c300786
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600704600-vpdgv to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T16:10:00Z"
+    name: curator-1600704600-vpdgv.1636d85a6be0986a
+    namespace: openshift-logging
+    resourceVersion: "265047685"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704600-vpdgv.1636d85a6be0986a
+    uid: 813698a2-b9c1-4d01-908f-9961d807dec7
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:10:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600704600-vpdgv
+    namespace: openshift-logging
+    resourceVersion: "265047682"
+    uid: 5e18e21d-4dc4-4a34-9090-b4f63c300786
+  kind: Event
+  lastTimestamp: "2020-09-21T16:10:03Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T16:10:03Z"
+    name: curator-1600704600-vpdgv.1636d85b09af3e8d
+    namespace: openshift-logging
+    resourceVersion: "265047715"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704600-vpdgv.1636d85b09af3e8d
+    uid: 3cd6c1b1-6602-4e07-b7b8-de71345f7d19
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:10:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600704600-vpdgv
+    namespace: openshift-logging
+    resourceVersion: "265047682"
+    uid: 5e18e21d-4dc4-4a34-9090-b4f63c300786
+  kind: Event
+  lastTimestamp: "2020-09-21T16:10:03Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:10:03Z"
+    name: curator-1600704600-vpdgv.1636d85b13d1525a
+    namespace: openshift-logging
+    resourceVersion: "265047718"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704600-vpdgv.1636d85b13d1525a
+    uid: 4fa395dc-43c0-4bac-8e36-d2d93fec53c7
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:10:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600704600-vpdgv
+    namespace: openshift-logging
+    resourceVersion: "265047682"
+    uid: 5e18e21d-4dc4-4a34-9090-b4f63c300786
+  kind: Event
+  lastTimestamp: "2020-09-21T16:10:03Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:10:03Z"
+    name: curator-1600704600-vpdgv.1636d85b157aeb9f
+    namespace: openshift-logging
+    resourceVersion: "265047719"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704600-vpdgv.1636d85b157aeb9f
+    uid: bb0364d3-ad0a-42c9-9c37-d97fe2e515ef
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:10:00Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600704600
+    namespace: openshift-logging
+    resourceVersion: "265047678"
+    uid: 1ccb8351-4da1-481a-b170-7d4dd4d5691d
+  kind: Event
+  lastTimestamp: "2020-09-21T16:10:00Z"
+  message: 'Created pod: curator-1600704600-vpdgv'
+  metadata:
+    creationTimestamp: "2020-09-21T16:10:00Z"
+    name: curator-1600704600.1636d85a6c01b2d6
+    namespace: openshift-logging
+    resourceVersion: "265047683"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600704600.1636d85a6c01b2d6
+    uid: 8ff899f7-0bb1-4500-b2bb-bda18597da5c
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T16:20:02.464295Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600705200-78nw7
+    namespace: openshift-logging
+    resourceVersion: "265055284"
+    uid: 7e46b792-3d58-4eda-ab97-169f716f306c
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600705200-78nw7 to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T16:20:02Z"
+    name: curator-1600705200-78nw7.1636d8e69701233e
+    namespace: openshift-logging
+    resourceVersion: "265055288"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705200-78nw7.1636d8e69701233e
+    uid: 2834ab06-8255-4f8f-8f62-be9dfda60335
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:20:04Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600705200-78nw7
+    namespace: openshift-logging
+    resourceVersion: "265055286"
+    uid: 7e46b792-3d58-4eda-ab97-169f716f306c
+  kind: Event
+  lastTimestamp: "2020-09-21T16:20:04Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T16:20:05Z"
+    name: curator-1600705200-78nw7.1636d8e71f107f17
+    namespace: openshift-logging
+    resourceVersion: "265055314"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705200-78nw7.1636d8e71f107f17
+    uid: 834a9c2d-4f89-443c-a84c-079b5ed93863
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:20:04Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600705200-78nw7
+    namespace: openshift-logging
+    resourceVersion: "265055286"
+    uid: 7e46b792-3d58-4eda-ab97-169f716f306c
+  kind: Event
+  lastTimestamp: "2020-09-21T16:20:04Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:20:05Z"
+    name: curator-1600705200-78nw7.1636d8e7288b1883
+    namespace: openshift-logging
+    resourceVersion: "265055318"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705200-78nw7.1636d8e7288b1883
+    uid: 9d392cd3-7e69-4ce0-a4e7-e5acb423100d
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:20:04Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600705200-78nw7
+    namespace: openshift-logging
+    resourceVersion: "265055286"
+    uid: 7e46b792-3d58-4eda-ab97-169f716f306c
+  kind: Event
+  lastTimestamp: "2020-09-21T16:20:04Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:20:05Z"
+    name: curator-1600705200-78nw7.1636d8e72a04f72c
+    namespace: openshift-logging
+    resourceVersion: "265055320"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705200-78nw7.1636d8e72a04f72c
+    uid: d8e95103-f3df-4516-97a3-d2f18cdd0aa7
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:20:02Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600705200
+    namespace: openshift-logging
+    resourceVersion: "265055281"
+    uid: 66b4c57c-1432-472d-8349-142e37736abb
+  kind: Event
+  lastTimestamp: "2020-09-21T16:20:02Z"
+  message: 'Created pod: curator-1600705200-78nw7'
+  metadata:
+    creationTimestamp: "2020-09-21T16:20:02Z"
+    name: curator-1600705200.1636d8e696ed8c08
+    namespace: openshift-logging
+    resourceVersion: "265055285"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705200.1636d8e696ed8c08
+    uid: ee9f2d11-0d43-4fc5-a5e3-9725b2b72214
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T16:30:04.294264Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600705800-rx8vd
+    namespace: openshift-logging
+    resourceVersion: "265062888"
+    uid: cba9560f-d36a-48ea-8286-ef58b800f024
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600705800-rx8vd to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T16:30:04Z"
+    name: curator-1600705800-rx8vd.1636d972b6ddb06d
+    namespace: openshift-logging
+    resourceVersion: "265062892"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705800-rx8vd.1636d972b6ddb06d
+    uid: 52e7155a-b165-4e48-aef7-4042ec7e57de
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:30:06Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600705800-rx8vd
+    namespace: openshift-logging
+    resourceVersion: "265062890"
+    uid: cba9560f-d36a-48ea-8286-ef58b800f024
+  kind: Event
+  lastTimestamp: "2020-09-21T16:30:06Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T16:30:06Z"
+    name: curator-1600705800-rx8vd.1636d9733b9f8346
+    namespace: openshift-logging
+    resourceVersion: "265062922"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705800-rx8vd.1636d9733b9f8346
+    uid: 1bd3c18d-e4e2-4801-bc70-5e448c72badf
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:30:06Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600705800-rx8vd
+    namespace: openshift-logging
+    resourceVersion: "265062890"
+    uid: cba9560f-d36a-48ea-8286-ef58b800f024
+  kind: Event
+  lastTimestamp: "2020-09-21T16:30:06Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:30:07Z"
+    name: curator-1600705800-rx8vd.1636d973462eeaec
+    namespace: openshift-logging
+    resourceVersion: "265062923"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705800-rx8vd.1636d973462eeaec
+    uid: 0b20ffb8-822a-4527-8c42-034282fab8b6
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:30:06Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600705800-rx8vd
+    namespace: openshift-logging
+    resourceVersion: "265062890"
+    uid: cba9560f-d36a-48ea-8286-ef58b800f024
+  kind: Event
+  lastTimestamp: "2020-09-21T16:30:06Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:30:07Z"
+    name: curator-1600705800-rx8vd.1636d97347d8188f
+    namespace: openshift-logging
+    resourceVersion: "265062924"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705800-rx8vd.1636d97347d8188f
+    uid: 304a8f5e-6423-4d2e-8321-3dfb62b6acde
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:30:04Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600705800
+    namespace: openshift-logging
+    resourceVersion: "265062885"
+    uid: 1c9cb13a-ad16-4453-9f65-6e591f55565e
+  kind: Event
+  lastTimestamp: "2020-09-21T16:30:04Z"
+  message: 'Created pod: curator-1600705800-rx8vd'
+  metadata:
+    creationTimestamp: "2020-09-21T16:30:04Z"
+    name: curator-1600705800.1636d972b674f155
+    namespace: openshift-logging
+    resourceVersion: "265062889"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600705800.1636d972b674f155
+    uid: a0f7f094-a0ab-4ac5-8296-100a4537b5b2
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T16:40:06.089691Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600706400-s7jmk
+    namespace: openshift-logging
+    resourceVersion: "265070568"
+    uid: 2279c46f-03bc-453f-955a-5a822141254f
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600706400-s7jmk to infra-03.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T16:40:06Z"
+    name: curator-1600706400-s7jmk.1636d9fed4ab2e64
+    namespace: openshift-logging
+    resourceVersion: "265070572"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600706400-s7jmk.1636d9fed4ab2e64
+    uid: fbcc0438-d6cf-45ba-a7f8-8b8db3f42a71
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:40:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600706400-s7jmk
+    namespace: openshift-logging
+    resourceVersion: "265070570"
+    uid: 2279c46f-03bc-453f-955a-5a822141254f
+  kind: Event
+  lastTimestamp: "2020-09-21T16:40:09Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T16:40:08Z"
+    name: curator-1600706400-s7jmk.1636d9ff830c35e9
+    namespace: openshift-logging
+    resourceVersion: "265070598"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600706400-s7jmk.1636d9ff830c35e9
+    uid: c47be8cc-aebf-42ee-be52-df4d59b6981a
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:40:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600706400-s7jmk
+    namespace: openshift-logging
+    resourceVersion: "265070570"
+    uid: 2279c46f-03bc-453f-955a-5a822141254f
+  kind: Event
+  lastTimestamp: "2020-09-21T16:40:09Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:40:08Z"
+    name: curator-1600706400-s7jmk.1636d9ff8dd5a61e
+    namespace: openshift-logging
+    resourceVersion: "265070605"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600706400-s7jmk.1636d9ff8dd5a61e
+    uid: c68435c9-c77c-4a8d-b37e-c879b3582410
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:40:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600706400-s7jmk
+    namespace: openshift-logging
+    resourceVersion: "265070570"
+    uid: 2279c46f-03bc-453f-955a-5a822141254f
+  kind: Event
+  lastTimestamp: "2020-09-21T16:40:09Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:40:08Z"
+    name: curator-1600706400-s7jmk.1636d9ff8fcf80d7
+    namespace: openshift-logging
+    resourceVersion: "265070606"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600706400-s7jmk.1636d9ff8fcf80d7
+    uid: dc7e7c72-9b72-4e08-843e-bd2f0fbfe4c6
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:40:06Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600706400
+    namespace: openshift-logging
+    resourceVersion: "265070565"
+    uid: 3dc5e43b-3896-4f1b-b5ee-686170d8fb92
+  kind: Event
+  lastTimestamp: "2020-09-21T16:40:06Z"
+  message: 'Created pod: curator-1600706400-s7jmk'
+  metadata:
+    creationTimestamp: "2020-09-21T16:40:06Z"
+    name: curator-1600706400.1636d9fed433b9f9
+    namespace: openshift-logging
+    resourceVersion: "265070569"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600706400.1636d9fed433b9f9
+    uid: e89d6b1b-093d-40f7-96a7-d61d81b3c023
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T16:50:07.983384Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600707000-psslb
+    namespace: openshift-logging
+    resourceVersion: "265078180"
+    uid: 4c35b39d-1857-4931-b89a-33e1c6460e4d
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600707000-psslb to infra-03.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T16:50:07Z"
+    name: curator-1600707000-psslb.1636da8af8541aca
+    namespace: openshift-logging
+    resourceVersion: "265078184"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707000-psslb.1636da8af8541aca
+    uid: 444dc956-4ee2-424e-a67e-5c83d42c5876
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:50:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600707000-psslb
+    namespace: openshift-logging
+    resourceVersion: "265078183"
+    uid: 4c35b39d-1857-4931-b89a-33e1c6460e4d
+  kind: Event
+  lastTimestamp: "2020-09-21T16:50:11Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T16:50:10Z"
+    name: curator-1600707000-psslb.1636da8bbb56bd8f
+    namespace: openshift-logging
+    resourceVersion: "265078213"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707000-psslb.1636da8bbb56bd8f
+    uid: cdef136c-5a9f-4e3d-a2cb-284fac3c964b
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:50:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600707000-psslb
+    namespace: openshift-logging
+    resourceVersion: "265078183"
+    uid: 4c35b39d-1857-4931-b89a-33e1c6460e4d
+  kind: Event
+  lastTimestamp: "2020-09-21T16:50:11Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:50:11Z"
+    name: curator-1600707000-psslb.1636da8bc5499539
+    namespace: openshift-logging
+    resourceVersion: "265078216"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707000-psslb.1636da8bc5499539
+    uid: 19e73d24-b2b0-4efc-8f7b-324cf97f9d5d
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:50:11Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600707000-psslb
+    namespace: openshift-logging
+    resourceVersion: "265078183"
+    uid: 4c35b39d-1857-4931-b89a-33e1c6460e4d
+  kind: Event
+  lastTimestamp: "2020-09-21T16:50:11Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T16:50:11Z"
+    name: curator-1600707000-psslb.1636da8bc6e0eaf0
+    namespace: openshift-logging
+    resourceVersion: "265078217"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707000-psslb.1636da8bc6e0eaf0
+    uid: fcb91c2e-1d20-4a44-aadf-8c1df3251a56
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:50:07Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600707000
+    namespace: openshift-logging
+    resourceVersion: "265078177"
+    uid: 4e2de9b1-70a9-47e4-92ae-0d66aaf51dd7
+  kind: Event
+  lastTimestamp: "2020-09-21T16:50:07Z"
+  message: 'Created pod: curator-1600707000-psslb'
+  metadata:
+    creationTimestamp: "2020-09-21T16:50:07Z"
+    name: curator-1600707000.1636da8af78ed0e9
+    namespace: openshift-logging
+    resourceVersion: "265078181"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707000.1636da8af78ed0e9
+    uid: d1e4412b-a707-4c23-99c5-87352f21857c
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T17:00:09.818954Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600707600-lchsp
+    namespace: openshift-logging
+    resourceVersion: "265085747"
+    uid: 90fdf337-5746-4d38-9bd5-af5ebd30dca3
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600707600-lchsp to infra-03.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:09Z"
+    name: curator-1600707600-lchsp.1636db17188612cb
+    namespace: openshift-logging
+    resourceVersion: "265085751"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707600-lchsp.1636db17188612cb
+    uid: 17c4046e-bf98-4b8b-a2f5-ef5ad1f90ce9
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:12Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600707600-lchsp
+    namespace: openshift-logging
+    resourceVersion: "265085749"
+    uid: 90fdf337-5746-4d38-9bd5-af5ebd30dca3
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:12Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:12Z"
+    name: curator-1600707600-lchsp.1636db17d008c3a4
+    namespace: openshift-logging
+    resourceVersion: "265085784"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707600-lchsp.1636db17d008c3a4
+    uid: b48c5d18-2c32-4d4b-b679-b0fbc62d6bd5
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:13Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600707600-lchsp
+    namespace: openshift-logging
+    resourceVersion: "265085749"
+    uid: 90fdf337-5746-4d38-9bd5-af5ebd30dca3
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:13Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:12Z"
+    name: curator-1600707600-lchsp.1636db17d9d562ba
+    namespace: openshift-logging
+    resourceVersion: "265085787"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707600-lchsp.1636db17d9d562ba
+    uid: 5734bd48-535d-40d5-8a0b-5548a4a11816
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:13Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600707600-lchsp
+    namespace: openshift-logging
+    resourceVersion: "265085749"
+    uid: 90fdf337-5746-4d38-9bd5-af5ebd30dca3
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:13Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:12Z"
+    name: curator-1600707600-lchsp.1636db17dbd11c5a
+    namespace: openshift-logging
+    resourceVersion: "265085789"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707600-lchsp.1636db17dbd11c5a
+    uid: c953d220-93ed-4556-862d-2b8e53fb95bf
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:09Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600707600
+    namespace: openshift-logging
+    resourceVersion: "265085743"
+    uid: b472cee6-8f4a-4b2d-8b72-f3eae55e1ed2
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:09Z"
+  message: 'Created pod: curator-1600707600-lchsp'
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:09Z"
+    name: curator-1600707600.1636db1717ab8c8b
+    namespace: openshift-logging
+    resourceVersion: "265085748"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600707600.1636db1717ab8c8b
+    uid: 3b1e2ab7-b610-4b61-baa8-e9aaa0528e7a
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T17:10:01.745539Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600708200-kf78p
+    namespace: openshift-logging
+    resourceVersion: "265093303"
+    uid: b7adb061-f9e3-4df5-8a7a-a6e1cd26d6a1
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600708200-kf78p to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T17:10:01Z"
+    name: curator-1600708200-kf78p.1636dba0ea19068d
+    namespace: openshift-logging
+    resourceVersion: "265093308"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708200-kf78p.1636dba0ea19068d
+    uid: 364ea2f4-b2f0-44e4-b047-6d67cffc703d
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:10:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600708200-kf78p
+    namespace: openshift-logging
+    resourceVersion: "265093306"
+    uid: b7adb061-f9e3-4df5-8a7a-a6e1cd26d6a1
+  kind: Event
+  lastTimestamp: "2020-09-21T17:10:03Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:10:03Z"
+    name: curator-1600708200-kf78p.1636dba15af71a27
+    namespace: openshift-logging
+    resourceVersion: "265093327"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708200-kf78p.1636dba15af71a27
+    uid: 81fefcf4-dd23-4636-a93a-12dafdc4b1e8
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:10:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600708200-kf78p
+    namespace: openshift-logging
+    resourceVersion: "265093306"
+    uid: b7adb061-f9e3-4df5-8a7a-a6e1cd26d6a1
+  kind: Event
+  lastTimestamp: "2020-09-21T17:10:03Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:10:04Z"
+    name: curator-1600708200-kf78p.1636dba164b1a90d
+    namespace: openshift-logging
+    resourceVersion: "265093333"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708200-kf78p.1636dba164b1a90d
+    uid: 6e4b2f33-ff9d-4a50-ad42-029874544a4a
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:10:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600708200-kf78p
+    namespace: openshift-logging
+    resourceVersion: "265093306"
+    uid: b7adb061-f9e3-4df5-8a7a-a6e1cd26d6a1
+  kind: Event
+  lastTimestamp: "2020-09-21T17:10:03Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:10:04Z"
+    name: curator-1600708200-kf78p.1636dba1663fd636
+    namespace: openshift-logging
+    resourceVersion: "265093334"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708200-kf78p.1636dba1663fd636
+    uid: 92410af2-10bd-4ee7-8c2a-03e8326c81cc
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:10:01Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600708200
+    namespace: openshift-logging
+    resourceVersion: "265093299"
+    uid: 68e0d713-de28-4973-a0ce-0c0bf5278444
+  kind: Event
+  lastTimestamp: "2020-09-21T17:10:01Z"
+  message: 'Created pod: curator-1600708200-kf78p'
+  metadata:
+    creationTimestamp: "2020-09-21T17:10:01Z"
+    name: curator-1600708200.1636dba0e92669b9
+    namespace: openshift-logging
+    resourceVersion: "265093305"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708200.1636dba0e92669b9
+    uid: 763e88a7-f6d9-4424-be00-87642a165e0b
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T17:20:03.570168Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600708800-xbmsl
+    namespace: openshift-logging
+    resourceVersion: "265100895"
+    uid: 077427a2-322c-4ea6-8c09-fa543bb2aa00
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600708800-xbmsl to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T17:20:03Z"
+    name: curator-1600708800-xbmsl.1636dc2d09a4068f
+    namespace: openshift-logging
+    resourceVersion: "265100900"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708800-xbmsl.1636dc2d09a4068f
+    uid: 9bb80d7a-be76-47cc-afd8-f0b899766b9e
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:20:05Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600708800-xbmsl
+    namespace: openshift-logging
+    resourceVersion: "265100898"
+    uid: 077427a2-322c-4ea6-8c09-fa543bb2aa00
+  kind: Event
+  lastTimestamp: "2020-09-21T17:20:05Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:20:06Z"
+    name: curator-1600708800-xbmsl.1636dc2d94a0b9c7
+    namespace: openshift-logging
+    resourceVersion: "265100925"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708800-xbmsl.1636dc2d94a0b9c7
+    uid: 6e461980-ff6e-420f-aaa5-56fc17b0fcbb
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:20:06Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600708800-xbmsl
+    namespace: openshift-logging
+    resourceVersion: "265100898"
+    uid: 077427a2-322c-4ea6-8c09-fa543bb2aa00
+  kind: Event
+  lastTimestamp: "2020-09-21T17:20:06Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:20:07Z"
+    name: curator-1600708800-xbmsl.1636dc2d9e67aca6
+    namespace: openshift-logging
+    resourceVersion: "265100934"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708800-xbmsl.1636dc2d9e67aca6
+    uid: e99d92cf-f088-4f7f-b275-5204f5d05a09
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:20:06Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600708800-xbmsl
+    namespace: openshift-logging
+    resourceVersion: "265100898"
+    uid: 077427a2-322c-4ea6-8c09-fa543bb2aa00
+  kind: Event
+  lastTimestamp: "2020-09-21T17:20:06Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:20:07Z"
+    name: curator-1600708800-xbmsl.1636dc2da09cba85
+    namespace: openshift-logging
+    resourceVersion: "265100935"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708800-xbmsl.1636dc2da09cba85
+    uid: 7bd0fbb7-1040-4517-b8f4-133059116dae
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:20:03Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600708800
+    namespace: openshift-logging
+    resourceVersion: "265100892"
+    uid: 275f5f26-bd6b-47e9-8b75-c37d883ea102
+  kind: Event
+  lastTimestamp: "2020-09-21T17:20:03Z"
+  message: 'Created pod: curator-1600708800-xbmsl'
+  metadata:
+    creationTimestamp: "2020-09-21T17:20:03Z"
+    name: curator-1600708800.1636dc2d04b9decf
+    namespace: openshift-logging
+    resourceVersion: "265100896"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600708800.1636dc2d04b9decf
+    uid: 4855ea14-0c62-4a9c-b6b7-3eb150a91491
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T17:30:05.222938Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600709400-q8dz6
+    namespace: openshift-logging
+    resourceVersion: "265108479"
+    uid: 1e3c00f6-8a2c-466f-b422-a1a2a7bcddad
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600709400-q8dz6 to infra-01.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T17:30:05Z"
+    name: curator-1600709400-q8dz6.1636dcb91ef0c28d
+    namespace: openshift-logging
+    resourceVersion: "265108483"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600709400-q8dz6.1636dcb91ef0c28d
+    uid: b93eaed3-4447-4820-97bc-40e3c69f61ba
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:30:07Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600709400-q8dz6
+    namespace: openshift-logging
+    resourceVersion: "265108481"
+    uid: 1e3c00f6-8a2c-466f-b422-a1a2a7bcddad
+  kind: Event
+  lastTimestamp: "2020-09-21T17:30:07Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:30:07Z"
+    name: curator-1600709400-q8dz6.1636dcb996310220
+    namespace: openshift-logging
+    resourceVersion: "265108508"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600709400-q8dz6.1636dcb996310220
+    uid: dbcc06d7-e163-4768-a7ba-d1375c8b6003
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:30:07Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600709400-q8dz6
+    namespace: openshift-logging
+    resourceVersion: "265108481"
+    uid: 1e3c00f6-8a2c-466f-b422-a1a2a7bcddad
+  kind: Event
+  lastTimestamp: "2020-09-21T17:30:07Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:30:07Z"
+    name: curator-1600709400-q8dz6.1636dcb9a27f759d
+    namespace: openshift-logging
+    resourceVersion: "265108512"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600709400-q8dz6.1636dcb9a27f759d
+    uid: f25e3fe3-775b-4c98-a93c-be9a1580b86a
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:30:07Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600709400-q8dz6
+    namespace: openshift-logging
+    resourceVersion: "265108481"
+    uid: 1e3c00f6-8a2c-466f-b422-a1a2a7bcddad
+  kind: Event
+  lastTimestamp: "2020-09-21T17:30:07Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:30:07Z"
+    name: curator-1600709400-q8dz6.1636dcb9a4860274
+    namespace: openshift-logging
+    resourceVersion: "265108513"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600709400-q8dz6.1636dcb9a4860274
+    uid: 4a043ef3-1367-4738-a3f6-2d1931847344
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:30:05Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600709400
+    namespace: openshift-logging
+    resourceVersion: "265108476"
+    uid: 4865e4e8-1245-4126-8f7a-fc7c88a06a38
+  kind: Event
+  lastTimestamp: "2020-09-21T17:30:05Z"
+  message: 'Created pod: curator-1600709400-q8dz6'
+  metadata:
+    creationTimestamp: "2020-09-21T17:30:05Z"
+    name: curator-1600709400.1636dcb91da8e562
+    namespace: openshift-logging
+    resourceVersion: "265108480"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600709400.1636dcb91da8e562
+    uid: a2d43d87-363a-4d51-86df-a890f68eaa88
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T17:40:07.012944Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600710000-qc6lk
+    namespace: openshift-logging
+    resourceVersion: "265116088"
+    uid: 9b3b1c54-daa1-4469-a62f-c242573fa22b
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600710000-qc6lk to infra-01.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T17:40:07Z"
+    name: curator-1600710000-qc6lk.1636dd453c6b890e
+    namespace: openshift-logging
+    resourceVersion: "265116092"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710000-qc6lk.1636dd453c6b890e
+    uid: 93532644-aa42-4a46-baac-555855b754e8
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:40:08Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600710000-qc6lk
+    namespace: openshift-logging
+    resourceVersion: "265116090"
+    uid: 9b3b1c54-daa1-4469-a62f-c242573fa22b
+  kind: Event
+  lastTimestamp: "2020-09-21T17:40:08Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:40:09Z"
+    name: curator-1600710000-qc6lk.1636dd45aa8be975
+    namespace: openshift-logging
+    resourceVersion: "265116114"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710000-qc6lk.1636dd45aa8be975
+    uid: 83fd5022-7d1b-41a0-998e-1c5382419022
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:40:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600710000-qc6lk
+    namespace: openshift-logging
+    resourceVersion: "265116090"
+    uid: 9b3b1c54-daa1-4469-a62f-c242573fa22b
+  kind: Event
+  lastTimestamp: "2020-09-21T17:40:09Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:40:09Z"
+    name: curator-1600710000-qc6lk.1636dd45b54491cb
+    namespace: openshift-logging
+    resourceVersion: "265116121"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710000-qc6lk.1636dd45b54491cb
+    uid: 544e65df-928a-4aa9-9621-4209090cc89b
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:40:09Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600710000-qc6lk
+    namespace: openshift-logging
+    resourceVersion: "265116090"
+    uid: 9b3b1c54-daa1-4469-a62f-c242573fa22b
+  kind: Event
+  lastTimestamp: "2020-09-21T17:40:09Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:40:09Z"
+    name: curator-1600710000-qc6lk.1636dd45b6e87e3d
+    namespace: openshift-logging
+    resourceVersion: "265116123"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710000-qc6lk.1636dd45b6e87e3d
+    uid: ce7e938f-31dc-43f0-a9fc-8a3112d1b32a
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:40:06Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600710000
+    namespace: openshift-logging
+    resourceVersion: "265116084"
+    uid: 6dfdac6e-f18d-4c7b-9764-eefd0f5a7f7a
+  kind: Event
+  lastTimestamp: "2020-09-21T17:40:06Z"
+  message: 'Created pod: curator-1600710000-qc6lk'
+  metadata:
+    creationTimestamp: "2020-09-21T17:40:06Z"
+    name: curator-1600710000.1636dd453b0b39e0
+    namespace: openshift-logging
+    resourceVersion: "265116089"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710000.1636dd453b0b39e0
+    uid: 76a496b2-9ce9-4a77-9b57-4dd28d003e82
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T17:50:08.927135Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600710600-6sz97
+    namespace: openshift-logging
+    resourceVersion: "265123705"
+    uid: 6150be0e-f9c4-41a0-bb8c-8df8fc6a752c
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600710600-6sz97 to infra-01.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T17:50:08Z"
+    name: curator-1600710600-6sz97.1636ddd1614d35cc
+    namespace: openshift-logging
+    resourceVersion: "265123710"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710600-6sz97.1636ddd1614d35cc
+    uid: 3abe6d5d-6b6e-454e-8bd5-0d233b06c119
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:50:10Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600710600-6sz97
+    namespace: openshift-logging
+    resourceVersion: "265123709"
+    uid: 6150be0e-f9c4-41a0-bb8c-8df8fc6a752c
+  kind: Event
+  lastTimestamp: "2020-09-21T17:50:10Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:50:10Z"
+    name: curator-1600710600-6sz97.1636ddd1c8ab84d8
+    namespace: openshift-logging
+    resourceVersion: "265123739"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710600-6sz97.1636ddd1c8ab84d8
+    uid: f6e82086-cbd6-4d0a-bae4-8f1120b7b251
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:50:10Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600710600-6sz97
+    namespace: openshift-logging
+    resourceVersion: "265123709"
+    uid: 6150be0e-f9c4-41a0-bb8c-8df8fc6a752c
+  kind: Event
+  lastTimestamp: "2020-09-21T17:50:10Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:50:11Z"
+    name: curator-1600710600-6sz97.1636ddd1d3df7afd
+    namespace: openshift-logging
+    resourceVersion: "265123742"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710600-6sz97.1636ddd1d3df7afd
+    uid: d06f4e34-55b1-4987-b5aa-5264d8fb9167
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:50:10Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600710600-6sz97
+    namespace: openshift-logging
+    resourceVersion: "265123709"
+    uid: 6150be0e-f9c4-41a0-bb8c-8df8fc6a752c
+  kind: Event
+  lastTimestamp: "2020-09-21T17:50:10Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T17:50:11Z"
+    name: curator-1600710600-6sz97.1636ddd1d57320f0
+    namespace: openshift-logging
+    resourceVersion: "265123743"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710600-6sz97.1636ddd1d57320f0
+    uid: df029e2d-8c0d-4277-bcf8-78ee9cb363a9
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:50:08Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600710600
+    namespace: openshift-logging
+    resourceVersion: "265123703"
+    uid: 1f65a185-aadd-4b91-a359-7814cfdfaa61
+  kind: Event
+  lastTimestamp: "2020-09-21T17:50:08Z"
+  message: 'Created pod: curator-1600710600-6sz97'
+  metadata:
+    creationTimestamp: "2020-09-21T17:50:08Z"
+    name: curator-1600710600.1636ddd15d982713
+    namespace: openshift-logging
+    resourceVersion: "265123708"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600710600.1636ddd15d982713
+    uid: 81288dfb-cd5a-4068-af5c-0639004bba4e
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T18:00:00.629818Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600711200-gk82q
+    namespace: openshift-logging
+    resourceVersion: "265131157"
+    uid: c2c565b8-3d53-469f-a64e-9ba9f4538821
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600711200-gk82q to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:00Z"
+    name: curator-1600711200-gk82q.1636de5b2587a35b
+    namespace: openshift-logging
+    resourceVersion: "265131161"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711200-gk82q.1636de5b2587a35b
+    uid: 2ebb1229-ee15-46cb-be60-a3e38c78e282
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600711200-gk82q
+    namespace: openshift-logging
+    resourceVersion: "265131159"
+    uid: c2c565b8-3d53-469f-a64e-9ba9f4538821
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:03Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:03Z"
+    name: curator-1600711200-gk82q.1636de5bcf48bedf
+    namespace: openshift-logging
+    resourceVersion: "265131207"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711200-gk82q.1636de5bcf48bedf
+    uid: 648e95b8-c514-4cca-8dfb-39ab83e65288
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600711200-gk82q
+    namespace: openshift-logging
+    resourceVersion: "265131159"
+    uid: c2c565b8-3d53-469f-a64e-9ba9f4538821
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:03Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:04Z"
+    name: curator-1600711200-gk82q.1636de5bd9a2e063
+    namespace: openshift-logging
+    resourceVersion: "265131210"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711200-gk82q.1636de5bd9a2e063
+    uid: a5b9d1ac-921b-4201-8a0d-54ad77573a3e
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:03Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600711200-gk82q
+    namespace: openshift-logging
+    resourceVersion: "265131159"
+    uid: c2c565b8-3d53-469f-a64e-9ba9f4538821
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:03Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:04Z"
+    name: curator-1600711200-gk82q.1636de5bdb5cbc07
+    namespace: openshift-logging
+    resourceVersion: "265131212"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711200-gk82q.1636de5bdb5cbc07
+    uid: 6d33e50f-a6d2-4e91-85c2-741f6a6c55f7
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:00Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600711200
+    namespace: openshift-logging
+    resourceVersion: "265131153"
+    uid: 8460a7fa-1923-476f-83fe-43692342bf53
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:00Z"
+  message: 'Created pod: curator-1600711200-gk82q'
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:00Z"
+    name: curator-1600711200.1636de5b23a56ecb
+    namespace: openshift-logging
+    resourceVersion: "265131158"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711200.1636de5b23a56ecb
+    uid: e86e7bc7-df20-4f7d-b764-62e1851e9d69
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T18:10:02.480154Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600711800-nj6sf
+    namespace: openshift-logging
+    resourceVersion: "265138732"
+    uid: aca7c25c-f19d-4a22-acb0-e02b5910d511
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600711800-nj6sf to infra-02.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T18:10:02Z"
+    name: curator-1600711800-nj6sf.1636dee7469af210
+    namespace: openshift-logging
+    resourceVersion: "265138736"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711800-nj6sf.1636dee7469af210
+    uid: 70bc926b-00d7-425b-9e26-5be440b4c96d
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:10:04Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600711800-nj6sf
+    namespace: openshift-logging
+    resourceVersion: "265138734"
+    uid: aca7c25c-f19d-4a22-acb0-e02b5910d511
+  kind: Event
+  lastTimestamp: "2020-09-21T18:10:04Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T18:10:04Z"
+    name: curator-1600711800-nj6sf.1636dee7ba744a68
+    namespace: openshift-logging
+    resourceVersion: "265138756"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711800-nj6sf.1636dee7ba744a68
+    uid: 44497f65-eefd-48a4-bd1f-b8df4f8c0e3d
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:10:04Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600711800-nj6sf
+    namespace: openshift-logging
+    resourceVersion: "265138734"
+    uid: aca7c25c-f19d-4a22-acb0-e02b5910d511
+  kind: Event
+  lastTimestamp: "2020-09-21T18:10:04Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T18:10:04Z"
+    name: curator-1600711800-nj6sf.1636dee7c50043ae
+    namespace: openshift-logging
+    resourceVersion: "265138757"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711800-nj6sf.1636dee7c50043ae
+    uid: 8c7608d7-8a69-4305-b49d-19e26ad29c3d
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:10:04Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600711800-nj6sf
+    namespace: openshift-logging
+    resourceVersion: "265138734"
+    uid: aca7c25c-f19d-4a22-acb0-e02b5910d511
+  kind: Event
+  lastTimestamp: "2020-09-21T18:10:04Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T18:10:04Z"
+    name: curator-1600711800-nj6sf.1636dee7c6d41a1d
+    namespace: openshift-logging
+    resourceVersion: "265138758"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711800-nj6sf.1636dee7c6d41a1d
+    uid: 19241451-bd79-4c6b-a4a8-b66b1dc21cfe
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-02.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:10:02Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600711800
+    namespace: openshift-logging
+    resourceVersion: "265138729"
+    uid: 5828a5ab-d027-4eda-a5f0-ebf95ab23d76
+  kind: Event
+  lastTimestamp: "2020-09-21T18:10:02Z"
+  message: 'Created pod: curator-1600711800-nj6sf'
+  metadata:
+    creationTimestamp: "2020-09-21T18:10:02Z"
+    name: curator-1600711800.1636dee744b9bced
+    namespace: openshift-logging
+    resourceVersion: "265138733"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600711800.1636dee744b9bced
+    uid: 46672579-b4c1-4f1b-8315-a013e82a5246
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T18:20:04.207727Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: curator-1600712400-gksqm
+    namespace: openshift-logging
+    resourceVersion: "265146332"
+    uid: acf6103d-094e-419c-a420-f981be56871c
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/curator-1600712400-gksqm to infra-01.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T18:20:04Z"
+    name: curator-1600712400-gksqm.1636df73605d0d35
+    namespace: openshift-logging
+    resourceVersion: "265146336"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600712400-gksqm.1636df73605d0d35
+    uid: 428b8d2d-2a09-403c-93ed-6c1400495228
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:20:06Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600712400-gksqm
+    namespace: openshift-logging
+    resourceVersion: "265146334"
+    uid: acf6103d-094e-419c-a420-f981be56871c
+  kind: Event
+  lastTimestamp: "2020-09-21T18:20:06Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-curator5@sha256:91dd624cb2a005b3d251871ee2dbeba473fda2d06567eb96875cc8bbe8bea58f"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T18:20:06Z"
+    name: curator-1600712400-gksqm.1636df73df77fe33
+    namespace: openshift-logging
+    resourceVersion: "265146367"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600712400-gksqm.1636df73df77fe33
+    uid: 8b691e64-bf0f-4b7c-ab29-f755e4226d10
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:20:06Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600712400-gksqm
+    namespace: openshift-logging
+    resourceVersion: "265146334"
+    uid: acf6103d-094e-419c-a420-f981be56871c
+  kind: Event
+  lastTimestamp: "2020-09-21T18:20:06Z"
+  message: Created container curator
+  metadata:
+    creationTimestamp: "2020-09-21T18:20:06Z"
+    name: curator-1600712400-gksqm.1636df73eb79b514
+    namespace: openshift-logging
+    resourceVersion: "265146371"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600712400-gksqm.1636df73eb79b514
+    uid: e2e67e03-2201-4e66-b5f4-33f54b08b246
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:20:06Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{curator}
+    kind: Pod
+    name: curator-1600712400-gksqm
+    namespace: openshift-logging
+    resourceVersion: "265146334"
+    uid: acf6103d-094e-419c-a420-f981be56871c
+  kind: Event
+  lastTimestamp: "2020-09-21T18:20:06Z"
+  message: Started container curator
+  metadata:
+    creationTimestamp: "2020-09-21T18:20:06Z"
+    name: curator-1600712400-gksqm.1636df73ed8e5d7c
+    namespace: openshift-logging
+    resourceVersion: "265146372"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600712400-gksqm.1636df73ed8e5d7c
+    uid: f82bd65a-4ccd-46dc-888c-0266d595cb9d
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:20:04Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: curator-1600712400
+    namespace: openshift-logging
+    resourceVersion: "265146329"
+    uid: 8af91dfb-ed5c-4d6e-856b-e2a8795c04d7
+  kind: Event
+  lastTimestamp: "2020-09-21T18:20:04Z"
+  message: 'Created pod: curator-1600712400-gksqm'
+  metadata:
+    creationTimestamp: "2020-09-21T18:20:04Z"
+    name: curator-1600712400.1636df735e57ae0f
+    namespace: openshift-logging
+    resourceVersion: "265146333"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator-1600712400.1636df735e57ae0f
+    uid: 3bbeeaaa-21ac-4590-a751-4082e5066b2a
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:20:00Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265002503"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T15:20:00Z"
+  message: Created job curator-1600701600
+  metadata:
+    creationTimestamp: "2020-09-21T15:20:00Z"
+    name: curator.1636d5a005bc671b
+    namespace: openshift-logging
+    resourceVersion: "265009814"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d5a005bc671b
+    uid: d21f9756-0c69-405d-ab55-8b39fa0ee247
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:20:10Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265009813"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T15:20:10Z"
+  message: 'Saw completed job: curator-1600701600, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T15:20:10Z"
+    name: curator.1636d5a25bcbef87
+    namespace: openshift-logging
+    resourceVersion: "265009943"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d5a25bcbef87
+    uid: 0a42d1d0-1461-459c-9088-c39f23820341
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:30:02Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265009942"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T15:30:02Z"
+  message: Created job curator-1600702200
+  metadata:
+    creationTimestamp: "2020-09-21T15:30:02Z"
+    name: curator.1636d62c2c3abbce
+    namespace: openshift-logging
+    resourceVersion: "265017431"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d62c2c3abbce
+    uid: 6aabc21c-9f97-42fc-a486-5ffaba19b987
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:30:12Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265017430"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T15:30:12Z"
+  message: 'Saw completed job: curator-1600702200, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T15:30:12Z"
+    name: curator.1636d62e81e71ad9
+    namespace: openshift-logging
+    resourceVersion: "265017568"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d62e81e71ad9
+    uid: c833d659-adf7-414c-8880-60237edbffff
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:40:04Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265017567"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T15:40:04Z"
+  message: Created job curator-1600702800
+  metadata:
+    creationTimestamp: "2020-09-21T15:40:04Z"
+    name: curator.1636d6b84bdf405c
+    namespace: openshift-logging
+    resourceVersion: "265024984"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d6b84bdf405c
+    uid: bcb52e49-3433-4dcc-83b4-bee4c5aba190
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:40:24Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265024983"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T15:40:24Z"
+  message: 'Saw completed job: curator-1600702800, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T15:40:24Z"
+    name: curator.1636d6bcf738584c
+    namespace: openshift-logging
+    resourceVersion: "265025224"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d6bcf738584c
+    uid: b8e1a7ba-1747-409a-8e48-72fba4e69cd7
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:50:06Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265025225"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T15:50:06Z"
+  message: Created job curator-1600703400
+  metadata:
+    creationTimestamp: "2020-09-21T15:50:06Z"
+    name: curator.1636d7446c04be0d
+    namespace: openshift-logging
+    resourceVersion: "265032595"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d7446c04be0d
+    uid: a2690f3c-580c-49ab-9e79-79d95679545b
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T15:50:26Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265032594"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T15:50:26Z"
+  message: 'Saw completed job: curator-1600703400, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T15:50:26Z"
+    name: curator.1636d74917185f0c
+    namespace: openshift-logging
+    resourceVersion: "265032836"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d74917185f0c
+    uid: c7bce286-9e7e-4475-83aa-85f530f7a077
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:08Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265032835"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:08Z"
+  message: Created job curator-1600704000
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:08Z"
+    name: curator.1636d7d09d8eff4b
+    namespace: openshift-logging
+    resourceVersion: "265040167"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d7d09d8eff4b
+    uid: 46574e9e-0730-4366-8608-f1a292a5829b
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:00:18Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265040166"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:00:18Z"
+  message: 'Saw completed job: curator-1600704000, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T16:00:18Z"
+    name: curator.1636d7d2f4f0b3e1
+    namespace: openshift-logging
+    resourceVersion: "265040312"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d7d2f4f0b3e1
+    uid: f9a52fa8-052c-4aaf-adb0-32962e4c307d
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:10:00Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265040311"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:10:00Z"
+  message: Created job curator-1600704600
+  metadata:
+    creationTimestamp: "2020-09-21T16:10:00Z"
+    name: curator.1636d85a68818a9d
+    namespace: openshift-logging
+    resourceVersion: "265047680"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d85a68818a9d
+    uid: f48f21df-d967-40bc-95cf-eca3b5dcbcfa
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:10:10Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265047679"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:10:10Z"
+  message: 'Saw completed job: curator-1600704600, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T16:10:10Z"
+    name: curator.1636d85cc060f780
+    namespace: openshift-logging
+    resourceVersion: "265047811"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d85cc060f780
+    uid: 3042847a-3314-421f-8669-e077e1268cc2
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:20:02Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265047810"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:20:02Z"
+  message: Created job curator-1600705200
+  metadata:
+    creationTimestamp: "2020-09-21T16:20:02Z"
+    name: curator.1636d8e6958e04dc
+    namespace: openshift-logging
+    resourceVersion: "265055283"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d8e6958e04dc
+    uid: 518d313c-635f-40d6-a63d-37c120078d6e
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:20:12Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265055282"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:20:12Z"
+  message: 'Saw completed job: curator-1600705200, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T16:20:12Z"
+    name: curator.1636d8e8ed8ace3e
+    namespace: openshift-logging
+    resourceVersion: "265055415"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d8e8ed8ace3e
+    uid: 4e5924f8-6ff1-4ff8-8d4b-542fb21d60fb
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:30:04Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265055414"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:30:04Z"
+  message: Created job curator-1600705800
+  metadata:
+    creationTimestamp: "2020-09-21T16:30:04Z"
+    name: curator.1636d972b4c32b53
+    namespace: openshift-logging
+    resourceVersion: "265062887"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d972b4c32b53
+    uid: f2749ba5-1bec-4578-b422-f0cb7a17d135
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:30:14Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265062886"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:30:14Z"
+  message: 'Saw completed job: curator-1600705800, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T16:30:14Z"
+    name: curator.1636d9750a6c5c32
+    namespace: openshift-logging
+    resourceVersion: "265063014"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d9750a6c5c32
+    uid: 181d7ef6-cbcb-4dc0-84ae-911bb89d796d
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:40:06Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265063013"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:40:06Z"
+  message: Created job curator-1600706400
+  metadata:
+    creationTimestamp: "2020-09-21T16:40:06Z"
+    name: curator.1636d9fed2de954d
+    namespace: openshift-logging
+    resourceVersion: "265070567"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636d9fed2de954d
+    uid: 28758a37-f2f5-4315-855a-e9285bffe19c
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:40:16Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265070566"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:40:16Z"
+  message: 'Saw completed job: curator-1600706400, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T16:40:16Z"
+    name: curator.1636da0128f47fe9
+    namespace: openshift-logging
+    resourceVersion: "265070693"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636da0128f47fe9
+    uid: 8545c05a-a80e-4dfa-9197-4e4162892bd8
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:50:07Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265070694"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:50:07Z"
+  message: Created job curator-1600707000
+  metadata:
+    creationTimestamp: "2020-09-21T16:50:07Z"
+    name: curator.1636da8af65a6dfe
+    namespace: openshift-logging
+    resourceVersion: "265078179"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636da8af65a6dfe
+    uid: dcc365de-822b-42b3-95af-16644c49c32e
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:50:17Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265078178"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T16:50:17Z"
+  message: 'Saw completed job: curator-1600707000, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T16:50:17Z"
+    name: curator.1636da8d4c25ed07
+    namespace: openshift-logging
+    resourceVersion: "265078308"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636da8d4c25ed07
+    uid: d5a8a8c3-b7b2-4c73-ab6d-628a82fa250d
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:09Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265078309"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:09Z"
+  message: Created job curator-1600707600
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:09Z"
+    name: curator.1636db1717047353
+    namespace: openshift-logging
+    resourceVersion: "265085745"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636db1717047353
+    uid: 54266097-54e4-4de0-a827-90061b94d5c1
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:00:19Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265085746"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:00:19Z"
+  message: 'Saw completed job: curator-1600707600, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T17:00:19Z"
+    name: curator.1636db196d4df276
+    namespace: openshift-logging
+    resourceVersion: "265085894"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636db196d4df276
+    uid: dbbdc30b-b219-4b35-b2c0-382cc5f1fca7
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:10:01Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265085895"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:10:01Z"
+  message: Created job curator-1600708200
+  metadata:
+    creationTimestamp: "2020-09-21T17:10:01Z"
+    name: curator.1636dba0e494210c
+    namespace: openshift-logging
+    resourceVersion: "265093301"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dba0e494210c
+    uid: cc476904-73fa-41ea-b924-7f1404de43a9
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:10:11Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265093300"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:10:11Z"
+  message: 'Saw completed job: curator-1600708200, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T17:10:11Z"
+    name: curator.1636dba33d48cc29
+    namespace: openshift-logging
+    resourceVersion: "265093425"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dba33d48cc29
+    uid: f289a4ac-8be8-451d-b4e0-e369c3484ead
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:20:03Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265093426"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:20:03Z"
+  message: Created job curator-1600708800
+  metadata:
+    creationTimestamp: "2020-09-21T17:20:03Z"
+    name: curator.1636dc2d02c74388
+    namespace: openshift-logging
+    resourceVersion: "265100894"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dc2d02c74388
+    uid: 0ea18aaa-7e1f-4176-8c66-df125e56eeab
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:20:23Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265100893"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:20:23Z"
+  message: 'Saw completed job: curator-1600708800, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T17:20:23Z"
+    name: curator.1636dc31ae9b36da
+    namespace: openshift-logging
+    resourceVersion: "265101140"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dc31ae9b36da
+    uid: 3e1e3bc4-feed-4f8b-ab77-2d0723481976
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:30:05Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265101141"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:30:05Z"
+  message: Created job curator-1600709400
+  metadata:
+    creationTimestamp: "2020-09-21T17:30:05Z"
+    name: curator.1636dcb91c9e5611
+    namespace: openshift-logging
+    resourceVersion: "265108478"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dcb91c9e5611
+    uid: 970f047a-3860-4129-af61-b27af3346dcd
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:30:15Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265108477"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:30:15Z"
+  message: 'Saw completed job: curator-1600709400, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T17:30:15Z"
+    name: curator.1636dcbb72431df0
+    namespace: openshift-logging
+    resourceVersion: "265108609"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dcbb72431df0
+    uid: 8a555b20-7261-49c6-bc01-a525c4544294
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:40:06Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265108608"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:40:06Z"
+  message: Created job curator-1600710000
+  metadata:
+    creationTimestamp: "2020-09-21T17:40:06Z"
+    name: curator.1636dd45398ad0ca
+    namespace: openshift-logging
+    resourceVersion: "265116086"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dd45398ad0ca
+    uid: 6aeaf02b-e785-4f43-8167-9705fb535bc5
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:40:16Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265116085"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:40:16Z"
+  message: 'Saw completed job: curator-1600710000, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T17:40:16Z"
+    name: curator.1636dd478f6766b5
+    namespace: openshift-logging
+    resourceVersion: "265116213"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dd478f6766b5
+    uid: a641a0cf-16b4-4620-82ab-e24bdaa525e0
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:50:08Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265116214"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:50:08Z"
+  message: Created job curator-1600710600
+  metadata:
+    creationTimestamp: "2020-09-21T17:50:08Z"
+    name: curator.1636ddd15c49e468
+    namespace: openshift-logging
+    resourceVersion: "265123707"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636ddd15c49e468
+    uid: 2214e207-5691-4ffc-9439-c56d573b1b2f
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:50:18Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265123704"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T17:50:18Z"
+  message: 'Saw completed job: curator-1600710600, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T17:50:18Z"
+    name: curator.1636ddd3b206275f
+    namespace: openshift-logging
+    resourceVersion: "265123830"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636ddd3b206275f
+    uid: c025a39b-1b9a-4ef4-902e-ec8a619c380e
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:00Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265123831"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:00Z"
+  message: Created job curator-1600711200
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:00Z"
+    name: curator.1636de5b222165a0
+    namespace: openshift-logging
+    resourceVersion: "265131156"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636de5b222165a0
+    uid: c2bf633b-3798-44cc-94c7-83c837d633ef
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:00:10Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265131155"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T18:00:10Z"
+  message: 'Saw completed job: curator-1600711200, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T18:00:10Z"
+    name: curator.1636de5d7848175f
+    namespace: openshift-logging
+    resourceVersion: "265131302"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636de5d7848175f
+    uid: e24c8ef8-a330-458a-8e89-de99bd3e4fb2
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:10:02Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265131303"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T18:10:02Z"
+  message: Created job curator-1600711800
+  metadata:
+    creationTimestamp: "2020-09-21T18:10:02Z"
+    name: curator.1636dee7424be846
+    namespace: openshift-logging
+    resourceVersion: "265138731"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dee7424be846
+    uid: b02f28a8-4cb7-40c5-bced-5c99386955d9
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:10:12Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265138730"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T18:10:12Z"
+  message: 'Saw completed job: curator-1600711800, status: Complete'
+  metadata:
+    creationTimestamp: "2020-09-21T18:10:12Z"
+    name: curator.1636dee9981744cf
+    namespace: openshift-logging
+    resourceVersion: "265138858"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636dee9981744cf
+    uid: f84d4874-6ae6-47b2-9f7c-0369bbb52707
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T18:20:04Z"
+  involvedObject:
+    apiVersion: batch/v1beta1
+    kind: CronJob
+    name: curator
+    namespace: openshift-logging
+    resourceVersion: "265138859"
+    uid: 479175ac-16ad-4f1f-a3a8-5a722c5f5082
+  kind: Event
+  lastTimestamp: "2020-09-21T18:20:04Z"
+  message: Created job curator-1600712400
+  metadata:
+    creationTimestamp: "2020-09-21T18:20:04Z"
+    name: curator.1636df735d0dd45b
+    namespace: openshift-logging
+    resourceVersion: "265146331"
+    selfLink: /api/v1/namespaces/openshift-logging/events/curator.1636df735d0dd45b
+    uid: 9f302ea4-c0b2-4807-bd8b-fbd27129152c
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T17:05:13.301167Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: kibana-7ffc8f6f87-gn9jj
+    namespace: openshift-logging
+    resourceVersion: "265089609"
+    uid: 621c3ab6-dddb-419e-bcb6-0ddd42e73580
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-logging/kibana-7ffc8f6f87-gn9jj to infra-03.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:13Z"
+    name: kibana-7ffc8f6f87-gn9jj.1636db5dc179286e
+    namespace: openshift-logging
+    resourceVersion: "265089613"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-gn9jj.1636db5dc179286e
+    uid: 7fcf7bda-bf15-496d-a673-74f0635251be
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:16Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana}
+    kind: Pod
+    name: kibana-7ffc8f6f87-gn9jj
+    namespace: openshift-logging
+    resourceVersion: "265089611"
+    uid: 621c3ab6-dddb-419e-bcb6-0ddd42e73580
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:16Z"
+  message: Container image "registry.redhat.io/openshift4/ose-logging-kibana5@sha256:4553291ca243da1215fbae67e4970e2da3c5e53fecd59dd00f752e9e3c600db8"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:16Z"
+    name: kibana-7ffc8f6f87-gn9jj.1636db5e7c42c8ea
+    namespace: openshift-logging
+    resourceVersion: "265089647"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-gn9jj.1636db5e7c42c8ea
+    uid: 07ac1de1-a564-4299-9f6a-c1c0fe0f89e5
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:16Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana}
+    kind: Pod
+    name: kibana-7ffc8f6f87-gn9jj
+    namespace: openshift-logging
+    resourceVersion: "265089611"
+    uid: 621c3ab6-dddb-419e-bcb6-0ddd42e73580
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:16Z"
+  message: Created container kibana
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:16Z"
+    name: kibana-7ffc8f6f87-gn9jj.1636db5e86bbe855
+    namespace: openshift-logging
+    resourceVersion: "265089648"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-gn9jj.1636db5e86bbe855
+    uid: fbe35249-588f-488e-839a-77bfc2b24985
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:16Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana}
+    kind: Pod
+    name: kibana-7ffc8f6f87-gn9jj
+    namespace: openshift-logging
+    resourceVersion: "265089611"
+    uid: 621c3ab6-dddb-419e-bcb6-0ddd42e73580
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:16Z"
+  message: Started container kibana
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:16Z"
+    name: kibana-7ffc8f6f87-gn9jj.1636db5e885bd802
+    namespace: openshift-logging
+    resourceVersion: "265089649"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-gn9jj.1636db5e885bd802
+    uid: 3ef7df63-3923-43ab-9a80-96e9475f67fc
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:16Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana-proxy}
+    kind: Pod
+    name: kibana-7ffc8f6f87-gn9jj
+    namespace: openshift-logging
+    resourceVersion: "265089611"
+    uid: 621c3ab6-dddb-419e-bcb6-0ddd42e73580
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:16Z"
+  message: Container image "registry.redhat.io/openshift4/ose-oauth-proxy@sha256:c8f6d7cc5b1dcc6abe060e6a5e430e59b6fb1bfdcba679fc2f387459f018c326"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:16Z"
+    name: kibana-7ffc8f6f87-gn9jj.1636db5e88950864
+    namespace: openshift-logging
+    resourceVersion: "265089650"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-gn9jj.1636db5e88950864
+    uid: 1fd448c4-941f-4b2b-9ae5-a143b94c415e
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:16Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana-proxy}
+    kind: Pod
+    name: kibana-7ffc8f6f87-gn9jj
+    namespace: openshift-logging
+    resourceVersion: "265089611"
+    uid: 621c3ab6-dddb-419e-bcb6-0ddd42e73580
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:16Z"
+  message: Created container kibana-proxy
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:16Z"
+    name: kibana-7ffc8f6f87-gn9jj.1636db5e93fe55f5
+    namespace: openshift-logging
+    resourceVersion: "265089652"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-gn9jj.1636db5e93fe55f5
+    uid: 2368557d-1b15-4119-9214-8fed08714d74
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:16Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana-proxy}
+    kind: Pod
+    name: kibana-7ffc8f6f87-gn9jj
+    namespace: openshift-logging
+    resourceVersion: "265089611"
+    uid: 621c3ab6-dddb-419e-bcb6-0ddd42e73580
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:16Z"
+  message: Started container kibana-proxy
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:16Z"
+    name: kibana-7ffc8f6f87-gn9jj.1636db5e95c03d3e
+    namespace: openshift-logging
+    resourceVersion: "265089653"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-gn9jj.1636db5e95c03d3e
+    uid: 70737f7e-7f49-4d36-b85d-2e134401d465
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-03.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:12Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana}
+    kind: Pod
+    name: kibana-7ffc8f6f87-nwjjj
+    namespace: openshift-logging
+    resourceVersion: "264984343"
+    uid: 0f65e4b6-47aa-4d82-a4ff-4e7101406e6a
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:12Z"
+  message: Stopping container kibana
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:13Z"
+    name: kibana-7ffc8f6f87-nwjjj.1636db5dace69aee
+    namespace: openshift-logging
+    resourceVersion: "265089608"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-nwjjj.1636db5dace69aee
+    uid: fd383c0a-d18e-4191-84c5-e3d8db110eda
+  reason: Killing
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:12Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana-proxy}
+    kind: Pod
+    name: kibana-7ffc8f6f87-nwjjj
+    namespace: openshift-logging
+    resourceVersion: "264984343"
+    uid: 0f65e4b6-47aa-4d82-a4ff-4e7101406e6a
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:12Z"
+  message: Stopping container kibana-proxy
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:13Z"
+    name: kibana-7ffc8f6f87-nwjjj.1636db5dacea6098
+    namespace: openshift-logging
+    resourceVersion: "265089607"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-nwjjj.1636db5dacea6098
+    uid: d4123774-dd8a-47ff-ae80-d880bec81aa9
+  reason: Killing
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 2
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:43Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{kibana}
+    kind: Pod
+    name: kibana-7ffc8f6f87-nwjjj
+    namespace: openshift-logging
+    resourceVersion: "264984343"
+    uid: 0f65e4b6-47aa-4d82-a4ff-4e7101406e6a
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:43Z"
+  message: 'Readiness probe errored: rpc error: code = Unknown desc = container is
+    not created or running'
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:43Z"
+    name: kibana-7ffc8f6f87-nwjjj.1636db64b256bc3b
+    namespace: openshift-logging
+    resourceVersion: "265089966"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87-nwjjj.1636db64b256bc3b
+    uid: 0bfbf787-4bef-411b-a796-5ee8a5605240
+  reason: Unhealthy
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: infra-01.osepext01.claro.amx
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T17:05:13Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    name: kibana-7ffc8f6f87
+    namespace: openshift-logging
+    resourceVersion: "264984546"
+    uid: 44799d34-7498-4f8e-86f9-5d6de10d07e2
+  kind: Event
+  lastTimestamp: "2020-09-21T17:05:13Z"
+  message: 'Created pod: kibana-7ffc8f6f87-gn9jj'
+  metadata:
+    creationTimestamp: "2020-09-21T17:05:13Z"
+    name: kibana-7ffc8f6f87.1636db5dc08f4ee5
+    namespace: openshift-logging
+    resourceVersion: "265089612"
+    selfLink: /api/v1/namespaces/openshift-logging/events/kibana-7ffc8f6f87.1636db5dc08f4ee5
+    uid: eaf75cac-d750-4617-a329-82928ac72e25
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: replicaset-controller
+  type: Normal
+- action: Binding
+  apiVersion: v1
+  eventTime: "2020-09-21T16:35:36.620703Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: certified-operators-6fdf4f8b88-knm9f
+    namespace: openshift-marketplace
+    resourceVersion: "265067137"
+    uid: a70a8b72-2c35-4f66-8e84-a926d624755f
+  kind: Event
+  lastTimestamp: null
+  message: Successfully assigned openshift-marketplace/certified-operators-6fdf4f8b88-knm9f
+    to worker-01.osepext01.claro.amx
+  metadata:
+    creationTimestamp: "2020-09-21T16:35:36Z"
+    name: certified-operators-6fdf4f8b88-knm9f.1636d9c01710c602
+    namespace: openshift-marketplace
+    resourceVersion: "265067141"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-6fdf4f8b88-knm9f.1636d9c01710c602
+    uid: 43a2529b-597d-4775-873e-ee9ad1e6291d
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-master-01.osepext01.claro.amx
+  source:
+    component: default-scheduler
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:35:38Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{certified-operators}
+    kind: Pod
+    name: certified-operators-6fdf4f8b88-knm9f
+    namespace: openshift-marketplace
+    resourceVersion: "265067139"
+    uid: a70a8b72-2c35-4f66-8e84-a926d624755f
+  kind: Event
+  lastTimestamp: "2020-09-21T16:35:38Z"
+  message: Container image "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:d3d1332975ad3e395bea85f68093c86fcc61938a4e75f54a5a52a39ecef94097"
+    already present on machine
+  metadata:
+    creationTimestamp: "2020-09-21T16:35:39Z"
+    name: certified-operators-6fdf4f8b88-knm9f.1636d9c091bc45aa
+    namespace: openshift-marketplace
+    resourceVersion: "265067167"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-6fdf4f8b88-knm9f.1636d9c091bc45aa
+    uid: cbf756a6-142c-41f9-86f5-7d54b171b709
+  reason: Pulled
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:35:38Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{certified-operators}
+    kind: Pod
+    name: certified-operators-6fdf4f8b88-knm9f
+    namespace: openshift-marketplace
+    resourceVersion: "265067139"
+    uid: a70a8b72-2c35-4f66-8e84-a926d624755f
+  kind: Event
+  lastTimestamp: "2020-09-21T16:35:38Z"
+  message: Created container certified-operators
+  metadata:
+    creationTimestamp: "2020-09-21T16:35:39Z"
+    name: certified-operators-6fdf4f8b88-knm9f.1636d9c09c33f5fa
+    namespace: openshift-marketplace
+    resourceVersion: "265067169"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-6fdf4f8b88-knm9f.1636d9c09c33f5fa
+    uid: 49651fe8-9bd8-4648-b37d-4c51677e8afd
+  reason: Created
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:35:38Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{certified-operators}
+    kind: Pod
+    name: certified-operators-6fdf4f8b88-knm9f
+    namespace: openshift-marketplace
+    resourceVersion: "265067139"
+    uid: a70a8b72-2c35-4f66-8e84-a926d624755f
+  kind: Event
+  lastTimestamp: "2020-09-21T16:35:38Z"
+  message: Started container certified-operators
+  metadata:
+    creationTimestamp: "2020-09-21T16:35:39Z"
+    name: certified-operators-6fdf4f8b88-knm9f.1636d9c09d9e92be
+    namespace: openshift-marketplace
+    resourceVersion: "265067170"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-6fdf4f8b88-knm9f.1636d9c09d9e92be
+    uid: ba12ec39-fa04-44d6-a335-729264b88bf7
+  reason: Started
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 8
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:35:45Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{certified-operators}
+    kind: Pod
+    name: certified-operators-6fdf4f8b88-knm9f
+    namespace: openshift-marketplace
+    resourceVersion: "265067139"
+    uid: a70a8b72-2c35-4f66-8e84-a926d624755f
+  kind: Event
+  lastTimestamp: "2020-09-21T16:36:55Z"
+  message: |
+    Readiness probe failed: timeout: failed to connect service "localhost:50051" within 1s
+  metadata:
+    creationTimestamp: "2020-09-21T16:35:46Z"
+    name: certified-operators-6fdf4f8b88-knm9f.1636d9c243d6e91d
+    namespace: openshift-marketplace
+    resourceVersion: "265068237"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-6fdf4f8b88-knm9f.1636d9c243d6e91d
+    uid: 9996d739-5021-4ab4-85ea-2a15d9513bdf
+  reason: Unhealthy
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Warning
+- apiVersion: v1
+  count: 7
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:35:51Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{certified-operators}
+    kind: Pod
+    name: certified-operators-6fdf4f8b88-knm9f
+    namespace: openshift-marketplace
+    resourceVersion: "265067139"
+    uid: a70a8b72-2c35-4f66-8e84-a926d624755f
+  kind: Event
+  lastTimestamp: "2020-09-21T16:36:51Z"
+  message: |
+    Liveness probe failed: timeout: failed to connect service "localhost:50051" within 1s
+  metadata:
+    creationTimestamp: "2020-09-21T16:35:51Z"
+    name: certified-operators-6fdf4f8b88-knm9f.1636d9c37b1a0909
+    namespace: openshift-marketplace
+    resourceVersion: "265068186"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-6fdf4f8b88-knm9f.1636d9c37b1a0909
+    uid: cdf5fa27-f2b3-4fcc-baa7-fb2603e3b7c4
+  reason: Unhealthy
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:35:36Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    name: certified-operators-6fdf4f8b88
+    namespace: openshift-marketplace
+    resourceVersion: "265067128"
+    uid: 97595a42-f9fe-45b9-b7c6-b8ee04d7a724
+  kind: Event
+  lastTimestamp: "2020-09-21T16:35:36Z"
+  message: 'Created pod: certified-operators-6fdf4f8b88-knm9f'
+  metadata:
+    creationTimestamp: "2020-09-21T16:35:36Z"
+    name: certified-operators-6fdf4f8b88.1636d9c0166ed44d
+    namespace: openshift-marketplace
+    resourceVersion: "265067140"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-6fdf4f8b88.1636d9c0166ed44d
+    uid: 7bf663f2-130c-4573-96eb-3cced5a38424
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: replicaset-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:37:05Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{certified-operators}
+    kind: Pod
+    name: certified-operators-9d7986f7d-xdkzb
+    namespace: openshift-marketplace
+    resourceVersion: "264930741"
+    uid: e4819a37-0cdb-4d46-8ef5-d204298d2464
+  kind: Event
+  lastTimestamp: "2020-09-21T16:37:05Z"
+  message: Stopping container certified-operators
+  metadata:
+    creationTimestamp: "2020-09-21T16:37:05Z"
+    name: certified-operators-9d7986f7d-xdkzb.1636d9d4ac135bf6
+    namespace: openshift-marketplace
+    resourceVersion: "265068346"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-9d7986f7d-xdkzb.1636d9d4ac135bf6
+    uid: 3290afde-11f9-45af-b57a-c23ab35d7a56
+  reason: Killing
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: kubelet
+    host: worker-01.osepext01.claro.amx
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:37:04Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    name: certified-operators-9d7986f7d
+    namespace: openshift-marketplace
+    resourceVersion: "265068338"
+    uid: 1c1a6ebd-c4dc-4741-bfbd-12dd36141bc8
+  kind: Event
+  lastTimestamp: "2020-09-21T16:37:04Z"
+  message: 'Deleted pod: certified-operators-9d7986f7d-xdkzb'
+  metadata:
+    creationTimestamp: "2020-09-21T16:37:04Z"
+    name: certified-operators-9d7986f7d.1636d9d4a9ae1309
+    namespace: openshift-marketplace
+    resourceVersion: "265068343"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators-9d7986f7d.1636d9d4a9ae1309
+    uid: 55fcec6c-f045-46fb-aa86-f6a57c36969b
+  reason: SuccessfulDelete
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: replicaset-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:35:36Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: certified-operators
+    namespace: openshift-marketplace
+    resourceVersion: "265067125"
+    uid: 4254d312-1d26-11ea-9e3d-0050568729cc
+  kind: Event
+  lastTimestamp: "2020-09-21T16:35:36Z"
+  message: Scaled up replica set certified-operators-6fdf4f8b88 to 1
+  metadata:
+    creationTimestamp: "2020-09-21T16:35:36Z"
+    name: certified-operators.1636d9c014150506
+    namespace: openshift-marketplace
+    resourceVersion: "265067132"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators.1636d9c014150506
+    uid: 000affae-24f7-4ba9-88ff-21b43cabe51e
+  reason: ScalingReplicaSet
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: deployment-controller
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2020-09-21T16:37:04Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: certified-operators
+    namespace: openshift-marketplace
+    resourceVersion: "265067145"
+    uid: 4254d312-1d26-11ea-9e3d-0050568729cc
+  kind: Event
+  lastTimestamp: "2020-09-21T16:37:04Z"
+  message: Scaled down replica set certified-operators-9d7986f7d to 0
+  metadata:
+    creationTimestamp: "2020-09-21T16:37:04Z"
+    name: certified-operators.1636d9d4a8e4e767
+    namespace: openshift-marketplace
+    resourceVersion: "265068340"
+    selfLink: /api/v1/namespaces/openshift-marketplace/events/certified-operators.1636d9d4a8e4e767
+    uid: fc9c6223-41c7-4def-b4fc-30420d227994
+  reason: ScalingReplicaSet
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: deployment-controller
+  type: Normal
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

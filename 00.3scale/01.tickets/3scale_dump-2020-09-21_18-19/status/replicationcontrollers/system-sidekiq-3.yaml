@@ -1,0 +1,414 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    kubectl.kubernetes.io/original-replicas: "1"
+    openshift.io/deployer-pod.completed-at: 2020-07-27 15:15:35 +0000 UTC
+    openshift.io/deployer-pod.created-at: 2020-07-27 15:15:17 +0000 UTC
+    openshift.io/deployer-pod.name: system-sidekiq-3-deploy
+    openshift.io/deployment-config.latest-version: "3"
+    openshift.io/deployment-config.name: system-sidekiq
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: ""
+    openshift.io/deployment.status-reason: config change
+    openshift.io/encoded-deployment-config: |
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"system-sidekiq","namespace":"3scale-project","selfLink":"/apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/system-sidekiq","uid":"a0e70fb0-b766-4010-a7e5-2ff90c824e4f","resourceVersion":"198490296","generation":4,"creationTimestamp":"2020-07-27T13:05:50Z","labels":{"app":"3scale-api-management","threescale_component":"system","threescale_component_element":"sidekiq"},"ownerReferences":[{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIManager","name":"claro-apimanager-pelado","uid":"3d48e8a8-df41-4aa1-9516-43d087853cca","controller":true,"blockOwnerDeletion":true}]},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":1200,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["check-svc","system-sidekiq"],"from":{"kind":"ImageStreamTag","namespace":"3scale-project","name":"amp-system:latest"},"lastTriggeredImage":"registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentConfig":"system-sidekiq"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"3scale-api-management","deploymentConfig":"system-sidekiq","node-role.kubernetes.io/worker":"","threescale_component":"system","threescale_component_element":"sidekiq"}},"spec":{"volumes":[{"name":"system-tmp","emptyDir":{"medium":"Memory"}},{"name":"system-storage","persistentVolumeClaim":{"claimName":"system-storage"}},{"name":"system-config","configMap":{"name":"system","items":[{"key":"zync.yml","path":"zync.yml"},{"key":"rolling_updates.yml","path":"rolling_updates.yml"},{"key":"service_discovery.yml","path":"service_discovery.yml"}],"defaultMode":420}}],"initContainers":[{"name":"check-svc","image":"registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a","command":["bash","-c","bundle exec sh -c \"until rake boot:redis \u0026\u0026 curl --output /dev/null --silent --fail --head http://system-master:3000/status; do sleep $SLEEP_SECONDS; done\""],"env":[{"name":"REDIS_URL","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"URL"}}},{"name":"MESSAGE_BUS_REDIS_URL","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_URL"}}},{"name":"REDIS_NAMESPACE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"NAMESPACE"}}},{"name":"MESSAGE_BUS_REDIS_NAMESPACE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_NAMESPACE"}}},{"name":"REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"SENTINEL_HOSTS"}}},{"name":"REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"SENTINEL_ROLE"}}},{"name":"MESSAGE_BUS_REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_SENTINEL_HOSTS"}}},{"name":"MESSAGE_BUS_REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_SENTINEL_ROLE"}}},{"name":"SLEEP_SECONDS","value":"1"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"containers":[{"name":"system-sidekiq","image":"registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a","args":["rake","sidekiq:worker","RAILS_MAX_THREADS=25"],"env":[{"name":"AMP_RELEASE","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"AMP_RELEASE"}}},{"name":"APICAST_REGISTRY_URL","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"APICAST_REGISTRY_URL"}}},{"name":"FORCE_SSL","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"FORCE_SSL"}}},{"name":"PROVIDER_PLAN","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"PROVIDER_PLAN"}}},{"name":"RAILS_ENV","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"RAILS_ENV"}}},{"name":"RAILS_LOG_LEVEL","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"RAILS_LOG_LEVEL"}}},{"name":"RAILS_LOG_TO_STDOUT","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"RAILS_LOG_TO_STDOUT"}}},{"name":"SSL_CERT_DIR","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"SSL_CERT_DIR"}}},{"name":"THINKING_SPHINX_PORT","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"THINKING_SPHINX_PORT"}}},{"name":"THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE"}}},{"name":"THREESCALE_SUPERDOMAIN","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"THREESCALE_SUPERDOMAIN"}}},{"name":"DATABASE_URL","valueFrom":{"secretKeyRef":{"name":"system-database","key":"URL"}}},{"name":"MASTER_DOMAIN","valueFrom":{"secretKeyRef":{"name":"system-seed","key":"MASTER_DOMAIN"}}},{"name":"MASTER_USER","valueFrom":{"secretKeyRef":{"name":"system-seed","key":"MASTER_USER"}}},{"name":"MASTER_PASSWORD","valueFrom":{"secretKeyRef":{"name":"system-seed","key":"MASTER_PASSWORD"}}},{"name":"ADMIN_ACCESS_TOKEN","valueFrom":{"secretKeyRef":{"name":"system-seed","key":"ADMIN_ACCESS_TOKEN"}}},{"name":"USER_LOGIN","valueFrom":{"secretKeyRef":{"name":"system-seed","key":"ADMIN_USER"}}},{"name":"USER_PASSWORD","valueFrom":{"secretKeyRef":{"name":"system-seed","key":"ADMIN_PASSWORD"}}},{"name":"USER_EMAIL","valueFrom":{"secretKeyRef":{"name":"system-seed","key":"ADMIN_EMAIL"}}},{"name":"TENANT_NAME","valueFrom":{"secretKeyRef":{"name":"system-seed","key":"TENANT_NAME"}}},{"name":"THINKING_SPHINX_ADDRESS","value":"system-sphinx"},{"name":"THINKING_SPHINX_CONFIGURATION_FILE","value":"/tmp/sphinx.conf"},{"name":"EVENTS_SHARED_SECRET","valueFrom":{"secretKeyRef":{"name":"system-events-hook","key":"PASSWORD"}}},{"name":"RECAPTCHA_PUBLIC_KEY","valueFrom":{"secretKeyRef":{"name":"system-recaptcha","key":"PUBLIC_KEY"}}},{"name":"RECAPTCHA_PRIVATE_KEY","valueFrom":{"secretKeyRef":{"name":"system-recaptcha","key":"PRIVATE_KEY"}}},{"name":"SECRET_KEY_BASE","valueFrom":{"secretKeyRef":{"name":"system-app","key":"SECRET_KEY_BASE"}}},{"name":"MEMCACHE_SERVERS","valueFrom":{"secretKeyRef":{"name":"system-memcache","key":"SERVERS"}}},{"name":"REDIS_URL","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"URL"}}},{"name":"MESSAGE_BUS_REDIS_URL","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_URL"}}},{"name":"REDIS_NAMESPACE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"NAMESPACE"}}},{"name":"MESSAGE_BUS_REDIS_NAMESPACE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_NAMESPACE"}}},{"name":"REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"SENTINEL_HOSTS"}}},{"name":"REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"SENTINEL_ROLE"}}},{"name":"MESSAGE_BUS_REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_SENTINEL_HOSTS"}}},{"name":"MESSAGE_BUS_REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_SENTINEL_ROLE"}}},{"name":"BACKEND_REDIS_URL","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_URL"}}},{"name":"BACKEND_REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_SENTINEL_HOSTS"}}},{"name":"BACKEND_REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"backend-redis","key":"REDIS_STORAGE_SENTINEL_ROLE"}}},{"name":"APICAST_BACKEND_ROOT_ENDPOINT","valueFrom":{"secretKeyRef":{"name":"backend-listener","key":"route_endpoint"}}},{"name":"BACKEND_ROUTE","valueFrom":{"secretKeyRef":{"name":"backend-listener","key":"route_endpoint"}}},{"name":"SMTP_ADDRESS","valueFrom":{"secretKeyRef":{"name":"system-smtp","key":"address"}}},{"name":"SMTP_USER_NAME","valueFrom":{"secretKeyRef":{"name":"system-smtp","key":"username"}}},{"name":"SMTP_PASSWORD","valueFrom":{"secretKeyRef":{"name":"system-smtp","key":"password"}}},{"name":"SMTP_DOMAIN","valueFrom":{"secretKeyRef":{"name":"system-smtp","key":"domain"}}},{"name":"SMTP_PORT","valueFrom":{"secretKeyRef":{"name":"system-smtp","key":"port"}}},{"name":"SMTP_AUTHENTICATION","valueFrom":{"secretKeyRef":{"name":"system-smtp","key":"authentication"}}},{"name":"SMTP_OPENSSL_VERIFY_MODE","valueFrom":{"secretKeyRef":{"name":"system-smtp","key":"openssl.verify.mode"}}},{"name":"APICAST_ACCESS_TOKEN","valueFrom":{"secretKeyRef":{"name":"system-master-apicast","key":"ACCESS_TOKEN"}}},{"name":"ZYNC_AUTHENTICATION_TOKEN","valueFrom":{"secretKeyRef":{"name":"zync","key":"ZYNC_AUTHENTICATION_TOKEN"}}},{"name":"CONFIG_INTERNAL_API_USER","valueFrom":{"secretKeyRef":{"name":"backend-internal-api","key":"username"}}},{"name":"CONFIG_INTERNAL_API_PASSWORD","valueFrom":{"secretKeyRef":{"name":"backend-internal-api","key":"password"}}}],"resources":{"limits":{"cpu":"1","memory":"2Gi"},"requests":{"cpu":"100m","memory":"500Mi"}},"volumeMounts":[{"name":"system-storage","mountPath":"/opt/system/public/system"},{"name":"system-tmp","mountPath":"/tmp"},{"name":"system-config","mountPath":"/opt/system-extra-configs"}],"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"amp","serviceAccount":"amp","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":3,"observedGeneration":3,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2020-07-27T14:02:22Z","lastTransitionTime":"2020-07-27T14:02:22Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2020-07-27T14:02:22Z","lastTransitionTime":"2020-07-27T14:02:22Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"system-sidekiq-2\" successfully rolled out"}],"readyReplicas":1}}
+  creationTimestamp: "2020-07-27T15:15:17Z"
+  generation: 3
+  labels:
+    app: 3scale-api-management
+    openshift.io/deployment-config.name: system-sidekiq
+    threescale_component: system
+    threescale_component_element: sidekiq
+  name: system-sidekiq-3
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DeploymentConfig
+    name: system-sidekiq
+    uid: a0e70fb0-b766-4010-a7e5-2ff90c824e4f
+  resourceVersion: "216975921"
+  selfLink: /api/v1/namespaces/3scale-project/replicationcontrollers/system-sidekiq-3
+  uid: 12d02218-c112-4244-8b98-10f616827908
+spec:
+  replicas: 0
+  selector:
+    deployment: system-sidekiq-3
+    deploymentConfig: system-sidekiq
+    deploymentconfig: system-sidekiq
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: "3"
+        openshift.io/deployment-config.name: system-sidekiq
+        openshift.io/deployment.name: system-sidekiq-3
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deployment: system-sidekiq-3
+        deploymentConfig: system-sidekiq
+        deploymentconfig: system-sidekiq
+        node-role.kubernetes.io/worker: ""
+        threescale_component: system
+        threescale_component_element: sidekiq
+    spec:
+      containers:
+      - args:
+        - rake
+        - sidekiq:worker
+        - RAILS_MAX_THREADS=25
+        env:
+        - name: AMP_RELEASE
+          valueFrom:
+            configMapKeyRef:
+              key: AMP_RELEASE
+              name: system-environment
+        - name: APICAST_REGISTRY_URL
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_REGISTRY_URL
+              name: system-environment
+        - name: FORCE_SSL
+          valueFrom:
+            configMapKeyRef:
+              key: FORCE_SSL
+              name: system-environment
+        - name: PROVIDER_PLAN
+          valueFrom:
+            configMapKeyRef:
+              key: PROVIDER_PLAN
+              name: system-environment
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_ENV
+              name: system-environment
+        - name: RAILS_LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_LEVEL
+              name: system-environment
+        - name: RAILS_LOG_TO_STDOUT
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_LOG_TO_STDOUT
+              name: system-environment
+        - name: SSL_CERT_DIR
+          valueFrom:
+            configMapKeyRef:
+              key: SSL_CERT_DIR
+              name: system-environment
+        - name: THINKING_SPHINX_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: THINKING_SPHINX_PORT
+              name: system-environment
+        - name: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SANDBOX_PROXY_OPENSSL_VERIFY_MODE
+              name: system-environment
+        - name: THREESCALE_SUPERDOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: THREESCALE_SUPERDOMAIN
+              name: system-environment
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-database
+        - name: MASTER_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_DOMAIN
+              name: system-seed
+        - name: MASTER_USER
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_USER
+              name: system-seed
+        - name: MASTER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: MASTER_PASSWORD
+              name: system-seed
+        - name: ADMIN_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_ACCESS_TOKEN
+              name: system-seed
+        - name: USER_LOGIN
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_USER
+              name: system-seed
+        - name: USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_PASSWORD
+              name: system-seed
+        - name: USER_EMAIL
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_EMAIL
+              name: system-seed
+        - name: TENANT_NAME
+          valueFrom:
+            secretKeyRef:
+              key: TENANT_NAME
+              name: system-seed
+        - name: THINKING_SPHINX_ADDRESS
+          value: system-sphinx
+        - name: THINKING_SPHINX_CONFIGURATION_FILE
+          value: /tmp/sphinx.conf
+        - name: EVENTS_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: system-events-hook
+        - name: RECAPTCHA_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PUBLIC_KEY
+              name: system-recaptcha
+        - name: RECAPTCHA_PRIVATE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: PRIVATE_KEY
+              name: system-recaptcha
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: SECRET_KEY_BASE
+              name: system-app
+        - name: MEMCACHE_SERVERS
+          valueFrom:
+            secretKeyRef:
+              key: SERVERS
+              name: system-memcache
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        - name: BACKEND_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_URL
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_HOSTS
+              name: backend-redis
+        - name: BACKEND_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: REDIS_STORAGE_SENTINEL_ROLE
+              name: backend-redis
+        - name: APICAST_BACKEND_ROOT_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: BACKEND_ROUTE
+          valueFrom:
+            secretKeyRef:
+              key: route_endpoint
+              name: backend-listener
+        - name: SMTP_ADDRESS
+          valueFrom:
+            secretKeyRef:
+              key: address
+              name: system-smtp
+        - name: SMTP_USER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: system-smtp
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: system-smtp
+        - name: SMTP_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: domain
+              name: system-smtp
+        - name: SMTP_PORT
+          valueFrom:
+            secretKeyRef:
+              key: port
+              name: system-smtp
+        - name: SMTP_AUTHENTICATION
+          valueFrom:
+            secretKeyRef:
+              key: authentication
+              name: system-smtp
+        - name: SMTP_OPENSSL_VERIFY_MODE
+          valueFrom:
+            secretKeyRef:
+              key: openssl.verify.mode
+              name: system-smtp
+        - name: APICAST_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ACCESS_TOKEN
+              name: system-master-apicast
+        - name: ZYNC_AUTHENTICATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_AUTHENTICATION_TOKEN
+              name: zync
+        - name: CONFIG_INTERNAL_API_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: backend-internal-api
+        - name: CONFIG_INTERNAL_API_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: backend-internal-api
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+        imagePullPolicy: IfNotPresent
+        name: system-sidekiq
+        resources:
+          limits:
+            cpu: "1"
+            memory: 2Gi
+          requests:
+            cpu: 100m
+            memory: 500Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/system/public/system
+          name: system-storage
+        - mountPath: /tmp
+          name: system-tmp
+        - mountPath: /opt/system-extra-configs
+          name: system-config
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - bash
+        - -c
+        - bundle exec sh -c "until rake boot:redis && curl --output /dev/null --silent
+          --fail --head http://system-master:3000/status; do sleep $SLEEP_SECONDS;
+          done"
+        env:
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+        imagePullPolicy: Always
+        name: check-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: system-tmp
+      - name: system-storage
+        persistentVolumeClaim:
+          claimName: system-storage
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: zync.yml
+            path: zync.yml
+          - key: rolling_updates.yml
+            path: rolling_updates.yml
+          - key: service_discovery.yml
+            path: service_discovery.yml
+          name: system
+        name: system-config
+status:
+  observedGeneration: 3
+  replicas: 0

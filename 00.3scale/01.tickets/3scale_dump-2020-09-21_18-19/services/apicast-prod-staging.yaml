@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-09-14T15:30:20Z"
+  labels:
+    app: apicast
+    threescale_component: apicast
+  name: apicast-prod-staging
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    controller: true
+    kind: APIcast
+    name: prod-staging
+    uid: 64e524e3-45e9-40c7-b973-00a812267b90
+  resourceVersion: "257397712"
+  selfLink: /api/v1/namespaces/3scale-project/services/apicast-prod-staging
+  uid: df038c91-6d31-40f4-b8a6-e07264eafe34
+spec:
+  clusterIP: 172.30.233.187
+  ports:
+  - name: proxy
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  - name: management
+    port: 8090
+    protocol: TCP
+    targetPort: 8090
+  selector:
+    deployment: apicast-prod-staging
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

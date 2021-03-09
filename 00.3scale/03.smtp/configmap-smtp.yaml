@@ -1,0 +1,16 @@
+﻿kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: smtp
+  namespace: 3scale-project
+  selfLink: /api/v1/namespaces/3scale-project/configmaps/smtp
+  uid: 05d6d49c-4c10-4757-8b91-75e87a33437f
+  resourceVersion: '290736259'
+  creationTimestamp: '2020-10-13T20:30:41Z'
+data:
+  address: corpba-hub1.claro.amx
+  authentication: plane
+  domain: claro.com.ar
+  password: noesnecesaria
+  port: '25'
+  username: 3scale-users@claro.com.ar

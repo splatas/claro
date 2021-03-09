@@ -1,0 +1,26 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+  creationTimestamp: "2020-09-07T21:04:22Z"
+  generation: 1
+  labels:
+    build: claro-mock-service
+  name: claro-mock-service
+  namespace: 3scale-project
+  resourceVersion: "249974824"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/claro-mock-service
+  uid: cccbf135-03c6-499f-8494-1404e49b74ed
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service
+  tags:
+  - items:
+    - created: "2020-09-07T21:53:08Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/3scale-project/claro-mock-service@sha256:3d4219df0aeb172d1a4ada20c268ea47dd04ae10a67f599e90075f81b80608d1
+      generation: 1
+      image: sha256:3d4219df0aeb172d1a4ada20c268ea47dd04ae10a67f599e90075f81b80608d1
+    tag: "1.0"

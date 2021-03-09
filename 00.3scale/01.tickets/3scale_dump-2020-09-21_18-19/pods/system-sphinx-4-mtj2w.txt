@@ -1,0 +1,123 @@
+Name:               system-sphinx-4-mtj2w
+Namespace:          3scale-project
+Priority:           0
+PriorityClassName:  <none>
+Node:               infra-01.osepext01.claro.amx/10.92.114.128
+Start Time:         Tue, 11 Aug 2020 15:05:45 -0300
+Labels:             app=3scale-api-management
+                    deployment=system-sphinx-4
+                    deploymentConfig=system-sphinx
+                    deploymentconfig=system-sphinx
+                    node-role.kubernetes.io/worker=
+                    threescale_component=system
+                    threescale_component_element=sphinx
+Annotations:        k8s.v1.cni.cncf.io/networks-status:
+                      [{
+                          "name": "openshift-sdn",
+                          "interface": "eth0",
+                          "ips": [
+                              "10.128.1.48"
+                          ],
+                          "dns": {},
+                          "default-route": [
+                              "10.128.0.1"
+                          ]
+                      }]
+                    kubernetes.io/limit-ranger:
+                      LimitRanger plugin set: cpu, memory request for init container system-master-svc; cpu, memory limit for init container system-master-svc
+                    openshift.io/deployment-config.latest-version: 4
+                    openshift.io/deployment-config.name: system-sphinx
+                    openshift.io/deployment.name: system-sphinx-4
+                    openshift.io/scc: restricted
+Status:             Running
+IP:                 10.128.1.48
+Controlled By:      ReplicationController/system-sphinx-4
+Init Containers:
+  system-master-svc:
+    Container ID:  cri-o://68b72c2317d80c8a0ef4daf661f4b29d182144792b77c3537f34438d4a75b19a
+    Image:         registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    Image ID:      registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status); do sleep $SLEEP_SECONDS; done
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 11 Aug 2020 15:06:48 -0300
+      Finished:     Tue, 11 Aug 2020 15:06:48 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:     200m
+      memory:  1Gi
+    Environment:
+      SLEEP_SECONDS:  1
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Containers:
+  system-sphinx:
+    Container ID:  cri-o://2cd4d4783b52a07f1e875ae6186e13b05e9fed8048221f83e1a7d7c733fd0348
+    Image:         registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    Image ID:      registry.redhat.io/3scale-amp2/system-rhel7@sha256:29836068f71f53f88b75345055808106cb4620bf3d488bd458709936d716377f
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      rake
+      openshift:thinking_sphinx:start
+    State:          Running
+      Started:      Tue, 11 Aug 2020 15:06:49 -0300
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  512Mi
+    Requests:
+      cpu:     80m
+      memory:  250Mi
+    Liveness:  tcp-socket :9306 delay=60s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      RAILS_ENV:                           <set to the key 'RAILS_ENV' of config map 'system-environment'>  Optional: false
+      DATABASE_URL:                        <set to the key 'URL' in secret 'system-database'>               Optional: false
+      THINKING_SPHINX_ADDRESS:             0.0.0.0
+      THINKING_SPHINX_CONFIGURATION_FILE:  db/sphinx/production.conf
+      THINKING_SPHINX_PID_FILE:            db/sphinx/searchd.pid
+      DELTA_INDEX_INTERVAL:                5
+      FULL_REINDEX_INTERVAL:               60
+      REDIS_URL:                           <set to the key 'URL' in secret 'system-redis'>                         Optional: false
+      MESSAGE_BUS_REDIS_URL:               <set to the key 'MESSAGE_BUS_URL' in secret 'system-redis'>             Optional: false
+      REDIS_NAMESPACE:                     <set to the key 'NAMESPACE' in secret 'system-redis'>                   Optional: false
+      MESSAGE_BUS_REDIS_NAMESPACE:         <set to the key 'MESSAGE_BUS_NAMESPACE' in secret 'system-redis'>       Optional: false
+      REDIS_SENTINEL_HOSTS:                <set to the key 'SENTINEL_HOSTS' in secret 'system-redis'>              Optional: false
+      REDIS_SENTINEL_ROLE:                 <set to the key 'SENTINEL_ROLE' in secret 'system-redis'>               Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_HOSTS:    <set to the key 'MESSAGE_BUS_SENTINEL_HOSTS' in secret 'system-redis'>  Optional: false
+      MESSAGE_BUS_REDIS_SENTINEL_ROLE:     <set to the key 'MESSAGE_BUS_SENTINEL_ROLE' in secret 'system-redis'>   Optional: false
+    Mounts:
+      /opt/system/db/sphinx from system-sphinx-database (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from amp-token-5cmpq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  system-sphinx-database:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  amp-token-5cmpq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  amp-token-5cmpq
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/memory-pressure:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:          <none>

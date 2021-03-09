@@ -1,0 +1,21 @@
+Name:          system-storage
+Namespace:     3scale-project
+StorageClass:  
+Status:        Bound
+Volume:        system-app
+Labels:        app=3scale-api-management
+               threescale_component=system
+               threescale_component_element=app
+Annotations:   pv.kubernetes.io/bind-completed: yes
+               pv.kubernetes.io/bound-by-controller: yes
+Finalizers:    [kubernetes.io/pvc-protection]
+Capacity:      100Mi
+Access Modes:  RWX
+VolumeMode:    Filesystem
+Events:        <none>
+Mounted By:    system-app-3-hook-pre
+               system-app-4-hook-pre
+               system-app-4-sbh5t
+               system-app-5-hook-pre
+               system-sidekiq-4-5shk9
+

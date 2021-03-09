@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-07-27T13:05:51Z"
+  labels:
+    app: 3scale-api-management
+    threescale_component: zync
+  name: zync
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378428"
+  selfLink: /api/v1/namespaces/3scale-project/services/zync
+  uid: 1be3f1ff-8ee6-4442-9662-2ceff8d6d2aa
+spec:
+  clusterIP: 172.30.146.19
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    deploymentConfig: zync
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

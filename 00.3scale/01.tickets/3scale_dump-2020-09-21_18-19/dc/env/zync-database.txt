@@ -1,0 +1,4 @@
+# deploymentconfigs/zync-database, container postgresql
+POSTGRESQL_USER=zync
+# POSTGRESQL_PASSWORD from secret zync, key ZYNC_DATABASE_PASSWORD
+POSTGRESQL_DATABASE=zync_production

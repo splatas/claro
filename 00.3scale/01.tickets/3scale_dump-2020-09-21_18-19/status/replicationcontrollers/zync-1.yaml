@@ -1,0 +1,149 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    kubectl.kubernetes.io/original-replicas: "1"
+    openshift.io/deployer-pod.completed-at: 2020-07-27 13:08:00 +0000 UTC
+    openshift.io/deployer-pod.created-at: 2020-07-27 13:05:52 +0000 UTC
+    openshift.io/deployer-pod.name: zync-1-deploy
+    openshift.io/deployer-pod.started-at: 2020-07-27 13:05:52 +0000 UTC
+    openshift.io/deployment-config.latest-version: "1"
+    openshift.io/deployment-config.name: zync
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: "1"
+    openshift.io/deployment.status-reason: config change
+    openshift.io/encoded-deployment-config: |
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"zync","namespace":"3scale-project","selfLink":"/apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/zync","uid":"45f7ed93-5911-4389-906a-f7d6e6fd7edb","resourceVersion":"198378503","generation":2,"creationTimestamp":"2020-07-27T13:05:51Z","labels":{"app":"3scale-api-management","threescale_component":"zync"},"annotations":{"prometheus.io/port":"9393","prometheus.io/scrape":"true"},"ownerReferences":[{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIManager","name":"claro-apimanager-pelado","uid":"3d48e8a8-df41-4aa1-9516-43d087853cca","controller":true,"blockOwnerDeletion":true}]},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["zync-db-svc","zync"],"from":{"kind":"ImageStreamTag","namespace":"3scale-project","name":"amp-zync:latest"},"lastTriggeredImage":"registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentConfig":"zync"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"3scale-api-management","deploymentConfig":"zync","threescale_component":"zync"}},"spec":{"initContainers":[{"name":"zync-db-svc","image":"registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef","command":["bash","-c","bundle exec sh -c \"until rake boot:db; do sleep $SLEEP_SECONDS; done\""],"env":[{"name":"SLEEP_SECONDS","value":"1"},{"name":"DATABASE_URL","valueFrom":{"secretKeyRef":{"name":"zync","key":"DATABASE_URL"}}}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"containers":[{"name":"zync","image":"registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef","ports":[{"containerPort":8080,"protocol":"TCP"}],"env":[{"name":"RAILS_LOG_TO_STDOUT","value":"true"},{"name":"RAILS_ENV","value":"production"},{"name":"DATABASE_URL","valueFrom":{"secretKeyRef":{"name":"zync","key":"DATABASE_URL"}}},{"name":"SECRET_KEY_BASE","valueFrom":{"secretKeyRef":{"name":"zync","key":"SECRET_KEY_BASE"}}},{"name":"ZYNC_AUTHENTICATION_TOKEN","valueFrom":{"secretKeyRef":{"name":"zync","key":"ZYNC_AUTHENTICATION_TOKEN"}}},{"name":"POD_NAME","valueFrom":{"fieldRef":{"apiVersion":"v1","fieldPath":"metadata.name"}}},{"name":"POD_NAMESPACE","valueFrom":{"fieldRef":{"apiVersion":"v1","fieldPath":"metadata.namespace"}}}],"resources":{"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"150m","memory":"250M"}},"livenessProbe":{"httpGet":{"path":"/status/live","port":8080,"scheme":"HTTP"},"initialDelaySeconds":10,"timeoutSeconds":60,"periodSeconds":10,"successThreshold":1,"failureThreshold":10},"readinessProbe":{"httpGet":{"path":"/status/ready","port":8080,"scheme":"HTTP"},"initialDelaySeconds":100,"timeoutSeconds":10,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"amp","serviceAccount":"amp","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2020-07-27T13:05:51Z","lastTransitionTime":"2020-07-27T13:05:51Z","message":"Deployment config does not have minimum availability."}]}}
+  creationTimestamp: "2020-07-27T13:05:52Z"
+  generation: 3
+  labels:
+    app: 3scale-api-management
+    openshift.io/deployment-config.name: zync
+    threescale_component: zync
+  name: zync-1
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DeploymentConfig
+    name: zync
+    uid: 45f7ed93-5911-4389-906a-f7d6e6fd7edb
+  resourceVersion: "198493038"
+  selfLink: /api/v1/namespaces/3scale-project/replicationcontrollers/zync-1
+  uid: 87ebc4b1-569a-4dae-83fa-59a9d27351c6
+spec:
+  replicas: 0
+  selector:
+    deployment: zync-1
+    deploymentConfig: zync
+    deploymentconfig: zync
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: "1"
+        openshift.io/deployment-config.name: zync
+        openshift.io/deployment.name: zync-1
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deployment: zync-1
+        deploymentConfig: zync
+        deploymentconfig: zync
+        threescale_component: zync
+    spec:
+      containers:
+      - env:
+        - name: RAILS_LOG_TO_STDOUT
+          value: "true"
+        - name: RAILS_ENV
+          value: production
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: DATABASE_URL
+              name: zync
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: SECRET_KEY_BASE
+              name: zync
+        - name: ZYNC_AUTHENTICATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ZYNC_AUTHENTICATION_TOKEN
+              name: zync
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 10
+          httpGet:
+            path: /status/live
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 60
+        name: zync
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/ready
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 100
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 150m
+            memory: 250M
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - bash
+        - -c
+        - bundle exec sh -c "until rake boot:db; do sleep $SLEEP_SECONDS; done"
+        env:
+        - name: SLEEP_SECONDS
+          value: "1"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: DATABASE_URL
+              name: zync
+        image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:34fa60de75f5a0e220105c6bf0ed676f16c8b206812fad65078cf98a16a6d4ef
+        imagePullPolicy: Always
+        name: zync-db-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+status:
+  observedGeneration: 3
+  replicas: 0

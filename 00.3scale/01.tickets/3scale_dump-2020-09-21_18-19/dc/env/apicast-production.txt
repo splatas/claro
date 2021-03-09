@@ -1,0 +1,9 @@
+# deploymentconfigs/apicast-production, container apicast-production
+# THREESCALE_PORTAL_ENDPOINT from secret system-master-apicast, key PROXY_CONFIGS_ENDPOINT
+# BACKEND_ENDPOINT_OVERRIDE from secret backend-listener, key service_endpoint
+# APICAST_MANAGEMENT_API from configmap apicast-environment, key APICAST_MANAGEMENT_API
+# OPENSSL_VERIFY from configmap apicast-environment, key OPENSSL_VERIFY
+# APICAST_RESPONSE_CODES from configmap apicast-environment, key APICAST_RESPONSE_CODES
+APICAST_CONFIGURATION_LOADER=boot
+APICAST_CONFIGURATION_CACHE=300
+THREESCALE_DEPLOYMENT_ENV=production

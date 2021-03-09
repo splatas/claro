@@ -1,0 +1,38 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+    openshift.io/image.dockerRepositoryCheck: "2020-09-07T21:04:24Z"
+  creationTimestamp: "2020-09-07T21:04:21Z"
+  generation: 2
+  labels:
+    build: claro-mock-service
+  name: fuse-java-openshift
+  namespace: 3scale-project
+  resourceVersion: "249932382"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/fuse-java-openshift
+  uid: 368aeae5-12ed-4336-81fe-c99a3e8bac5e
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/imported-from: registry.redhat.io/fuse7/fuse-java-openshift
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/fuse7/fuse-java-openshift
+    generation: 2
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/fuse-java-openshift
+  tags:
+  - items:
+    - created: "2020-09-07T21:04:24Z"
+      dockerImageReference: registry.redhat.io/fuse7/fuse-java-openshift@sha256:df0102150f7065d64a11c35091e8d41fa208e9a372c69e5a81638f62f8a1569d
+      generation: 2
+      image: sha256:df0102150f7065d64a11c35091e8d41fa208e9a372c69e5a81638f62f8a1569d
+    tag: latest

@@ -1,0 +1,244 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.131.3.50"
+          ],
+          "dns": {},
+          "default-route": [
+              "10.131.2.1"
+          ]
+      }]
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for init
+      container zync-db-svc; cpu, memory limit for init container zync-db-svc'
+    openshift.io/deployment-config.latest-version: "3"
+    openshift.io/deployment-config.name: zync
+    openshift.io/deployment.name: zync-3
+    openshift.io/scc: restricted
+  creationTimestamp: "2020-09-17T16:43:18Z"
+  generateName: zync-3-
+  labels:
+    app: 3scale-api-management
+    deployment: zync-3
+    deploymentConfig: zync
+    deploymentconfig: zync
+    node-role.kubernetes.io/worker: ""
+    threescale_component: zync
+  name: zync-3-nqhk6
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicationController
+    name: zync-3
+    uid: 3f3b0435-ffa7-438a-8b43-8db692036d2e
+  resourceVersion: "260707734"
+  selfLink: /api/v1/namespaces/3scale-project/pods/zync-3-nqhk6
+  uid: d452de1b-0280-4643-b54b-8981ade25a11
+spec:
+  containers:
+  - env:
+    - name: RAILS_LOG_TO_STDOUT
+      value: "true"
+    - name: RAILS_ENV
+      value: production
+    - name: DATABASE_URL
+      valueFrom:
+        secretKeyRef:
+          key: DATABASE_URL
+          name: zync
+    - name: SECRET_KEY_BASE
+      valueFrom:
+        secretKeyRef:
+          key: SECRET_KEY_BASE
+          name: zync
+    - name: ZYNC_AUTHENTICATION_TOKEN
+      valueFrom:
+        secretKeyRef:
+          key: ZYNC_AUTHENTICATION_TOKEN
+          name: zync
+    - name: POD_NAME
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.name
+    - name: POD_NAMESPACE
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.namespace
+    image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    imagePullPolicy: Always
+    livenessProbe:
+      failureThreshold: 10
+      httpGet:
+        path: /status/live
+        port: 8080
+        scheme: HTTP
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 60
+    name: zync
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    readinessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /status/ready
+        port: 8080
+        scheme: HTTP
+      initialDelaySeconds: 100
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 10
+    resources:
+      limits:
+        cpu: "1"
+        memory: 512Mi
+      requests:
+        cpu: 150m
+        memory: 250M
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: amp-token-5cmpq
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+  - name: threescale-registry-auth
+  - name: amp-dockercfg-cvfh4
+  initContainers:
+  - command:
+    - bash
+    - -c
+    - bundle exec sh -c "until rake boot:db; do sleep $SLEEP_SECONDS; done"
+    env:
+    - name: SLEEP_SECONDS
+      value: "1"
+    - name: DATABASE_URL
+      valueFrom:
+        secretKeyRef:
+          key: DATABASE_URL
+          name: zync
+    image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    imagePullPolicy: Always
+    name: zync-db-svc
+    resources:
+      limits:
+        cpu: "2"
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+      runAsUser: 1000710000
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: amp-token-5cmpq
+      readOnly: true
+  nodeName: worker-02.osepext01.claro.amx
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000710000
+    seLinuxOptions:
+      level: s0:c27,c4
+  serviceAccount: amp
+  serviceAccountName: amp
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  volumes:
+  - name: amp-token-5cmpq
+    secret:
+      defaultMode: 420
+      secretName: amp-token-5cmpq
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-17T16:43:37Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-17T16:45:27Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-17T16:45:27Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-09-17T16:43:18Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: cri-o://4187fbeff7f0c2db3f71c130f0631d3310c141bfc5ecbbc913bb5ccc26cb82c2
+    image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    imageID: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    lastState: {}
+    name: zync
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-09-17T16:43:40Z"
+  hostIP: 10.92.114.132
+  initContainerStatuses:
+  - containerID: cri-o://d20e7f95608832e72372ac8051f820e0d7757fb85501694d7e4e3b471a905500
+    image: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    imageID: registry.redhat.io/3scale-amp2/zync-rhel7@sha256:f46b47b84450a81cb463b66dc86b91baf0dd60bdca275192925f6924b90a57bf
+    lastState: {}
+    name: zync-db-svc
+    ready: true
+    restartCount: 0
+    state:
+      terminated:
+        containerID: cri-o://d20e7f95608832e72372ac8051f820e0d7757fb85501694d7e4e3b471a905500
+        exitCode: 0
+        finishedAt: "2020-09-17T16:43:37Z"
+        reason: Completed
+        startedAt: "2020-09-17T16:43:35Z"
+  phase: Running
+  podIP: 10.131.3.50
+  podIPs:
+  - ip: 10.131.3.50
+  qosClass: Burstable
+  startTime: "2020-09-17T16:43:18Z"

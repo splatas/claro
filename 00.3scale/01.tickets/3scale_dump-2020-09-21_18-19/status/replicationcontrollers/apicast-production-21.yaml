@@ -1,0 +1,156 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    kubectl.kubernetes.io/desired-replicas: "1"
+    kubectl.kubernetes.io/update-source-id: apicast-production-1:ff14cc75-f676-4d52-a73e-b02bba640e1c
+    openshift.io/deployer-pod.completed-at: 2020-09-03 18:03:32 +0000 UTC
+    openshift.io/deployer-pod.created-at: 2020-09-03 17:33:26 +0000 UTC
+    openshift.io/deployer-pod.name: apicast-production-21-deploy
+    openshift.io/deployment-config.latest-version: "21"
+    openshift.io/deployment-config.name: apicast-production
+    openshift.io/deployment.phase: Failed
+    openshift.io/deployment.replicas: "0"
+    openshift.io/deployment.status-reason: image change
+    openshift.io/encoded-deployment-config: |
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"apicast-production","namespace":"3scale-project","selfLink":"/apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/apicast-production","uid":"faa93aa1-2f0e-4734-ba36-491ec82052fe","resourceVersion":"244895987","generation":22,"creationTimestamp":"2020-08-31T13:39:49Z","labels":{"app":"3scale-api-management","threescale_component":"apicast","threescale_component_element":"production"},"ownerReferences":[{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIManager","name":"claro-apimanager-pelado","uid":"3d48e8a8-df41-4aa1-9516-43d087853cca","controller":true,"blockOwnerDeletion":true}]},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":1800,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["system-master-svc","apicast-production"],"from":{"kind":"ImageStreamTag","namespace":"3scale-project","name":"amp-apicast:latest"},"lastTriggeredImage":"image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:4d2a4886f4439c59c3ea021d64e6e7fa0e6c28d9b490fd5517313e7e9f23e1e2"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentConfig":"apicast-production"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"3scale-api-management","deploymentConfig":"apicast-production","threescale_component":"apicast","threescale_component_element":"production"},"annotations":{"prometheus.io/port":"9421","prometheus.io/scrape":"true"}},"spec":{"initContainers":[{"name":"system-master-svc","image":"image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:4d2a4886f4439c59c3ea021d64e6e7fa0e6c28d9b490fd5517313e7e9f23e1e2","command":["sh","-c","until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status); do sleep $SLEEP_SECONDS; done"],"env":[{"name":"SLEEP_SECONDS","value":"1"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"containers":[{"name":"apicast-production","image":"image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:4d2a4886f4439c59c3ea021d64e6e7fa0e6c28d9b490fd5517313e7e9f23e1e2","ports":[{"containerPort":8080,"protocol":"TCP"},{"containerPort":8090,"protocol":"TCP"},{"name":"metrics","containerPort":9421,"protocol":"TCP"}],"env":[{"name":"THREESCALE_PORTAL_ENDPOINT","valueFrom":{"secretKeyRef":{"name":"system-master-apicast","key":"PROXY_CONFIGS_ENDPOINT"}}},{"name":"BACKEND_ENDPOINT_OVERRIDE","valueFrom":{"secretKeyRef":{"name":"backend-listener","key":"service_endpoint"}}},{"name":"APICAST_MANAGEMENT_API","valueFrom":{"configMapKeyRef":{"name":"apicast-environment","key":"APICAST_MANAGEMENT_API"}}},{"name":"OPENSSL_VERIFY","valueFrom":{"configMapKeyRef":{"name":"apicast-environment","key":"OPENSSL_VERIFY"}}},{"name":"APICAST_RESPONSE_CODES","valueFrom":{"configMapKeyRef":{"name":"apicast-environment","key":"APICAST_RESPONSE_CODES"}}},{"name":"APICAST_CONFIGURATION_LOADER","value":"boot"},{"name":"APICAST_CONFIGURATION_CACHE","value":"300"},{"name":"THREESCALE_DEPLOYMENT_ENV","value":"production"}],"resources":{"limits":{"cpu":"1","memory":"128Mi"},"requests":{"cpu":"500m","memory":"64Mi"}},"livenessProbe":{"httpGet":{"path":"/status/live","port":8090,"scheme":"HTTP"},"initialDelaySeconds":10,"timeoutSeconds":5,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"readinessProbe":{"httpGet":{"path":"/status/ready","port":8090,"scheme":"HTTP"},"initialDelaySeconds":15,"timeoutSeconds":5,"periodSeconds":30,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"amp","serviceAccount":"amp","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":21,"observedGeneration":21,"replicas":1,"updatedReplicas":0,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:4d2a4886f4439c59c3ea021d64e6e7fa0e6c28d9b490fd5517313e7e9f23e1e2"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2020-08-31T15:10:48Z","lastTransitionTime":"2020-08-31T15:10:48Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"False","lastUpdateTime":"2020-09-02T14:27:14Z","lastTransitionTime":"2020-09-02T14:27:14Z","reason":"ProgressDeadlineExceeded","message":"replication controller \"apicast-production-20\" has failed progressing"}],"readyReplicas":1}}
+  creationTimestamp: "2020-09-03T17:33:25Z"
+  generation: 3
+  labels:
+    app: 3scale-api-management
+    openshift.io/deployment-config.name: apicast-production
+    threescale_component: apicast
+    threescale_component_element: production
+  name: apicast-production-21
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DeploymentConfig
+    name: apicast-production
+    uid: faa93aa1-2f0e-4734-ba36-491ec82052fe
+  resourceVersion: "244921655"
+  selfLink: /api/v1/namespaces/3scale-project/replicationcontrollers/apicast-production-21
+  uid: 20b800c6-23b0-4d7f-9ec7-400ff9057d7a
+spec:
+  replicas: 0
+  selector:
+    deployment: apicast-production-21
+    deploymentConfig: apicast-production
+    deploymentconfig: apicast-production
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: "21"
+        openshift.io/deployment-config.name: apicast-production
+        openshift.io/deployment.name: apicast-production-21
+        prometheus.io/port: "9421"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deployment: apicast-production-21
+        deploymentConfig: apicast-production
+        deploymentconfig: apicast-production
+        threescale_component: apicast
+        threescale_component_element: production
+    spec:
+      containers:
+      - env:
+        - name: THREESCALE_PORTAL_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: PROXY_CONFIGS_ENDPOINT
+              name: system-master-apicast
+        - name: BACKEND_ENDPOINT_OVERRIDE
+          valueFrom:
+            secretKeyRef:
+              key: service_endpoint
+              name: backend-listener
+        - name: APICAST_MANAGEMENT_API
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_MANAGEMENT_API
+              name: apicast-environment
+        - name: OPENSSL_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              key: OPENSSL_VERIFY
+              name: apicast-environment
+        - name: APICAST_RESPONSE_CODES
+          valueFrom:
+            configMapKeyRef:
+              key: APICAST_RESPONSE_CODES
+              name: apicast-environment
+        - name: APICAST_CONFIGURATION_LOADER
+          value: boot
+        - name: APICAST_CONFIGURATION_CACHE
+          value: "300"
+        - name: THREESCALE_DEPLOYMENT_ENV
+          value: production
+        image: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:4d2a4886f4439c59c3ea021d64e6e7fa0e6c28d9b490fd5517313e7e9f23e1e2
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/live
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: apicast-production
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8090
+          protocol: TCP
+        - containerPort: 9421
+          name: metrics
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /status/ready
+            port: 8090
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: "1"
+            memory: 128Mi
+          requests:
+            cpu: 500m
+            memory: 64Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status);
+          do sleep $SLEEP_SECONDS; done
+        env:
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: image-registry.openshift-image-registry.svc:5000/3scale-project/amp-apicast@sha256:4d2a4886f4439c59c3ea021d64e6e7fa0e6c28d9b490fd5517313e7e9f23e1e2
+        imagePullPolicy: Always
+        name: system-master-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+status:
+  observedGeneration: 3
+  replicas: 0

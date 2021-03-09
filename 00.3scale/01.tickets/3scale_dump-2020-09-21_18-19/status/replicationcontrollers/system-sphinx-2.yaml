@@ -1,0 +1,171 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    kubectl.kubernetes.io/original-replicas: "1"
+    openshift.io/deployer-pod.completed-at: 2020-07-27 13:58:30 +0000 UTC
+    openshift.io/deployer-pod.created-at: 2020-07-27 13:52:40 +0000 UTC
+    openshift.io/deployer-pod.name: system-sphinx-2-deploy
+    openshift.io/deployment-config.latest-version: "2"
+    openshift.io/deployment-config.name: system-sphinx
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: "1"
+    openshift.io/deployment.status-reason: manual change
+    openshift.io/encoded-deployment-config: |
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"system-sphinx","namespace":"3scale-project","selfLink":"/apis/apps.openshift.io/v1/namespaces/3scale-project/deploymentconfigs/system-sphinx","uid":"8ab59406-9355-4bd3-a676-2bb61ab918f0","resourceVersion":"198418688","generation":3,"creationTimestamp":"2020-07-27T13:05:52Z","labels":{"app":"3scale-api-management","threescale_component":"system","threescale_component_element":"sphinx"},"ownerReferences":[{"apiVersion":"apps.3scale.net/v1alpha1","kind":"APIManager","name":"claro-apimanager-pelado","uid":"3d48e8a8-df41-4aa1-9516-43d087853cca","controller":true,"blockOwnerDeletion":true}]},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":1200,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["system-master-svc","system-sphinx"],"from":{"kind":"ImageStreamTag","namespace":"3scale-project","name":"amp-system:latest"},"lastTriggeredImage":"registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentConfig":"system-sphinx"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"3scale-api-management","deploymentConfig":"system-sphinx","threescale_component":"system","threescale_component_element":"sphinx"}},"spec":{"volumes":[{"name":"system-sphinx-database","emptyDir":{}}],"initContainers":[{"name":"system-master-svc","image":"registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a","command":["sh","-c","until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status); do sleep $SLEEP_SECONDS; done"],"env":[{"name":"SLEEP_SECONDS","value":"1"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"containers":[{"name":"system-sphinx","image":"registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a","args":["rake","openshift:thinking_sphinx:start"],"env":[{"name":"RAILS_ENV","valueFrom":{"configMapKeyRef":{"name":"system-environment","key":"RAILS_ENV"}}},{"name":"DATABASE_URL","valueFrom":{"secretKeyRef":{"name":"system-database","key":"URL"}}},{"name":"THINKING_SPHINX_ADDRESS","value":"0.0.0.0"},{"name":"THINKING_SPHINX_CONFIGURATION_FILE","value":"db/sphinx/production.conf"},{"name":"THINKING_SPHINX_PID_FILE","value":"db/sphinx/searchd.pid"},{"name":"DELTA_INDEX_INTERVAL","value":"5"},{"name":"FULL_REINDEX_INTERVAL","value":"60"},{"name":"REDIS_URL","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"URL"}}},{"name":"MESSAGE_BUS_REDIS_URL","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_URL"}}},{"name":"REDIS_NAMESPACE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"NAMESPACE"}}},{"name":"MESSAGE_BUS_REDIS_NAMESPACE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_NAMESPACE"}}},{"name":"REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"SENTINEL_HOSTS"}}},{"name":"REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"SENTINEL_ROLE"}}},{"name":"MESSAGE_BUS_REDIS_SENTINEL_HOSTS","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_SENTINEL_HOSTS"}}},{"name":"MESSAGE_BUS_REDIS_SENTINEL_ROLE","valueFrom":{"secretKeyRef":{"name":"system-redis","key":"MESSAGE_BUS_SENTINEL_ROLE"}}}],"resources":{"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"80m","memory":"250Mi"}},"volumeMounts":[{"name":"system-sphinx-database","mountPath":"/opt/system/db/sphinx"}],"livenessProbe":{"tcpSocket":{"port":9306},"initialDelaySeconds":60,"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"amp","serviceAccount":"amp","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":2,"observedGeneration":3,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"manual change","causes":[{"type":"Manual"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2020-07-27T13:05:50Z","lastTransitionTime":"2020-07-27T13:05:50Z","message":"Deployment config does not have minimum availability."},{"type":"Progressing","status":"False","lastUpdateTime":"2020-07-27T13:52:13Z","lastTransitionTime":"2020-07-27T13:52:13Z","reason":"ProgressDeadlineExceeded","message":"replication controller \"system-sphinx-2\" has failed progressing"}]}}
+  creationTimestamp: "2020-07-27T13:52:40Z"
+  generation: 3
+  labels:
+    app: 3scale-api-management
+    openshift.io/deployment-config.name: system-sphinx
+    threescale_component: system
+    threescale_component_element: sphinx
+  name: system-sphinx-2
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DeploymentConfig
+    name: system-sphinx
+    uid: 8ab59406-9355-4bd3-a676-2bb61ab918f0
+  resourceVersion: "198490780"
+  selfLink: /api/v1/namespaces/3scale-project/replicationcontrollers/system-sphinx-2
+  uid: 8f4ee145-e0d6-40ca-8bdc-b34eb19b9926
+spec:
+  replicas: 0
+  selector:
+    deployment: system-sphinx-2
+    deploymentConfig: system-sphinx
+    deploymentconfig: system-sphinx
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: "2"
+        openshift.io/deployment-config.name: system-sphinx
+        openshift.io/deployment.name: system-sphinx-2
+      creationTimestamp: null
+      labels:
+        app: 3scale-api-management
+        deployment: system-sphinx-2
+        deploymentConfig: system-sphinx
+        deploymentconfig: system-sphinx
+        threescale_component: system
+        threescale_component_element: sphinx
+    spec:
+      containers:
+      - args:
+        - rake
+        - openshift:thinking_sphinx:start
+        env:
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              key: RAILS_ENV
+              name: system-environment
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-database
+        - name: THINKING_SPHINX_ADDRESS
+          value: 0.0.0.0
+        - name: THINKING_SPHINX_CONFIGURATION_FILE
+          value: db/sphinx/production.conf
+        - name: THINKING_SPHINX_PID_FILE
+          value: db/sphinx/searchd.pid
+        - name: DELTA_INDEX_INTERVAL
+          value: "5"
+        - name: FULL_REINDEX_INTERVAL
+          value: "60"
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: URL
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_URL
+              name: system-redis
+        - name: REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: NAMESPACE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_NAMESPACE
+              name: system-redis
+        - name: REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_HOSTS
+              name: system-redis
+        - name: REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: SENTINEL_ROLE
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_HOSTS
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_HOSTS
+              name: system-redis
+        - name: MESSAGE_BUS_REDIS_SENTINEL_ROLE
+          valueFrom:
+            secretKeyRef:
+              key: MESSAGE_BUS_SENTINEL_ROLE
+              name: system-redis
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 9306
+          timeoutSeconds: 1
+        name: system-sphinx
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 80m
+            memory: 250Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/system/db/sphinx
+          name: system-sphinx-database
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until $(curl --output /dev/null --silent --fail --head http://system-master:3000/status);
+          do sleep $SLEEP_SECONDS; done
+        env:
+        - name: SLEEP_SECONDS
+          value: "1"
+        image: registry.redhat.io/3scale-amp2/system-rhel7@sha256:a934997501b41be2ca2b62e37c35bd334252b5e2ed28652c275bd1de8a9d324a
+        imagePullPolicy: Always
+        name: system-master-svc
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: amp
+      serviceAccountName: amp
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: system-sphinx-database
+status:
+  observedGeneration: 3
+  replicas: 0

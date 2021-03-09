@@ -1,0 +1,62 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Zync database PostgreSQL
+    openshift.io/image.dockerRepositoryCheck: "2020-07-27T13:05:52Z"
+  creationTimestamp: "2020-07-27T13:05:49Z"
+  generation: 2
+  labels:
+    app: 3scale-api-management
+    threescale_component: system
+  name: zync-database-postgresql
+  namespace: 3scale-project
+  ownerReferences:
+  - apiVersion: apps.3scale.net/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: APIManager
+    name: claro-apimanager-pelado
+    uid: 3d48e8a8-df41-4aa1-9516-43d087853cca
+  resourceVersion: "198378594"
+  selfLink: /apis/image.openshift.io/v1/namespaces/3scale-project/imagestreams/zync-database-postgresql
+  uid: 6accc6c3-ae2e-4551-b6e7-3e0fd68f34fc
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/display-name: Zync 2.8 PostgreSQL
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    generation: 2
+    importPolicy: {}
+    name: "2.8"
+    referencePolicy:
+      type: Source
+  - annotations:
+      openshift.io/display-name: Zync PostgreSQL (latest)
+    from:
+      kind: ImageStreamTag
+      name: "2.8"
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/3scale-project/zync-database-postgresql
+  tags:
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+      generation: 2
+      image: sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    tag: "2.8"
+  - items:
+    - created: "2020-07-27T13:05:52Z"
+      dockerImageReference: registry.redhat.io/rhscl/postgresql-10-rhel7@sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+      generation: 2
+      image: sha256:de3ab628b403dc5eed986a7f392c34687bddafee7bdfccfd65cecf137ade3dfd
+    tag: latest

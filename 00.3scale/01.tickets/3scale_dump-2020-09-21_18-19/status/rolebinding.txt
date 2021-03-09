@@ -1,0 +1,166 @@
+NAME                                                   AGE
+3scale-operator.v0.5.5-xjw4t-3scale-operator-rwsvk     41d
+admin                                                  56d
+admin-0                                                23d
+admin-1                                                17d
+apicast-operator.v0.2.4-m28h7-apicast-operator-wrfcw   11d
+robot-deployer                                         56d
+robot-deployer-0                                       23d
+system:deployers                                       56d
+system:image-builders                                  56d
+system:image-pullers                                   56d
+view                                                   23d
+zync-que-rolebinding                                   56d
+
+
+Name:         3scale-operator.v0.5.5-xjw4t-3scale-operator-rwsvk
+Labels:       olm.owner=3scale-operator.v0.5.5
+              olm.owner.kind=ClusterServiceVersion
+              olm.owner.namespace=3scale-project
+Annotations:  <none>
+Role:
+  Kind:  Role
+  Name:  3scale-operator.v0.5.5-xjw4t
+Subjects:
+  Kind            Name             Namespace
+  ----            ----             ---------
+  ServiceAccount  3scale-operator  3scale-project
+
+
+Name:         admin
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  ClusterRole
+  Name:  admin
+Subjects:
+  Kind  Name        Namespace
+  ----  ----        ---------
+  User  kube:admin  
+
+
+Name:         admin-0
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  ClusterRole
+  Name:  admin
+Subjects:
+  Kind   Name                     Namespace
+  ----   ----                     ---------
+  Group  osepext01-Admin-Project  
+
+
+Name:         admin-1
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  ClusterRole
+  Name:  admin
+Subjects:
+  Kind   Name           Namespace
+  ----   ----           ---------
+  Group  osepext01-Dev  
+
+
+Name:         apicast-operator.v0.2.4-m28h7-apicast-operator-wrfcw
+Labels:       olm.owner=apicast-operator.v0.2.4
+              olm.owner.kind=ClusterServiceVersion
+              olm.owner.namespace=3scale-project
+Annotations:  <none>
+Role:
+  Kind:  Role
+  Name:  apicast-operator.v0.2.4-m28h7
+Subjects:
+  Kind            Name              Namespace
+  ----            ----              ---------
+  ServiceAccount  apicast-operator  3scale-project
+
+
+Name:         robot-deployer
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  ClusterRole
+  Name:  robot-deployer
+Subjects:
+  Kind            Name            Namespace
+  ----            ----            ---------
+  ServiceAccount  robot-deployer  3scale-project
+
+
+Name:         robot-deployer-0
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  ClusterRole
+  Name:  robot-deployer
+Subjects:
+  Kind            Name            Namespace
+  ----            ----            ---------
+  ServiceAccount  robot-deployer  claro-implementaciones
+  User            –               
+  User            n               
+
+
+Name:         system:deployers
+Labels:       <none>
+Annotations:  openshift.io/description:
+                Allows deploymentconfigs in this namespace to rollout pods in this namespace.  It is auto-managed by a controller; remove subjects to disa...
+Role:
+  Kind:  ClusterRole
+  Name:  system:deployer
+Subjects:
+  Kind            Name      Namespace
+  ----            ----      ---------
+  ServiceAccount  deployer  3scale-project
+
+
+Name:         system:image-builders
+Labels:       <none>
+Annotations:  openshift.io/description:
+                Allows builds in this namespace to push images to this namespace.  It is auto-managed by a controller; remove subjects to disable.
+Role:
+  Kind:  ClusterRole
+  Name:  system:image-builder
+Subjects:
+  Kind            Name     Namespace
+  ----            ----     ---------
+  ServiceAccount  builder  3scale-project
+
+
+Name:         system:image-pullers
+Labels:       <none>
+Annotations:  openshift.io/description:
+                Allows all pods in this namespace to pull images from this namespace.  It is auto-managed by a controller; remove subjects to disable.
+Role:
+  Kind:  ClusterRole
+  Name:  system:image-puller
+Subjects:
+  Kind   Name                                   Namespace
+  ----   ----                                   ---------
+  Group  system:serviceaccounts:3scale-project  
+
+
+Name:         view
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  ClusterRole
+  Name:  view
+Subjects:
+  Kind   Name           Namespace
+  ----   ----           ---------
+  Group  osepext01-Dev  
+
+
+Name:         zync-que-rolebinding
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  Role
+  Name:  zync-que-role
+Subjects:
+  Kind            Name         Namespace
+  ----            ----         ---------
+  ServiceAccount  zync-que-sa  
